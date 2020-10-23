@@ -31,12 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_Username = new System.Windows.Forms.TextBox();
+            this.txt_Userpwd = new System.Windows.Forms.TextBox();
+            this.btn_Login = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 73);
+            this.label1.Location = new System.Drawing.Point(54, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 19);
             this.label1.TabIndex = 0;
@@ -45,11 +49,45 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 114);
+            this.label2.Location = new System.Drawing.Point(54, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "密  码:";
+            // 
+            // txt_Username
+            // 
+            this.txt_Username.Location = new System.Drawing.Point(132, 70);
+            this.txt_Username.Name = "txt_Username";
+            this.txt_Username.Size = new System.Drawing.Size(182, 26);
+            this.txt_Username.TabIndex = 2;
+            // 
+            // txt_Userpwd
+            // 
+            this.txt_Userpwd.Location = new System.Drawing.Point(132, 111);
+            this.txt_Userpwd.Name = "txt_Userpwd";
+            this.txt_Userpwd.PasswordChar = '*';
+            this.txt_Userpwd.Size = new System.Drawing.Size(182, 26);
+            this.txt_Userpwd.TabIndex = 3;
+            // 
+            // btn_Login
+            // 
+            this.btn_Login.Location = new System.Drawing.Point(108, 164);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.Size = new System.Drawing.Size(75, 31);
+            this.btn_Login.TabIndex = 4;
+            this.btn_Login.Text = "登  录";
+            this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Location = new System.Drawing.Point(190, 164);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 31);
+            this.btn_Cancel.TabIndex = 5;
+            this.btn_Cancel.Text = "取  消";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
             // frm_Login
             // 
@@ -57,6 +95,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_Login);
+            this.Controls.Add(this.txt_Userpwd);
+            this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,6 +118,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_Username;
+        private System.Windows.Forms.TextBox txt_Userpwd;
+        private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.Button btn_Cancel;
     }
 }
 
