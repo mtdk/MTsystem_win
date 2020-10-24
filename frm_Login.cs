@@ -16,6 +16,7 @@ namespace MTsystem_win
         {
             InitializeComponent();
         }
+        userInfocheck uCheck = new userInfocheck();
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -28,9 +29,29 @@ namespace MTsystem_win
             {
                 MessageBox.Show("用户密码不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txt_Userpwd.Focus();
-            }else
+            }
+            else
             {
                 //执行用户名、密码验证方法
+                //if(uCheck.usCheck(txt_Username.Text.Trim(),txt_Userpwd.Text.Trim()))
+                //{
+                //    MessageBox.Show("登录验证成功！");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("登录验证失败了！");
+                //}
+                uCheck._usname = txt_Username.Text.Trim();
+                uCheck._uspwd = txt_Userpwd.Text.Trim();
+                
+                if(uCheck.testCheck())
+                {
+                    MessageBox.Show("登录验证成功！");
+                }
+                else
+                {
+                    MessageBox.Show("登录验证失败了！");
+                }
             }
         }
 
