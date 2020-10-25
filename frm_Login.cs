@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using MTsystem_win.allClass;
 
 namespace MTsystem_win
@@ -15,6 +17,19 @@ namespace MTsystem_win
         public frm_Login()
         {
             InitializeComponent();
+
+            MySqlConnection conn;
+            string connstr = "server=127.0.0.1;uid=root;pwd=1;database=test;";
+            try
+            {
+                conn = new MySqlConnection();
+                conn.ConnectionString = connstr;
+                conn.Open();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         userInfocheck uCheck = new userInfocheck();
 
@@ -54,6 +69,8 @@ namespace MTsystem_win
                 }
             }
         }
+
+        
 
     }
 }
