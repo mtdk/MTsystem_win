@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="allClass\dbconnectstr.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -124,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sysbin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

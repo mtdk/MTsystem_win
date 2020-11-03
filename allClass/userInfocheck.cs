@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using MTsystem_win.allClass;
 
 namespace MTsystem_win.allClass
 {
@@ -22,28 +26,32 @@ namespace MTsystem_win.allClass
             set { this._uspwd = value; }
         }
 
-        public bool testCheck()
-        {
-            if (_usname == "mtdk")
-            {
-                if(_uspwd=="123456")
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
+        dbconnectstr dbcon = new dbconnectstr();
         public bool usCheck(string usname, string uspwd)
         {
-            if(usname=="mtdk")
+            string sqlstr = "select userID,userPwd from user from user";
+
+            MySqlCommand cmd = new MySqlCommand(sqlstr, dbcon.getCon());
+            MySqlDataReader rd = cmd.ExecuteReader();
+            rd.Read();
+            try
             {
-                if (uspwd == "123456")
+                if(rd.HasRows)
                 {
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
             }
-            return false;
+            finally
+            {
+                cmd.Dispose();
+                rd.Dispose();
+                dbcon.getCon();
+            }
+            
         }
     }
 }

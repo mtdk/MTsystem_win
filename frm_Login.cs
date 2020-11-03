@@ -19,7 +19,7 @@ namespace MTsystem_win
             InitializeComponent();
 
             MySqlConnection conn;
-            string connstr = "server=127.0.0.1;uid=root;pwd=1;database=test;";
+            string connstr = "server=127.0.0.1;uid=root;pwd=1;database=qhdatabase;";
             try
             {
                 conn = new MySqlConnection();
@@ -31,7 +31,7 @@ namespace MTsystem_win
                 MessageBox.Show(ex.Message);
             }
         }
-        userInfocheck uCheck = new userInfocheck();
+        userInfocheck usCheck = new userInfocheck();
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -56,10 +56,10 @@ namespace MTsystem_win
                 //{
                 //    MessageBox.Show("登录验证失败了！");
                 //}
-                uCheck._usname = txt_Username.Text.Trim();
-                uCheck._uspwd = txt_Userpwd.Text.Trim();
+                usCheck._usname = txt_Username.Text.Trim();
+                usCheck._uspwd = txt_Userpwd.Text.Trim();
                 
-                if(uCheck.testCheck())
+                if(usCheck.usCheck(usCheck._usname,usCheck._uspwd))
                 {
                     MessageBox.Show("登录验证成功！");
                 }
