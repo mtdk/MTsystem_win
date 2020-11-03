@@ -58,6 +58,7 @@ namespace MTsystem_win
                 {
                     usinfo._usname = txt_Username.Text.Trim();
                     usinfo._uspwd = txt_Userpwd.Text.Trim();
+                    usinfo._uspower = dr[4].ToString().Trim();
                     Frm_main frm_main = new Frm_main();
                     frm_main.Show();
                     this.Hide();

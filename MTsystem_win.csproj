@@ -133,6 +133,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dsControl\" />
+    <Folder Include="printForm\" />
     <Folder Include="sysbin\" />
   </ItemGroup>
   <ItemGroup>
