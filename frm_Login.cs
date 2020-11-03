@@ -17,25 +17,7 @@ namespace MTsystem_win
         public frm_Login()
         {
             InitializeComponent();
-
-<<<<<<< HEAD
-            MySqlConnection conn;
-            string connstr = "server=127.0.0.1;uid=root;pwd=1;database=qhdatabase;";
-            try
-            {
-                conn = new MySqlConnection();
-                conn.ConnectionString = connstr;
-                conn.Open();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-=======
-
->>>>>>> 49dc85b1134b53efebe5954c13ccf0f3bbea0935
         }
-        userInfocheck usCheck = new userInfocheck();
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -53,7 +35,7 @@ namespace MTsystem_win
             else
             {
                 //执行用户名、密码验证方法
-<<<<<<< HEAD
+
                 //if(uCheck.usCheck(txt_Username.Text.Trim(),txt_Userpwd.Text.Trim()))
                 //{
                 //    MessageBox.Show("登录验证成功！");
@@ -62,27 +44,8 @@ namespace MTsystem_win
                 //{
                 //    MessageBox.Show("登录验证失败了！");
                 //}
-                usCheck._usname = txt_Username.Text.Trim();
-                usCheck._uspwd = txt_Userpwd.Text.Trim();
-                
-                if(usCheck.usCheck(usCheck._usname,usCheck._uspwd))
-=======
-                uCheck._usname = txt_Username.Text.Trim();
-                uCheck._uspwd = txt_Userpwd.Text.Trim();
-                if (uCheck.usCheck(uCheck._usname, uCheck._uspwd) == 0)
->>>>>>> 49dc85b1134b53efebe5954c13ccf0f3bbea0935
-                {
-                    go();
-                }
-                else if (uCheck.usCheck(uCheck._usname, uCheck._uspwd) == 1)
-                {
-                    MessageBox.Show("用户名只能输入字母和数字！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("密码不能用中文！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
 
+                go();
             }
         }
 

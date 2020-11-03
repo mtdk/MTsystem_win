@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using MySql.Data;
@@ -23,7 +24,7 @@ namespace MTsystem_win.allClass
 
         DataSet _Gds;
 
-        string connstr = "server=127.0.0.1;uid=root;pwd=1;database=qhdatabase;charset=utf8;";
+        string connstr = "server=127.0.0.1;uid=root;pwd=1;database=test;";
 
         public MySqlConnection getCon()
         {
