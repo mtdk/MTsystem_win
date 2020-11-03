@@ -19,6 +19,11 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        //数据库链接
+        dbconnectstr dbc=new dbconnectstr();
+        //用户信息存储
+        userInfocheck usinfo = new userInfocheck();
+
         private void btn_Login_Click(object sender, EventArgs e)
         {
             if (txt_Username.Text.Trim().Length == 0)
@@ -34,47 +39,57 @@ namespace MTsystem_win
             }
             else
             {
-                //执行用户名、密码验证方法
-
-                //if(uCheck.usCheck(txt_Username.Text.Trim(),txt_Userpwd.Text.Trim()))
-                //{
-                //    MessageBox.Show("登录验证成功！");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("登录验证失败了！");
-                //}
-
                 go();
             }
         }
 
+        #region
+        /// <summary>
+        /// 用户登录验证
+        /// </summary>
         private void go()
         {
-            MySqlConnection conn;
-            string connstr = "server=127.0.0.1;uid=root;pwd=1;database=test;";
-            try
-            {
-                conn = new MySqlConnection();
-                conn.ConnectionString = connstr;
-                conn.Open();
                 string sqlStr = "select * from user where userid='" + txt_Username.Text.Trim() + "' and userPwd='" + txt_Userpwd.Text.Trim() + "'";
 
-                MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+                MySqlCommand cmd = new MySqlCommand(sqlStr, dbc.getCon());
                 MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    MessageBox.Show("OK");
+                    usinfo._usname = txt_Username.Text.Trim();
+                    usinfo._uspwd = txt_Userpwd.Text.Trim();
+                    Frm_main frm_main = new Frm_main();
+                    frm_main.Show();
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Not");
+                    MessageBox.Show("用户名或密码错误，请重新输入！","警告",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+                dbc._getClose();
+        }
+        #endregion
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txt_Username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
             {
-                MessageBox.Show(ex.Message);
+                e.Handled = true;
+                txt_Userpwd.Focus();
+            }
+        }
+
+        private void txt_Userpwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btn_Login.Focus();
             }
         }
 

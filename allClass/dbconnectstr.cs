@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data;
-using System.Data.SqlClient;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -20,9 +19,6 @@ namespace MTsystem_win.allClass
 
          MySqlConnection _Gcon;
 
-        MySqlDataAdapter _Gda;
-
-        DataSet _Gds;
 
         string connstr = "server=127.0.0.1;uid=root;pwd=1;database=test;";
 
