@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_Username = new System.Windows.Forms.TextBox();
+            this.txt_Userid = new System.Windows.Forms.TextBox();
             this.txt_Userpwd = new System.Windows.Forms.TextBox();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -56,15 +56,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "密  码:";
             // 
-            // txt_Username
+            // txt_Userid
             // 
-            this.helpProvider1.SetHelpString(this.txt_Username, "输入用户名");
-            this.txt_Username.Location = new System.Drawing.Point(132, 70);
-            this.txt_Username.Name = "txt_Username";
-            this.helpProvider1.SetShowHelp(this.txt_Username, true);
-            this.txt_Username.Size = new System.Drawing.Size(182, 26);
-            this.txt_Username.TabIndex = 2;
-            this.txt_Username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Username_KeyPress);
+            this.helpProvider1.SetHelpString(this.txt_Userid, "输入用户名");
+            this.txt_Userid.Location = new System.Drawing.Point(132, 70);
+            this.txt_Userid.Name = "txt_Userid";
+            this.helpProvider1.SetShowHelp(this.txt_Userid, true);
+            this.txt_Userid.Size = new System.Drawing.Size(182, 26);
+            this.txt_Userid.TabIndex = 2;
+            this.txt_Userid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Username_KeyPress);
             // 
             // txt_Userpwd
             // 
@@ -110,7 +110,7 @@
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.txt_Userpwd);
-            this.Controls.Add(this.txt_Username);
+            this.Controls.Add(this.txt_Userid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,7 +133,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_Username;
+        private System.Windows.Forms.TextBox txt_Userid;
         private System.Windows.Forms.TextBox txt_Userpwd;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Cancel;

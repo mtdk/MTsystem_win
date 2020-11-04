@@ -17,7 +17,11 @@ namespace MTsystem_win.allClass
     class userInfocheck
     {
         /// <summary>
-        /// 用户名
+        /// 用户代码
+        /// </summary>
+        public string _usid;
+        /// <summary>
+        /// 用户名称
         /// </summary>
         public string _usname;
         /// <summary>
@@ -25,12 +29,32 @@ namespace MTsystem_win.allClass
         /// </summary>
         public string _uspwd;
         /// <summary>
-        /// 用户权限
+        /// 用户权限代码
         /// </summary>
-        public string _uspower;
+        public int _uspowerid;
+        /// <summary>
+        /// 用户权限名称
+        /// </summary>
+        public string _uspowername;
+        /// <summary>
+        /// 部门代码
+        /// </summary>
+        public int _usdepartmentid;
+        /// <summary>
+        /// 部门名称
+        /// </summary>
+        public string _usdepartmentname;
 
         /// <summary>
-        /// 用户名
+        /// 用户代码
+        /// </summary>
+        private string _Usid
+        {
+            get { return this._usid; }
+            set { this._usid = value; }
+        }
+        /// <summary>
+        /// 用户名称
         /// </summary>
         private string _Usname
         {
@@ -46,12 +70,36 @@ namespace MTsystem_win.allClass
             set { this._uspwd = value; }
         }
         /// <summary>
-        /// 用户权限
+        /// 用户权限代码
         /// </summary>
-        private string _Uspower
+        private int _Uspowerid
         {
-            get { return this._uspower; }
-            set { this._uspower = value; }
+            get { return this._uspowerid; }
+            set { this._uspowerid = value; }
+        }
+        /// <summary>
+        /// 用户权限名称
+        /// </summary>
+        private string Uspowername
+        {
+            get { return this._uspowername; }
+            set { this._uspowername = value; }
+        }
+        /// <summary>
+        /// 部门代码
+        /// </summary>
+        private int Usdepartmentid
+        {
+            get { return this._usdepartmentid; }
+            set { this._usdepartmentid = value; }
+        }
+        /// <summary>
+        /// 部门名称
+        /// </summary>
+        private string Usdepartmentname
+        {
+            get { return this._usdepartmentname; }
+            set { this._usdepartmentname = value; }
         }
     }
     #endregion

@@ -26,10 +26,10 @@ namespace MTsystem_win
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (txt_Username.Text.Trim().Length == 0)
+            if (txt_Userid.Text.Trim().Length == 0)
             {
                 MessageBox.Show("用户名不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_Username.Focus();
+                txt_Userid.Focus();
 
             }
             else if (txt_Userpwd.Text.Trim().Length == 0)
@@ -49,16 +49,16 @@ namespace MTsystem_win
         /// </summary>
         private void go()
         {
-                string sqlStr = "select * from user where userid='" + txt_Username.Text.Trim() + "' and userPwd='" + txt_Userpwd.Text.Trim() + "'";
+                string sqlStr = "select * from user where userid='" + txt_Userid.Text.Trim() + "' and userPwd='" + txt_Userpwd.Text.Trim() + "'";
 
                 MySqlCommand cmd = new MySqlCommand(sqlStr, dbc.getCon());
                 MySqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    usinfo._usname = txt_Username.Text.Trim();
+                    usinfo._usname = txt_Userid.Text.Trim();
                     usinfo._uspwd = txt_Userpwd.Text.Trim();
-                    usinfo._uspower = dr[4].ToString().Trim();
+                    usinfo._usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
                     Frm_main frm_main = new Frm_main();
                     frm_main.Show();
                     this.Hide();
