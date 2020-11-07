@@ -56,7 +56,7 @@ namespace MTsystem_win
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    usinfo._usname = txt_Userid.Text.Trim();
+                    usinfo._usid = txt_Userid.Text.Trim();
                     usinfo._uspwd = txt_Userpwd.Text.Trim();
                     usinfo._usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
                     Frm_main frm_main = new Frm_main();
