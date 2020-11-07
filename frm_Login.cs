@@ -22,7 +22,6 @@ namespace MTsystem_win
         //数据库链接
         dbconnectstr dbc=new dbconnectstr();
         //用户信息存储
-        userInfocheck usinfo = new userInfocheck();
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -56,9 +55,10 @@ namespace MTsystem_win
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    usinfo._usid = txt_Userid.Text.Trim();
-                    usinfo._uspwd = txt_Userpwd.Text.Trim();
-                    usinfo._usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
+                    userInfocheck._Usid = txt_Userid.Text.Trim();
+                    userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
+                    userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
+                    userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
                     Frm_main frm_main = new Frm_main();
                     frm_main.Show();
                     this.Hide();

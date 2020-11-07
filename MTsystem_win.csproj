@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="allClass\dbconnectstr.cs" />
+    <Compile Include="allClass\frmShowstatus.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
     <Compile Include="Frm_chejian.cs">
       <SubType>Form</SubType>
@@ -88,6 +89,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm_chejian.resx">
+      <DependentUpon>Frm_chejian.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>

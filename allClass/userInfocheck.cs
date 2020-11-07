@@ -19,87 +19,87 @@ namespace MTsystem_win.allClass
         /// <summary>
         /// 用户代码
         /// </summary>
-        public string _usid;
+        private static string _usid;
         /// <summary>
         /// 用户名称
         /// </summary>
-        public string _usname;
+        private static string _usname;
         /// <summary>
         /// 用户密码
         /// </summary>
-        public string _uspwd;
+        private static string _uspwd;
         /// <summary>
         /// 用户权限代码
         /// </summary>
-        public int _uspowerid;
+        private static int _uspowerid;
         /// <summary>
         /// 用户权限名称
         /// </summary>
-        public string _uspowername;
+        private static string _uspowername;
         /// <summary>
         /// 部门代码
         /// </summary>
-        public int _usdepartmentid;
+        private static int _usdepartmentid;
         /// <summary>
         /// 部门名称
         /// </summary>
-        public string _usdepartmentname;
+        private static string _usdepartmentname;
 
         /// <summary>
         /// 用户代码
         /// </summary>
-        private string _Usid
+        public static string _Usid
         {
-            get { return this._usid; }
-            set { this._usid = value; }
+            get { return _usid; }
+            set { _usid = value; }
         }
         /// <summary>
         /// 用户名称
         /// </summary>
-        private string _Usname
+        public static string _Usname
         {
-            get { return this._usname; }
-            set { this._usname = value; }
+            get { return _usname; }
+            set { _usname = value; }
         }
         /// <summary>
         /// 用户密码
         /// </summary>
-        private string _Uspwd
+        public static string _Uspwd
         {
-            get { return this._uspwd; }
-            set { this._uspwd = value; }
+            get { return _uspwd; }
+            set { _uspwd = value; }
         }
         /// <summary>
         /// 用户权限代码
         /// </summary>
-        private int _Uspowerid
+        public static int _Uspowerid
         {
-            get { return this._uspowerid; }
-            set { this._uspowerid = value; }
+            get { return _uspowerid; }
+            set { _uspowerid = value; }
         }
         /// <summary>
         /// 用户权限名称
         /// </summary>
-        private string Uspowername
+        public static string _Uspowername
         {
-            get { return this._uspowername; }
-            set { this._uspowername = value; }
+            get { return _uspowername; }
+            set { _uspowername = value; }
         }
         /// <summary>
         /// 部门代码
         /// </summary>
-        private int Usdepartmentid
+        public static int _Usdepartmentid
         {
-            get { return this._usdepartmentid; }
-            set { this._usdepartmentid = value; }
+            get { return _usdepartmentid; }
+            set { _usdepartmentid = value; }
         }
         /// <summary>
         /// 部门名称
         /// </summary>
-        private string Usdepartmentname
+        public static string _Usdepartmentname
         {
-            get { return this._usdepartmentname; }
-            set { this._usdepartmentname = value; }
+            get { return _usdepartmentname; }
+            set { _usdepartmentname = value; }
         }
     }
     #endregion

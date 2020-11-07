@@ -30,10 +30,11 @@
         {
             this.main_menuStrip = new System.Windows.Forms.MenuStrip();
             this.system_Item = new System.Windows.Forms.ToolStripMenuItem();
-            this.purchase_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.user_Additem = new System.Windows.Forms.ToolStripMenuItem();
             this.user_Updateitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchase_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.workshop_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
@@ -52,7 +53,7 @@
             this.main_menuStrip.Name = "main_menuStrip";
             this.main_menuStrip.Size = new System.Drawing.Size(473, 27);
             this.main_menuStrip.TabIndex = 1;
-            this.main_menuStrip.Text = "menuStrip1";
+            this.main_menuStrip.Text = "菜单";
             // 
             // system_Item
             // 
@@ -60,43 +61,52 @@
             this.user_Additem,
             this.user_Updateitem});
             this.system_Item.Name = "system_Item";
-            this.system_Item.Size = new System.Drawing.Size(68, 21);
+            this.system_Item.Size = new System.Drawing.Size(93, 23);
             this.system_Item.Text = "系统菜单";
-            // 
-            // purchase_Item
-            // 
-            this.purchase_Item.Name = "purchase_Item";
-            this.purchase_Item.Size = new System.Drawing.Size(44, 21);
-            this.purchase_Item.Text = "采购";
             // 
             // user_Additem
             // 
             this.user_Additem.Name = "user_Additem";
-            this.user_Additem.Size = new System.Drawing.Size(148, 22);
+            this.user_Additem.Size = new System.Drawing.Size(186, 24);
             this.user_Additem.Text = "新建用户";
             // 
             // user_Updateitem
             // 
             this.user_Updateitem.Name = "user_Updateitem";
-            this.user_Updateitem.Size = new System.Drawing.Size(148, 22);
+            this.user_Updateitem.Size = new System.Drawing.Size(186, 24);
             this.user_Updateitem.Text = "用户信息修改";
+            // 
+            // purchase_Item
+            // 
+            this.purchase_Item.Name = "purchase_Item";
+            this.purchase_Item.Size = new System.Drawing.Size(57, 23);
+            this.purchase_Item.Text = "采购";
             // 
             // workshop_Item
             // 
+            this.workshop_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_mat_Receive});
             this.workshop_Item.Name = "workshop_Item";
-            this.workshop_Item.Size = new System.Drawing.Size(44, 21);
+            this.workshop_Item.Size = new System.Drawing.Size(57, 23);
             this.workshop_Item.Text = "车间";
+            // 
+            // tsmi_mat_Receive
+            // 
+            this.tsmi_mat_Receive.Name = "tsmi_mat_Receive";
+            this.tsmi_mat_Receive.Size = new System.Drawing.Size(152, 24);
+            this.tsmi_mat_Receive.Text = "材料领用";
+            this.tsmi_mat_Receive.Click += new System.EventHandler(this.tsmi_mat_Receive_Click);
             // 
             // warehouse_Item
             // 
             this.warehouse_Item.Name = "warehouse_Item";
-            this.warehouse_Item.Size = new System.Drawing.Size(44, 21);
+            this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
             // 
             // stock_Viewitem
             // 
             this.stock_Viewitem.Name = "stock_Viewitem";
-            this.stock_Viewitem.Size = new System.Drawing.Size(68, 21);
+            this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
             this.stock_Viewitem.Text = "库存查询";
             // 
             // Frm_main
@@ -130,5 +140,6 @@
         private System.Windows.Forms.ToolStripMenuItem workshop_Item;
         private System.Windows.Forms.ToolStripMenuItem warehouse_Item;
         private System.Windows.Forms.ToolStripMenuItem stock_Viewitem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Receive;
     }
 }
