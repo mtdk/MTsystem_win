@@ -23,7 +23,6 @@ namespace MTsystem_win
 
         private void Frm_chejian_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("hello");
         }
     }
 }
