@@ -21,7 +21,6 @@ namespace MTsystem_win
 
         //数据库链接
         dbconnectstr dbc=new dbconnectstr();
-        //用户信息存储
 
         private void btn_Login_Click(object sender, EventArgs e)
         {

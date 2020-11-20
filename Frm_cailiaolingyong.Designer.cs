@@ -58,10 +58,11 @@
             // 
             // txt_Materia_id
             // 
+            this.txt_Materia_id.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Materia_id.Location = new System.Drawing.Point(108, 24);
             this.txt_Materia_id.Name = "txt_Materia_id";
             this.txt_Materia_id.ReadOnly = true;
-            this.txt_Materia_id.Size = new System.Drawing.Size(206, 26);
+            this.txt_Materia_id.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_id.TabIndex = 1;
             this.txt_Materia_id.DoubleClick += new System.EventHandler(this.txt_Materia_id_DoubleClick);
             // 
@@ -103,52 +104,61 @@
             // 
             // txt_Materia_name
             // 
+            this.txt_Materia_name.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Materia_name.Location = new System.Drawing.Point(108, 79);
             this.txt_Materia_name.Name = "txt_Materia_name";
             this.txt_Materia_name.ReadOnly = true;
-            this.txt_Materia_name.Size = new System.Drawing.Size(206, 26);
+            this.txt_Materia_name.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_name.TabIndex = 6;
             // 
             // txt_Lysl
             // 
+            this.txt_Lysl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Lysl.Location = new System.Drawing.Point(108, 134);
             this.txt_Lysl.Name = "txt_Lysl";
-            this.txt_Lysl.Size = new System.Drawing.Size(206, 26);
+            this.txt_Lysl.Size = new System.Drawing.Size(206, 31);
             this.txt_Lysl.TabIndex = 7;
             this.txt_Lysl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Lysl_KeyPress);
+            this.txt_Lysl.Leave += new System.EventHandler(this.txt_Lysl_Leave);
             // 
             // txt_Materia_unit
             // 
+            this.txt_Materia_unit.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Materia_unit.Location = new System.Drawing.Point(108, 189);
             this.txt_Materia_unit.Name = "txt_Materia_unit";
-            this.txt_Materia_unit.Size = new System.Drawing.Size(206, 26);
+            this.txt_Materia_unit.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_unit.TabIndex = 8;
+            this.txt_Materia_unit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Materia_unit_KeyPress);
+            this.txt_Materia_unit.Leave += new System.EventHandler(this.txt_Materia_unit_Leave);
             // 
             // txt_Lyzl
             // 
+            this.txt_Lyzl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Lyzl.Location = new System.Drawing.Point(108, 244);
             this.txt_Lyzl.Name = "txt_Lyzl";
             this.txt_Lyzl.ReadOnly = true;
-            this.txt_Lyzl.Size = new System.Drawing.Size(206, 26);
+            this.txt_Lyzl.Size = new System.Drawing.Size(206, 31);
             this.txt_Lyzl.TabIndex = 9;
             // 
             // btn_Save
             // 
             this.btn_Save.Location = new System.Drawing.Point(71, 336);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 31);
+            this.btn_Save.Size = new System.Drawing.Size(75, 30);
             this.btn_Save.TabIndex = 10;
             this.btn_Save.Text = "保存";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
             this.btn_Cancel.Location = new System.Drawing.Point(185, 336);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(75, 31);
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_Cancel.TabIndex = 11;
             this.btn_Cancel.Text = "取消";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // txt_Queryid
             // 
@@ -180,7 +190,7 @@
             // 
             this.btn_Query.Location = new System.Drawing.Point(738, 22);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 31);
+            this.btn_Query.Size = new System.Drawing.Size(75, 30);
             this.btn_Query.TabIndex = 15;
             this.btn_Query.Text = "查询";
             this.btn_Query.UseVisualStyleBackColor = true;
