@@ -38,6 +38,9 @@ namespace MTsystem_win
             mtashow.ShowDialog();
             if (mtashow.mtaId != null)
             {
+                txt_Lysl.Text = "";
+                txt_Materia_unit.Text = "";
+                txt_Lyzl.Text = "";
                 txt_Materia_id.Text = mtashow.mtaId.ToString().Trim();
                 txt_Materia_name.Text = mtashow.mtaName.ToString().Trim();
                 txt_Lysl.Focus();

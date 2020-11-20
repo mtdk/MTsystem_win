@@ -162,7 +162,7 @@
             // 
             // txt_Queryid
             // 
-            this.txt_Queryid.Location = new System.Drawing.Point(526, 24);
+            this.txt_Queryid.Location = new System.Drawing.Point(475, 24);
             this.txt_Queryid.Name = "txt_Queryid";
             this.txt_Queryid.ReadOnly = true;
             this.txt_Queryid.Size = new System.Drawing.Size(206, 26);
@@ -171,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(394, 28);
+            this.label6.Location = new System.Drawing.Point(343, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 19);
             this.label6.TabIndex = 12;
@@ -180,7 +180,7 @@
             // dgv_Query_result
             // 
             this.dgv_Query_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Query_result.Location = new System.Drawing.Point(398, 63);
+            this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
@@ -188,7 +188,7 @@
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(738, 22);
+            this.btn_Query.Location = new System.Drawing.Point(687, 22);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(75, 30);
             this.btn_Query.TabIndex = 15;
@@ -200,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1099, 561);
+            this.ClientSize = new System.Drawing.Size(1048, 561);
             this.Controls.Add(this.btn_Query);
             this.Controls.Add(this.dgv_Query_result);
             this.Controls.Add(this.txt_Queryid);

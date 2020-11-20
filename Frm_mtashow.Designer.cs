@@ -88,6 +88,8 @@
             // 
             // dgv_Queryresult
             // 
+            this.dgv_Queryresult.AllowUserToAddRows = false;
+            this.dgv_Queryresult.AllowUserToDeleteRows = false;
             this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -96,7 +98,8 @@
             this.dgv_Queryresult.ReadOnly = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Queryresult.RowTemplate.Height = 23;
+            this.dgv_Queryresult.RowTemplate.Height = 25;
+            this.dgv_Queryresult.RowTemplate.ReadOnly = true;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(760, 506);
             this.dgv_Queryresult.TabIndex = 5;

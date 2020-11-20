@@ -51,7 +51,8 @@
             this.stock_Viewitem});
             this.main_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.main_menuStrip.Name = "main_menuStrip";
-            this.main_menuStrip.Size = new System.Drawing.Size(473, 27);
+            this.main_menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.main_menuStrip.Size = new System.Drawing.Size(1136, 27);
             this.main_menuStrip.TabIndex = 1;
             this.main_menuStrip.Text = "菜单";
             // 
@@ -93,7 +94,7 @@
             // tsmi_mat_Receive
             // 
             this.tsmi_mat_Receive.Name = "tsmi_mat_Receive";
-            this.tsmi_mat_Receive.Size = new System.Drawing.Size(152, 24);
+            this.tsmi_mat_Receive.Size = new System.Drawing.Size(150, 24);
             this.tsmi_mat_Receive.Text = "材料领用";
             this.tsmi_mat_Receive.Click += new System.EventHandler(this.tsmi_mat_Receive_Click);
             // 
@@ -111,17 +112,17 @@
             // 
             // Frm_main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 479);
+            this.ClientSize = new System.Drawing.Size(1136, 561);
             this.Controls.Add(this.main_menuStrip);
-            this.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.main_menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Frm_main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统主窗口";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_main_FormClosed);
             this.main_menuStrip.ResumeLayout(false);
             this.main_menuStrip.PerformLayout();
