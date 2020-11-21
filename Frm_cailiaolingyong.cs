@@ -19,6 +19,11 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 数据库链接
+        /// </summary>
+        dbconnectstr dbc = new dbconnectstr();
+
         private void Frm_cailiaolingyong_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmclly=="CLOSE"||frmShowstatus._Frmclly==null)
@@ -157,6 +162,28 @@ namespace MTsystem_win
             txt_Materia_unit.Text = "";
             txt_Lyzl.Text = "";
             txt_Materia_id.Focus();
+        }
+
+        private void mat_out()
+        {
+            string strsql = "INSERT INTO `Material_out` VALUES ('" + txt_Materia_id.Text.Trim() + "', '" + txt_Materia_name.Text.Trim() + "',";
+            strsql += " '" + Convert.ToDecimal(txt_Lysl.Text.Trim()) + "', '" + Convert.ToDecimal(txt_Materia_unit.Text.Trim()) + "', '" + Convert.ToDecimal(txt_Lyzl.Text.Trim()) + "')";
+
+            MySqlCommand cmd = new MySqlCommand(strsql, dbc.getCon());
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "错误警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                dbc._getClose();
+                cmd.Dispose();
+            }
         }
     }
 }

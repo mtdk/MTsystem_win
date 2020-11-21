@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="allClass\dbconnectstr.cs" />
     <Compile Include="allClass\frmShowstatus.cs" />
+    <Compile Include="allClass\myMsqlhelper.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
     <Compile Include="Frm_cailiaolingyong.cs">
       <SubType>Form</SubType>
