@@ -46,5 +46,55 @@ namespace MTsystem_win
                 MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void tsmi_mat_In_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmcljc == "CLOSE" || frmShowstatus._Frmcljc == null)
+                    {
+                        Frm_cailiaojincang frm_cljc = new Frm_cailiaojincang();
+                        frm_cljc.MdiParent = this;
+                        frm_cljc.WindowState = FormWindowState.Maximized;
+                        frm_cljc.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void mat_Basestock_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmbsin == "CLOSE" || frmShowstatus._Frmbsin == null)
+                    {
+                        Frm_matbaseinput frm_bsin = new Frm_matbaseinput();
+                        frm_bsin.MdiParent = this;
+                        frm_bsin.WindowState = FormWindowState.Maximized;
+                        frm_bsin.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

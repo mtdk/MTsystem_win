@@ -70,6 +70,12 @@
     <Compile Include="allClass\frmShowstatus.cs" />
     <Compile Include="allClass\myMsqlhelper.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
+    <Compile Include="Frm_cailiaojincang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_cailiaojincang.Designer.cs">
+      <DependentUpon>Frm_cailiaojincang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_cailiaolingyong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="Frm_main.Designer.cs">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_matbaseinput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_matbaseinput.Designer.cs">
+      <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_mtashow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm_cailiaojincang.resx">
+      <DependentUpon>Frm_cailiaojincang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_cailiaolingyong.resx">
       <DependentUpon>Frm_cailiaolingyong.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_matbaseinput.resx">
+      <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>

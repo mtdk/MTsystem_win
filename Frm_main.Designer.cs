@@ -36,7 +36,9 @@
             this.workshop_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
             this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,15 +102,32 @@
             // 
             // warehouse_Item
             // 
+            this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_mat_In,
+            this.mat_Basestock});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
+            // 
+            // tsmi_mat_In
+            // 
+            this.tsmi_mat_In.Name = "tsmi_mat_In";
+            this.tsmi_mat_In.Size = new System.Drawing.Size(152, 24);
+            this.tsmi_mat_In.Text = "材料进仓";
+            this.tsmi_mat_In.Click += new System.EventHandler(this.tsmi_mat_In_Click);
             // 
             // stock_Viewitem
             // 
             this.stock_Viewitem.Name = "stock_Viewitem";
             this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
             this.stock_Viewitem.Text = "库存查询";
+            // 
+            // mat_Basestock
+            // 
+            this.mat_Basestock.Name = "mat_Basestock";
+            this.mat_Basestock.Size = new System.Drawing.Size(186, 24);
+            this.mat_Basestock.Text = "材料期初库存";
+            this.mat_Basestock.Click += new System.EventHandler(this.mat_Basestock_Click);
             // 
             // Frm_main
             // 
@@ -142,5 +161,7 @@
         private System.Windows.Forms.ToolStripMenuItem warehouse_Item;
         private System.Windows.Forms.ToolStripMenuItem stock_Viewitem;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Receive;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_In;
+        private System.Windows.Forms.ToolStripMenuItem mat_Basestock;
     }
 }

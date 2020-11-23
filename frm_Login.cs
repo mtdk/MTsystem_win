@@ -55,6 +55,7 @@ namespace MTsystem_win
                 if (dr.HasRows)
                 {
                     userInfocheck._Usid = txt_Userid.Text.Trim();
+                    userInfocheck._Usname = dr[2].ToString().Trim();
                     userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
                     userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
                     userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
