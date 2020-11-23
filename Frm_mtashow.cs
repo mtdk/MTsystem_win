@@ -27,6 +27,10 @@ namespace MTsystem_win
         DataView dv_Queryresult = new DataView();
 
         /// <summary>
+        /// 材料内码
+        /// </summary>
+        public string mtaid;
+        /// <summary>
         /// 材料编号
         /// </summary>
         public string mtaId;
@@ -100,6 +104,7 @@ namespace MTsystem_win
             {
                 if (dgv_Queryresult.RowCount > 0)
                 {
+                    mtaid = dgv_Queryresult.SelectedCells[0].Value.ToString().Trim();
                     mtaId = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();
                     mtaName = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
                 }

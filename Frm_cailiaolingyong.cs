@@ -26,7 +26,7 @@ namespace MTsystem_win
 
         private void Frm_cailiaolingyong_Load(object sender, EventArgs e)
         {
-            if (frmShowstatus._Frmclly=="CLOSE"||frmShowstatus._Frmclly==null)
+            if (frmShowstatus._Frmclly == "CLOSE" || frmShowstatus._Frmclly == null)
             {
                 //将窗口状态设置为打开
                 frmShowstatus._Frmclly = "OPEN";
@@ -202,6 +202,7 @@ namespace MTsystem_win
             txt_Operator.Text = "";
             txt_Materia_id.Focus();
         }
+
         /// <summary>
         /// 保存领料记录
         /// </summary>
