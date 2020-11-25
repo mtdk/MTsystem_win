@@ -120,10 +120,14 @@
             // 
             // dgv_Query_result
             // 
+            this.dgv_Query_result.AllowUserToAddRows = false;
+            this.dgv_Query_result.AllowUserToDeleteRows = false;
             this.dgv_Query_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
+            this.dgv_Query_result.ReadOnly = true;
             this.dgv_Query_result.RowTemplate.Height = 23;
+            this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
             this.dgv_Query_result.TabIndex = 36;
             // 
@@ -131,7 +135,6 @@
             // 
             this.txt_Queryid.Location = new System.Drawing.Point(475, 24);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.ReadOnly = true;
             this.txt_Queryid.Size = new System.Drawing.Size(206, 26);
             this.txt_Queryid.TabIndex = 35;
             // 
@@ -285,9 +288,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_cailiaojincang";
-            this.Text = "Frm_cailiaojincang";
+            this.Text = "材料进仓窗口";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

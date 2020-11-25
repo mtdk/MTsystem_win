@@ -55,7 +55,7 @@ namespace MTsystem_win
         /// </summary>
         private void Queryresult()
         {
-            string sqlsrt = "SELECT ID , Material_id, Material_inside_name FROM `material` LIMIT 0, 1000";
+            string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM `material` LIMIT 0, 1000";
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, dbc.getCon());
             msda.Fill(ds_Queryresult, "resultTable");
             dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];

@@ -20,7 +20,7 @@ namespace MTsystem_win.allClass
          MySqlConnection _Gcon;
 
 
-        string connstr = "server=127.0.0.1;uid=root;pwd=123456;database=test;charset=utf8;";
+        string connstr = "server=192.168.1.123;uid=testqh;pwd=123456;database=test;charset=utf8;";
 
         public MySqlConnection getCon()
         {

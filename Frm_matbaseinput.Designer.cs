@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Inputdate = new System.Windows.Forms.TextBox();
@@ -89,34 +90,43 @@
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(687, 22);
+            this.btn_Query.Location = new System.Drawing.Point(687, 20);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(75, 30);
             this.btn_Query.TabIndex = 37;
             this.btn_Query.Text = "查询";
             this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // dgv_Query_result
             // 
+            this.dgv_Query_result.AllowUserToAddRows = false;
+            this.dgv_Query_result.AllowUserToDeleteRows = false;
+            this.dgv_Query_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Query_result.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Query_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
+            this.dgv_Query_result.ReadOnly = true;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_Query_result.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Query_result.RowTemplate.Height = 23;
+            this.dgv_Query_result.RowTemplate.ReadOnly = true;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
             this.dgv_Query_result.TabIndex = 36;
             // 
             // txt_Queryid
             // 
-            this.txt_Queryid.Location = new System.Drawing.Point(475, 24);
+            this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Queryid.Location = new System.Drawing.Point(475, 19);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.ReadOnly = true;
-            this.txt_Queryid.Size = new System.Drawing.Size(206, 26);
+            this.txt_Queryid.Size = new System.Drawing.Size(206, 31);
             this.txt_Queryid.TabIndex = 35;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(343, 28);
+            this.label6.Location = new System.Drawing.Point(343, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 19);
             this.label6.TabIndex = 34;

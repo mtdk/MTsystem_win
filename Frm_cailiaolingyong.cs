@@ -24,6 +24,12 @@ namespace MTsystem_win
         /// </summary>
         dbconnectstr dbc = new dbconnectstr();
 
+        DataSet ds_Queryresult = new DataSet();
+
+        DataView dv_Queryresult = new DataView();
+
+        string mTid;
+
         private void Frm_cailiaolingyong_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmclly == "CLOSE" || frmShowstatus._Frmclly == null)
@@ -33,6 +39,8 @@ namespace MTsystem_win
                 newOutid();
                 //获取领料时间
                 txt_Outdate.Text = DateTime.Now.ToShortDateString();
+                //列出材料库存
+                Querymtastock();
             }
         }
 
@@ -55,6 +63,7 @@ namespace MTsystem_win
                 txt_Lysl.Text = "";
                 txt_Materia_unit.Text = "";
                 txt_Lyzl.Text = "";
+                mTid = mtashow.mtaid.ToString().Trim();
                 txt_Materia_id.Text = mtashow.mtaId.ToString().Trim();
                 txt_Materia_name.Text = mtashow.mtaName.ToString().Trim();
                 txt_Lysl.Focus();
@@ -188,7 +197,11 @@ namespace MTsystem_win
             }
             else
             {
-                mat_out();
+                if (Querymtaid(mTid.Trim())==true)
+                {
+                    
+                }
+                //mat_out();
             }
         }
 
@@ -260,6 +273,66 @@ namespace MTsystem_win
             txt_Outid.Text += DateTime.Now.Minute.ToString().Trim();
             txt_Outid.Text += DateTime.Now.Second.ToString().Trim();
             txt_Outid.Text += DateTime.Now.Millisecond.ToString().Trim();
+        }
+
+        /// <summary>
+        /// 材料库存数据检索
+        /// </summary>
+        private void Querymtastock()
+        {
+            string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, dbc.getCon());
+            msda.Fill(ds_Queryresult, "resultStock");
+            dbc._getClose();
+            msda.Dispose();
+            dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
+            dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+            dgv_Query_result.Columns[0].HeaderText = "系统码";
+            dgv_Query_result.Columns[1].HeaderText = "材料编号";
+            dgv_Query_result.Columns[2].HeaderText = "材料名称";
+            dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+        }
+
+        /// <summary>
+        /// 查询材料期初值是否存在
+        /// </summary>
+        /// <param name="mtdi">材料系统编号</param>
+        /// <returns>存在返回 true,不存在返回 false</returns>
+        private bool Querymtaid(string mt_di)
+        {
+            bool b = false;
+            string sqlstr = "SELECT * FROM material_stock WHERE Matid=@Matid";
+            MySqlCommand cmd = new MySqlCommand(sqlstr, dbc.getCon());
+            cmd.Parameters.AddWithValue("@Matid", mt_di.Trim());
+
+            MySqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = rd.Read();
+            return b;
+        }
+
+        private void btn_Query_Click(object sender, EventArgs e)
+        {
+                        if (txt_Queryid.Text.Trim()!="")
+            {
+                dgv_Query_result.DataSource = null;
+                dv_Queryresult.RowFilter = "Material_id like '%" + txt_Queryid.Text.Trim() + "%'";
+                dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+                dgv_Query_result.Columns[0].HeaderText = "系统码";
+                dgv_Query_result.Columns[1].HeaderText = "材料编号";
+                dgv_Query_result.Columns[2].HeaderText = "材料名称";
+                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+            }
+            else
+            {
+                dgv_Query_result.DataSource = null;
+                dv_Queryresult.RowFilter = null;
+                Querymtastock();
+                dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+                dgv_Query_result.Columns[0].HeaderText = "系统码";
+                dgv_Query_result.Columns[1].HeaderText = "材料编号";
+                dgv_Query_result.Columns[2].HeaderText = "材料名称";
+                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+            }
         }
     }
 }
