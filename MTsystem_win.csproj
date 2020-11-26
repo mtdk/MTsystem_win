@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="allClass\connectstr.cs" />
     <Compile Include="allClass\dbconnectstr.cs" />
     <Compile Include="allClass\frmShowstatus.cs" />
     <Compile Include="allClass\myMsqlhelper.cs" />

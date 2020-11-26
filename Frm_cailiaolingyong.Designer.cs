@@ -50,6 +50,8 @@
             this.txt_Outdate = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Operator = new System.Windows.Forms.TextBox();
+            this.txt_matStock = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,9 +204,9 @@
             this.dgv_Query_result.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
-            this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
             this.dgv_Query_result.TabIndex = 14;
+            this.dgv_Query_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Query_result_CellFormatting);
             // 
             // btn_Query
             // 
@@ -271,6 +273,26 @@
             this.txt_Operator.Name = "txt_Operator";
             this.txt_Operator.Size = new System.Drawing.Size(206, 31);
             this.txt_Operator.TabIndex = 21;
+            this.txt_Operator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Operator_KeyPress);
+            // 
+            // txt_matStock
+            // 
+            this.txt_matStock.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_matStock.Location = new System.Drawing.Point(475, 387);
+            this.txt_matStock.Name = "txt_matStock";
+            this.txt_matStock.ReadOnly = true;
+            this.txt_matStock.Size = new System.Drawing.Size(206, 31);
+            this.txt_matStock.TabIndex = 23;
+            this.txt_matStock.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(343, 394);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 19);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "材料库存数量:";
             // 
             // Frm_cailiaolingyong
             // 
@@ -278,6 +300,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1048, 561);
+            this.Controls.Add(this.txt_matStock);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_Operator);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_Outdate);
@@ -337,5 +361,7 @@
         private System.Windows.Forms.TextBox txt_Outdate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_Operator;
+        private System.Windows.Forms.TextBox txt_matStock;
+        private System.Windows.Forms.Label label10;
     }
 }

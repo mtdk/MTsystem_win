@@ -31,7 +31,7 @@ namespace MTsystem_win.allClass
 
         public void _getClose()
         {
-            if(getCon().State==ConnectionState.Open)
+            if (getCon().State == ConnectionState.Open)
             {
                 getCon().Close();
                 getCon().Dispose();

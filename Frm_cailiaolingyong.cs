@@ -28,6 +28,9 @@ namespace MTsystem_win
 
         DataView dv_Queryresult = new DataView();
 
+        /// <summary>
+        /// 材料系统编码(内码)
+        /// </summary>
         string mTid;
 
         private void Frm_cailiaolingyong_Load(object sender, EventArgs e)
@@ -67,6 +70,7 @@ namespace MTsystem_win
                 txt_Materia_id.Text = mtashow.mtaId.ToString().Trim();
                 txt_Materia_name.Text = mtashow.mtaName.ToString().Trim();
                 txt_Lysl.Focus();
+                Querymtaid(mTid.Trim());
             }
         }
 
@@ -142,7 +146,8 @@ namespace MTsystem_win
                 {
                     txt_Lyzl.Text = "0";
                 }
-                btn_Save.Focus();
+                txt_Operator.Focus();
+                //btn_Save.Focus();
             }
         }
 
@@ -155,6 +160,15 @@ namespace MTsystem_win
             else
             {
                 txt_Lyzl.Text = "0";
+            }
+        }
+
+        private void txt_Operator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btn_Save.Focus();
             }
         }
 
@@ -186,6 +200,10 @@ namespace MTsystem_win
             {
                 MessageBox.Show("领用总量不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+            else if((Convert.ToDecimal(txt_Lyzl.Text.Trim()))<1)
+            {
+                MessageBox.Show("领用总量不能为\"0\"！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
             else if (txt_Outdate.Text.Trim() == "")
             {
                 MessageBox.Show("领用日期不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -197,11 +215,14 @@ namespace MTsystem_win
             }
             else
             {
-                if (Querymtaid(mTid.Trim())==true)
+                if ((Convert.ToDecimal(txt_Lyzl.Text.Trim()))>(Convert.ToDecimal(txt_matStock.Text.Trim())))
                 {
-                    
+                    MessageBox.Show("领用总量超过当前材料库存总量！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                //mat_out();
+                else
+                {
+                    mat_out();
+                }
             }
         }
 
@@ -213,6 +234,7 @@ namespace MTsystem_win
             txt_Materia_unit.Text = "";
             txt_Lyzl.Text = "";
             txt_Operator.Text = "";
+            txt_matStock.Text = "0";
             txt_Materia_id.Focus();
         }
 
@@ -221,12 +243,15 @@ namespace MTsystem_win
         /// </summary>
         private void mat_out()
         {
-            if(MessageBox.Show("是否保存领料数据？","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
+            if (MessageBox.Show("是否保存领料数据？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+                conn.Open();
+                MySqlTransaction transaction = conn.BeginTransaction();
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = dbc.getCon();
+                    cmd.Connection = conn;
                     string strsql = "INSERT INTO `Material_out` VALUES (NULL, @Outid, @Material_id, @Material_inside_name,";
                     strsql += " @Material_lysl, @Material_unit, @Lyzl, @Out_date, @Out_operator)";
 
@@ -239,27 +264,43 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Lyzl", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
                     cmd.Parameters.AddWithValue("@Out_date", Convert.ToDateTime(txt_Outdate.Text.Trim()));
                     cmd.Parameters.AddWithValue("@Out_operator", txt_Operator.Text.Trim());
-
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dbc._getClose();
-                    cmd.Dispose();
-                    newOutid();
-                    txt_Materia_id.Text = "";
-                    txt_Materia_name.Text = "";
-                    txt_Lysl.Text = "";
-                    txt_Materia_unit.Text = "";
-                    txt_Lyzl.Text = "";
-                    txt_Operator.Text = "";
-                    txt_Materia_id.Focus();
+
+                    string strsqlA = "UPDATE material_stock SET Material_stock = Material_stock - @Matstock WHERE Matid=@Matid";
+
+                    cmd.CommandText = strsqlA;
+                    cmd.Parameters.AddWithValue("@Matid", mTid.Trim());
+                    cmd.Parameters.AddWithValue("@Matstock", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
+                    cmd.ExecuteNonQuery();
 
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("错误代码：" + ex.ErrorCode + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    transaction.Rollback();
+                    conn.Close();
+                }
+                finally
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        transaction.Commit();
+                        conn.Close();
+                        MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        newOutid();
+                        txt_Materia_id.Text = "";
+                        txt_Materia_name.Text = "";
+                        txt_Lysl.Text = "";
+                        txt_Materia_unit.Text = "";
+                        txt_Lyzl.Text = "";
+                        txt_Operator.Text = "";
+                        txt_matStock.Text = "0";
+                        txt_Materia_id.Focus();
+                        ds_Queryresult.Clear();
+                        Querymtastock();
+                    }
                 }
             }
-
         }
         /// <summary>
         /// 产生新领料记录号
@@ -272,7 +313,7 @@ namespace MTsystem_win
             txt_Outid.Text += DateTime.Now.Hour.ToString().Trim();
             txt_Outid.Text += DateTime.Now.Minute.ToString().Trim();
             txt_Outid.Text += DateTime.Now.Second.ToString().Trim();
-            txt_Outid.Text += DateTime.Now.Millisecond.ToString().Trim();
+            //txt_Outid.Text += DateTime.Now.Millisecond.ToString().Trim();
         }
 
         /// <summary>
@@ -280,17 +321,20 @@ namespace MTsystem_win
         /// </summary>
         private void Querymtastock()
         {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
             string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
-            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, dbc.getCon());
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
             msda.Fill(ds_Queryresult, "resultStock");
-            dbc._getClose();
-            msda.Dispose();
+
             dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
             dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
             dgv_Query_result.Columns[0].HeaderText = "系统码";
             dgv_Query_result.Columns[1].HeaderText = "材料编号";
             dgv_Query_result.Columns[2].HeaderText = "材料名称";
-            dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+            dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+            conn.Close();
+            msda.Dispose();
         }
 
         /// <summary>
@@ -298,40 +342,69 @@ namespace MTsystem_win
         /// </summary>
         /// <param name="mtdi">材料系统编号</param>
         /// <returns>存在返回 true,不存在返回 false</returns>
-        private bool Querymtaid(string mt_di)
+        private void Querymtaid(string mt_di)
         {
-            bool b = false;
-            string sqlstr = "SELECT * FROM material_stock WHERE Matid=@Matid";
-            MySqlCommand cmd = new MySqlCommand(sqlstr, dbc.getCon());
+
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
+            string sqlstr = "SELECT Matid, Material_stock FROM material_stock WHERE Matid=@Matid";
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
             cmd.Parameters.AddWithValue("@Matid", mt_di.Trim());
 
             MySqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            b = rd.Read();
-            return b;
+            rd.Read();
+            if(rd.HasRows)
+            {
+                txt_matStock.Text = rd[1].ToString().Trim();
+            }
+            else
+            {
+                txt_matStock.Text = "0";
+            }
         }
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-                        if (txt_Queryid.Text.Trim()!="")
+            if (txt_Queryid.Text.Trim() != "")
             {
-                dgv_Query_result.DataSource = null;
-                dv_Queryresult.RowFilter = "Material_id like '%" + txt_Queryid.Text.Trim() + "%'";
+                ds_Queryresult.Clear();
+                string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock WHERE Material_id LIKE '%" + txt_Queryid.Text.Trim() + "%'";
+                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, dbc.getCon());
+                msda.Fill(ds_Queryresult, "resultStock");
+
+                dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
                 dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
                 dgv_Query_result.Columns[0].HeaderText = "系统码";
                 dgv_Query_result.Columns[1].HeaderText = "材料编号";
                 dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+                dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+                dbc._getClose();
+                msda.Dispose();
             }
             else
             {
-                dgv_Query_result.DataSource = null;
-                dv_Queryresult.RowFilter = null;
+                ds_Queryresult.Clear();
                 Querymtastock();
-                dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
-                dgv_Query_result.Columns[0].HeaderText = "系统码";
-                dgv_Query_result.Columns[1].HeaderText = "材料编号";
-                dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+            }
+        }
+
+        /// <summary>
+        /// 根据材料库存数量修改单元格字体颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_Query_result_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < this.dgv_Query_result.Rows.Count; i++)
+            {
+                if (Convert.ToDecimal(dgv_Query_result.Rows[i].Cells[3].Value.ToString().Trim()) <= 0)
+                {
+                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Black;
+                }
             }
         }
     }
