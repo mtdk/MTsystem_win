@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Inputdate = new System.Windows.Forms.TextBox();
@@ -108,11 +108,11 @@
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
             this.dgv_Query_result.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_Query_result.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_Query_result.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
-            this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
+            this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 36;
             // 
             // txt_Queryid
@@ -134,7 +134,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(185, 336);
+            this.btn_Cancel.Location = new System.Drawing.Point(185, 277);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_Cancel.TabIndex = 33;
@@ -145,7 +145,7 @@
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_Save.Location = new System.Drawing.Point(71, 336);
+            this.btn_Save.Location = new System.Drawing.Point(71, 277);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 30);
             this.btn_Save.TabIndex = 32;
@@ -232,8 +232,9 @@
             // 
             // Frm_matbaseinput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1048, 561);
             this.Controls.Add(this.txt_mat_id);
             this.Controls.Add(this.label7);
@@ -256,7 +257,10 @@
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_matbaseinput";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料期初数据录入";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_matbaseinput_FormClosed);
             this.Load += new System.EventHandler(this.Frm_matbaseinput_Load);

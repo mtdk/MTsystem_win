@@ -19,9 +19,6 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
-        //数据库链接
-        dbconnectstr dbc=new dbconnectstr();
-
         private void btn_Login_Click(object sender, EventArgs e)
         {
             if (txt_Userid.Text.Trim().Length == 0)
@@ -47,27 +44,28 @@ namespace MTsystem_win
         /// </summary>
         private void go()
         {
-                string sqlStr = "select * from user where userid='" + txt_Userid.Text.Trim() + "' and userPwd='" + txt_Userpwd.Text.Trim() + "'";
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
+            string sqlStr = "SELECT * FROM user WHERE userid='" + txt_Userid.Text.Trim() + "' AND userPwd='" + txt_Userpwd.Text.Trim() + "'";
 
-                MySqlCommand cmd = new MySqlCommand(sqlStr, dbc.getCon());
-                MySqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                if (dr.HasRows)
-                {
-                    userInfocheck._Usid = txt_Userid.Text.Trim();
-                    userInfocheck._Usname = dr[2].ToString().Trim();
-                    userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
-                    userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
-                    userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
-                    Frm_main frm_main = new Frm_main();
-                    frm_main.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("用户名或密码错误，请重新输入！","警告",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }
-                dbc._getClose();
+            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            if (dr.HasRows)
+            {
+                userInfocheck._Usid = txt_Userid.Text.Trim();
+                userInfocheck._Usname = dr[2].ToString().Trim();
+                userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
+                userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
+                userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
+                Frm_main frm_main = new Frm_main();
+                frm_main.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("用户名或密码错误，请重新输入！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         #endregion
 

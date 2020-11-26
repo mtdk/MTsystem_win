@@ -204,7 +204,7 @@
             this.dgv_Query_result.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
-            this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
+            this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 14;
             this.dgv_Query_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Query_result_CellFormatting);
             // 
@@ -278,17 +278,17 @@
             // txt_matStock
             // 
             this.txt_matStock.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_matStock.Location = new System.Drawing.Point(475, 387);
+            this.txt_matStock.Location = new System.Drawing.Point(144, 386);
             this.txt_matStock.Name = "txt_matStock";
             this.txt_matStock.ReadOnly = true;
-            this.txt_matStock.Size = new System.Drawing.Size(206, 31);
+            this.txt_matStock.Size = new System.Drawing.Size(172, 31);
             this.txt_matStock.TabIndex = 23;
             this.txt_matStock.Text = "0";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(343, 394);
+            this.label10.Location = new System.Drawing.Point(12, 393);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(126, 19);
             this.label10.TabIndex = 22;
@@ -296,9 +296,10 @@
             // 
             // Frm_cailiaolingyong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1048, 561);
             this.Controls.Add(this.txt_matStock);
             this.Controls.Add(this.label10);
@@ -327,7 +328,10 @@
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_cailiaolingyong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料领用窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_cailiaolingyong_FormClosed);
             this.Load += new System.EventHandler(this.Frm_cailiaolingyong_Load);

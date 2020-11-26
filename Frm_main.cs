@@ -32,7 +32,7 @@ namespace MTsystem_win
                     {
                         Frm_cailiaolingyong frm_clly = new Frm_cailiaolingyong();
                         frm_clly.MdiParent = this;
-                        frm_clly.WindowState = FormWindowState.Maximized;
+                        //frm_clly.WindowState = FormWindowState.Maximized;
                         frm_clly.Show();
                     }
                 }
@@ -57,7 +57,7 @@ namespace MTsystem_win
                     {
                         Frm_cailiaojincang frm_cljc = new Frm_cailiaojincang();
                         frm_cljc.MdiParent = this;
-                        frm_cljc.WindowState = FormWindowState.Maximized;
+                        //frm_cljc.WindowState = FormWindowState.Maximized;
                         frm_cljc.Show();
                     }
                 }
@@ -82,7 +82,7 @@ namespace MTsystem_win
                     {
                         Frm_matbaseinput frm_bsin = new Frm_matbaseinput();
                         frm_bsin.MdiParent = this;
-                        frm_bsin.WindowState = FormWindowState.Maximized;
+                        //frm_bsin.WindowState = FormWindowState.Maximized;
                         frm_bsin.Show();
                     }
                 }

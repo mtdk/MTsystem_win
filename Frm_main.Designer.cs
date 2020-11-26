@@ -37,8 +37,8 @@
             this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
-            this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
+            this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,15 +112,9 @@
             // tsmi_mat_In
             // 
             this.tsmi_mat_In.Name = "tsmi_mat_In";
-            this.tsmi_mat_In.Size = new System.Drawing.Size(152, 24);
+            this.tsmi_mat_In.Size = new System.Drawing.Size(186, 24);
             this.tsmi_mat_In.Text = "材料进仓";
             this.tsmi_mat_In.Click += new System.EventHandler(this.tsmi_mat_In_Click);
-            // 
-            // stock_Viewitem
-            // 
-            this.stock_Viewitem.Name = "stock_Viewitem";
-            this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
-            this.stock_Viewitem.Text = "库存查询";
             // 
             // mat_Basestock
             // 
@@ -129,19 +123,26 @@
             this.mat_Basestock.Text = "材料期初库存";
             this.mat_Basestock.Click += new System.EventHandler(this.mat_Basestock_Click);
             // 
+            // stock_Viewitem
+            // 
+            this.stock_Viewitem.Name = "stock_Viewitem";
+            this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
+            this.stock_Viewitem.Text = "库存查询";
+            // 
             // Frm_main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 761);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1136, 749);
             this.Controls.Add(this.main_menuStrip);
             this.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.main_menuStrip;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Frm_main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统主窗口";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_main_FormClosed);
             this.main_menuStrip.ResumeLayout(false);
             this.main_menuStrip.PerformLayout();

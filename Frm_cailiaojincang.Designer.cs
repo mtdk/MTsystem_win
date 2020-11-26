@@ -111,7 +111,7 @@
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(687, 22);
+            this.btn_Query.Location = new System.Drawing.Point(687, 20);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(75, 30);
             this.btn_Query.TabIndex = 37;
@@ -128,20 +128,21 @@
             this.dgv_Query_result.ReadOnly = true;
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Query_result.Size = new System.Drawing.Size(689, 304);
+            this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 36;
             // 
             // txt_Queryid
             // 
-            this.txt_Queryid.Location = new System.Drawing.Point(475, 24);
+            this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Queryid.Location = new System.Drawing.Point(475, 20);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.Size = new System.Drawing.Size(206, 26);
+            this.txt_Queryid.Size = new System.Drawing.Size(206, 30);
             this.txt_Queryid.TabIndex = 35;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(343, 28);
+            this.label6.Location = new System.Drawing.Point(343, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 19);
             this.label6.TabIndex = 34;
