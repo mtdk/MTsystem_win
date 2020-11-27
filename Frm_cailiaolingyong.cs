@@ -247,11 +247,12 @@ namespace MTsystem_win
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
-                    string strsql = "INSERT INTO `Material_out` VALUES (NULL, @Outid, @Material_id, @Material_inside_name,";
+                    string strsql = "INSERT INTO `Material_out` VALUES (NULL, @Outid, @Matid, @Material_id, @Material_inside_name,";
                     strsql += " @Material_lysl, @Material_unit, @Lyzl, @Out_date, @Out_operator)";
 
                     cmd.CommandText = strsql;
                     cmd.Parameters.AddWithValue("@Outid", txt_Outid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Matid", mTid.Trim());
                     cmd.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_lysl", Convert.ToDecimal(txt_Lysl.Text.Trim()));
@@ -261,10 +262,10 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Out_operator", txt_Operator.Text.Trim());
                     cmd.ExecuteNonQuery();
 
-                    string strsqlA = "UPDATE `material_stock` SET Material_stock = Material_stock - @Matstock WHERE Matid=@Matid";
+                    string strsqlA = "UPDATE `material_stock` SET Material_stock = Material_stock - @Matstock WHERE Matid=@Matida";
 
                     cmd.CommandText = strsqlA;
-                    cmd.Parameters.AddWithValue("@Matid", mTid.Trim());
+                    cmd.Parameters.AddWithValue("@Matida", mTid.Trim());
                     cmd.Parameters.AddWithValue("@Matstock", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
                     cmd.ExecuteNonQuery();
 

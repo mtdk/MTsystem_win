@@ -193,6 +193,7 @@
             this.txt_Materia_unit.BackColor = System.Drawing.Color.Bisque;
             this.txt_Materia_unit.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Materia_unit.Location = new System.Drawing.Point(110, 204);
+            this.txt_Materia_unit.MaxLength = 10;
             this.txt_Materia_unit.Name = "txt_Materia_unit";
             this.txt_Materia_unit.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_unit.TabIndex = 30;
@@ -204,6 +205,7 @@
             this.txt_Inputsl.BackColor = System.Drawing.Color.Bisque;
             this.txt_Inputsl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Inputsl.Location = new System.Drawing.Point(110, 167);
+            this.txt_Inputsl.MaxLength = 10;
             this.txt_Inputsl.Name = "txt_Inputsl";
             this.txt_Inputsl.Size = new System.Drawing.Size(206, 31);
             this.txt_Inputsl.TabIndex = 29;

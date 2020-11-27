@@ -159,6 +159,7 @@
             this.txt_Qczl.BackColor = System.Drawing.Color.Bisque;
             this.txt_Qczl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Qczl.Location = new System.Drawing.Point(110, 130);
+            this.txt_Qczl.MaxLength = 25;
             this.txt_Qczl.Name = "txt_Qczl";
             this.txt_Qczl.Size = new System.Drawing.Size(206, 31);
             this.txt_Qczl.TabIndex = 31;

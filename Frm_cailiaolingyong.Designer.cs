@@ -126,6 +126,7 @@
             this.txt_Lysl.BackColor = System.Drawing.Color.Bisque;
             this.txt_Lysl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Lysl.Location = new System.Drawing.Point(110, 130);
+            this.txt_Lysl.MaxLength = 10;
             this.txt_Lysl.Name = "txt_Lysl";
             this.txt_Lysl.Size = new System.Drawing.Size(206, 31);
             this.txt_Lysl.TabIndex = 7;
@@ -137,6 +138,7 @@
             this.txt_Materia_unit.BackColor = System.Drawing.Color.Bisque;
             this.txt_Materia_unit.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Materia_unit.Location = new System.Drawing.Point(110, 167);
+            this.txt_Materia_unit.MaxLength = 10;
             this.txt_Materia_unit.Name = "txt_Materia_unit";
             this.txt_Materia_unit.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_unit.TabIndex = 8;
@@ -270,6 +272,7 @@
             this.txt_Operator.BackColor = System.Drawing.Color.Pink;
             this.txt_Operator.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Operator.Location = new System.Drawing.Point(110, 278);
+            this.txt_Operator.MaxLength = 15;
             this.txt_Operator.Name = "txt_Operator";
             this.txt_Operator.Size = new System.Drawing.Size(206, 31);
             this.txt_Operator.TabIndex = 21;

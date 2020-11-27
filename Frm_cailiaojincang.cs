@@ -299,11 +299,12 @@ namespace MTsystem_win
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
-                    string strsql = "INSERT INTO `material_input` VALUES (NULL, @Inpuid, @Material_id, @Material_inside_name,";
+                    string strsql = "INSERT INTO `material_input` VALUES (NULL, @Inpuid, @Matid, @Material_id, @Material_inside_name,";
                     strsql += " @Material_jlsl, @Material_unit, @Jlzl, @Input_date, @Input_operator)";
 
                     cmd.CommandText = strsql;
                     cmd.Parameters.AddWithValue("@Inpuid", txt_Inputid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Matid", txt_mat_id.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_jlsl", Convert.ToDecimal(txt_Inputsl.Text.Trim()));
@@ -316,9 +317,9 @@ namespace MTsystem_win
                     string strsqlA = "";
                     if (Querymtaid(txt_mat_id.Text.Trim()) == true)
                     {
-                        strsqlA = "UPDATE `material_stock` SET Material_stock = Material_stock + @Matstock WHERE Matid=@Matid";
+                        strsqlA = "UPDATE `material_stock` SET Material_stock = Material_stock + @Matstock WHERE Matid=@Matida";
                         cmd.CommandText = strsqlA;
-                        cmd.Parameters.AddWithValue("@Matid", txt_mat_id.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Matida", txt_mat_id.Text.Trim());
                         cmd.Parameters.AddWithValue("@Matstock", Convert.ToDecimal(txt_Inputzl.Text.Trim()));
 
                         cmd.ExecuteNonQuery();
@@ -327,10 +328,10 @@ namespace MTsystem_win
                     {
                         strsqlA = "";
 
-                        strsqlA = "INSERT INTO `material_stock` VALUES(NULL,@Matid,@Materialid,@Materialinside_name,";
+                        strsqlA = "INSERT INTO `material_stock` VALUES(NULL,@Matidb,@Materialid,@Materialinside_name,";
                         strsqlA += "@Materialstock,@Inputdate,@Inputoperator)";
                         cmd.CommandText = strsqlA;
-                        cmd.Parameters.AddWithValue("@Matid", txt_mat_id.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Matidb", txt_mat_id.Text.Trim());
                         cmd.Parameters.AddWithValue("@Materialid", txt_Materia_id.Text.Trim());
                         cmd.Parameters.AddWithValue("@Materialinside_name", txt_Materia_name.Text.Trim());
                         cmd.Parameters.AddWithValue("@Materialstock", Convert.ToDecimal(txt_Inputzl.Text.Trim()));

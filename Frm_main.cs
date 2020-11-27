@@ -96,5 +96,10 @@ namespace MTsystem_win
                 MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void sys_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@
             this.purchase_Item,
             this.workshop_Item,
             this.warehouse_Item,
-            this.stock_Viewitem});
+            this.stock_Viewitem,
+            this.sys_exit});
             this.main_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.main_menuStrip.Name = "main_menuStrip";
             this.main_menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -129,6 +131,13 @@
             this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
             this.stock_Viewitem.Text = "库存查询";
             // 
+            // sys_exit
+            // 
+            this.sys_exit.Name = "sys_exit";
+            this.sys_exit.Size = new System.Drawing.Size(93, 23);
+            this.sys_exit.Text = "退出系统";
+            this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -164,5 +173,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Receive;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_In;
         private System.Windows.Forms.ToolStripMenuItem mat_Basestock;
+        private System.Windows.Forms.ToolStripMenuItem sys_exit;
     }
 }
