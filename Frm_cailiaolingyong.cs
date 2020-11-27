@@ -76,17 +76,17 @@ namespace MTsystem_win
 
         private void txt_Lysl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsNumber(e.KeyChar)&&!Char.IsPunctuation(e.KeyChar)&&!Char.IsControl(e.KeyChar))
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
-            else if(Char.IsPunctuation(e.KeyChar))
+            else if (Char.IsPunctuation(e.KeyChar))
             {
-                if (e.KeyChar!='.'||this.txt_Lysl.Text.Length==0)
+                if (e.KeyChar != '.' || this.txt_Lysl.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
-                if (txt_Lysl.Text.LastIndexOf('.')!=-1)
+                if (txt_Lysl.Text.LastIndexOf('.') != -1)
                 {
                     e.Handled = true;
                 }
@@ -153,7 +153,7 @@ namespace MTsystem_win
 
         private void txt_Materia_unit_Leave(object sender, EventArgs e)
         {
-            if (txt_Lysl.Text.Trim()!="" && txt_Materia_unit.Text.Trim() != "")
+            if (txt_Lysl.Text.Trim() != "" && txt_Materia_unit.Text.Trim() != "")
             {
                 txt_Lyzl.Text = Convert.ToString(Convert.ToDecimal(txt_Lysl.Text) * Convert.ToDecimal(txt_Materia_unit.Text.Trim())).Trim();
             }
@@ -200,7 +200,7 @@ namespace MTsystem_win
             {
                 MessageBox.Show("领用总量不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            else if((Convert.ToDecimal(txt_Lyzl.Text.Trim()))<1)
+            else if ((Convert.ToDecimal(txt_Lyzl.Text.Trim())) < 1)
             {
                 MessageBox.Show("领用总量不能为\"0\"！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -215,7 +215,7 @@ namespace MTsystem_win
             }
             else
             {
-                if ((Convert.ToDecimal(txt_Lyzl.Text.Trim()))>(Convert.ToDecimal(txt_matStock.Text.Trim())))
+                if ((Convert.ToDecimal(txt_Lyzl.Text.Trim())) > (Convert.ToDecimal(txt_matStock.Text.Trim())))
                 {
                     MessageBox.Show("领用总量超过当前材料库存总量！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -353,7 +353,7 @@ namespace MTsystem_win
 
             MySqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             rd.Read();
-            if(rd.HasRows)
+            if (rd.HasRows)
             {
                 txt_matStock.Text = rd[1].ToString().Trim();
             }

@@ -19,11 +19,6 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
-        /// <summary>
-        /// 数据链接
-        /// </summary>
-        dbconnectstr dbc = new dbconnectstr();
-
         DataSet ds_Queryresult = new DataSet();
 
         DataView dv_Queryresult = new DataView();
@@ -137,10 +132,12 @@ namespace MTsystem_win
         {
             if(MessageBox.Show("是否保存领料数据？","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Asterisk)==DialogResult.Yes)
             {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = dbc.getCon();
+                    cmd.Connection = conn;
                     string strsql = "INSERT INTO `material_stock` VALUES(NULL,@Matid,@Material_id,@Material_inside_name,";
                     strsql += "@Material_stock,@Input_date,@Input_operator)";
                     cmd.CommandText = strsql;
@@ -153,7 +150,7 @@ namespace MTsystem_win
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    dbc._getClose();
+                    conn.Close();
                     cmd.Dispose();
                     txt_mat_id.Text = "";
                     txt_Materia_id.Text = "";
@@ -177,8 +174,10 @@ namespace MTsystem_win
         private bool Querymtaid(string mtdi)
         {
             bool b = false;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
             string sqlstr = "SELECT * FROM material_stock WHERE Matid=@Matid";
-            MySqlCommand cmd = new MySqlCommand(sqlstr, dbc.getCon());
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
             cmd.Parameters.AddWithValue("@Matid", mtdi.Trim());
 
             MySqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -191,17 +190,18 @@ namespace MTsystem_win
         /// </summary>
         private void Querymtastock()
         {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
-            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, dbc.getCon());
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
             msda.Fill(ds_Queryresult, "resultStock");
-            dbc._getClose();
+            conn.Close();
             msda.Dispose();
             dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
             dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
             dgv_Query_result.Columns[0].HeaderText = "系统码";
             dgv_Query_result.Columns[1].HeaderText = "材料编号";
             dgv_Query_result.Columns[2].HeaderText = "材料名称";
-            dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+            dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
         }
 
         private void btn_Query_Click(object sender, EventArgs e)
@@ -214,7 +214,7 @@ namespace MTsystem_win
                 dgv_Query_result.Columns[0].HeaderText = "系统码";
                 dgv_Query_result.Columns[1].HeaderText = "材料编号";
                 dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+                dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
             }
             else
             {
@@ -225,7 +225,7 @@ namespace MTsystem_win
                 dgv_Query_result.Columns[0].HeaderText = "系统码";
                 dgv_Query_result.Columns[1].HeaderText = "材料编号";
                 dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数";
+                dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
             }
         }
     }

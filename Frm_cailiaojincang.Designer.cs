@@ -30,9 +30,9 @@
         {
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_Outdate = new System.Windows.Forms.TextBox();
+            this.txt_Inputdate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_Outid = new System.Windows.Forms.TextBox();
+            this.txt_Inputid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_Query = new System.Windows.Forms.Button();
             this.dgv_Query_result = new System.Windows.Forms.DataGridView();
@@ -69,17 +69,17 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 19);
             this.label9.TabIndex = 42;
-            this.label9.Text = "领用人:";
+            this.label9.Text = "进仓人:";
             // 
-            // txt_Outdate
+            // txt_Inputdate
             // 
-            this.txt_Outdate.BackColor = System.Drawing.Color.LightCyan;
-            this.txt_Outdate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Outdate.Location = new System.Drawing.Point(110, 241);
-            this.txt_Outdate.Name = "txt_Outdate";
-            this.txt_Outdate.ReadOnly = true;
-            this.txt_Outdate.Size = new System.Drawing.Size(206, 31);
-            this.txt_Outdate.TabIndex = 41;
+            this.txt_Inputdate.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_Inputdate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Inputdate.Location = new System.Drawing.Point(110, 241);
+            this.txt_Inputdate.Name = "txt_Inputdate";
+            this.txt_Inputdate.ReadOnly = true;
+            this.txt_Inputdate.Size = new System.Drawing.Size(206, 31);
+            this.txt_Inputdate.TabIndex = 41;
             // 
             // label8
             // 
@@ -88,17 +88,17 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 19);
             this.label8.TabIndex = 40;
-            this.label8.Text = "领用日期:";
+            this.label8.Text = "进仓日期:";
             // 
-            // txt_Outid
+            // txt_Inputid
             // 
-            this.txt_Outid.BackColor = System.Drawing.Color.LightCyan;
-            this.txt_Outid.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Outid.Location = new System.Drawing.Point(110, 19);
-            this.txt_Outid.Name = "txt_Outid";
-            this.txt_Outid.ReadOnly = true;
-            this.txt_Outid.Size = new System.Drawing.Size(206, 31);
-            this.txt_Outid.TabIndex = 39;
+            this.txt_Inputid.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_Inputid.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Inputid.Location = new System.Drawing.Point(110, 19);
+            this.txt_Inputid.Name = "txt_Inputid";
+            this.txt_Inputid.ReadOnly = true;
+            this.txt_Inputid.Size = new System.Drawing.Size(206, 31);
+            this.txt_Inputid.TabIndex = 39;
             // 
             // label7
             // 
@@ -107,7 +107,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 19);
             this.label7.TabIndex = 38;
-            this.label7.Text = "领用单号:";
+            this.label7.Text = "进仓单号:";
             // 
             // btn_Query
             // 
@@ -122,14 +122,19 @@
             // 
             this.dgv_Query_result.AllowUserToAddRows = false;
             this.dgv_Query_result.AllowUserToDeleteRows = false;
+            this.dgv_Query_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Query_result.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Query_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
             this.dgv_Query_result.ReadOnly = true;
+            this.dgv_Query_result.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Query_result.RowTemplate.Height = 23;
+            this.dgv_Query_result.RowTemplate.ReadOnly = true;
             this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 36;
+            this.dgv_Query_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Query_result_CellFormatting);
             // 
             // txt_Queryid
             // 
@@ -166,6 +171,7 @@
             this.btn_Save.TabIndex = 32;
             this.btn_Save.Text = "保存";
             this.btn_Save.UseVisualStyleBackColor = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // txt_Lyzl
             // 
@@ -212,7 +218,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 19);
             this.label5.TabIndex = 27;
-            this.label5.Text = "领用总量:";
+            this.label5.Text = "进仓总量:";
             // 
             // label4
             // 
@@ -230,7 +236,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 19);
             this.label3.TabIndex = 25;
-            this.label3.Text = "领用数量:";
+            this.label3.Text = "进仓数量:";
             // 
             // label2
             // 
@@ -250,6 +256,7 @@
             this.txt_Materia_id.ReadOnly = true;
             this.txt_Materia_id.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_id.TabIndex = 23;
+            this.txt_Materia_id.DoubleClick += new System.EventHandler(this.txt_Materia_id_DoubleClick);
             // 
             // label1
             // 
@@ -267,9 +274,9 @@
             this.ClientSize = new System.Drawing.Size(1048, 561);
             this.Controls.Add(this.txt_Operator);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txt_Outdate);
+            this.Controls.Add(this.txt_Inputdate);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txt_Outid);
+            this.Controls.Add(this.txt_Inputid);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_Query);
             this.Controls.Add(this.dgv_Query_result);
@@ -292,6 +299,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_cailiaojincang";
             this.Text = "材料进仓窗口";
+            this.Load += new System.EventHandler(this.Frm_cailiaojincang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,9 +310,9 @@
 
         private System.Windows.Forms.TextBox txt_Operator;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_Outdate;
+        private System.Windows.Forms.TextBox txt_Inputdate;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_Outid;
+        private System.Windows.Forms.TextBox txt_Inputid;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_Query;
         private System.Windows.Forms.DataGridView dgv_Query_result;
