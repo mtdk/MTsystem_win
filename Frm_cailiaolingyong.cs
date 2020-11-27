@@ -19,11 +19,6 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
-        /// <summary>
-        /// 数据库链接
-        /// </summary>
-        dbconnectstr dbc = new dbconnectstr();
-
         DataSet ds_Queryresult = new DataSet();
 
         DataView dv_Queryresult = new DataView();
@@ -232,7 +227,7 @@ namespace MTsystem_win
             txt_Materia_name.Text = "";
             txt_Lysl.Text = "";
             txt_Materia_unit.Text = "";
-            txt_Lyzl.Text = "";
+            txt_Lyzl.Text = "0";
             txt_Operator.Text = "";
             txt_matStock.Text = "0";
             txt_Materia_id.Focus();
@@ -266,7 +261,7 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Out_operator", txt_Operator.Text.Trim());
                     cmd.ExecuteNonQuery();
 
-                    string strsqlA = "UPDATE material_stock SET Material_stock = Material_stock - @Matstock WHERE Matid=@Matid";
+                    string strsqlA = "UPDATE `material_stock` SET Material_stock = Material_stock - @Matstock WHERE Matid=@Matid";
 
                     cmd.CommandText = strsqlA;
                     cmd.Parameters.AddWithValue("@Matid", mTid.Trim());
@@ -292,7 +287,7 @@ namespace MTsystem_win
                         txt_Materia_name.Text = "";
                         txt_Lysl.Text = "";
                         txt_Materia_unit.Text = "";
-                        txt_Lyzl.Text = "";
+                        txt_Lyzl.Text = "0";
                         txt_Operator.Text = "";
                         txt_matStock.Text = "0";
                         txt_Materia_id.Focus();
@@ -367,9 +362,11 @@ namespace MTsystem_win
         {
             if (txt_Queryid.Text.Trim() != "")
             {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
                 ds_Queryresult.Clear();
                 string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock WHERE Material_id LIKE '%" + txt_Queryid.Text.Trim() + "%'";
-                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, dbc.getCon());
+                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
                 msda.Fill(ds_Queryresult, "resultStock");
 
                 dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
@@ -378,7 +375,7 @@ namespace MTsystem_win
                 dgv_Query_result.Columns[1].HeaderText = "材料编号";
                 dgv_Query_result.Columns[2].HeaderText = "材料名称";
                 dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
-                dbc._getClose();
+                conn.Close();
                 msda.Dispose();
             }
             else

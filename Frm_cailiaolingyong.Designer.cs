@@ -212,9 +212,9 @@
             // 
             this.btn_Query.Location = new System.Drawing.Point(687, 22);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 30);
+            this.btn_Query.Size = new System.Drawing.Size(108, 30);
             this.btn_Query.TabIndex = 15;
-            this.btn_Query.Text = "查询";
+            this.btn_Query.Text = "查询/刷新";
             this.btn_Query.UseVisualStyleBackColor = true;
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Inputdate = new System.Windows.Forms.TextBox();
@@ -92,9 +92,9 @@
             // 
             this.btn_Query.Location = new System.Drawing.Point(687, 20);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 30);
+            this.btn_Query.Size = new System.Drawing.Size(108, 30);
             this.btn_Query.TabIndex = 37;
-            this.btn_Query.Text = "查询";
+            this.btn_Query.Text = "查询/刷新";
             this.btn_Query.UseVisualStyleBackColor = true;
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
@@ -108,12 +108,13 @@
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
             this.dgv_Query_result.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_Query_result.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_Query_result.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 36;
+            this.dgv_Query_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Query_result_CellFormatting);
             // 
             // txt_Queryid
             // 

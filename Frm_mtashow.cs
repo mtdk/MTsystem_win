@@ -19,9 +19,6 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
-        //数据库链接
-        dbconnectstr dbc = new dbconnectstr();
-
         DataSet ds_Queryresult = new DataSet();
 
         DataView dv_Queryresult = new DataView();
@@ -55,11 +52,13 @@ namespace MTsystem_win
         /// </summary>
         private void Queryresult()
         {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
             string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM `material` LIMIT 0, 1000";
-            MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, dbc.getCon());
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, conn);
             msda.Fill(ds_Queryresult, "resultTable");
             dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
-            dbc._getClose();
+            conn.Close();
         }
 
         private void btn_Query_Click(object sender, EventArgs e)

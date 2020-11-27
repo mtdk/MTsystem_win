@@ -206,26 +206,43 @@ namespace MTsystem_win
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-            if (txt_Queryid.Text.Trim()!="")
+            if (txt_Queryid.Text.Trim() != "")
             {
-                dgv_Query_result.DataSource = null;
-                dv_Queryresult.RowFilter = "Material_id like '%" + txt_Queryid.Text.Trim() + "%'";
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                ds_Queryresult.Clear();
+                string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock WHERE Material_id LIKE '%" + txt_Queryid.Text.Trim() + "%'";
+                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+                msda.Fill(ds_Queryresult, "resultStock");
+
+                dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
                 dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
                 dgv_Query_result.Columns[0].HeaderText = "系统码";
                 dgv_Query_result.Columns[1].HeaderText = "材料编号";
                 dgv_Query_result.Columns[2].HeaderText = "材料名称";
                 dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+                conn.Close();
+                msda.Dispose();
             }
             else
             {
-                dgv_Query_result.DataSource = null;
-                dv_Queryresult.RowFilter = null;
+                ds_Queryresult.Clear();
                 Querymtastock();
-                dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
-                dgv_Query_result.Columns[0].HeaderText = "系统码";
-                dgv_Query_result.Columns[1].HeaderText = "材料编号";
-                dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+            }
+        }
+
+        private void dgv_Query_result_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < this.dgv_Query_result.Rows.Count; i++)
+            {
+                if (Convert.ToDecimal(dgv_Query_result.Rows[i].Cells[3].Value.ToString().Trim()) <= 0)
+                {
+                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Black;
+                }
             }
         }
     }

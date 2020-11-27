@@ -40,9 +40,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
-            this.txt_Lyzl = new System.Windows.Forms.TextBox();
+            this.txt_Inputzl = new System.Windows.Forms.TextBox();
             this.txt_Materia_unit = new System.Windows.Forms.TextBox();
-            this.txt_Lysl = new System.Windows.Forms.TextBox();
+            this.txt_Inputsl = new System.Windows.Forms.TextBox();
             this.txt_Materia_name = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +50,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Materia_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_mat_id = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,15 +59,17 @@
             // 
             this.txt_Operator.BackColor = System.Drawing.Color.Pink;
             this.txt_Operator.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Operator.Location = new System.Drawing.Point(110, 278);
+            this.txt_Operator.Location = new System.Drawing.Point(110, 315);
             this.txt_Operator.Name = "txt_Operator";
+            this.txt_Operator.ReadOnly = true;
             this.txt_Operator.Size = new System.Drawing.Size(206, 31);
             this.txt_Operator.TabIndex = 43;
+            this.txt_Operator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Operator_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 284);
+            this.label9.Location = new System.Drawing.Point(32, 321);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 19);
             this.label9.TabIndex = 42;
@@ -75,7 +79,7 @@
             // 
             this.txt_Inputdate.BackColor = System.Drawing.Color.LightCyan;
             this.txt_Inputdate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Inputdate.Location = new System.Drawing.Point(110, 241);
+            this.txt_Inputdate.Location = new System.Drawing.Point(110, 278);
             this.txt_Inputdate.Name = "txt_Inputdate";
             this.txt_Inputdate.ReadOnly = true;
             this.txt_Inputdate.Size = new System.Drawing.Size(206, 31);
@@ -84,7 +88,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 247);
+            this.label8.Location = new System.Drawing.Point(14, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 19);
             this.label8.TabIndex = 40;
@@ -113,10 +117,11 @@
             // 
             this.btn_Query.Location = new System.Drawing.Point(687, 20);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 30);
+            this.btn_Query.Size = new System.Drawing.Size(108, 30);
             this.btn_Query.TabIndex = 37;
-            this.btn_Query.Text = "查询";
+            this.btn_Query.Text = "查询/刷新";
             this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // dgv_Query_result
             // 
@@ -131,7 +136,6 @@
             this.dgv_Query_result.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
-            this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Query_result.Size = new System.Drawing.Size(689, 487);
             this.dgv_Query_result.TabIndex = 36;
             this.dgv_Query_result.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Query_result_CellFormatting);
@@ -155,17 +159,18 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(185, 336);
+            this.btn_Cancel.Location = new System.Drawing.Point(185, 373);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_Cancel.TabIndex = 33;
             this.btn_Cancel.Text = "取消";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_Save.Location = new System.Drawing.Point(71, 336);
+            this.btn_Save.Location = new System.Drawing.Point(71, 373);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 30);
             this.btn_Save.TabIndex = 32;
@@ -173,39 +178,43 @@
             this.btn_Save.UseVisualStyleBackColor = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // txt_Lyzl
+            // txt_Inputzl
             // 
-            this.txt_Lyzl.BackColor = System.Drawing.Color.Bisque;
-            this.txt_Lyzl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Lyzl.Location = new System.Drawing.Point(110, 204);
-            this.txt_Lyzl.Name = "txt_Lyzl";
-            this.txt_Lyzl.ReadOnly = true;
-            this.txt_Lyzl.Size = new System.Drawing.Size(206, 31);
-            this.txt_Lyzl.TabIndex = 31;
+            this.txt_Inputzl.BackColor = System.Drawing.Color.Bisque;
+            this.txt_Inputzl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Inputzl.Location = new System.Drawing.Point(110, 241);
+            this.txt_Inputzl.Name = "txt_Inputzl";
+            this.txt_Inputzl.ReadOnly = true;
+            this.txt_Inputzl.Size = new System.Drawing.Size(206, 31);
+            this.txt_Inputzl.TabIndex = 31;
             // 
             // txt_Materia_unit
             // 
             this.txt_Materia_unit.BackColor = System.Drawing.Color.Bisque;
             this.txt_Materia_unit.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Materia_unit.Location = new System.Drawing.Point(110, 167);
+            this.txt_Materia_unit.Location = new System.Drawing.Point(110, 204);
             this.txt_Materia_unit.Name = "txt_Materia_unit";
             this.txt_Materia_unit.Size = new System.Drawing.Size(206, 31);
             this.txt_Materia_unit.TabIndex = 30;
+            this.txt_Materia_unit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Materia_unit_KeyPress);
+            this.txt_Materia_unit.Leave += new System.EventHandler(this.txt_Materia_unit_Leave);
             // 
-            // txt_Lysl
+            // txt_Inputsl
             // 
-            this.txt_Lysl.BackColor = System.Drawing.Color.Bisque;
-            this.txt_Lysl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Lysl.Location = new System.Drawing.Point(110, 130);
-            this.txt_Lysl.Name = "txt_Lysl";
-            this.txt_Lysl.Size = new System.Drawing.Size(206, 31);
-            this.txt_Lysl.TabIndex = 29;
+            this.txt_Inputsl.BackColor = System.Drawing.Color.Bisque;
+            this.txt_Inputsl.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Inputsl.Location = new System.Drawing.Point(110, 167);
+            this.txt_Inputsl.Name = "txt_Inputsl";
+            this.txt_Inputsl.Size = new System.Drawing.Size(206, 31);
+            this.txt_Inputsl.TabIndex = 29;
+            this.txt_Inputsl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Inputsl_KeyPress);
+            this.txt_Inputsl.Leave += new System.EventHandler(this.txt_Inputsl_Leave);
             // 
             // txt_Materia_name
             // 
             this.txt_Materia_name.BackColor = System.Drawing.Color.LightCyan;
             this.txt_Materia_name.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Materia_name.Location = new System.Drawing.Point(110, 93);
+            this.txt_Materia_name.Location = new System.Drawing.Point(110, 130);
             this.txt_Materia_name.Name = "txt_Materia_name";
             this.txt_Materia_name.ReadOnly = true;
             this.txt_Materia_name.Size = new System.Drawing.Size(206, 31);
@@ -214,7 +223,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 210);
+            this.label5.Location = new System.Drawing.Point(14, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 19);
             this.label5.TabIndex = 27;
@@ -223,7 +232,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 173);
+            this.label4.Location = new System.Drawing.Point(14, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 26;
@@ -232,7 +241,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 136);
+            this.label3.Location = new System.Drawing.Point(14, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 19);
             this.label3.TabIndex = 25;
@@ -241,7 +250,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 99);
+            this.label2.Location = new System.Drawing.Point(14, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 24;
@@ -251,7 +260,7 @@
             // 
             this.txt_Materia_id.BackColor = System.Drawing.Color.LightCyan;
             this.txt_Materia_id.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Materia_id.Location = new System.Drawing.Point(110, 56);
+            this.txt_Materia_id.Location = new System.Drawing.Point(110, 93);
             this.txt_Materia_id.Name = "txt_Materia_id";
             this.txt_Materia_id.ReadOnly = true;
             this.txt_Materia_id.Size = new System.Drawing.Size(206, 31);
@@ -261,17 +270,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 62);
+            this.label1.Location = new System.Drawing.Point(14, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 22;
             this.label1.Text = "材料编号:";
+            // 
+            // txt_mat_id
+            // 
+            this.txt_mat_id.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_mat_id.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_mat_id.Location = new System.Drawing.Point(110, 56);
+            this.txt_mat_id.Name = "txt_mat_id";
+            this.txt_mat_id.ReadOnly = true;
+            this.txt_mat_id.Size = new System.Drawing.Size(206, 31);
+            this.txt_mat_id.TabIndex = 47;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(32, 62);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 19);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "系统码:";
             // 
             // Frm_cailiaojincang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 561);
+            this.Controls.Add(this.txt_mat_id);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_Operator);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_Inputdate);
@@ -284,9 +314,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.txt_Lyzl);
+            this.Controls.Add(this.txt_Inputzl);
             this.Controls.Add(this.txt_Materia_unit);
-            this.Controls.Add(this.txt_Lysl);
+            this.Controls.Add(this.txt_Inputsl);
             this.Controls.Add(this.txt_Materia_name);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -298,7 +328,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_cailiaojincang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "材料进仓窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_cailiaojincang_FormClosed);
             this.Load += new System.EventHandler(this.Frm_cailiaojincang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).EndInit();
             this.ResumeLayout(false);
@@ -320,9 +352,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.TextBox txt_Lyzl;
+        private System.Windows.Forms.TextBox txt_Inputzl;
         private System.Windows.Forms.TextBox txt_Materia_unit;
-        private System.Windows.Forms.TextBox txt_Lysl;
+        private System.Windows.Forms.TextBox txt_Inputsl;
         private System.Windows.Forms.TextBox txt_Materia_name;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -330,5 +362,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Materia_id;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_mat_id;
+        private System.Windows.Forms.Label label10;
     }
 }
