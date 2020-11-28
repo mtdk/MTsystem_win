@@ -50,12 +50,15 @@
     <ApplicationIcon>MT.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.3\Assemblies\v4.0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,8 +71,12 @@
   <ItemGroup>
     <Compile Include="allClass\connectstr.cs" />
     <Compile Include="allClass\frmShowstatus.cs" />
-    <Compile Include="allClass\myMsqlhelper.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
+    <Compile Include="dsControl\ds_mat_stockReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mat_stockReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Frm_cailiaojincang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,12 @@
     <Compile Include="Frm_matbaseinput.Designer.cs">
       <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_mat_stockReportview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_mat_stockReportview.Designer.cs">
+      <DependentUpon>Frm_mat_stockReportview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_mtashow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,9 +136,13 @@
     <EmbeddedResource Include="Frm_matbaseinput.resx">
       <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_mat_stockReportview.resx">
+      <DependentUpon>Frm_mat_stockReportview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -135,6 +152,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dsControl\ds_mat_stockReport.xsc">
+      <DependentUpon>ds_mat_stockReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_mat_stockReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mat_stockReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_mat_stockReport.xss">
+      <DependentUpon>ds_mat_stockReport.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -170,11 +198,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dsControl\" />
-    <Folder Include="printForm\" />
-    <Folder Include="sysbin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

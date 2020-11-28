@@ -38,8 +38,8 @@
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
-            this.stock_Viewitem = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mat_stock_Reportview = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +51,6 @@
             this.purchase_Item,
             this.workshop_Item,
             this.warehouse_Item,
-            this.stock_Viewitem,
             this.sys_exit});
             this.main_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.main_menuStrip.Name = "main_menuStrip";
@@ -106,7 +105,8 @@
             // 
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_In,
-            this.mat_Basestock});
+            this.mat_Basestock,
+            this.mat_stock_Reportview});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
@@ -125,18 +125,19 @@
             this.mat_Basestock.Text = "材料期初库存";
             this.mat_Basestock.Click += new System.EventHandler(this.mat_Basestock_Click);
             // 
-            // stock_Viewitem
-            // 
-            this.stock_Viewitem.Name = "stock_Viewitem";
-            this.stock_Viewitem.Size = new System.Drawing.Size(93, 23);
-            this.stock_Viewitem.Text = "库存查询";
-            // 
             // sys_exit
             // 
             this.sys_exit.Name = "sys_exit";
             this.sys_exit.Size = new System.Drawing.Size(93, 23);
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
+            // 
+            // mat_stock_Reportview
+            // 
+            this.mat_stock_Reportview.Name = "mat_stock_Reportview";
+            this.mat_stock_Reportview.Size = new System.Drawing.Size(186, 24);
+            this.mat_stock_Reportview.Text = "材料库存报表";
+            this.mat_stock_Reportview.Click += new System.EventHandler(this.mat_stock_Reportview_Click);
             // 
             // Frm_main
             // 
@@ -169,10 +170,10 @@
         private System.Windows.Forms.ToolStripMenuItem purchase_Item;
         private System.Windows.Forms.ToolStripMenuItem workshop_Item;
         private System.Windows.Forms.ToolStripMenuItem warehouse_Item;
-        private System.Windows.Forms.ToolStripMenuItem stock_Viewitem;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Receive;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_In;
         private System.Windows.Forms.ToolStripMenuItem mat_Basestock;
         private System.Windows.Forms.ToolStripMenuItem sys_exit;
+        private System.Windows.Forms.ToolStripMenuItem mat_stock_Reportview;
     }
 }

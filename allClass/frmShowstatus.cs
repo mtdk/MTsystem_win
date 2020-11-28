@@ -61,5 +61,12 @@ namespace MTsystem_win.allClass
             set { _frmbsin = value; }
             get { return _frmbsin; }
         }
+
+        private static string _frmsrv;
+        public static string _Frmsrv
+        {
+            set { _frmsrv = value; }
+            get { return _frmsrv; }
+        }
     }
 }
