@@ -54,7 +54,7 @@ namespace MTsystem_win
                 mat_stockReportview.LocalReport.DataSources.Add(rds);
 
                 this.mat_stockReportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                this.mat_stockReportview.ZoomMode = ZoomMode.Percent;
+                this.mat_stockReportview.ZoomMode = ZoomMode.PageWidth;
                 this.mat_stockReportview.ZoomPercent = 100;
                 this.mat_stockReportview.RefreshReport();
             }
