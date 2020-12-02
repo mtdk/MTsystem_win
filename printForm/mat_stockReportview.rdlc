@@ -1,26 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="ds_mat_stockReport">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>f4d6f144-475a-4b87-af6f-18220a492173</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ds_mat_stockReport">
+      <Fields>
+        <Field Name="Material_id">
+          <DataField>Material_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_inside_name">
+          <DataField>Material_inside_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_stock">
+          <DataField>Material_stock</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Material_class">
+          <DataField>Material_class</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ds_mat_stockReport</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
+        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
+        <rd:TableName>tb_mat_stockReport</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <Body>
     <ReportItems>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.20688cm</Width>
+              <Width>1.40625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.70958cm</Width>
+              <Width>3.23958in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.20688cm</Width>
+              <Width>1.3125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.20688cm</Width>
+              <Width>0.82292in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.23622in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -205,7 +248,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.94396cm</Height>
+              <Height>0.37164in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -263,7 +306,7 @@
                             <TextRun>
                               <Value>=Fields!Material_inside_name.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
@@ -355,7 +398,7 @@
                             <TextRun>
                               <Value>=Fields!Material_class.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
@@ -388,6 +431,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -419,7 +463,7 @@
         <KeepTogether>true</KeepTogether>
         <Left>0.3175cm</Left>
         <Height>1.54396cm</Height>
-        <Width>17.33021cm</Width>
+        <Width>17.22439cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -455,50 +499,6 @@
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
-  <AutoRefresh>0</AutoRefresh>
-  <DataSources>
-    <DataSource Name="ds_mat_stockReport">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>f4d6f144-475a-4b87-af6f-18220a492173</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="ds_mat_stockReport">
-      <Query>
-        <DataSourceName>ds_mat_stockReport</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Material_id">
-          <DataField>Material_id</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_inside_name">
-          <DataField>Material_inside_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_stock">
-          <DataField>Material_stock</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Material_class">
-          <DataField>Material_class</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
-        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
-        <rd:TableName>tb_mat_stockReport</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>83a6e4b1-9b7a-4cc6-846b-daaa5d2d31d0</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>
