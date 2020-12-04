@@ -42,7 +42,7 @@ namespace MTsystem_win
             try
             {
                 MySqlCommand cmd = new MySqlCommand(strsql, conn);
-                DataSet ds = new ds_mat_stockReport();
+                ds_mat_stockReport ds = new ds_mat_stockReport();
                 MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_mat_stockReport"].Load(dr);
 

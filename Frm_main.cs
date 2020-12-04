@@ -22,6 +22,11 @@ namespace MTsystem_win
             Application.Exit();
         }
 
+        private void sys_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void tsmi_mat_Receive_Click(object sender, EventArgs e)
         {
             if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 206)
@@ -97,12 +102,7 @@ namespace MTsystem_win
             }
         }
 
-        private void sys_exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void mat_stock_Reportview_Click(object sender, EventArgs e)
+        private void mat_stock_Report_Click(object sender, EventArgs e)
         {
             if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
             {
@@ -126,5 +126,13 @@ namespace MTsystem_win
                 MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void mat_Dayreport_Click(object sender, EventArgs e)
+        {
+            Frm_mat_dayReportview frm_mdsr = new Frm_mat_dayReportview();
+            frm_mdsr.MdiParent = this;
+            frm_mdsr.Show();
+        }
+
     }
 }
