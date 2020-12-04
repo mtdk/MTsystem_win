@@ -72,6 +72,16 @@
     <Compile Include="allClass\connectstr.cs" />
     <Compile Include="allClass\frmShowstatus.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
+    <Compile Include="dsControl\ds_mat_dinputReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mat_dinputReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsControl\ds_mat_doutputReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mat_doutputReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsControl\ds_mat_stockReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,8 +161,8 @@
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="printForm\mat_DayReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
-    <EmbeddedResource Include="printForm\mat_stockDayReportview.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,6 +172,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dsControl\ds_mat_dinputReport.xsc">
+      <DependentUpon>ds_mat_dinputReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_mat_dinputReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mat_dinputReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_mat_dinputReport.xss">
+      <DependentUpon>ds_mat_dinputReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_mat_doutputReport.xsc">
+      <DependentUpon>ds_mat_doutputReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_mat_doutputReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mat_doutputReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_mat_doutputReport.xss">
+      <DependentUpon>ds_mat_doutputReport.xsd</DependentUpon>
+    </None>
     <None Include="dsControl\ds_mat_stockReport.xsc">
       <DependentUpon>ds_mat_stockReport.xsd</DependentUpon>
     </None>

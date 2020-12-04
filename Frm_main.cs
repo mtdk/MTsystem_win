@@ -112,7 +112,6 @@ namespace MTsystem_win
                     {
                         Frm_mat_stockReportview frm_msrv = new Frm_mat_stockReportview();
                         frm_msrv.MdiParent = this;
-                        //frm_bsin.WindowState = FormWindowState.Maximized;
                         frm_msrv.Show();
                     }
                 }
@@ -129,9 +128,27 @@ namespace MTsystem_win
 
         private void mat_Dayreport_Click(object sender, EventArgs e)
         {
-            Frm_mat_dayReportview frm_mdsr = new Frm_mat_dayReportview();
-            frm_mdsr.MdiParent = this;
-            frm_mdsr.Show();
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frdmsrv == "CLOSE" || frmShowstatus._Frdmsrv == null)
+                    {
+                        Frm_mat_dayReportview frm_dmsr = new Frm_mat_dayReportview();
+                        frm_dmsr.MdiParent = this;
+                        frm_dmsr.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
     }

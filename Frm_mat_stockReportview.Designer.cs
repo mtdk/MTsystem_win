@@ -62,6 +62,7 @@
             this.Name = "Frm_mat_stockReportview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "库存报表窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_mat_stockReportview_FormClosed);
             this.Load += new System.EventHandler(this.Frm_mat_stockReportview_Load);
             this.ResumeLayout(false);
 

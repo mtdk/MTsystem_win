@@ -24,19 +24,6 @@ namespace MTsystem_win.allClass
         }
 
         /// <summary>
-        /// 材料库存窗口
-        /// </summary>
-        private static string _frmmsc;
-        /// <summary>
-        /// 材料库存窗口
-        /// </summary>
-        public static string _Frmmsc
-        {
-            set { _frmmsc = value; }
-            get { return _frmmsc; }
-        }
-
-        /// <summary>
         /// 材料进仓窗口
         /// </summary>
         private static string _frmcljc;
@@ -62,11 +49,30 @@ namespace MTsystem_win.allClass
             get { return _frmbsin; }
         }
 
+        /// <summary>
+        /// 材料库存总报表窗口
+        /// </summary>
         private static string _frmsrv;
+        /// <summary>
+        /// 材料库存总报表窗口
+        /// </summary>
         public static string _Frmsrv
         {
             set { _frmsrv = value; }
             get { return _frmsrv; }
+        }
+
+        /// <summary>
+        /// 材料进、出仓日报表窗口
+        /// </summary>
+        private static string _frdmsrv;
+        /// <summary>
+        /// 材料进、出仓日报表窗口
+        /// </summary>
+        public static string _Frdmsrv
+        {
+            set { _frdmsrv = value; }
+            get { return _frdmsrv; }
         }
     }
 }

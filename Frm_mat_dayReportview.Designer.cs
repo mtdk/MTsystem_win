@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.label1 = new System.Windows.Forms.Label();
             this.rdb_matInput_report = new System.Windows.Forms.RadioButton();
             this.rdb_matOut_report = new System.Windows.Forms.RadioButton();
@@ -98,10 +98,10 @@
             // 
             // mat_stockDayreportview
             // 
-            reportDataSource2.Name = "ds_mat_stockReport";
-            reportDataSource2.Value = null;
-            this.mat_stockDayreportview.LocalReport.DataSources.Add(reportDataSource2);
-            this.mat_stockDayreportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_stockReportview.rdlc";
+            reportDataSource1.Name = "ds_mat_stockReport";
+            reportDataSource1.Value = null;
+            this.mat_stockDayreportview.LocalReport.DataSources.Add(reportDataSource1);
+            this.mat_stockDayreportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_DayReportview.rdlc";
             this.mat_stockDayreportview.Location = new System.Drawing.Point(5, 55);
             this.mat_stockDayreportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.mat_stockDayreportview.Name = "mat_stockDayreportview";
@@ -112,7 +112,7 @@
             this.mat_stockDayreportview.Size = new System.Drawing.Size(825, 800);
             this.mat_stockDayreportview.TabIndex = 6;
             // 
-            // Frm_mat_daystockReportview
+            // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,9 +128,11 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_mat_daystockReportview";
+            this.Name = "Frm_mat_dayReportview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料日报表窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_mat_dayReportview_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_mat_dayReportview_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

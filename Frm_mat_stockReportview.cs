@@ -24,9 +24,11 @@ namespace MTsystem_win
 
         private void Frm_mat_stockReportview_Load(object sender, EventArgs e)
         {
-
-            //this.mat_stockReportview.RefreshReport();
-            PrintBing();
+            if (frmShowstatus._Frmsrv == "CLOSE" || frmShowstatus._Frmsrv == null)
+            {
+                frmShowstatus._Frmsrv = "OPEN";
+                PrintBing();
+            }
         }
 
         private void PrintBing()
@@ -36,13 +38,13 @@ namespace MTsystem_win
             strsql += "material_stock.Material_stock,";
             strsql += "material.Material_class";
             strsql += " FROM material_stock, material WHERE material_stock.Matid = material.Matid ORDER BY material.Material_class ASC";
-
+            
+            ds_mat_stockReport ds = new ds_mat_stockReport();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             try
             {
                 MySqlCommand cmd = new MySqlCommand(strsql, conn);
-                ds_mat_stockReport ds = new ds_mat_stockReport();
                 MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_mat_stockReport"].Load(dr);
 
@@ -62,6 +64,11 @@ namespace MTsystem_win
             {
                 MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Frm_mat_stockReportview_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmShowstatus._Frmsrv = "CLOSE";
         }
     }
 }
