@@ -54,22 +54,40 @@ namespace MTsystem_win
         {
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
-            string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM `material` LIMIT 0, 1000";
+            string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM material";
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, conn);
             msda.Fill(ds_Queryresult, "resultTable");
+
             dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
+            dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
+            dgv_Queryresult.Columns[0].HeaderText = "序号";
+            dgv_Queryresult.Columns[1].HeaderText = "材料编号";
+            dgv_Queryresult.Columns[2].HeaderText = "材料名称";
             conn.Close();
         }
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-
+            doQuery();
+        }
+        /// <summary>
+        /// 执行材料信息查询
+        /// </summary>
+        private void doQuery()
+        {
             if (txt_Querycondition.Text.Trim() != "")
             {
                 if (rdb_Queryid.Checked == true)
                 {
-                    dgv_Queryresult.DataSource = null;
-                    dv_Queryresult.RowFilter = "Material_id like '%" + txt_Querycondition.Text.Trim() + "%'";
+                    MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                    conn.Open();
+                    ds_Queryresult.Clear();
+                    string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM material";
+                    sqlsrt += " WHERE Material_id LIKE '%" + txt_Querycondition.Text.Trim() + "%'";
+                    MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, conn);
+                    msda.Fill(ds_Queryresult, "resultTable");
+
+                    dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
                     dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
                     dgv_Queryresult.Columns[0].HeaderText = "序号";
                     dgv_Queryresult.Columns[1].HeaderText = "材料编号";
@@ -77,8 +95,15 @@ namespace MTsystem_win
                 }
                 else
                 {
-                    dgv_Queryresult.DataSource = null;
-                    dv_Queryresult.RowFilter = "Material_inside_name like '%" + txt_Querycondition.Text.Trim() + "%'";
+                    MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                    conn.Open();
+                    ds_Queryresult.Clear();
+                    string sqlsrt = "SELECT Matid, Material_id, Material_inside_name FROM material";
+                    sqlsrt += " WHERE Material_inside_name LIKE '%" + txt_Querycondition.Text.Trim() + "%'";
+                    MySqlDataAdapter msda = new MySqlDataAdapter(sqlsrt, conn);
+                    msda.Fill(ds_Queryresult, "resultTable");
+
+                    dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
                     dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
                     dgv_Queryresult.Columns[0].HeaderText = "序号";
                     dgv_Queryresult.Columns[1].HeaderText = "材料编号";
@@ -87,13 +112,8 @@ namespace MTsystem_win
             }
             else
             {
-                dgv_Queryresult.DataSource = null;
-                dv_Queryresult.RowFilter = null;
+                ds_Queryresult.Clear();
                 Queryresult();
-                dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
-                dgv_Queryresult.Columns[0].HeaderText = "序号";
-                dgv_Queryresult.Columns[1].HeaderText = "材料编号";
-                dgv_Queryresult.Columns[2].HeaderText = "材料名称";
             }
         }
 
@@ -112,6 +132,15 @@ namespace MTsystem_win
             {
                 this.Close();
                 this.Dispose();
+            }
+        }
+
+        private void txt_Querycondition_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                doQuery();
             }
         }
     }

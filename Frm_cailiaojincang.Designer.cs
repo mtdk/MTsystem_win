@@ -147,6 +147,7 @@
             this.txt_Queryid.Name = "txt_Queryid";
             this.txt_Queryid.Size = new System.Drawing.Size(206, 30);
             this.txt_Queryid.TabIndex = 35;
+            this.txt_Queryid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Queryid_KeyPress);
             // 
             // label6
             // 

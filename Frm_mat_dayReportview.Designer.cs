@@ -101,7 +101,7 @@
             reportDataSource1.Name = "ds_mat_stockReport";
             reportDataSource1.Value = null;
             this.mat_dayReportview.LocalReport.DataSources.Add(reportDataSource1);
-            this.mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_stockReportview.rdlc";
+            this.mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_dayoutReportview.rdlc";
             this.mat_dayReportview.Location = new System.Drawing.Point(8, 55);
             this.mat_dayReportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.mat_dayReportview.Name = "mat_dayReportview";

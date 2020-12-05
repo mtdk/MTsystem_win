@@ -75,6 +75,7 @@
             this.txt_Querycondition.Name = "txt_Querycondition";
             this.txt_Querycondition.Size = new System.Drawing.Size(190, 26);
             this.txt_Querycondition.TabIndex = 3;
+            this.txt_Querycondition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Querycondition_KeyPress);
             // 
             // btn_Query
             // 

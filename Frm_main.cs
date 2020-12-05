@@ -151,5 +151,11 @@ namespace MTsystem_win
 
         }
 
+        private void tsmi_mat_ReceiveQuery_Click(object sender, EventArgs e)
+        {
+            Frm_mat_input_query frm_miq = new Frm_mat_input_query();
+            frm_miq.MdiParent = this;
+            frm_miq.Show();
+        }
     }
 }

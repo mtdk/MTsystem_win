@@ -41,6 +41,7 @@
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_ReceiveQuery = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             // workshop_Item
             // 
             this.workshop_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_mat_Receive});
+            this.tsmi_mat_Receive,
+            this.tsmi_mat_ReceiveQuery});
             this.workshop_Item.Name = "workshop_Item";
             this.workshop_Item.Size = new System.Drawing.Size(57, 23);
             this.workshop_Item.Text = "车间";
@@ -98,7 +100,7 @@
             // tsmi_mat_Receive
             // 
             this.tsmi_mat_Receive.Name = "tsmi_mat_Receive";
-            this.tsmi_mat_Receive.Size = new System.Drawing.Size(150, 24);
+            this.tsmi_mat_Receive.Size = new System.Drawing.Size(186, 24);
             this.tsmi_mat_Receive.Text = "材料领用";
             this.tsmi_mat_Receive.Click += new System.EventHandler(this.tsmi_mat_Receive_Click);
             // 
@@ -148,6 +150,13 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
+            // tsmi_mat_ReceiveQuery
+            // 
+            this.tsmi_mat_ReceiveQuery.Name = "tsmi_mat_ReceiveQuery";
+            this.tsmi_mat_ReceiveQuery.Size = new System.Drawing.Size(186, 24);
+            this.tsmi_mat_ReceiveQuery.Text = "领料记录查询";
+            this.tsmi_mat_ReceiveQuery.Click += new System.EventHandler(this.tsmi_mat_ReceiveQuery_Click);
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -185,5 +194,6 @@
         private System.Windows.Forms.ToolStripMenuItem sys_exit;
         private System.Windows.Forms.ToolStripMenuItem mat_stock_Report;
         private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_ReceiveQuery;
     }
 }

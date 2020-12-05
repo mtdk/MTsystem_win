@@ -28,6 +28,8 @@ namespace MTsystem_win.dsControl {
         
         private tb_mat_inputReportDataTable tabletb_mat_inputReport;
         
+        private tb_mat_outputReportDataTable tabletb_mat_outputReport;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace MTsystem_win.dsControl {
                 }
                 if ((ds.Tables["tb_mat_inputReport"] != null)) {
                     base.Tables.Add(new tb_mat_inputReportDataTable(ds.Tables["tb_mat_inputReport"]));
+                }
+                if ((ds.Tables["tb_mat_outputReport"] != null)) {
+                    base.Tables.Add(new tb_mat_outputReportDataTable(ds.Tables["tb_mat_outputReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace MTsystem_win.dsControl {
         public tb_mat_inputReportDataTable tb_mat_inputReport {
             get {
                 return this.tabletb_mat_inputReport;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tb_mat_outputReportDataTable tb_mat_outputReport {
+            get {
+                return this.tabletb_mat_outputReport;
             }
         }
         
@@ -173,6 +188,9 @@ namespace MTsystem_win.dsControl {
                 if ((ds.Tables["tb_mat_inputReport"] != null)) {
                     base.Tables.Add(new tb_mat_inputReportDataTable(ds.Tables["tb_mat_inputReport"]));
                 }
+                if ((ds.Tables["tb_mat_outputReport"] != null)) {
+                    base.Tables.Add(new tb_mat_outputReportDataTable(ds.Tables["tb_mat_outputReport"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace MTsystem_win.dsControl {
                     this.tabletb_mat_inputReport.InitVars();
                 }
             }
+            this.tabletb_mat_outputReport = ((tb_mat_outputReportDataTable)(base.Tables["tb_mat_outputReport"]));
+            if ((initTable == true)) {
+                if ((this.tabletb_mat_outputReport != null)) {
+                    this.tabletb_mat_outputReport.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace MTsystem_win.dsControl {
             base.Tables.Add(this.tabletb_mat_stockReport);
             this.tabletb_mat_inputReport = new tb_mat_inputReportDataTable();
             base.Tables.Add(this.tabletb_mat_inputReport);
+            this.tabletb_mat_outputReport = new tb_mat_outputReportDataTable();
+            base.Tables.Add(this.tabletb_mat_outputReport);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace MTsystem_win.dsControl {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializetb_mat_inputReport() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializetb_mat_outputReport() {
             return false;
         }
         
@@ -306,6 +338,9 @@ namespace MTsystem_win.dsControl {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void tb_mat_inputReportRowChangeEventHandler(object sender, tb_mat_inputReportRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void tb_mat_outputReportRowChangeEventHandler(object sender, tb_mat_outputReportRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -928,6 +963,337 @@ namespace MTsystem_win.dsControl {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tb_mat_outputReportDataTable : global::System.Data.TypedTableBase<tb_mat_outputReportRow> {
+            
+            private global::System.Data.DataColumn columnMaterial_id;
+            
+            private global::System.Data.DataColumn columnMaterial_inside_name;
+            
+            private global::System.Data.DataColumn columnMaterial_lysl;
+            
+            private global::System.Data.DataColumn columnMaterial_unit;
+            
+            private global::System.Data.DataColumn columnLyzl;
+            
+            private global::System.Data.DataColumn columnOut_date;
+            
+            private global::System.Data.DataColumn columnMaterial_class;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportDataTable() {
+                this.TableName = "tb_mat_outputReport";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal tb_mat_outputReportDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected tb_mat_outputReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Material_idColumn {
+                get {
+                    return this.columnMaterial_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Material_inside_nameColumn {
+                get {
+                    return this.columnMaterial_inside_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Material_lyslColumn {
+                get {
+                    return this.columnMaterial_lysl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Material_unitColumn {
+                get {
+                    return this.columnMaterial_unit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LyzlColumn {
+                get {
+                    return this.columnLyzl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Out_dateColumn {
+                get {
+                    return this.columnOut_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Material_classColumn {
+                get {
+                    return this.columnMaterial_class;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportRow this[int index] {
+                get {
+                    return ((tb_mat_outputReportRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tb_mat_outputReportRowChangeEventHandler tb_mat_outputReportRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tb_mat_outputReportRowChangeEventHandler tb_mat_outputReportRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tb_mat_outputReportRowChangeEventHandler tb_mat_outputReportRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tb_mat_outputReportRowChangeEventHandler tb_mat_outputReportRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addtb_mat_outputReportRow(tb_mat_outputReportRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportRow Addtb_mat_outputReportRow(string Material_id, string Material_inside_name, decimal Material_lysl, decimal Material_unit, decimal Lyzl, System.DateTime Out_date, string Material_class) {
+                tb_mat_outputReportRow rowtb_mat_outputReportRow = ((tb_mat_outputReportRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Material_id,
+                        Material_inside_name,
+                        Material_lysl,
+                        Material_unit,
+                        Lyzl,
+                        Out_date,
+                        Material_class};
+                rowtb_mat_outputReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtb_mat_outputReportRow);
+                return rowtb_mat_outputReportRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tb_mat_outputReportDataTable cln = ((tb_mat_outputReportDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tb_mat_outputReportDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnMaterial_id = base.Columns["Material_id"];
+                this.columnMaterial_inside_name = base.Columns["Material_inside_name"];
+                this.columnMaterial_lysl = base.Columns["Material_lysl"];
+                this.columnMaterial_unit = base.Columns["Material_unit"];
+                this.columnLyzl = base.Columns["Lyzl"];
+                this.columnOut_date = base.Columns["Out_date"];
+                this.columnMaterial_class = base.Columns["Material_class"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnMaterial_id = new global::System.Data.DataColumn("Material_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial_id);
+                this.columnMaterial_inside_name = new global::System.Data.DataColumn("Material_inside_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial_inside_name);
+                this.columnMaterial_lysl = new global::System.Data.DataColumn("Material_lysl", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial_lysl);
+                this.columnMaterial_unit = new global::System.Data.DataColumn("Material_unit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial_unit);
+                this.columnLyzl = new global::System.Data.DataColumn("Lyzl", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLyzl);
+                this.columnOut_date = new global::System.Data.DataColumn("Out_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOut_date);
+                this.columnMaterial_class = new global::System.Data.DataColumn("Material_class", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial_class);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportRow Newtb_mat_outputReportRow() {
+                return ((tb_mat_outputReportRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tb_mat_outputReportRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tb_mat_outputReportRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tb_mat_outputReportRowChanged != null)) {
+                    this.tb_mat_outputReportRowChanged(this, new tb_mat_outputReportRowChangeEvent(((tb_mat_outputReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tb_mat_outputReportRowChanging != null)) {
+                    this.tb_mat_outputReportRowChanging(this, new tb_mat_outputReportRowChangeEvent(((tb_mat_outputReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tb_mat_outputReportRowDeleted != null)) {
+                    this.tb_mat_outputReportRowDeleted(this, new tb_mat_outputReportRowChangeEvent(((tb_mat_outputReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tb_mat_outputReportRowDeleting != null)) {
+                    this.tb_mat_outputReportRowDeleting(this, new tb_mat_outputReportRowChangeEvent(((tb_mat_outputReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removetb_mat_outputReportRow(tb_mat_outputReportRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ds_mat_stockReport ds = new ds_mat_stockReport();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tb_mat_outputReportDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class tb_mat_stockReportRow : global::System.Data.DataRow {
@@ -1266,6 +1632,217 @@ namespace MTsystem_win.dsControl {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tb_mat_outputReportRow : global::System.Data.DataRow {
+            
+            private tb_mat_outputReportDataTable tabletb_mat_outputReport;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal tb_mat_outputReportRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletb_mat_outputReport = ((tb_mat_outputReportDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Material_id {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_mat_outputReport.Material_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Material_id”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Material_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Material_inside_name {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_mat_outputReport.Material_inside_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Material_inside_name”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Material_inside_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Material_lysl {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_mat_outputReport.Material_lyslColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Material_lysl”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Material_lyslColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Material_unit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_mat_outputReport.Material_unitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Material_unit”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Material_unitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Lyzl {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_mat_outputReport.LyzlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Lyzl”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.LyzlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Out_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletb_mat_outputReport.Out_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Out_date”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Out_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Material_class {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_mat_outputReport.Material_classColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_mat_outputReport”中列“Material_class”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_mat_outputReport.Material_classColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaterial_idNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Material_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaterial_idNull() {
+                this[this.tabletb_mat_outputReport.Material_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaterial_inside_nameNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Material_inside_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaterial_inside_nameNull() {
+                this[this.tabletb_mat_outputReport.Material_inside_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaterial_lyslNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Material_lyslColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaterial_lyslNull() {
+                this[this.tabletb_mat_outputReport.Material_lyslColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaterial_unitNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Material_unitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaterial_unitNull() {
+                this[this.tabletb_mat_outputReport.Material_unitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLyzlNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.LyzlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLyzlNull() {
+                this[this.tabletb_mat_outputReport.LyzlColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOut_dateNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Out_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOut_dateNull() {
+                this[this.tabletb_mat_outputReport.Out_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaterial_classNull() {
+                return this.IsNull(this.tabletb_mat_outputReport.Material_classColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaterial_classNull() {
+                this[this.tabletb_mat_outputReport.Material_classColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1319,6 +1896,40 @@ namespace MTsystem_win.dsControl {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tb_mat_inputReportRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class tb_mat_outputReportRowChangeEvent : global::System.EventArgs {
+            
+            private tb_mat_outputReportRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportRowChangeEvent(tb_mat_outputReportRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tb_mat_outputReportRow Row {
                 get {
                     return this.eventRow;
                 }

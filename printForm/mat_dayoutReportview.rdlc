@@ -1,340 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
-  <DataSources>
-    <DataSource Name="ds_mat_stockReport">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>bb1a9014-1fcf-4f65-bfae-cc3e8ed9d858</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="ds_mat_stockReport">
-      <Fields>
-        <Field Name="Material_id">
-          <DataField>Material_id</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_inside_name">
-          <DataField>Material_inside_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_jlsl">
-          <DataField>Material_jlsl</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Material_unit">
-          <DataField>Material_unit</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Jlzl">
-          <DataField>Jlzl</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Input_date">
-          <DataField>Input_date</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Material_class">
-          <DataField>Material_class</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>ds_mat_stockReport</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
-        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
-        <rd:TableName>tb_mat_inputReport</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.02592in</Width>
+              <Width>2.59426cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.72384in</Width>
+              <Width>4.43774cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.88009in</Width>
+              <Width>2.23543cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.80717in</Width>
+              <Width>2.05021cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.078in</Width>
+              <Width>2.73812cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.04675in</Width>
+              <Width>2.65874cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.71342in</Width>
+              <Width>1.81209cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.37685in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>材料编号</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox3">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>材料名称</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>进仓数量</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox7">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>材料规格</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox9">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>进仓总量/KG</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox11">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>进仓日期</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox11</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox13">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>类别</Value>
-                              <Style>
-                                <FontFamily>宋体</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.37685in</Height>
+              <Height>0.94396cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -347,7 +42,7 @@
                             <TextRun>
                               <Value>=Fields!Material_id.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>consolas</FontFamily>
                                 <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
@@ -359,15 +54,12 @@
                       </Paragraphs>
                       <rd:DefaultName>Material_id</rd:DefaultName>
                       <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
+                        <Border />
                         <TopBorder>
                           <Style>None</Style>
                         </TopBorder>
                         <BottomBorder>
-                          <Color>Black</Color>
+                          <Style>Solid</Style>
                         </BottomBorder>
                         <LeftBorder>
                           <Style>None</Style>
@@ -434,14 +126,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Material_jlsl">
+                    <Textbox Name="Material_lysl">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Material_jlsl.Value</Value>
+                              <Value>=Fields!Material_lysl.Value</Value>
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -453,7 +145,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Material_jlsl</rd:DefaultName>
+                      <rd:DefaultName>Material_lysl</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -530,14 +222,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Jlzl">
+                    <Textbox Name="Lyzl">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Jlzl.Value</Value>
+                              <Value>=Fields!Lyzl.Value</Value>
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -549,7 +241,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Jlzl</rd:DefaultName>
+                      <rd:DefaultName>Lyzl</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -578,17 +270,18 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Input_date">
+                    <Textbox Name="Out_date">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Input_date.Value,DateFormat.ShortDate)</Value>
+                              <Value>=Fields!Out_date.Value</Value>
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <Format>yyyy/M/d</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -597,7 +290,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Input_date</rd:DefaultName>
+                      <rd:DefaultName>Out_date</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -690,18 +383,18 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
               <Group Name="详细信息" />
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <KeepTogether>true</KeepTogether>
         <DataSetName>ds_mat_stockReport</DataSetName>
-        <Top>0.03175cm</Top>
-        <Height>1.91438cm</Height>
-        <Width>18.47896cm</Width>
+        <Top>0.05556cm</Top>
+        <Left>0.01158cm</Left>
+        <Height>0.94396cm</Height>
+        <Width>18.5266cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -709,13 +402,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.76619in</Height>
+    <Height>0.39351in</Height>
     <Style />
   </Body>
-  <Width>7.50175in</Width>
+  <Width>7.31932in</Width>
   <Page>
     <PageHeader>
-      <Height>3.66688cm</Height>
+      <Height>1.76094cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -726,7 +419,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>原材料进仓日报表</Value>
+                  <Value>原材料出仓日报表</Value>
                   <Style>
                     <FontFamily>宋体</FontFamily>
                     <FontSize>18pt</FontSize>
@@ -740,9 +433,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>0.19396cm</Top>
-          <Left>6.25931cm</Left>
-          <Height>1.18208cm</Height>
+          <Top>0.07042cm</Top>
+          <Left>6.31537cm</Left>
+          <Height>0.94395cm</Height>
           <Width>5.96034cm</Width>
           <Style>
             <Border>
@@ -762,22 +455,28 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>材料编号</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
-          <Top>2.99279cm</Top>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Height>0.66438cm</Height>
+          <Width>2.60584cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -791,23 +490,29 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>材料名称</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
-          <Top>2.99279cm</Top>
-          <Left>2.60583cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Left>2.66503cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>4.37855cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -821,23 +526,29 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>出仓数量</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>2.99632cm</Top>
-          <Left>5.21167cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Left>7.04358cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>2.23543cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -851,23 +562,29 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>材料规格</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>2.95751cm</Top>
-          <Left>7.88806cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Left>9.27901cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>2.05021cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -881,23 +598,29 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>出仓总量/KG</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>2.99632cm</Top>
-          <Left>10.45861cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Left>11.32922cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>2.73812cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -911,23 +634,29 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>出仓日期</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox21</rd:DefaultName>
-          <Top>2.92841cm</Top>
-          <Left>12.99389cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>1.09656cm</Top>
+          <Left>14.06734cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>2.65874cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -941,19 +670,66 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>类别</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                    <FontSize>11pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox22</rd:DefaultName>
+          <Top>1.09656cm</Top>
+          <Left>16.72608cm</Left>
+          <Height>0.66438cm</Height>
+          <Width>1.81209cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.74083cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="第" &amp; Globals!PageNumber &amp; "页 共" &amp; Globals!TotalPages &amp; "页"</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox22</rd:DefaultName>
-          <Top>2.92841cm</Top>
-          <Left>15.67028cm</Left>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.07042cm</Top>
+          <Left>8.08043cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -970,16 +746,72 @@
           <Style>None</Style>
         </Border>
       </Style>
-    </PageHeader>
+    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
+    <TopMargin>1cm</TopMargin>
     <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
-  <rd:ReportID>696d6f19-796d-4c82-88cb-837783a03d35</rd:ReportID>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ds_mat_stockReport">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>6071eb1a-82f1-47a9-b86e-703870d4781c</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ds_mat_stockReport">
+      <Query>
+        <DataSourceName>ds_mat_stockReport</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Material_id">
+          <DataField>Material_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_inside_name">
+          <DataField>Material_inside_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_lysl">
+          <DataField>Material_lysl</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Material_unit">
+          <DataField>Material_unit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Lyzl">
+          <DataField>Lyzl</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Out_date">
+          <DataField>Out_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Material_class">
+          <DataField>Material_class</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
+        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
+        <rd:TableName>tb_mat_outputReport</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>fc7a1565-e8c9-4594-abd3-3ae9417a74f0</rd:ReportID>
 </Report>

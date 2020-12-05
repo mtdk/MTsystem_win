@@ -361,6 +361,13 @@ namespace MTsystem_win
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
+            doQuery();
+        }
+        /// <summary>
+        /// 执行材料信息查询
+        /// </summary>
+        private void doQuery()
+        {
             if (txt_Queryid.Text.Trim() != "")
             {
                 MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -403,6 +410,15 @@ namespace MTsystem_win
                 {
                     this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Black;
                 }
+            }
+        }
+
+        private void txt_Queryid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                e.Handled = true;
+                doQuery();
             }
         }
     }
