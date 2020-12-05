@@ -40,6 +40,7 @@ namespace MTsystem_win
         {
             if (rdb_matInput_report.Checked == true)
             {
+                mat_dayReportview.Reset();
                 matInputReport();
             }
             else
@@ -58,27 +59,30 @@ namespace MTsystem_win
             strsql+="material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
             strsql+="material.Material_class FROM material_input,material";
             strsql+=" WHERE material_input.Matid = material.Matid";
-            strsql += " AND material_input.Input_date = '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+            strsql += " AND material_input.Input_date = '"+dtp_Querydate.Value.ToShortDateString().Trim()+"'";
             strsql += " ORDER BY material.Material_class ASC";
 
-            ds_mat_dinputReport ds = new ds_mat_dinputReport();
+            ds_mat_stockReport ds = new ds_mat_stockReport();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             try
             {
                 MySqlCommand cmd = new MySqlCommand(strsql, conn);
-                MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                MySqlDataReader dr = null;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_mat_inputReport"].Load(dr);
 
                 ReportDataSource rds = new ReportDataSource();
-                mat_stockDayreportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_DayReportview.rdlc";
-                rds.Name = "ds_mat_dinputReport";
-                rds.Value = "tb_mat_inputReport";
+                mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_dayReportview.rdlc";
+                rds.Name = "ds_mat_stockReport";
+                rds.Value = ds.Tables["tb_mat_inputReport"];
 
-                mat_stockDayreportview.LocalReport.DataSources.Add(rds);
-                mat_stockDayreportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-                mat_stockDayreportview.ZoomMode = ZoomMode.PageWidth;
-                mat_stockDayreportview.RefreshReport();
+                mat_dayReportview.LocalReport.DataSources.Add(rds);
+
+                this.mat_dayReportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                this.mat_dayReportview.ZoomMode = ZoomMode.PageWidth;
+                this.mat_dayReportview.ZoomPercent = 100;
+                this.mat_dayReportview.RefreshReport();
             }
             catch (MySqlException ex)
             {

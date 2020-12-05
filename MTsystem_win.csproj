@@ -161,7 +161,7 @@
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="printForm\mat_DayReportview.rdlc" />
+    <EmbeddedResource Include="printForm\mat_dayReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

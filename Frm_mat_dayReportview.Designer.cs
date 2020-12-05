@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtp_Querydate = new System.Windows.Forms.DateTimePicker();
             this.btn_Query = new System.Windows.Forms.Button();
-            this.mat_stockDayreportview = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.mat_dayReportview = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // label1
@@ -96,28 +96,28 @@
             this.btn_Query.UseVisualStyleBackColor = true;
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
-            // mat_stockDayreportview
+            // mat_dayReportview
             // 
             reportDataSource1.Name = "ds_mat_stockReport";
             reportDataSource1.Value = null;
-            this.mat_stockDayreportview.LocalReport.DataSources.Add(reportDataSource1);
-            this.mat_stockDayreportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_DayReportview.rdlc";
-            this.mat_stockDayreportview.Location = new System.Drawing.Point(5, 55);
-            this.mat_stockDayreportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.mat_stockDayreportview.Name = "mat_stockDayreportview";
-            this.mat_stockDayreportview.ShowBackButton = false;
-            this.mat_stockDayreportview.ShowFindControls = false;
-            this.mat_stockDayreportview.ShowRefreshButton = false;
-            this.mat_stockDayreportview.ShowStopButton = false;
-            this.mat_stockDayreportview.Size = new System.Drawing.Size(825, 800);
-            this.mat_stockDayreportview.TabIndex = 6;
+            this.mat_dayReportview.LocalReport.DataSources.Add(reportDataSource1);
+            this.mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_stockReportview.rdlc";
+            this.mat_dayReportview.Location = new System.Drawing.Point(8, 55);
+            this.mat_dayReportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.mat_dayReportview.Name = "mat_dayReportview";
+            this.mat_dayReportview.ShowBackButton = false;
+            this.mat_dayReportview.ShowFindControls = false;
+            this.mat_dayReportview.ShowRefreshButton = false;
+            this.mat_dayReportview.ShowStopButton = false;
+            this.mat_dayReportview.Size = new System.Drawing.Size(812, 791);
+            this.mat_dayReportview.TabIndex = 6;
             // 
             // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 861);
-            this.Controls.Add(this.mat_stockDayreportview);
+            this.Controls.Add(this.mat_dayReportview);
             this.Controls.Add(this.btn_Query);
             this.Controls.Add(this.dtp_Querydate);
             this.Controls.Add(this.label2);
@@ -146,6 +146,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtp_Querydate;
         private System.Windows.Forms.Button btn_Query;
-        private Microsoft.Reporting.WinForms.ReportViewer mat_stockDayreportview;
+        private Microsoft.Reporting.WinForms.ReportViewer mat_dayReportview;
     }
 }
