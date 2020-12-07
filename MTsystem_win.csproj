@@ -131,6 +131,24 @@
     <Compile Include="Frm_mtashow.Designer.cs">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_productSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_productSelect.Designer.cs">
+      <DependentUpon>Frm_productSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_product_taginput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_taginput.Designer.cs">
+      <DependentUpon>Frm_product_taginput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_tag_print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_tag_print.Designer.cs">
+      <DependentUpon>Frm_tag_print.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm_cailiaojincang.resx">
@@ -159,6 +177,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_productSelect.resx">
+      <DependentUpon>Frm_productSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_taginput.resx">
+      <DependentUpon>Frm_product_taginput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_tag_print.resx">
+      <DependentUpon>Frm_tag_print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="printForm\mat_dayinReportview.rdlc">
       <SubType>Designer</SubType>

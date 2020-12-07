@@ -35,13 +35,14 @@
             this.purchase_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.workshop_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_ReceiveQuery = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_mat_ReceiveQuery = new System.Windows.Forms.ToolStripMenuItem();
+            this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.purchase_Item,
             this.workshop_Item,
             this.warehouse_Item,
+            this.tag_Item,
             this.sys_exit});
             this.main_menuStrip.Location = new System.Drawing.Point(0, 0);
             this.main_menuStrip.Name = "main_menuStrip";
@@ -104,6 +106,13 @@
             this.tsmi_mat_Receive.Text = "材料领用";
             this.tsmi_mat_Receive.Click += new System.EventHandler(this.tsmi_mat_Receive_Click);
             // 
+            // tsmi_mat_ReceiveQuery
+            // 
+            this.tsmi_mat_ReceiveQuery.Name = "tsmi_mat_ReceiveQuery";
+            this.tsmi_mat_ReceiveQuery.Size = new System.Drawing.Size(186, 24);
+            this.tsmi_mat_ReceiveQuery.Text = "领料记录查询";
+            this.tsmi_mat_ReceiveQuery.Click += new System.EventHandler(this.tsmi_mat_ReceiveQuery_Click);
+            // 
             // warehouse_Item
             // 
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,12 +159,12 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // tsmi_mat_ReceiveQuery
+            // tag_Item
             // 
-            this.tsmi_mat_ReceiveQuery.Name = "tsmi_mat_ReceiveQuery";
-            this.tsmi_mat_ReceiveQuery.Size = new System.Drawing.Size(186, 24);
-            this.tsmi_mat_ReceiveQuery.Text = "领料记录查询";
-            this.tsmi_mat_ReceiveQuery.Click += new System.EventHandler(this.tsmi_mat_ReceiveQuery_Click);
+            this.tag_Item.Name = "tag_Item";
+            this.tag_Item.Size = new System.Drawing.Size(93, 23);
+            this.tag_Item.Text = "标签打印";
+            this.tag_Item.Click += new System.EventHandler(this.tag_Item_Click);
             // 
             // Frm_main
             // 
@@ -195,5 +204,6 @@
         private System.Windows.Forms.ToolStripMenuItem mat_stock_Report;
         private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_ReceiveQuery;
+        private System.Windows.Forms.ToolStripMenuItem tag_Item;
     }
 }

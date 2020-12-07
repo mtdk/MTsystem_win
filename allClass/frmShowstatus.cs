@@ -74,5 +74,18 @@ namespace MTsystem_win.allClass
             set { _frdmsrv = value; }
             get { return _frdmsrv; }
         }
+
+        /// <summary>
+        /// 标签录入窗口
+        /// </summary>
+        private static string _frmptag;
+        /// <summary>
+        /// 标签打印窗口
+        /// </summary>
+        public static string _Frmptag
+        {
+            set { _frmptag = value; }
+            get { return _frmptag; }
+        }
     }
 }

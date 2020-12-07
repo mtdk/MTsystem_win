@@ -53,9 +53,10 @@
             // 
             // txt_Queryid
             // 
-            this.txt_Queryid.Location = new System.Drawing.Point(108, 21);
+            this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Queryid.Location = new System.Drawing.Point(108, 19);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.Size = new System.Drawing.Size(175, 26);
+            this.txt_Queryid.Size = new System.Drawing.Size(175, 30);
             this.txt_Queryid.TabIndex = 3;
             // 
             // cb_Querydate

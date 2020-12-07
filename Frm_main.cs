@@ -157,5 +157,15 @@ namespace MTsystem_win
             frm_miq.MdiParent = this;
             frm_miq.Show();
         }
+
+        private void tag_Item_Click(object sender, EventArgs e)
+        {
+            if (frmShowstatus._Frmptag=="CLOSE"||frmShowstatus._Frmptag==null)
+            {
+                Frm_product_taginput frm_ptag = new Frm_product_taginput();
+                frm_ptag.MdiParent = this;
+                frm_ptag.Show();
+            }
+        }
     }
 }
