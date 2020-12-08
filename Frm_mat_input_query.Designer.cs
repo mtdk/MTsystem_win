@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Queryid = new System.Windows.Forms.TextBox();
             this.cb_Querydate = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
-            this.dtb_end = new System.Windows.Forms.DateTimePicker();
+            this.dtp_end = new System.Windows.Forms.DateTimePicker();
             this.btn_Query = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +64,8 @@
             // cb_Querydate
             // 
             this.cb_Querydate.AutoSize = true;
+            this.cb_Querydate.Checked = true;
+            this.cb_Querydate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_Querydate.Location = new System.Drawing.Point(289, 23);
             this.cb_Querydate.Name = "cb_Querydate";
             this.cb_Querydate.Size = new System.Drawing.Size(136, 23);
@@ -95,13 +99,13 @@
             this.dtp_start.Size = new System.Drawing.Size(175, 26);
             this.dtp_start.TabIndex = 7;
             // 
-            // dtb_end
+            // dtp_end
             // 
-            this.dtb_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtb_end.Location = new System.Drawing.Point(527, 34);
-            this.dtb_end.Name = "dtb_end";
-            this.dtb_end.Size = new System.Drawing.Size(175, 26);
-            this.dtb_end.TabIndex = 8;
+            this.dtp_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_end.Location = new System.Drawing.Point(527, 34);
+            this.dtp_end.Name = "dtp_end";
+            this.dtp_end.Size = new System.Drawing.Size(175, 26);
+            this.dtp_end.TabIndex = 8;
             // 
             // btn_Query
             // 
@@ -112,35 +116,53 @@
             this.btn_Query.TabIndex = 9;
             this.btn_Query.Text = "开始\r\n查询";
             this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgv_Queryresult);
             this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(771, 703);
+            this.groupBox1.Size = new System.Drawing.Size(1116, 703);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询结果";
             // 
-            // dataGridView1
+            // dgv_Queryresult
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(765, 678);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_Queryresult.AllowUserToAddRows = false;
+            this.dgv_Queryresult.AllowUserToDeleteRows = false;
+            this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Queryresult.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Queryresult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
+            this.dgv_Queryresult.Name = "dgv_Queryresult";
+            this.dgv_Queryresult.ReadOnly = true;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Queryresult.RowTemplate.Height = 23;
+            this.dgv_Queryresult.RowTemplate.ReadOnly = true;
+            this.dgv_Queryresult.Size = new System.Drawing.Size(1110, 678);
+            this.dgv_Queryresult.TabIndex = 0;
             // 
             // Frm_mat_input_query
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 781);
+            this.ClientSize = new System.Drawing.Size(1140, 781);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Query);
-            this.Controls.Add(this.dtb_end);
+            this.Controls.Add(this.dtp_end);
             this.Controls.Add(this.dtp_start);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -155,7 +177,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料进仓查询窗口";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,9 +191,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtp_start;
-        private System.Windows.Forms.DateTimePicker dtb_end;
+        private System.Windows.Forms.DateTimePicker dtp_end;
         private System.Windows.Forms.Button btn_Query;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_Queryresult;
     }
 }
