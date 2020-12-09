@@ -77,6 +77,30 @@ namespace MTsystem_win
             }
         }
 
+        private void pro_info_input_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 206)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductinfo == "CLOSE" || frmShowstatus._Frmproductinfo == null)
+                    {
+                        Frm_product_info frmpinfo = new Frm_product_info();
+                        frmpinfo.MdiParent = this;
+                        frmpinfo.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void mat_Basestock_Click(object sender, EventArgs e)
         {
             if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
@@ -153,9 +177,26 @@ namespace MTsystem_win
 
         private void tsmi_mat_ReceiveQuery_Click(object sender, EventArgs e)
         {
-            Frm_mat_input_query frm_miq = new Frm_mat_input_query();
-            frm_miq.MdiParent = this;
-            frm_miq.Show();
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 206)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmatinputquery == "CLOSE" || frmShowstatus._Frmatinputquery == null)
+                    {
+                        Frm_mat_input_query frm_miq = new Frm_mat_input_query();
+                        frm_miq.MdiParent = this;
+                        frm_miq.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void tag_Item_Click(object sender, EventArgs e)

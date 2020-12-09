@@ -91,5 +91,18 @@ namespace MTsystem_win
 
             conn.Close();
         }
+
+        private void Frm_mat_input_query_Load(object sender, EventArgs e)
+        {
+            if (frmShowstatus._Frmatinputquery=="CLOSE"||frmShowstatus._Frmatinputquery==null)
+            {
+                frmShowstatus._Frmatinputquery = "OPEN";
+            }
+        }
+
+        private void Frm_mat_input_query_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmShowstatus._Frmatinputquery = "CLOSE";
+        }
     }
 }

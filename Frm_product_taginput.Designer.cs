@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_unit = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -133,6 +133,7 @@
             this.txt_batchNum.Name = "txt_batchNum";
             this.txt_batchNum.Size = new System.Drawing.Size(132, 30);
             this.txt_batchNum.TabIndex = 21;
+            this.txt_batchNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_batchNum_KeyPress);
             // 
             // label5
             // 
@@ -147,10 +148,11 @@
             // 
             this.txt_Unit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Unit.Location = new System.Drawing.Point(489, 99);
-            this.txt_Unit.MaxLength = 3;
+            this.txt_Unit.MaxLength = 5;
             this.txt_Unit.Name = "txt_Unit";
             this.txt_Unit.Size = new System.Drawing.Size(96, 30);
             this.txt_Unit.TabIndex = 19;
+            this.txt_Unit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Unit_KeyPress);
             // 
             // label4
             // 
@@ -185,7 +187,6 @@
             this.txt_ProductName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ProductName.Location = new System.Drawing.Point(255, 65);
             this.txt_ProductName.Name = "txt_ProductName";
-            this.txt_ProductName.ReadOnly = true;
             this.txt_ProductName.Size = new System.Drawing.Size(366, 30);
             this.txt_ProductName.TabIndex = 15;
             // 
@@ -204,7 +205,6 @@
             this.txt_Productid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Productid.Location = new System.Drawing.Point(255, 31);
             this.txt_Productid.Name = "txt_Productid";
-            this.txt_Productid.ReadOnly = true;
             this.txt_Productid.Size = new System.Drawing.Size(132, 30);
             this.txt_Productid.TabIndex = 13;
             this.txt_Productid.DoubleClick += new System.EventHandler(this.txt_Productid_DoubleClick);
@@ -237,8 +237,8 @@
             this.dgv_tagprint.Location = new System.Drawing.Point(3, 22);
             this.dgv_tagprint.Name = "dgv_tagprint";
             this.dgv_tagprint.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tagprint.RowTemplate.Height = 23;
             this.dgv_tagprint.Size = new System.Drawing.Size(775, 475);
             this.dgv_tagprint.TabIndex = 0;

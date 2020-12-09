@@ -75,6 +75,14 @@ namespace MTsystem_win.allClass
             get { return _frdmsrv; }
         }
 
+        private static string _frmatinputquery;
+
+        public static string _Frmatinputquery
+        {
+            set { _frmatinputquery = value; }
+            get { return _frmatinputquery; }
+        }
+
         /// <summary>
         /// 标签录入窗口
         /// </summary>
@@ -86,6 +94,19 @@ namespace MTsystem_win.allClass
         {
             set { _frmptag = value; }
             get { return _frmptag; }
+        }
+
+        /// <summary>
+        /// 产品信息录入窗口
+        /// </summary>
+        private static string _frmproductinfo;
+        /// <summary>
+        /// 产品信息录入窗口
+        /// </summary>
+        public static string _Frmproductinfo
+        {
+            set { _frmproductinfo = value; }
+            get { return _frmproductinfo; }
         }
     }
 }

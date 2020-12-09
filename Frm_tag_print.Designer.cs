@@ -36,8 +36,14 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ShowBackButton = false;
+            this.reportViewer1.ShowExportButton = false;
+            this.reportViewer1.ShowFindControls = false;
+            this.reportViewer1.ShowRefreshButton = false;
+            this.reportViewer1.ShowStopButton = false;
             this.reportViewer1.Size = new System.Drawing.Size(819, 703);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Print += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_Print);
             // 
             // Frm_tag_print
             // 

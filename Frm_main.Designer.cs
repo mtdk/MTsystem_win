@@ -41,8 +41,9 @@
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
-            this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +118,7 @@
             // 
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_In,
+            this.pro_info_input,
             this.mat_Basestock,
             this.mat_stock_Report,
             this.mat_Dayreport});
@@ -127,30 +129,37 @@
             // tsmi_mat_In
             // 
             this.tsmi_mat_In.Name = "tsmi_mat_In";
-            this.tsmi_mat_In.Size = new System.Drawing.Size(186, 24);
+            this.tsmi_mat_In.Size = new System.Drawing.Size(231, 24);
             this.tsmi_mat_In.Text = "材料进仓";
             this.tsmi_mat_In.Click += new System.EventHandler(this.tsmi_mat_In_Click);
             // 
             // mat_Basestock
             // 
             this.mat_Basestock.Name = "mat_Basestock";
-            this.mat_Basestock.Size = new System.Drawing.Size(186, 24);
+            this.mat_Basestock.Size = new System.Drawing.Size(231, 24);
             this.mat_Basestock.Text = "材料期初库存";
             this.mat_Basestock.Click += new System.EventHandler(this.mat_Basestock_Click);
             // 
             // mat_stock_Report
             // 
             this.mat_stock_Report.Name = "mat_stock_Report";
-            this.mat_stock_Report.Size = new System.Drawing.Size(186, 24);
+            this.mat_stock_Report.Size = new System.Drawing.Size(231, 24);
             this.mat_stock_Report.Text = "材料库存报表";
             this.mat_stock_Report.Click += new System.EventHandler(this.mat_stock_Report_Click);
             // 
             // mat_Dayreport
             // 
             this.mat_Dayreport.Name = "mat_Dayreport";
-            this.mat_Dayreport.Size = new System.Drawing.Size(186, 24);
+            this.mat_Dayreport.Size = new System.Drawing.Size(231, 24);
             this.mat_Dayreport.Text = "材料日报表";
             this.mat_Dayreport.Click += new System.EventHandler(this.mat_Dayreport_Click);
+            // 
+            // tag_Item
+            // 
+            this.tag_Item.Name = "tag_Item";
+            this.tag_Item.Size = new System.Drawing.Size(93, 23);
+            this.tag_Item.Text = "标签打印";
+            this.tag_Item.Click += new System.EventHandler(this.tag_Item_Click);
             // 
             // sys_exit
             // 
@@ -159,12 +168,12 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // tag_Item
+            // pro_info_input
             // 
-            this.tag_Item.Name = "tag_Item";
-            this.tag_Item.Size = new System.Drawing.Size(93, 23);
-            this.tag_Item.Text = "标签打印";
-            this.tag_Item.Click += new System.EventHandler(this.tag_Item_Click);
+            this.pro_info_input.Name = "pro_info_input";
+            this.pro_info_input.Size = new System.Drawing.Size(231, 24);
+            this.pro_info_input.Text = "产品信息录入&&修改";
+            this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
             // 
             // Frm_main
             // 
@@ -205,5 +214,6 @@
         private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_ReceiveQuery;
         private System.Windows.Forms.ToolStripMenuItem tag_Item;
+        private System.Windows.Forms.ToolStripMenuItem pro_info_input;
     }
 }

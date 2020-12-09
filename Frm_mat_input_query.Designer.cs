@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Queryid = new System.Windows.Forms.TextBox();
@@ -135,14 +134,6 @@
             this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Queryresult.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Queryresult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
@@ -176,6 +167,8 @@
             this.Name = "Frm_mat_input_query";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料进仓查询窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_mat_input_query_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_mat_input_query_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
             this.ResumeLayout(false);

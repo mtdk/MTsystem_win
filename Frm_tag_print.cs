@@ -23,5 +23,10 @@ namespace MTsystem_win
 
             this.reportViewer1.RefreshReport();
         }
+
+        private void reportViewer1_Print(object sender, Microsoft.Reporting.WinForms.ReportPrintEventArgs e)
+        {
+            MessageBox.Show("报表已打印", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }
