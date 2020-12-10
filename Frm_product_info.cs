@@ -261,5 +261,10 @@ namespace MTsystem_win
                 btn_Save.Focus();
             }
         }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            allClear();
+        }
     }
 }

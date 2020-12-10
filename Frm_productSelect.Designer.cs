@@ -42,7 +42,7 @@
             // 
             this.dgv_Queryresult.AllowUserToAddRows = false;
             this.dgv_Queryresult.AllowUserToDeleteRows = false;
-            this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Queryresult.Location = new System.Drawing.Point(12, 36);
@@ -55,6 +55,7 @@
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(760, 506);
             this.dgv_Queryresult.TabIndex = 11;
+            this.dgv_Queryresult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Queryresult_CellDoubleClick);
             // 
             // btn_Query
             // 
@@ -64,6 +65,7 @@
             this.btn_Query.TabIndex = 10;
             this.btn_Query.Text = "查询";
             this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // txt_Querycondition
             // 
@@ -120,7 +122,8 @@
             this.MinimizeBox = false;
             this.Name = "Frm_productSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_productSelect";
+            this.Text = "产品选择窗口";
+            this.Load += new System.EventHandler(this.Frm_productSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

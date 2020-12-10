@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rdb_input = new System.Windows.Forms.RadioButton();
-            this.rdb_update = new System.Windows.Forms.RadioButton();
-            this.txt_Systemid = new System.Windows.Forms.TextBox();
-            this.txt_Productname = new System.Windows.Forms.TextBox();
-            this.txt_Productid = new System.Windows.Forms.TextBox();
-            this.txt_Productunit = new System.Windows.Forms.TextBox();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.btn_Clear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.txt_Productunit = new System.Windows.Forms.TextBox();
+            this.txt_Productid = new System.Windows.Forms.TextBox();
+            this.txt_Productname = new System.Windows.Forms.TextBox();
+            this.txt_Systemid = new System.Windows.Forms.TextBox();
+            this.rdb_update = new System.Windows.Forms.RadioButton();
+            this.rdb_input = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_Query = new System.Windows.Forms.Button();
             this.txt_Queryid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btn_Query = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).BeginInit();
@@ -76,52 +76,73 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "产品信息录入/修改";
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "系统编号:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(531, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "KG";
             // 
-            // label2
+            // btn_Clear
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "产品名称:";
+            this.btn_Clear.Location = new System.Drawing.Point(306, 142);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(75, 39);
+            this.btn_Clear.TabIndex = 12;
+            this.btn_Clear.Text = "清 空";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
-            // label3
+            // btn_Save
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "产品编号:";
+            this.btn_Save.Location = new System.Drawing.Point(188, 142);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 39);
+            this.btn_Save.TabIndex = 11;
+            this.btn_Save.Text = "保 存";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // label4
+            // txt_Productunit
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "规格:";
+            this.txt_Productunit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Productunit.Location = new System.Drawing.Point(490, 106);
+            this.txt_Productunit.Name = "txt_Productunit";
+            this.txt_Productunit.Size = new System.Drawing.Size(35, 30);
+            this.txt_Productunit.TabIndex = 9;
+            this.txt_Productunit.Text = "20";
+            this.txt_Productunit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productunit_KeyPress);
             // 
-            // rdb_input
+            // txt_Productid
             // 
-            this.rdb_input.AutoSize = true;
-            this.rdb_input.Location = new System.Drawing.Point(35, 36);
-            this.rdb_input.Name = "rdb_input";
-            this.rdb_input.Size = new System.Drawing.Size(99, 23);
-            this.rdb_input.TabIndex = 0;
-            this.rdb_input.TabStop = true;
-            this.rdb_input.Text = "信息录入";
-            this.rdb_input.UseVisualStyleBackColor = true;
+            this.txt_Productid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Productid.Location = new System.Drawing.Point(347, 70);
+            this.txt_Productid.Name = "txt_Productid";
+            this.txt_Productid.Size = new System.Drawing.Size(196, 30);
+            this.txt_Productid.TabIndex = 5;
+            this.txt_Productid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productid_KeyPress);
+            // 
+            // txt_Productname
+            // 
+            this.txt_Productname.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Productname.Location = new System.Drawing.Point(127, 106);
+            this.txt_Productname.MaxLength = 30;
+            this.txt_Productname.Name = "txt_Productname";
+            this.txt_Productname.Size = new System.Drawing.Size(300, 30);
+            this.txt_Productname.TabIndex = 7;
+            this.txt_Productname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productname_KeyPress);
+            // 
+            // txt_Systemid
+            // 
+            this.txt_Systemid.BackColor = System.Drawing.Color.LemonChiffon;
+            this.txt_Systemid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Systemid.ForeColor = System.Drawing.Color.Red;
+            this.txt_Systemid.Location = new System.Drawing.Point(127, 70);
+            this.txt_Systemid.Name = "txt_Systemid";
+            this.txt_Systemid.Size = new System.Drawing.Size(118, 30);
+            this.txt_Systemid.TabIndex = 3;
             // 
             // rdb_update
             // 
@@ -134,72 +155,52 @@
             this.rdb_update.Text = "信息修改";
             this.rdb_update.UseVisualStyleBackColor = true;
             // 
-            // txt_Systemid
+            // rdb_input
             // 
-            this.txt_Systemid.BackColor = System.Drawing.Color.LemonChiffon;
-            this.txt_Systemid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Systemid.ForeColor = System.Drawing.Color.Red;
-            this.txt_Systemid.Location = new System.Drawing.Point(127, 70);
-            this.txt_Systemid.Name = "txt_Systemid";
-            this.txt_Systemid.Size = new System.Drawing.Size(118, 30);
-            this.txt_Systemid.TabIndex = 3;
+            this.rdb_input.AutoSize = true;
+            this.rdb_input.Location = new System.Drawing.Point(35, 36);
+            this.rdb_input.Name = "rdb_input";
+            this.rdb_input.Size = new System.Drawing.Size(99, 23);
+            this.rdb_input.TabIndex = 0;
+            this.rdb_input.TabStop = true;
+            this.rdb_input.Text = "信息录入";
+            this.rdb_input.UseVisualStyleBackColor = true;
             // 
-            // txt_Productname
+            // label4
             // 
-            this.txt_Productname.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Productname.Location = new System.Drawing.Point(127, 106);
-            this.txt_Productname.MaxLength = 30;
-            this.txt_Productname.Name = "txt_Productname";
-            this.txt_Productname.Size = new System.Drawing.Size(300, 30);
-            this.txt_Productname.TabIndex = 7;
-            this.txt_Productname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productname_KeyPress);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(433, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "规格:";
             // 
-            // txt_Productid
+            // label3
             // 
-            this.txt_Productid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Productid.Location = new System.Drawing.Point(347, 70);
-            this.txt_Productid.Name = "txt_Productid";
-            this.txt_Productid.Size = new System.Drawing.Size(196, 30);
-            this.txt_Productid.TabIndex = 5;
-            this.txt_Productid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productid_KeyPress);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(251, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "产品编号:";
             // 
-            // txt_Productunit
+            // label2
             // 
-            this.txt_Productunit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Productunit.Location = new System.Drawing.Point(490, 106);
-            this.txt_Productunit.Name = "txt_Productunit";
-            this.txt_Productunit.Size = new System.Drawing.Size(35, 30);
-            this.txt_Productunit.TabIndex = 9;
-            this.txt_Productunit.Text = "20";
-            this.txt_Productunit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productunit_KeyPress);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "产品名称:";
             // 
-            // btn_Save
+            // label1
             // 
-            this.btn_Save.Location = new System.Drawing.Point(188, 142);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 39);
-            this.btn_Save.TabIndex = 11;
-            this.btn_Save.Text = "保 存";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // btn_Clear
-            // 
-            this.btn_Clear.Location = new System.Drawing.Point(306, 142);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(75, 39);
-            this.btn_Clear.TabIndex = 12;
-            this.btn_Clear.Text = "清 空";
-            this.btn_Clear.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(531, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 19);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "KG";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "系统编号:";
             // 
             // groupBox2
             // 
@@ -239,6 +240,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "产品信息查询";
             // 
+            // btn_Query
+            // 
+            this.btn_Query.Location = new System.Drawing.Point(437, 22);
+            this.btn_Query.Name = "btn_Query";
+            this.btn_Query.Size = new System.Drawing.Size(75, 39);
+            this.btn_Query.TabIndex = 2;
+            this.btn_Query.Text = "查 询";
+            this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
+            // 
             // txt_Queryid
             // 
             this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,16 +267,6 @@
             this.label6.Size = new System.Drawing.Size(90, 19);
             this.label6.TabIndex = 0;
             this.label6.Text = "产品编号:";
-            // 
-            // btn_Query
-            // 
-            this.btn_Query.Location = new System.Drawing.Point(437, 22);
-            this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 39);
-            this.btn_Query.TabIndex = 2;
-            this.btn_Query.Text = "查 询";
-            this.btn_Query.UseVisualStyleBackColor = true;
-            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // Frm_product_info
             // 
