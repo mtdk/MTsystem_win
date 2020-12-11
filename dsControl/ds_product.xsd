@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_product" targetNamespace="http://tempuri.org/ds_product.xsd" xmlns:mstns="http://tempuri.org/ds_product.xsd" xmlns="http://tempuri.org/ds_product.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_product" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_product" msprop:Generator_UserDSName="ds_product">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tag_print" msprop:Generator_TableClassName="tag_printDataTable" msprop:Generator_TableVarName="tabletag_print" msprop:Generator_TablePropName="tag_print" msprop:Generator_RowDeletingName="tag_printRowDeleting" msprop:Generator_RowChangingName="tag_printRowChanging" msprop:Generator_RowEvHandlerName="tag_printRowChangeEventHandler" msprop:Generator_RowDeletedName="tag_printRowDeleted" msprop:Generator_UserTableName="tag_print" msprop:Generator_RowChangedName="tag_printRowChanged" msprop:Generator_RowEvArgName="tag_printRowChangeEvent" msprop:Generator_RowClassName="tag_printRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="proid" msprop:Generator_ColumnVarNameInTable="columnproid" msprop:Generator_ColumnPropNameInRow="proid" msprop:Generator_ColumnPropNameInTable="proidColumn" msprop:Generator_UserColumnName="proid" type="xs:string" minOccurs="0" />
+              <xs:element name="product_id" msprop:Generator_ColumnVarNameInTable="columnproduct_id" msprop:Generator_ColumnPropNameInRow="product_id" msprop:Generator_ColumnPropNameInTable="product_idColumn" msprop:Generator_UserColumnName="product_id" type="xs:string" minOccurs="0" />
+              <xs:element name="product_name" msprop:Generator_ColumnVarNameInTable="columnproduct_name" msprop:Generator_ColumnPropNameInRow="product_name" msprop:Generator_ColumnPropNameInTable="product_nameColumn" msprop:Generator_UserColumnName="product_name" type="xs:string" minOccurs="0" />
+              <xs:element name="product_unit" msprop:Generator_ColumnVarNameInTable="columnproduct_unit" msprop:Generator_ColumnPropNameInRow="product_unit" msprop:Generator_ColumnPropNameInTable="product_unitColumn" msprop:Generator_UserColumnName="product_unit" type="xs:string" minOccurs="0" />
+              <xs:element name="product_date" msprop:Generator_ColumnVarNameInTable="columnproduct_date" msprop:Generator_ColumnPropNameInRow="product_date" msprop:Generator_ColumnPropNameInTable="product_dateColumn" msprop:Generator_UserColumnName="product_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="batch_number" msprop:Generator_ColumnVarNameInTable="columnbatch_number" msprop:Generator_ColumnPropNameInRow="batch_number" msprop:Generator_ColumnPropNameInTable="batch_numberColumn" msprop:Generator_UserColumnName="batch_number" type="xs:string" minOccurs="0" />
+              <xs:element name="product_shelflife" msprop:Generator_ColumnVarNameInTable="columnproduct_shelflife" msprop:Generator_ColumnPropNameInRow="product_shelflife" msprop:Generator_ColumnPropNameInTable="product_shelflifeColumn" msprop:Generator_UserColumnName="product_shelflife" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -39,14 +39,16 @@ namespace MTsystem_win
             }
         }
 
-        private void dgv_tagprint_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_tagprint_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgv_tagprint.RowCount > 0)
             {
                 Frm_tag_print frmtp = new Frm_tag_print();
+                frmtp.productid = dgv_tagprint.SelectedCells[0].Value.ToString().Trim();
                 frmtp.ShowDialog();
-                frmtp.productid = dgv_tagprint.SelectedCells[1].Value.ToString().Trim();
             }
+            ds_tagprint.Clear();
+            tagQuery();
         }
 
         private void btn_Saveprint_Click(object sender, EventArgs e)

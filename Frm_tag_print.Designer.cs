@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tagPrint_reportview = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // tagPrint_reportview
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ShowBackButton = false;
-            this.reportViewer1.ShowExportButton = false;
-            this.reportViewer1.ShowFindControls = false;
-            this.reportViewer1.ShowRefreshButton = false;
-            this.reportViewer1.ShowStopButton = false;
-            this.reportViewer1.Size = new System.Drawing.Size(819, 703);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Print += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_Print);
+            this.tagPrint_reportview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tagPrint_reportview.Location = new System.Drawing.Point(0, 0);
+            this.tagPrint_reportview.Name = "tagPrint_reportview";
+            this.tagPrint_reportview.ShowBackButton = false;
+            this.tagPrint_reportview.ShowExportButton = false;
+            this.tagPrint_reportview.ShowFindControls = false;
+            this.tagPrint_reportview.ShowPageNavigationControls = false;
+            this.tagPrint_reportview.ShowRefreshButton = false;
+            this.tagPrint_reportview.ShowStopButton = false;
+            this.tagPrint_reportview.ShowZoomControl = false;
+            this.tagPrint_reportview.Size = new System.Drawing.Size(819, 711);
+            this.tagPrint_reportview.TabIndex = 0;
+            this.tagPrint_reportview.PrintingBegin += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.tagPrint_reportview_PrintingBegin);
             // 
             // Frm_tag_print
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 703);
-            this.Controls.Add(this.reportViewer1);
+            this.ClientSize = new System.Drawing.Size(819, 711);
+            this.Controls.Add(this.tagPrint_reportview);
             this.Name = "Frm_tag_print";
-            this.Text = "Frm_tag_print";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "产品标签打印窗口";
             this.Load += new System.EventHandler(this.Frm_tag_print_Load);
             this.ResumeLayout(false);
 
@@ -60,6 +63,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer tagPrint_reportview;
     }
 }

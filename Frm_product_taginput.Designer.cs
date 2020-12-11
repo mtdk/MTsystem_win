@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Systemid = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.lb_unit = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Saveprint = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_tagprint = new System.Windows.Forms.DataGridView();
-            this.txt_Systemid = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tagprint)).BeginInit();
@@ -79,6 +79,25 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "标签录入";
+            // 
+            // txt_Systemid
+            // 
+            this.txt_Systemid.BackColor = System.Drawing.Color.LemonChiffon;
+            this.txt_Systemid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Systemid.Location = new System.Drawing.Point(293, 25);
+            this.txt_Systemid.Name = "txt_Systemid";
+            this.txt_Systemid.ReadOnly = true;
+            this.txt_Systemid.Size = new System.Drawing.Size(132, 30);
+            this.txt_Systemid.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(197, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 19);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "系统编码:";
             // 
             // lb_unit
             // 
@@ -252,26 +271,7 @@
             this.dgv_tagprint.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tagprint.Size = new System.Drawing.Size(853, 450);
             this.dgv_tagprint.TabIndex = 0;
-            this.dgv_tagprint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tagprint_CellContentClick);
-            // 
-            // txt_Systemid
-            // 
-            this.txt_Systemid.BackColor = System.Drawing.Color.LemonChiffon;
-            this.txt_Systemid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Systemid.Location = new System.Drawing.Point(293, 25);
-            this.txt_Systemid.Name = "txt_Systemid";
-            this.txt_Systemid.ReadOnly = true;
-            this.txt_Systemid.Size = new System.Drawing.Size(132, 30);
-            this.txt_Systemid.TabIndex = 28;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(197, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 19);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "系统编码:";
+            this.dgv_tagprint.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tagprint_CellDoubleClick);
             // 
             // Frm_product_taginput
             // 
