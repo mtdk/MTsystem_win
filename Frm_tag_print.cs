@@ -45,7 +45,14 @@ namespace MTsystem_win
                 ds.Tables["tag_print"].Load(dr);
 
                 ReportDataSource rds = new ReportDataSource();
-                tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview.rdlc";
+                if (rdb_printSelectA.Checked==true)
+                {
+                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview.rdlc";
+                }
+                else
+                {
+                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_a.rdlc";
+                }
                 rds.Name = "ds_product";
                 rds.Value = ds.Tables["tag_print"];
 
@@ -92,6 +99,16 @@ namespace MTsystem_win
                     conn.Close();
                 }
             }
+        }
+
+        private void rdb_printSelectA_CheckedChanged(object sender, EventArgs e)
+        {
+            printResult();
+        }
+
+        private void rdb_printSelectB_CheckedChanged(object sender, EventArgs e)
+        {
+            printResult();
         }
     }
 }

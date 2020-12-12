@@ -208,6 +208,7 @@
     <EmbeddedResource Include="printForm\mat_dayoutReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview.rdlc" />
+    <EmbeddedResource Include="printForm\product_tagReportview_a.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

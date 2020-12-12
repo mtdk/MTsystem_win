@@ -53,7 +53,6 @@ namespace MTsystem_win
 
         private void btn_Saveprint_Click(object sender, EventArgs e)
         {
-
             if (txt_Productid.Text.Trim().Length == 0)
             {
                 MessageBox.Show("产品编号不能为空！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -93,7 +92,7 @@ namespace MTsystem_win
             try
             {
                 string strsql = "INSERT INTO `tag_print` VALUES(NULL,@proid,@product_id,@product_name,@product_unit,@product_date,";
-                strsql += "@batch_number,@product_shelflife,@print_status)";
+                strsql += "@batch_number,@product_shelflife,@product_num,@print_status)";
 
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
@@ -105,6 +104,7 @@ namespace MTsystem_win
                 cmd.Parameters.AddWithValue("@product_date", Convert.ToDateTime(dtp_Productdate.Value.ToShortDateString().Trim()));
                 cmd.Parameters.AddWithValue("@batch_number", txt_batchNum.Text.Trim());
                 cmd.Parameters.AddWithValue("@product_shelflife", txt_Shelflife.Text.Trim());
+                cmd.Parameters.AddWithValue("@product_num", txt_num.Text.Trim());
                 cmd.Parameters.AddWithValue("@print_status", "未打印");
                 cmd.ExecuteNonQuery();
             }
@@ -120,11 +120,14 @@ namespace MTsystem_win
                 {
                     transaction.Commit();
                     conn.Close();
-                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if ((MessageBox.Show("是否打印","提示信息",MessageBoxButtons.YesNo,MessageBoxIcon.Asterisk)==DialogResult.OK))
+                    if ((MessageBox.Show("数据已保存是否打印！", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes))
                     {
                         Frm_tag_print frmtp = new Frm_tag_print();
+                        frmtp.productid = txt_Systemid.Text.Trim();
                         frmtp.ShowDialog();
+                        allClear();
+                        ds_tagprint.Clear();
+                        tagQuery();
                     }
                     else
                     {

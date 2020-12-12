@@ -225,8 +225,10 @@
             this.dgv_Queryresult.ReadOnly = true;
             this.dgv_Queryresult.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Queryresult.RowTemplate.Height = 23;
+            this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(740, 363);
             this.dgv_Queryresult.TabIndex = 0;
+            this.dgv_Queryresult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Queryresult_CellClick);
             // 
             // groupBox3
             // 

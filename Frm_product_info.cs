@@ -91,7 +91,7 @@ namespace MTsystem_win
                 }
                 else
                 {
-
+                    productUpdate();
                 }
             }
         }
@@ -151,6 +151,49 @@ namespace MTsystem_win
             finally
             {
                 if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    allClear();
+                    newSystemid();
+                    ds_Queryresult.Clear();
+                    Productresult();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 产品信息更新
+        /// </summary>
+        private void productUpdate()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                string strsql = "UPDATE product SET product_id = @product_id,product_name = @product_name,product_unit = @product_unit";
+                strsql += " WHERE proid = @proid";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = strsql;
+                cmd.Parameters.AddWithValue("@product_id", txt_Productid.Text.Trim());
+                cmd.Parameters.AddWithValue("@product_name", txt_Productname.Text.Trim());
+                cmd.Parameters.AddWithValue("@product_unit", txt_Productunit.Text.Trim());
+                cmd.Parameters.AddWithValue("@proid", txt_Systemid.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State!=ConnectionState.Closed)
                 {
                     transaction.Commit();
                     conn.Close();
@@ -265,6 +308,20 @@ namespace MTsystem_win
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             allClear();
+        }
+
+        private void dgv_Queryresult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Queryresult.RowCount > 0)
+            {
+                if (rdb_update.Checked == true)
+                {
+                    txt_Systemid.Text = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();
+                    txt_Productid.Text = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
+                    txt_Productname.Text = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
+                    txt_Productunit.Text = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
+                }
+            }
         }
     }
 }
