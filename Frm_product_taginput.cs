@@ -45,6 +45,7 @@ namespace MTsystem_win
             {
                 Frm_tag_print frmtp = new Frm_tag_print();
                 frmtp.productid = dgv_tagprint.SelectedCells[0].Value.ToString().Trim();
+                frmtp.copies = Convert.ToInt16(dgv_tagprint.SelectedCells[6].Value.ToString().Trim());
                 frmtp.ShowDialog();
             }
             ds_tagprint.Clear();
@@ -145,7 +146,7 @@ namespace MTsystem_win
         private void tagQuery()
         {
             string strsql = "SELECT tag_print.proid,tag_print.product_id,tag_print.product_name,tag_print.product_unit,";
-            strsql+="tag_print.product_date,tag_print.batch_number,tag_print.product_shelflife,tag_print.print_status";
+            strsql += "tag_print.product_date,tag_print.batch_number,tag_print.product_num,tag_print.product_shelflife,tag_print.print_status";
             strsql += " FROM tag_print WHERE tag_print.print_status = '未打印' ORDER BY tag_print.id ASC";
 
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -163,8 +164,9 @@ namespace MTsystem_win
             dgv_tagprint.Columns[3].HeaderText = "规格";
             dgv_tagprint.Columns[4].HeaderText = "生产日期";
             dgv_tagprint.Columns[5].HeaderText = "批号";
-            dgv_tagprint.Columns[6].HeaderText = "保质期";
-            dgv_tagprint.Columns[7].HeaderText = "状态";
+            dgv_tagprint.Columns[6].HeaderText = "数量";
+            dgv_tagprint.Columns[7].HeaderText = "保质期";
+            dgv_tagprint.Columns[8].HeaderText = "状态";
 
             conn.Close();
             msda.Dispose();
@@ -227,13 +229,37 @@ namespace MTsystem_win
             if (e.KeyChar==13||e.KeyChar==9)
             {
                 e.Handled = true;
-                btn_Saveprint.Focus();
+                txt_num.Focus();
             }
         }
 
         private void Frm_product_taginput_Load(object sender, EventArgs e)
         {
             tagQuery();
+        }
+
+        private void txt_num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (Char.IsPunctuation(e.KeyChar))
+            {
+                if (e.KeyChar != '.' || this.txt_num.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+                if (txt_num.Text.LastIndexOf('.') != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (e.KeyChar == 13 || e.KeyChar == 9)
+            {
+                e.Handled = true;
+                btn_Saveprint.Focus();
+            }
         }
     }
 }

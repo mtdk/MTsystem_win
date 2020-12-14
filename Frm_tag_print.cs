@@ -24,6 +24,8 @@ namespace MTsystem_win
 
         public string productid;
 
+        public short copies;
+
         private void Frm_tag_print_Load(object sender, EventArgs e)
         {
             printResult();
@@ -57,6 +59,8 @@ namespace MTsystem_win
                 rds.Value = ds.Tables["tag_print"];
 
                 tagPrint_reportview.LocalReport.DataSources.Add(rds);
+
+                this.tagPrint_reportview.PrinterSettings.Copies = copies;
 
                 this.tagPrint_reportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 this.tagPrint_reportview.ZoomMode = ZoomMode.PageWidth;
@@ -93,7 +97,7 @@ namespace MTsystem_win
             }
             finally
             {
-                if(conn.State!=ConnectionState.Closed)
+                if (conn.State != ConnectionState.Closed)
                 {
                     transaction.Commit();
                     conn.Close();
@@ -101,12 +105,12 @@ namespace MTsystem_win
             }
         }
 
-        private void rdb_printSelectA_CheckedChanged(object sender, EventArgs e)
+        private void rdb_printSelectB_CheckedChanged(object sender, EventArgs e)
         {
             printResult();
         }
 
-        private void rdb_printSelectB_CheckedChanged(object sender, EventArgs e)
+        private void rdb_printSelectA_CheckedChanged(object sender, EventArgs e)
         {
             printResult();
         }

@@ -61,6 +61,7 @@
             this.rdb_printSelectB.TabStop = true;
             this.rdb_printSelectB.Text = "star-CT 5400Ⅱ";
             this.rdb_printSelectB.UseVisualStyleBackColor = true;
+            this.rdb_printSelectB.CheckedChanged += new System.EventHandler(this.rdb_printSelectB_CheckedChanged);
             // 
             // rdb_printSelectA
             // 
@@ -73,6 +74,7 @@
             this.rdb_printSelectA.TabIndex = 3;
             this.rdb_printSelectA.Text = "ESPON LQ-635K";
             this.rdb_printSelectA.UseVisualStyleBackColor = true;
+            this.rdb_printSelectA.CheckedChanged += new System.EventHandler(this.rdb_printSelectA_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -99,6 +101,7 @@
             this.tagPrint_reportview.ShowZoomControl = false;
             this.tagPrint_reportview.Size = new System.Drawing.Size(864, 650);
             this.tagPrint_reportview.TabIndex = 1;
+            this.tagPrint_reportview.PrintingBegin += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.tagPrint_reportview_PrintingBegin);
             // 
             // Frm_tag_print
             // 
