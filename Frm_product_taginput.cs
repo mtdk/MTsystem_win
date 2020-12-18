@@ -44,8 +44,8 @@ namespace MTsystem_win
             if (dgv_tagprint.RowCount > 0)
             {
                 Frm_tag_print frmtp = new Frm_tag_print();
-                frmtp.productid = dgv_tagprint.SelectedCells[0].Value.ToString().Trim();
-                frmtp.copies = Convert.ToInt16(dgv_tagprint.SelectedCells[6].Value.ToString().Trim());
+                frmtp.printid = dgv_tagprint.SelectedCells[0].Value.ToString().Trim();
+                frmtp.copies = Convert.ToInt16(dgv_tagprint.SelectedCells[7].Value.ToString().Trim());
                 frmtp.ShowDialog();
             }
             ds_tagprint.Clear();
@@ -78,6 +78,11 @@ namespace MTsystem_win
             {
                 MessageBox.Show("产品保质期不能为空！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txt_Shelflife.Focus();
+            }
+            else if (txt_num.Text.Trim().Length==0)
+            {
+                MessageBox.Show("数量不能为空！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txt_num.Focus();
             }
             else
             {
@@ -117,25 +122,15 @@ namespace MTsystem_win
             }
             finally
             {
-                if (conn.State!=ConnectionState.Closed)
+                if (conn.State != ConnectionState.Closed)
                 {
                     transaction.Commit();
                     conn.Close();
-                    if ((MessageBox.Show("数据已保存是否打印！", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes))
-                    {
-                        Frm_tag_print frmtp = new Frm_tag_print();
-                        frmtp.productid = txt_Systemid.Text.Trim();
-                        frmtp.ShowDialog();
-                        allClear();
-                        ds_tagprint.Clear();
-                        tagQuery();
-                    }
-                    else
-                    {
-                        allClear();
-                        ds_tagprint.Clear();
-                        tagQuery();
-                    }
+                    MessageBox.Show("数据已保存请在下方列表中选择打印！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    allClear();
+                    ds_tagprint.Clear();
+                    tagQuery();
                 }
             }
         }
@@ -145,7 +140,7 @@ namespace MTsystem_win
         /// </summary>
         private void tagQuery()
         {
-            string strsql = "SELECT tag_print.proid,tag_print.product_id,tag_print.product_name,tag_print.product_unit,";
+            string strsql = "SELECT id,tag_print.proid,tag_print.product_id,tag_print.product_name,tag_print.product_unit,";
             strsql += "tag_print.product_date,tag_print.batch_number,tag_print.product_num,tag_print.product_shelflife,tag_print.print_status";
             strsql += " FROM tag_print WHERE tag_print.print_status = '未打印' ORDER BY tag_print.id ASC";
 
@@ -159,14 +154,16 @@ namespace MTsystem_win
             dgv_tagprint.DataSource = dv_tagprint.ToTable("resultTable");
             dgv_tagprint.Columns[0].HeaderText = "系统编号";
             dgv_tagprint.Columns[0].Visible = false;
-            dgv_tagprint.Columns[1].HeaderText = "产品编号";
-            dgv_tagprint.Columns[2].HeaderText = "产品名称";
-            dgv_tagprint.Columns[3].HeaderText = "规格";
-            dgv_tagprint.Columns[4].HeaderText = "生产日期";
-            dgv_tagprint.Columns[5].HeaderText = "批号";
-            dgv_tagprint.Columns[6].HeaderText = "数量";
-            dgv_tagprint.Columns[7].HeaderText = "保质期";
-            dgv_tagprint.Columns[8].HeaderText = "状态";
+            dgv_tagprint.Columns[1].HeaderText = "系统编号";
+            dgv_tagprint.Columns[1].Visible = false;
+            dgv_tagprint.Columns[2].HeaderText = "产品编号";
+            dgv_tagprint.Columns[3].HeaderText = "产品名称";
+            dgv_tagprint.Columns[4].HeaderText = "规格";
+            dgv_tagprint.Columns[5].HeaderText = "生产日期";
+            dgv_tagprint.Columns[6].HeaderText = "批号";
+            dgv_tagprint.Columns[7].HeaderText = "数量";
+            dgv_tagprint.Columns[8].HeaderText = "保质期";
+            dgv_tagprint.Columns[9].HeaderText = "状态";
 
             conn.Close();
             msda.Dispose();
@@ -184,8 +181,8 @@ namespace MTsystem_win
             txt_ProductName.Text = "";
             dtp_Productdate.Value = DateTime.Now;
             txt_Unit.Text = "";
-            txt_batchNum.Text = "";
             txt_Shelflife.Text = "6个月";
+            txt_num.Text = "";
         }
 
         private void txt_batchNum_KeyPress(object sender, KeyPressEventArgs e)
@@ -235,6 +232,7 @@ namespace MTsystem_win
 
         private void Frm_product_taginput_Load(object sender, EventArgs e)
         {
+            txt_batchNum.Text = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
             tagQuery();
         }
 
@@ -260,6 +258,12 @@ namespace MTsystem_win
                 e.Handled = true;
                 btn_Saveprint.Focus();
             }
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            ds_tagprint.Clear();
+            tagQuery();
         }
     }
 }

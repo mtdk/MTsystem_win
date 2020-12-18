@@ -154,6 +154,7 @@
             this.rdb_update.TabStop = true;
             this.rdb_update.Text = "信息修改";
             this.rdb_update.UseVisualStyleBackColor = true;
+            this.rdb_update.CheckedChanged += new System.EventHandler(this.rdb_update_CheckedChanged);
             // 
             // rdb_input
             // 

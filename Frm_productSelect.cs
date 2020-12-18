@@ -52,6 +52,7 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[3].HeaderText = "产品名称";
             dgv_Queryresult.Columns[4].HeaderText = "产品规格";
             conn.Close();
+            //txt_Querycondition.Focus();
         }
 
         /// <summary>
@@ -95,6 +96,16 @@ namespace MTsystem_win
         {
             ds_Queryresult.Clear();
             ProductQuery();
+        }
+
+        private void txt_Querycondition_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                e.Handled = true;
+                ds_Queryresult.Clear();
+                ProductQuery();
+            }
         }
 
         private void dgv_Queryresult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

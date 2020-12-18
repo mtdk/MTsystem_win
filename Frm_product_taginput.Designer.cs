@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_num = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_tagprint = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tagprint)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_Refresh);
             this.groupBox1.Controls.Add(this.txt_num);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txt_Systemid);
@@ -288,13 +290,23 @@
             this.dgv_tagprint.Location = new System.Drawing.Point(3, 22);
             this.dgv_tagprint.Name = "dgv_tagprint";
             this.dgv_tagprint.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tagprint.RowTemplate.Height = 23;
             this.dgv_tagprint.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tagprint.Size = new System.Drawing.Size(853, 450);
             this.dgv_tagprint.TabIndex = 0;
             this.dgv_tagprint.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tagprint_CellDoubleClick);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Location = new System.Drawing.Point(563, 209);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(96, 37);
+            this.btn_Refresh.TabIndex = 31;
+            this.btn_Refresh.Text = "刷 新";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // Frm_product_taginput
             // 
@@ -343,6 +355,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_num;
+        private System.Windows.Forms.Button btn_Refresh;
 
     }
 }

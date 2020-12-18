@@ -22,6 +22,8 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        public string printid;
+
         public string productid;
 
         public short copies;
@@ -35,7 +37,7 @@ namespace MTsystem_win
         {
             string strsql = "SELECT tag_print.proid,tag_print.product_id,tag_print.product_name,tag_print.product_unit,";
             strsql += "tag_print.product_date,tag_print.batch_number,tag_print.product_shelflife,tag_print.print_status";
-            strsql += " FROM tag_print WHERE tag_print.proid = '" + productid.Trim() + "'";
+            strsql += " FROM tag_print WHERE tag_print.id = '" + Convert.ToInt16(printid.Trim()) + "'";
 
             ds_product ds = new ds_product();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -80,12 +82,12 @@ namespace MTsystem_win
             MySqlTransaction transaction = conn.BeginTransaction();
             try
             {
-                string strsql = "UPDATE tag_print SET print_status = @print_status WHERE proid = @proid";
+                string strsql = "UPDATE tag_print SET print_status = @print_status WHERE id = @id";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = strsql;
                 cmd.Parameters.AddWithValue("@print_status", "已打印");
-                cmd.Parameters.AddWithValue("@proid", productid.Trim());
+                cmd.Parameters.AddWithValue("@id", Convert.ToInt16(printid.Trim()));
                 cmd.ExecuteNonQuery();
 
             }

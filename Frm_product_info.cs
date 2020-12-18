@@ -215,6 +215,8 @@ namespace MTsystem_win
             txt_Productid.Focus();
             txt_Productname.Text = "";
             txt_Productunit.Text = "20";
+            rdb_input.Enabled = true;
+            rdb_input.Checked = true;
         }
 
         /// <summary>
@@ -321,6 +323,14 @@ namespace MTsystem_win
                     txt_Productname.Text = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
                     txt_Productunit.Text = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
                 }
+            }
+        }
+
+        private void rdb_update_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_update.Checked==true)
+            {
+                rdb_input.Enabled = false;
             }
         }
     }
