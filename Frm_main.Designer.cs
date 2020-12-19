@@ -38,12 +38,13 @@
             this.tsmi_mat_ReceiveQuery = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_Givback = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +96,7 @@
             // 
             this.workshop_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_Receive,
+            this.tsmi_mat_Givback,
             this.tsmi_mat_ReceiveQuery});
             this.workshop_Item.Name = "workshop_Item";
             this.workshop_Item.Size = new System.Drawing.Size(57, 23);
@@ -133,6 +135,13 @@
             this.tsmi_mat_In.Text = "材料进仓";
             this.tsmi_mat_In.Click += new System.EventHandler(this.tsmi_mat_In_Click);
             // 
+            // pro_info_input
+            // 
+            this.pro_info_input.Name = "pro_info_input";
+            this.pro_info_input.Size = new System.Drawing.Size(231, 24);
+            this.pro_info_input.Text = "产品信息录入&&修改";
+            this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
+            // 
             // mat_Basestock
             // 
             this.mat_Basestock.Name = "mat_Basestock";
@@ -168,12 +177,11 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // pro_info_input
+            // tsmi_mat_Givback
             // 
-            this.pro_info_input.Name = "pro_info_input";
-            this.pro_info_input.Size = new System.Drawing.Size(231, 24);
-            this.pro_info_input.Text = "产品信息录入&&修改";
-            this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
+            this.tsmi_mat_Givback.Name = "tsmi_mat_Givback";
+            this.tsmi_mat_Givback.Size = new System.Drawing.Size(186, 24);
+            this.tsmi_mat_Givback.Text = "材料退回";
             // 
             // Frm_main
             // 
@@ -215,5 +223,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_ReceiveQuery;
         private System.Windows.Forms.ToolStripMenuItem tag_Item;
         private System.Windows.Forms.ToolStripMenuItem pro_info_input;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Givback;
     }
 }

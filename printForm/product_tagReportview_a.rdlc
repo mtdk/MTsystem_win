@@ -295,15 +295,14 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
         <Top>11.8285cm</Top>
-        <Left>1.27cm</Left>
         <Height>2.10813cm</Height>
-        <Width>17.10839cm</Width>
+        <Width>17.84922cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
