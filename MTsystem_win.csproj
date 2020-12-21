@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="allClass\connectstr.cs" />
     <Compile Include="allClass\frmShowstatus.cs" />
+    <Compile Include="allClass\sendParameters.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
     <Compile Include="dsControl\ds_mat_stockReport.Designer.cs">
       <AutoGen>True</AutoGen>
