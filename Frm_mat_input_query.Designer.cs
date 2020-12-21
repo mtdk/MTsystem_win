@@ -59,6 +59,7 @@
             this.txt_Queryid.Name = "txt_Queryid";
             this.txt_Queryid.Size = new System.Drawing.Size(175, 30);
             this.txt_Queryid.TabIndex = 3;
+            this.txt_Queryid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Queryid_KeyPress);
             // 
             // cb_Querydate
             // 
@@ -143,8 +144,10 @@
             this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.RowTemplate.ReadOnly = true;
+            this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(1110, 678);
             this.dgv_Queryresult.TabIndex = 0;
+            this.dgv_Queryresult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Queryresult_CellDoubleClick);
             // 
             // Frm_mat_input_query
             // 

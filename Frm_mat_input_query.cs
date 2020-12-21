@@ -104,5 +104,32 @@ namespace MTsystem_win
         {
             frmShowstatus._Frmatinputquery = "CLOSE";
         }
+
+        private void dgv_Queryresult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Queryresult.Rows.Count>0)
+            {
+                sendParameters._Outid = dgv_Queryresult.SelectedCells[0].Value.ToString().Trim();
+                sendParameters._Matid = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();
+                sendParameters._MatinsideName = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
+                sendParameters._Matnum = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
+                sendParameters._Matunit = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
+                sendParameters._MatTotal = dgv_Queryresult.SelectedCells[5].Value.ToString().Trim();
+                sendParameters._Outdate = dgv_Queryresult.SelectedCells[6].Value.ToString().Trim();
+                sendParameters._OutOperator = dgv_Queryresult.SelectedCells[7].Value.ToString().Trim();
+                Frm_mat_giveback fmgb = new Frm_mat_giveback();
+                fmgb.ShowDialog();
+            }
+        }
+
+        private void txt_Queryid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                e.Handled = true;
+                ds_Queryresult.Clear();
+                doQuery();
+            }
+        }
     }
 }
