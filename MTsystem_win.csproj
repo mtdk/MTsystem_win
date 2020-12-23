@@ -132,6 +132,12 @@
     <Compile Include="Frm_mat_giveback.Designer.cs">
       <DependentUpon>Frm_mat_giveback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_mat_giveback_query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_mat_giveback_query.Designer.cs">
+      <DependentUpon>Frm_mat_giveback_query.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_mat_input_query.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mat_giveback.resx">
       <DependentUpon>Frm_mat_giveback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_mat_giveback_query.resx">
+      <DependentUpon>Frm_mat_giveback_query.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mat_input_query.resx">
       <DependentUpon>Frm_mat_input_query.cs</DependentUpon>

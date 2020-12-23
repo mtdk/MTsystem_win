@@ -23,12 +23,13 @@ namespace MTsystem_win
         {
             newGbid();
             txt_Outid.Text = sendParameters._Outid.ToString().Trim();
-            txt_Materia_id.Text = sendParameters._Matid.ToString().Trim();
+            txt_matid.Text = sendParameters._Matid.ToString().Trim();
+            txt_Materia_id.Text = sendParameters._Mat_id.ToString().Trim();
             txt_Materia_name.Text = sendParameters._MatinsideName.ToString().Trim();
             txt_Lysl.Text = sendParameters._Matnum.ToString().Trim();
             txt_Materia_unit.Text = sendParameters._Matunit.ToString().Trim();
             txt_Lyzl.Text = sendParameters._MatTotal.ToString().Trim();
-            txt_Outdate.Text = sendParameters._Outdate.ToString().Trim();
+            txt_Outdate.Text = string.Format("{0:d}", Convert.ToDateTime(sendParameters._Outdate.ToString().Trim()));
             txt_Operator.Text = sendParameters._OutOperator.ToString().Trim();
             txt_gbdate.Text = DateTime.Now.ToShortDateString();
         }
@@ -138,5 +139,108 @@ namespace MTsystem_win
                 txt_Lyzl.Text = "0";
             }
         }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            if (txt_gbid.Text.Trim().Length==0)
+            {
+                MessageBox.Show("回退记录号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_matid.Text.Trim().Length==0)
+            {
+                MessageBox.Show("材料系统编号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_Materia_id.Text.Trim().Length==0)
+            {
+                MessageBox.Show("材料编号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Materia_id.Focus();
+            }
+            else if (txt_Materia_name.Text.Trim().Length==0)
+            {
+                MessageBox.Show("材料名称不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Materia_id.Focus();
+            }
+            else if (txt_Lysl.Text.Trim().Length==0)
+            {
+                MessageBox.Show("回退数量不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Lysl.Focus();
+            }
+            else if (txt_Materia_unit.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("材料规格不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Materia_unit.Focus();
+            }
+            else if (txt_Lyzl.Text.Trim().Length==0)
+            {
+                MessageBox.Show("回退总量不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_Outdate.Text.Trim().Length==0)
+            {
+                MessageBox.Show("领用时间不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_Operator.Text.Trim().Length==0)
+            {
+                MessageBox.Show("操作人信息不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_gbdate.Text.Trim().Length==0)
+            {
+                MessageBox.Show("回退时间不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_backReason.Text.Trim().Length==0)
+            {
+                MessageBox.Show("回退原因不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_backReason.Focus();
+            }
+            else
+            {
+                if (Sameid(txt_Outid.Text.Trim())==false)
+                {
+
+                }
+            }
+        }
+
+        private bool Sameid(string findid)
+        {
+            bool b = false;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
+            string sqlstr = "SELECT * FROM material_giveback WHERE Inputid = @Inputid";
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Inputid", findid.Trim());
+
+            MySqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = rd.Read();
+
+            return b;
+        }
+
+        private void mat_gbinsert()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                string strsqlA = "INSERT INTO `material_giveback` VALUES (NULL,@gbid,@Inputid,@Matid,@Material_id,";
+                strsqlA += "@Material_inside_name,@Material_gbnum,@Material_unit,@Material_gbTotal,@back_date,@back_operator,@back_status)";
+
+                cmd.CommandText = strsqlA;
+                cmd.Parameters.AddWithValue("@gbid", txt_gbid.Text.Trim());
+                cmd.Parameters.AddWithValue("@Inputid", txt_Outid.Text.Trim());
+                cmd.Parameters.AddWithValue("@Matid", txt_Materia_id.Text.Trim());
+                //cmd.Parameters.AddWithValue("@Material_id", txt_Materia_name.Text.Trim());
+                //cmd.Parameters.AddWithValue("
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+        }
+   
     }
 }

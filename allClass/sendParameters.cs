@@ -10,7 +10,8 @@ namespace MTsystem_win.allClass
         #region 材料退回
 
         private static string outid;    //材料出仓记录号
-        private static string matid;    //材料编号
+        private static string matid;    //材料系统编号
+        private static string mat_id;   //材料编号
         private static string matInsideName;    //材料名
         private static string matnum;   //领用数量
         private static string matunit;  //材料规格
@@ -24,11 +25,17 @@ namespace MTsystem_win.allClass
             get { return outid; }
             set { outid = value; }
         }
-        //材料编号
+        //材料系统编号
         public static string _Matid
         {
             get { return matid; }
             set { matid = value; }
+        }
+        //材料编号
+        public static string _Mat_id
+        {
+            get { return mat_id; }
+            set { mat_id = value; }
         }
         //材料名
         public static string _MatinsideName

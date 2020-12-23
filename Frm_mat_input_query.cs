@@ -42,7 +42,7 @@ namespace MTsystem_win
             {//查询编号为空并且选择查询日期范围
                 if (cb_Querydate.Checked == true)
                 {
-                    strsql = "SELECT material_out.Outid,material_out.Material_id,material_out.Material_inside_name,";
+                    strsql = "SELECT material_out.Outid,material_out.Matid,material_out.Material_id,material_out.Material_inside_name,";
                     strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,material_out.Out_date,material_out.Out_operator";
                     strsql += " FROM material_out WHERE material_out.Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_out.Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
@@ -50,7 +50,7 @@ namespace MTsystem_win
                 }
                 else
                 {//查询编号为空且没有选择查询日期范围
-                    strsql = "SELECT material_out.Outid,material_out.Material_id,material_out.Material_inside_name,";
+                    strsql = "SELECT material_out.Outid,material_out.Matid,material_out.Material_id,material_out.Material_inside_name,";
                     strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,material_out.Out_date,";
                     strsql += "material_out.Out_operator FROM material_out ORDER BY material_out.Out_date ASC";
                 }
@@ -59,7 +59,7 @@ namespace MTsystem_win
             {//查询编号不为空且选择查询日期范围
                 if (cb_Querydate.Checked == true)
                 {
-                    strsql = "SELECT material_out.Outid,material_out.Material_id,material_out.Material_inside_name,";
+                    strsql = "SELECT material_out.Outid,material_out.Matid,material_out.Material_id,material_out.Material_inside_name,";
                     strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,material_out.Out_date,material_out.Out_operator";
                     strsql += " FROM material_out WHERE material_out.Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_out.Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
@@ -67,7 +67,7 @@ namespace MTsystem_win
                 }
                 else
                 {//查询编号不为空且没有选择查询日期范围
-                    strsql = "SELECT material_out.Outid,material_out.Material_id,material_out.Material_inside_name,";
+                    strsql = "SELECT material_out.Outid,material_out.Matid,material_out.Material_id,material_out.Material_inside_name,";
                     strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,material_out.Out_date,material_out.Out_operator";
                     strsql += " FROM material_out WHERE material_out.Material_id = '" + txt_Queryid.Text.Trim() + "'";
                     strsql += " ORDER BY material_out.Out_date ASC";
@@ -81,13 +81,15 @@ namespace MTsystem_win
             dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
 
             dgv_Queryresult.Columns[0].HeaderText = "出仓单号";
-            dgv_Queryresult.Columns[1].HeaderText = "材料编号";
-            dgv_Queryresult.Columns[2].HeaderText = "材料名称";
-            dgv_Queryresult.Columns[3].HeaderText = "领用数量";
-            dgv_Queryresult.Columns[4].HeaderText = "领用规格";
-            dgv_Queryresult.Columns[5].HeaderText = "领用总量";
-            dgv_Queryresult.Columns[6].HeaderText = "出库时间";
-            dgv_Queryresult.Columns[7].HeaderText = "操作员";
+            dgv_Queryresult.Columns[1].HeaderText = "系统编号";
+            dgv_Queryresult.Columns[1].Visible = false;
+            dgv_Queryresult.Columns[2].HeaderText = "材料编号";
+            dgv_Queryresult.Columns[3].HeaderText = "材料名称";
+            dgv_Queryresult.Columns[4].HeaderText = "领用数量";
+            dgv_Queryresult.Columns[5].HeaderText = "领用规格";
+            dgv_Queryresult.Columns[6].HeaderText = "领用总量";
+            dgv_Queryresult.Columns[7].HeaderText = "出库时间";
+            dgv_Queryresult.Columns[8].HeaderText = "操作员";
 
             conn.Close();
         }
@@ -111,12 +113,13 @@ namespace MTsystem_win
             {
                 sendParameters._Outid = dgv_Queryresult.SelectedCells[0].Value.ToString().Trim();
                 sendParameters._Matid = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();
-                sendParameters._MatinsideName = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
-                sendParameters._Matnum = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
-                sendParameters._Matunit = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
-                sendParameters._MatTotal = dgv_Queryresult.SelectedCells[5].Value.ToString().Trim();
-                sendParameters._Outdate = dgv_Queryresult.SelectedCells[6].Value.ToString().Trim();
-                sendParameters._OutOperator = dgv_Queryresult.SelectedCells[7].Value.ToString().Trim();
+                sendParameters._Mat_id = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
+                sendParameters._MatinsideName = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
+                sendParameters._Matnum = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
+                sendParameters._Matunit = dgv_Queryresult.SelectedCells[5].Value.ToString().Trim();
+                sendParameters._MatTotal = dgv_Queryresult.SelectedCells[6].Value.ToString().Trim();
+                sendParameters._Outdate = dgv_Queryresult.SelectedCells[7].Value.ToString().Trim();
+                sendParameters._OutOperator = dgv_Queryresult.SelectedCells[8].Value.ToString().Trim();
                 Frm_mat_giveback fmgb = new Frm_mat_giveback();
                 fmgb.ShowDialog();
             }
