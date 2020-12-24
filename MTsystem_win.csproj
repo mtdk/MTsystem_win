@@ -120,6 +120,18 @@
     <Compile Include="Frm_material_info.Designer.cs">
       <DependentUpon>Frm_material_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_matgbdisagree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_matgbdisagree.Designer.cs">
+      <DependentUpon>Frm_matgbdisagree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_mat_confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_mat_confirm.Designer.cs">
+      <DependentUpon>Frm_mat_confirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_mat_dayReportview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +211,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_material_info.resx">
       <DependentUpon>Frm_material_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_matgbdisagree.resx">
+      <DependentUpon>Frm_matgbdisagree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_mat_confirm.resx">
+      <DependentUpon>Frm_mat_confirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mat_dayReportview.resx">
       <DependentUpon>Frm_mat_dayReportview.cs</DependentUpon>

@@ -10,19 +10,10 @@ namespace MTsystem_win.allClass
     /// </summary>
     class frmShowstatus
     {
-        /// <summary>
-        /// 材料领用窗口
-        /// </summary>
-        private static string _frmclly;
-        /// <summary>
-        /// 材料领用窗口控制
-        /// </summary>
-        public static string _Frmclly
-        {
-            set { _frmclly = value; }
-            get { return _frmclly; }
-        }
+        #region 采购
+        #endregion
 
+        #region 仓库
         /// <summary>
         /// 材料进仓窗口
         /// </summary>
@@ -75,14 +66,63 @@ namespace MTsystem_win.allClass
             get { return _frdmsrv; }
         }
 
-        private static string _frmatinputquery;
+        /// <summary>
+        /// 产品信息录入窗口
+        /// </summary>
+        private static string _frmproductinfo;
+        /// <summary>
+        /// 产品信息录入窗口
+        /// </summary>
+        public static string _Frmproductinfo
+        {
+            set { _frmproductinfo = value; }
+            get { return _frmproductinfo; }
+        }
+        
+        /// <summary>
+        /// 材料退回确认窗口
+        /// </summary>
+        private static string _frmmatconfirm;
+        /// <summary>
+        /// 材料退回确认窗口
+        /// </summary>
+        public static string _Frmmatconfirm
+        {
+            get { return _frmmatconfirm; }
+            set { _frmmatconfirm = value; }
+        }
 
+        #endregion
+
+        #region 车间
+        /// <summary>
+        /// 材料领用窗口
+        /// </summary>
+        private static string _frmclly;
+        /// <summary>
+        /// 材料领用窗口控制
+        /// </summary>
+        public static string _Frmclly
+        {
+            set { _frmclly = value; }
+            get { return _frmclly; }
+        }
+        /// <summary>
+        /// 材料进仓查询
+        /// </summary>
+        private static string _frmatinputquery;
+        /// <summary>
+        /// 材料进仓查询
+        /// </summary>
         public static string _Frmatinputquery
         {
             set { _frmatinputquery = value; }
             get { return _frmatinputquery; }
         }
 
+        #endregion
+
+        #region 其他
         /// <summary>
         /// 标签录入窗口
         /// </summary>
@@ -96,17 +136,7 @@ namespace MTsystem_win.allClass
             get { return _frmptag; }
         }
 
-        /// <summary>
-        /// 产品信息录入窗口
-        /// </summary>
-        private static string _frmproductinfo;
-        /// <summary>
-        /// 产品信息录入窗口
-        /// </summary>
-        public static string _Frmproductinfo
-        {
-            set { _frmproductinfo = value; }
-            get { return _frmproductinfo; }
-        }
+        #endregion
+
     }
 }

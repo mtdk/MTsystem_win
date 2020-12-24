@@ -32,6 +32,7 @@ namespace MTsystem_win
             txt_Outdate.Text = string.Format("{0:d}", Convert.ToDateTime(sendParameters._Outdate.ToString().Trim()));
             txt_Operator.Text = sendParameters._OutOperator.ToString().Trim();
             txt_gbdate.Text = DateTime.Now.ToShortDateString();
+            //txt_backReason.Focus();
         }
 
         /// <summary>
@@ -195,7 +196,11 @@ namespace MTsystem_win
             {
                 if (Sameid(txt_Outid.Text.Trim())==false)
                 {
-
+                    mat_gbinsert();
+                }
+                else
+                {
+                    MessageBox.Show("记录已提交回退，不能再次提交！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -214,7 +219,9 @@ namespace MTsystem_win
 
             return b;
         }
-
+        /// <summary>
+        /// 提交退回数据和备份数据
+        /// </summary>
         private void mat_gbinsert()
         {
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
@@ -225,20 +232,169 @@ namespace MTsystem_win
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
                 string strsqlA = "INSERT INTO `material_giveback` VALUES (NULL,@gbid,@Inputid,@Matid,@Material_id,";
-                strsqlA += "@Material_inside_name,@Material_gbnum,@Material_unit,@Material_gbTotal,@back_date,@back_operator,@back_status)";
+                strsqlA += "@Material_inside_name,@Material_gbnum,@Material_unit,@Material_gbTotal,@Outdate,";
+                strsqlA += "@back_date,@back_operator,@gbReason,@back_status)";
 
                 cmd.CommandText = strsqlA;
                 cmd.Parameters.AddWithValue("@gbid", txt_gbid.Text.Trim());
                 cmd.Parameters.AddWithValue("@Inputid", txt_Outid.Text.Trim());
-                cmd.Parameters.AddWithValue("@Matid", txt_Materia_id.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Material_id", txt_Materia_name.Text.Trim());
-                //cmd.Parameters.AddWithValue("
+                cmd.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_gbnum", txt_Lysl.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_unit", txt_Materia_unit.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_gbTotal", txt_Lyzl.Text.Trim());
+                cmd.Parameters.AddWithValue("@Outdate", txt_Outdate.Text.Trim());
+                cmd.Parameters.AddWithValue("@back_date", txt_gbdate.Text.Trim());
+                cmd.Parameters.AddWithValue("@gbReason", txt_backReason.Text.Trim());
+                cmd.Parameters.AddWithValue("@back_operator", txt_Operator.Text.Trim());
+                cmd.Parameters.AddWithValue("@back_status", "待确认");
+
+                cmd.ExecuteNonQuery();
+
+                //MySqlCommand cmdB = new MySqlCommand();
+                //cmdB.Connection = conn;
+                //string strsqlB = "INSERT INTO `material_giveback_bk` VALUES (NULL,@gbidB,@InputidB,@MatidB,@Material_idB,";
+                //strsqlB += "@Material_inside_nameB,@Material_gbnumB,@Material_unitB,@Material_gbTotalB,@back_dateB,@back_operatorB)";
+
+                //cmdB.CommandText = strsqlB;
+                //cmdB.Parameters.AddWithValue("@gbidB", txt_gbid.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@InputidB", txt_Outid.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@MatidB", txt_matid.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@Material_idB", txt_Materia_id.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@Material_inside_nameB", txt_Materia_name.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@Material_gbnumB", txt_Lysl.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@Material_unitB", txt_Materia_unit.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@Material_gbTotalB", txt_Lyzl.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@back_dateB", txt_gbdate.Text.Trim());
+                //cmdB.Parameters.AddWithValue("@back_operatorB", txt_Operator.Text.Trim());
+
+                //cmdB.ExecuteNonQuery();
+
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 transaction.Rollback();
                 conn.Close();
+            }
+            finally
+            {
+                if (conn.State==ConnectionState.Open)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已提交！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+        }
+
+        private void rdb_ReasoneA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_ReasoneA.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneA.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneB.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneB.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneC.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneC.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else
+            {
+                txt_backReason.Text = string.Empty;
+                txt_backReason.ReadOnly = false;
+                txt_backReason.Focus();
+            }
+        }
+
+        private void rdb_ReasoneB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_ReasoneA.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneA.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneB.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneB.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneC.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneC.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else
+            {
+                txt_backReason.Text = string.Empty;
+                txt_backReason.ReadOnly = false;
+                txt_backReason.Focus();
+            }
+        }
+
+        private void rdb_ReasoneC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_ReasoneA.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneA.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneB.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneB.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneC.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneC.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else
+            {
+                txt_backReason.Text = string.Empty;
+                txt_backReason.ReadOnly = false;
+                txt_backReason.Focus();
+            }
+        }
+
+        private void rdb_ReasoneD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_ReasoneA.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneA.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneB.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneB.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else if (rdb_ReasoneC.Checked == true)
+            {
+                txt_backReason.Text = rdb_ReasoneC.Text.Trim();
+                txt_backReason.ReadOnly = true;
+            }
+            else
+            {
+                txt_backReason.Text = string.Empty;
+                txt_backReason.ReadOnly = false;
+                txt_backReason.Focus();
+            }
+        }
+
+        private void txt_backReason_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_backReason.Text.Trim().Length==10)
+            {
+                MessageBox.Show("退回原因最多只能输入10个字！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
    
