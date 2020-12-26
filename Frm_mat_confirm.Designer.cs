@@ -59,6 +59,8 @@
             this.rdb_agree = new System.Windows.Forms.RadioButton();
             this.rdb_disagree = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
+            this.txt_Savedate = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Query_result)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +107,7 @@
             // 
             this.txt_gbdate.BackColor = System.Drawing.Color.LightCyan;
             this.txt_gbdate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gbdate.Location = new System.Drawing.Point(422, 123);
+            this.txt_gbdate.Location = new System.Drawing.Point(422, 86);
             this.txt_gbdate.Name = "txt_gbdate";
             this.txt_gbdate.ReadOnly = true;
             this.txt_gbdate.Size = new System.Drawing.Size(206, 31);
@@ -114,11 +116,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(326, 129);
+            this.label11.Location = new System.Drawing.Point(326, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 19);
             this.label11.TabIndex = 74;
-            this.label11.Text = "提交时间:";
+            this.label11.Text = "退回时间:";
             // 
             // txt_gbid
             // 
@@ -143,7 +145,7 @@
             // 
             this.txt_Operator.BackColor = System.Drawing.Color.LightCyan;
             this.txt_Operator.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Operator.Location = new System.Drawing.Point(422, 86);
+            this.txt_Operator.Location = new System.Drawing.Point(422, 49);
             this.txt_Operator.MaxLength = 15;
             this.txt_Operator.Name = "txt_Operator";
             this.txt_Operator.ReadOnly = true;
@@ -153,7 +155,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(344, 92);
+            this.label9.Location = new System.Drawing.Point(344, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 19);
             this.label9.TabIndex = 70;
@@ -163,7 +165,7 @@
             // 
             this.txt_Outdate.BackColor = System.Drawing.Color.LightCyan;
             this.txt_Outdate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Outdate.Location = new System.Drawing.Point(422, 49);
+            this.txt_Outdate.Location = new System.Drawing.Point(108, 271);
             this.txt_Outdate.Name = "txt_Outdate";
             this.txt_Outdate.ReadOnly = true;
             this.txt_Outdate.Size = new System.Drawing.Size(206, 31);
@@ -172,7 +174,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(326, 55);
+            this.label8.Location = new System.Drawing.Point(12, 277);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 19);
             this.label8.TabIndex = 68;
@@ -199,7 +201,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(528, 232);
+            this.btn_Cancel.Location = new System.Drawing.Point(536, 235);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_Cancel.TabIndex = 65;
@@ -210,7 +212,7 @@
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_Save.Location = new System.Drawing.Point(414, 232);
+            this.btn_Save.Location = new System.Drawing.Point(422, 235);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 30);
             this.btn_Save.TabIndex = 64;
@@ -318,9 +320,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgv_Query_result);
-            this.groupBox1.Location = new System.Drawing.Point(12, 281);
+            this.groupBox1.Location = new System.Drawing.Point(12, 310);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(906, 296);
+            this.groupBox1.Size = new System.Drawing.Size(906, 370);
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "待确认记录";
@@ -339,7 +341,7 @@
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;
             this.dgv_Query_result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Query_result.Size = new System.Drawing.Size(900, 271);
+            this.dgv_Query_result.Size = new System.Drawing.Size(900, 345);
             this.dgv_Query_result.TabIndex = 43;
             this.dgv_Query_result.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Query_result_CellDoubleClick);
             // 
@@ -375,12 +377,33 @@
             this.label13.TabIndex = 83;
             this.label13.Text = "退回处理:";
             // 
+            // txt_Savedate
+            // 
+            this.txt_Savedate.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_Savedate.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Savedate.Location = new System.Drawing.Point(422, 123);
+            this.txt_Savedate.Name = "txt_Savedate";
+            this.txt_Savedate.ReadOnly = true;
+            this.txt_Savedate.Size = new System.Drawing.Size(206, 31);
+            this.txt_Savedate.TabIndex = 85;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(326, 129);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 84;
+            this.label14.Text = "提交时间:";
+            // 
             // Frm_mat_confirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(930, 589);
+            this.ClientSize = new System.Drawing.Size(930, 692);
+            this.Controls.Add(this.txt_Savedate);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.rdb_disagree);
             this.Controls.Add(this.rdb_agree);
@@ -460,5 +483,7 @@
         private System.Windows.Forms.RadioButton rdb_agree;
         private System.Windows.Forms.RadioButton rdb_disagree;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_Savedate;
+        private System.Windows.Forms.Label label14;
     }
 }

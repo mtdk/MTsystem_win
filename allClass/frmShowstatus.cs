@@ -108,16 +108,16 @@ namespace MTsystem_win.allClass
             get { return _frmclly; }
         }
         /// <summary>
-        /// 材料进仓查询
+        /// 材料领用查询
         /// </summary>
-        private static string _frmatinputquery;
+        private static string _frmatouttquery;
         /// <summary>
-        /// 材料进仓查询
+        /// 材料领用查询
         /// </summary>
-        public static string _Frmatinputquery
+        public static string _Frmatouttquery
         {
-            set { _frmatinputquery = value; }
-            get { return _frmatinputquery; }
+            set { _frmatouttquery = value; }
+            get { return _frmatouttquery; }
         }
 
         #endregion

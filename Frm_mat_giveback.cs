@@ -251,26 +251,6 @@ namespace MTsystem_win
                 cmd.Parameters.AddWithValue("@back_status", "待确认");
 
                 cmd.ExecuteNonQuery();
-
-                //MySqlCommand cmdB = new MySqlCommand();
-                //cmdB.Connection = conn;
-                //string strsqlB = "INSERT INTO `material_giveback_bk` VALUES (NULL,@gbidB,@InputidB,@MatidB,@Material_idB,";
-                //strsqlB += "@Material_inside_nameB,@Material_gbnumB,@Material_unitB,@Material_gbTotalB,@back_dateB,@back_operatorB)";
-
-                //cmdB.CommandText = strsqlB;
-                //cmdB.Parameters.AddWithValue("@gbidB", txt_gbid.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@InputidB", txt_Outid.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@MatidB", txt_matid.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@Material_idB", txt_Materia_id.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@Material_inside_nameB", txt_Materia_name.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@Material_gbnumB", txt_Lysl.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@Material_unitB", txt_Materia_unit.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@Material_gbTotalB", txt_Lyzl.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@back_dateB", txt_gbdate.Text.Trim());
-                //cmdB.Parameters.AddWithValue("@back_operatorB", txt_Operator.Text.Trim());
-
-                //cmdB.ExecuteNonQuery();
-
             }
             catch (MySqlException ex)
             {

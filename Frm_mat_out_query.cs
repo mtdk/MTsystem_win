@@ -12,9 +12,9 @@ using MTsystem_win.allClass;
 
 namespace MTsystem_win
 {
-    public partial class Frm_mat_input_query : Form
+    public partial class Frm_mat_out_query : Form
     {
-        public Frm_mat_input_query()
+        public Frm_mat_out_query()
         {
             InitializeComponent();
         }
@@ -96,15 +96,15 @@ namespace MTsystem_win
 
         private void Frm_mat_input_query_Load(object sender, EventArgs e)
         {
-            if (frmShowstatus._Frmatinputquery=="CLOSE"||frmShowstatus._Frmatinputquery==null)
+            if (frmShowstatus._Frmatouttquery=="CLOSE"||frmShowstatus._Frmatouttquery==null)
             {
-                frmShowstatus._Frmatinputquery = "OPEN";
+                frmShowstatus._Frmatouttquery = "OPEN";
             }
         }
 
         private void Frm_mat_input_query_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmShowstatus._Frmatinputquery = "CLOSE";
+            frmShowstatus._Frmatouttquery = "CLOSE";
         }
 
         private void dgv_Queryresult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

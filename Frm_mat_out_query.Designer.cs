@@ -1,6 +1,6 @@
 ﻿namespace MTsystem_win
 {
-    partial class Frm_mat_input_query
+    partial class Frm_mat_out_query
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Queryid = new System.Windows.Forms.TextBox();
             this.cb_Querydate = new System.Windows.Forms.CheckBox();
@@ -139,9 +139,9 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.RowTemplate.ReadOnly = true;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -149,7 +149,7 @@
             this.dgv_Queryresult.TabIndex = 0;
             this.dgv_Queryresult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Queryresult_CellDoubleClick);
             // 
-            // Frm_mat_input_query
+            // Frm_mat_out_query
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,9 +167,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_mat_input_query";
+            this.Name = "Frm_mat_out_query";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "材料进仓查询窗口";
+            this.Text = "材料领用查询窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_mat_input_query_FormClosed);
             this.Load += new System.EventHandler(this.Frm_mat_input_query_Load);
             this.groupBox1.ResumeLayout(false);

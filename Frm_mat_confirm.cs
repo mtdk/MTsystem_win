@@ -27,9 +27,10 @@ namespace MTsystem_win
 
         private void Frm_mat_confirm_Load(object sender, EventArgs e)
         {
-            if (frmShowstatus._Frmmatconfirm=="CLOSE"||frmShowstatus._Frmmatconfirm==null)
+            if (frmShowstatus._Frmmatconfirm == "CLOSE" || frmShowstatus._Frmmatconfirm == null)
             {
                 frmShowstatus._Frmmatconfirm = "OPEN";
+                txt_Savedate.Text = DateTime.Now.ToShortDateString().Trim();
                 mat_gbQuery();
                 rdb_agree.Enabled = false;
                 rdb_disagree.Enabled = false;
@@ -80,7 +81,7 @@ namespace MTsystem_win
 
         private void dgv_Query_result_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_Query_result.Rows.Count>0)
+            if (dgv_Query_result.Rows.Count > 0)
             {
                 txt_gbid.Text = dgv_Query_result.SelectedCells[1].Value.ToString().Trim();
                 txt_Outid.Text = dgv_Query_result.SelectedCells[2].Value.ToString().Trim();
@@ -186,13 +187,134 @@ namespace MTsystem_win
             {
                 MessageBox.Show("回退时间不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (txt_Savedate.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("提交时间不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (txt_backReason.Text.Trim().Length == 0)
             {
                 MessageBox.Show("回退原因不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                if (rdb_agree.Checked==true)
+                {
+                    mat_giveBack_Save();
+                }
+                else
+                {
 
+                }
+            }
+        }
+
+        /// <summary>
+        /// 提交修改数据
+        /// </summary>
+        private void mat_giveBack_Save()
+        {
+            if (MessageBox.Show("是否保存领料数据？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+                conn.Open();
+                MySqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+
+                    //备份需要修改的材料记录
+                    string sqlstr = "INSERT INTO `material_giveback_bk` VALUES (NULL,@gbid,@Outid,@Matid,@Material_id,@Material_inside_name,";
+                    sqlstr += "@Material_gbnum,@Material_unit,@Material_gbTotal,@Outdate,@back_operator,@back_date,@confirm_date,@back_Reason,@confrim_operator)";
+                    cmd.CommandText = sqlstr;
+                    cmd.Parameters.AddWithValue("@gbid", txt_gbid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Outid", txt_Outid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Material_gbnum", Convert.ToDecimal(txt_Lysl.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@Material_unit", Convert.ToDecimal(txt_Materia_unit.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@Material_gbTotal", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@Outdate", Convert.ToDateTime(txt_Outdate.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@back_operator", txt_Operator.Text.Trim());
+                    cmd.Parameters.AddWithValue("@back_date", Convert.ToDateTime(txt_gbdate.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@confirm_date", Convert.ToDateTime(txt_Savedate.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@back_Reason", txt_backReason.Text.Trim());
+                    cmd.Parameters.AddWithValue("@confrim_operator", userInfocheck._Usname.Trim());
+                    cmd.ExecuteNonQuery();
+
+                    //材料领用表增加一条退货记录
+                    MySqlCommand cmdA = new MySqlCommand();
+                    cmdA.Connection = conn;
+                    string sqlstrA = "INSERT INTO `Material_out` VALUES (NULL, @Outid, @Matid, @Material_id, @Material_inside_name,";
+                    sqlstrA += " @Material_lysl, @Material_unit, @Lyzl, @Out_date, @Out_operator)";
+
+                    cmdA.CommandText = sqlstrA;
+                    cmdA.Parameters.AddWithValue("@Outid", txt_gbid.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@Material_lysl", Convert.ToDecimal('-' + txt_Lysl.Text.Trim()));
+                    cmdA.Parameters.AddWithValue("@Material_unit", Convert.ToDecimal(txt_Materia_unit.Text.Trim()));
+                    cmdA.Parameters.AddWithValue("@Lyzl", Convert.ToDecimal('-' + txt_Lyzl.Text.Trim()));
+                    cmdA.Parameters.AddWithValue("@Out_date", Convert.ToDateTime(txt_Savedate.Text.Trim()));
+                    cmdA.Parameters.AddWithValue("@Out_operator", txt_Operator.Text.Trim());
+                    cmdA.ExecuteNonQuery();
+
+                    //材料进仓表增加一条进仓数量
+                    MySqlCommand cmdB = new MySqlCommand();
+                    cmdB.Connection = conn;
+                    string sqlstrB = "INSERT INTO `material_input` VALUES (NULL, @Inpuid, @Matid, @Material_id, @Material_inside_name,";
+                    sqlstrB += " @Material_jlsl, @Material_unit, @Jlzl, @Input_date, @Input_operator)";
+
+                    cmdB.CommandText = sqlstrB;
+                    cmdB.Parameters.AddWithValue("@Inpuid", txt_gbid.Text.Trim());
+                    cmdB.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
+                    cmdB.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
+                    cmdB.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
+                    cmdB.Parameters.AddWithValue("@Material_jlsl", Convert.ToDecimal(txt_Lysl.Text.Trim()));
+                    cmdB.Parameters.AddWithValue("@Material_unit", Convert.ToDecimal(txt_Materia_unit.Text.Trim()));
+                    cmdB.Parameters.AddWithValue("@Jlzl", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
+                    cmdB.Parameters.AddWithValue("@Input_date", Convert.ToDateTime(txt_Savedate.Text.Trim()));
+                    cmdB.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
+                    cmdB.ExecuteNonQuery();
+
+                    //更新材料库存表
+                    MySqlCommand cmdC = new MySqlCommand();
+                    cmdC.Connection = conn;
+                    string sqlstrC = "UPDATE `material_stock` SET Material_stock = Material_stock + @Matstock WHERE Matid=@Matida";
+
+                    cmdC.CommandText = sqlstrC;
+                    cmdC.Parameters.AddWithValue("@Matida", txt_matid.Text.Trim());
+                    cmdC.Parameters.AddWithValue("@Matstock", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
+                    cmdC.ExecuteNonQuery();
+
+                    //更新材料退回记录表记录状态
+                    MySqlCommand cmdD = new MySqlCommand();
+                    cmdD.Connection = conn;
+                    string sqlstrD = "UPDATE `material_giveback` SET back_status='完成' WHERE gbid=@gbid";
+                    cmdD.CommandText = sqlstrD;
+                    cmdD.Parameters.AddWithValue("@gbid", txt_gbid.Text.Trim());
+                    cmdD.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    transaction.Rollback();
+                    conn.Close();
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        transaction.Commit();
+                        conn.Close();
+                        MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearAll();
+                        ds_Queryresult.Clear();
+                        mat_gbQuery();
+                    }
+                }
             }
         }
     }

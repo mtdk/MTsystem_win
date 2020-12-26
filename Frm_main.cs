@@ -181,9 +181,9 @@ namespace MTsystem_win
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-                    if (frmShowstatus._Frmatinputquery == "CLOSE" || frmShowstatus._Frmatinputquery == null)
+                    if (frmShowstatus._Frmatouttquery == "CLOSE" || frmShowstatus._Frmatouttquery == null)
                     {
-                        Frm_mat_input_query frm_miq = new Frm_mat_input_query();
+                        Frm_mat_out_query frm_miq = new Frm_mat_out_query();
                         frm_miq.MdiParent = this;
                         frm_miq.Show();
                     }
