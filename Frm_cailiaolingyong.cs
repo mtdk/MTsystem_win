@@ -37,6 +37,8 @@ namespace MTsystem_win
                 newOutid();
                 //获取领料时间
                 txt_Outdate.Text = DateTime.Now.ToShortDateString();
+                //操作人信息
+                txt_Operator.Text = userInfocheck._Usname.Trim();
                 //列出材料库存
                 Querymtastock();
             }
@@ -228,7 +230,6 @@ namespace MTsystem_win
             txt_Lysl.Text = "";
             txt_Materia_unit.Text = "";
             txt_Lyzl.Text = "0";
-            txt_Operator.Text = "";
             txt_matStock.Text = "0";
             txt_Materia_id.Focus();
         }
@@ -289,7 +290,6 @@ namespace MTsystem_win
                         txt_Lysl.Text = "";
                         txt_Materia_unit.Text = "";
                         txt_Lyzl.Text = "0";
-                        txt_Operator.Text = "";
                         txt_matStock.Text = "0";
                         txt_Materia_id.Focus();
                         ds_Queryresult.Clear();

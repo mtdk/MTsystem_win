@@ -92,6 +92,14 @@ namespace MTsystem_win.allClass
             set { _frmmatconfirm = value; }
         }
 
+        private static string _frmmatreturngoods;
+
+        public static string _Frmmatreturngoods
+        {
+            get { return _frmmatreturngoods; }
+            set { _frmmatreturngoods = value; }
+        }
+
         #endregion
 
         #region 车间

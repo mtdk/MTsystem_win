@@ -157,6 +157,7 @@
             this.mat_returnPurchase.Name = "mat_returnPurchase";
             this.mat_returnPurchase.Size = new System.Drawing.Size(231, 24);
             this.mat_returnPurchase.Text = "材料退货";
+            this.mat_returnPurchase.Click += new System.EventHandler(this.mat_returnPurchase_Click);
             // 
             // mat_Dayreport
             // 
