@@ -232,7 +232,7 @@ namespace MTsystem_win
 
         private void Frm_product_taginput_Load(object sender, EventArgs e)
         {
-            txt_batchNum.Text = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+            txt_batchNum.Text = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString().PadLeft(2, '0') + DateTime.Now.Day.ToString().PadLeft(2, '0');
             tagQuery();
         }
 
