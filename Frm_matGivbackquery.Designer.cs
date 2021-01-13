@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
             this.btn_Query = new System.Windows.Forms.Button();
@@ -64,9 +64,9 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.RowTemplate.ReadOnly = true;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -82,6 +82,7 @@
             this.btn_Query.TabIndex = 18;
             this.btn_Query.Text = "开始\r\n查询";
             this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // dtp_end
             // 
@@ -120,8 +121,6 @@
             // cb_Querydate
             // 
             this.cb_Querydate.AutoSize = true;
-            this.cb_Querydate.Checked = true;
-            this.cb_Querydate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_Querydate.Location = new System.Drawing.Point(289, 26);
             this.cb_Querydate.Name = "cb_Querydate";
             this.cb_Querydate.Size = new System.Drawing.Size(136, 23);
@@ -136,6 +135,7 @@
             this.txt_Queryid.Name = "txt_Queryid";
             this.txt_Queryid.Size = new System.Drawing.Size(175, 30);
             this.txt_Queryid.TabIndex = 12;
+            this.txt_Queryid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Queryid_KeyPress);
             // 
             // label1
             // 
@@ -162,8 +162,13 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_matGivbackquery";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料回退查询";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_matGivbackquery_FormClosed);
+            this.Load += new System.EventHandler(this.Frm_matGivbackquery_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
             this.ResumeLayout(false);
