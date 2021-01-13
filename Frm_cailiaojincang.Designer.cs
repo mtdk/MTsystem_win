@@ -330,8 +330,10 @@
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_cailiaojincang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "材料进仓窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_cailiaojincang_FormClosed);
             this.Load += new System.EventHandler(this.Frm_cailiaojincang_Load);

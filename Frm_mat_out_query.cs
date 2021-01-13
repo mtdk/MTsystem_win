@@ -109,7 +109,7 @@ namespace MTsystem_win
 
         private void dgv_Queryresult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_Queryresult.Rows.Count>0)
+            if (dgv_Queryresult.Rows.Count > 0)
             {
                 sendParameters._Outid = dgv_Queryresult.SelectedCells[0].Value.ToString().Trim();
                 sendParameters._Matid = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();

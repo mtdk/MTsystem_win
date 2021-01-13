@@ -92,8 +92,13 @@ namespace MTsystem_win.allClass
             set { _frmmatconfirm = value; }
         }
 
+        /// <summary>
+        /// 材料退货窗口
+        /// </summary>
         private static string _frmmatreturngoods;
-
+        /// <summary>
+        /// 材料退货窗口
+        /// </summary>
         public static string _Frmmatreturngoods
         {
             get { return _frmmatreturngoods; }
@@ -128,6 +133,18 @@ namespace MTsystem_win.allClass
             get { return _frmatouttquery; }
         }
 
+        /// <summary>
+        /// 材料回退查询窗口
+        /// </summary>
+        private static string _frmmatgivebckquery;
+        /// <summary>
+        /// 材料回退查询窗口
+        /// </summary>
+        public static string _FrmmatgiveBackQuery
+        {
+            set { _frmmatgivebckquery = value; }
+            get { return _frmmatgivebckquery; }
+        }
         #endregion
 
         #region 其他

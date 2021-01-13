@@ -35,7 +35,7 @@
             this.purchase_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.workshop_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_mat_Givback = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_mat_Givbackquery = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_ReceiveQuery = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouse_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_In = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +47,11 @@
             this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseInfor = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierInfor = new System.Windows.Forms.ToolStripMenuItem();
+            this.sale_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerInfor = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +61,7 @@
             this.main_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.system_Item,
             this.purchase_Item,
+            this.sale_Item,
             this.workshop_Item,
             this.warehouse_Item,
             this.tag_Item,
@@ -90,6 +96,10 @@
             // 
             // purchase_Item
             // 
+            this.purchase_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.purchaseInfor,
+            this.supplierInfor,
+            this.purchaseOrder});
             this.purchase_Item.Name = "purchase_Item";
             this.purchase_Item.Size = new System.Drawing.Size(57, 23);
             this.purchase_Item.Text = "采购";
@@ -98,7 +108,7 @@
             // 
             this.workshop_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_Receive,
-            this.tsmi_mat_Givback,
+            this.tsmi_mat_Givbackquery,
             this.tsmi_mat_ReceiveQuery});
             this.workshop_Item.Name = "workshop_Item";
             this.workshop_Item.Size = new System.Drawing.Size(57, 23);
@@ -111,11 +121,12 @@
             this.tsmi_mat_Receive.Text = "材料领用";
             this.tsmi_mat_Receive.Click += new System.EventHandler(this.tsmi_mat_Receive_Click);
             // 
-            // tsmi_mat_Givback
+            // tsmi_mat_Givbackquery
             // 
-            this.tsmi_mat_Givback.Name = "tsmi_mat_Givback";
-            this.tsmi_mat_Givback.Size = new System.Drawing.Size(186, 24);
-            this.tsmi_mat_Givback.Text = "材料退回";
+            this.tsmi_mat_Givbackquery.Name = "tsmi_mat_Givbackquery";
+            this.tsmi_mat_Givbackquery.Size = new System.Drawing.Size(186, 24);
+            this.tsmi_mat_Givbackquery.Text = "材料退回查询";
+            this.tsmi_mat_Givbackquery.Click += new System.EventHandler(this.tsmi_mat_Givbackquery_Click);
             // 
             // tsmi_mat_ReceiveQuery
             // 
@@ -201,6 +212,41 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
+            // purchaseInfor
+            // 
+            this.purchaseInfor.Name = "purchaseInfor";
+            this.purchaseInfor.Size = new System.Drawing.Size(168, 24);
+            this.purchaseInfor.Text = "材料信息";
+            this.purchaseInfor.Click += new System.EventHandler(this.purchaseInfor_Click);
+            // 
+            // purchaseOrder
+            // 
+            this.purchaseOrder.Name = "purchaseOrder";
+            this.purchaseOrder.Size = new System.Drawing.Size(168, 24);
+            this.purchaseOrder.Text = "采购订单";
+            this.purchaseOrder.Click += new System.EventHandler(this.purchaseOrder_Click);
+            // 
+            // supplierInfor
+            // 
+            this.supplierInfor.Name = "supplierInfor";
+            this.supplierInfor.Size = new System.Drawing.Size(168, 24);
+            this.supplierInfor.Text = "供应商信息";
+            this.supplierInfor.Click += new System.EventHandler(this.supplierInfor_Click);
+            // 
+            // sale_Item
+            // 
+            this.sale_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customerInfor});
+            this.sale_Item.Name = "sale_Item";
+            this.sale_Item.Size = new System.Drawing.Size(57, 23);
+            this.sale_Item.Text = "销售";
+            // 
+            // customerInfor
+            // 
+            this.customerInfor.Name = "customerInfor";
+            this.customerInfor.Size = new System.Drawing.Size(150, 24);
+            this.customerInfor.Text = "客户信息";
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -241,8 +287,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_mat_ReceiveQuery;
         private System.Windows.Forms.ToolStripMenuItem tag_Item;
         private System.Windows.Forms.ToolStripMenuItem pro_info_input;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Givback;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_mat_Givbackquery;
         private System.Windows.Forms.ToolStripMenuItem mat_giveback;
         private System.Windows.Forms.ToolStripMenuItem mat_returnPurchase;
+        private System.Windows.Forms.ToolStripMenuItem purchaseInfor;
+        private System.Windows.Forms.ToolStripMenuItem supplierInfor;
+        private System.Windows.Forms.ToolStripMenuItem purchaseOrder;
+        private System.Windows.Forms.ToolStripMenuItem sale_Item;
+        private System.Windows.Forms.ToolStripMenuItem customerInfor;
     }
 }

@@ -126,6 +126,12 @@
     <Compile Include="Frm_matgbdisagree.Designer.cs">
       <DependentUpon>Frm_matgbdisagree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_matGivbackquery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_matGivbackquery.Designer.cs">
+      <DependentUpon>Frm_matGivbackquery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_mat_confirm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_matgbdisagree.resx">
       <DependentUpon>Frm_matgbdisagree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_matGivbackquery.resx">
+      <DependentUpon>Frm_matGivbackquery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_mat_confirm.resx">
       <DependentUpon>Frm_mat_confirm.cs</DependentUpon>
