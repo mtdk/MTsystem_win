@@ -11,6 +11,15 @@ namespace MTsystem_win.allClass
     class frmShowstatus
     {
         #region 采购
+
+        private static string _fsupinfo;
+
+        public static string _Fsupinfo
+        {
+            set { _fsupinfo = value; }
+            get { return _fsupinfo; }
+        }
+
         #endregion
 
         #region 仓库

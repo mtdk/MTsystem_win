@@ -294,7 +294,12 @@ namespace MTsystem_win
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-
+                    if (frmShowstatus._Fsupinfo == "CLOSE" || frmShowstatus._Fsupinfo == null)
+                    {
+                        Frm_Supplier_info frmsupinfo = new Frm_Supplier_info();
+                        frmsupinfo.MdiParent = this;
+                        frmsupinfo.Show();
+                    }
                 }
                 else
                 {

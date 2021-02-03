@@ -36,12 +36,16 @@
             this.dtp_Querydate = new System.Windows.Forms.DateTimePicker();
             this.btn_Query = new System.Windows.Forms.Button();
             this.mat_dayReportview = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.txt_Queryid = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtp_QuerydateEnd = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 20);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 0;
@@ -50,7 +54,8 @@
             // rdb_matInput_report
             // 
             this.rdb_matInput_report.AutoSize = true;
-            this.rdb_matInput_report.Location = new System.Drawing.Point(183, 18);
+            this.rdb_matInput_report.Checked = true;
+            this.rdb_matInput_report.Location = new System.Drawing.Point(108, 10);
             this.rdb_matInput_report.Name = "rdb_matInput_report";
             this.rdb_matInput_report.Size = new System.Drawing.Size(99, 23);
             this.rdb_matInput_report.TabIndex = 1;
@@ -61,36 +66,35 @@
             // rdb_matOut_report
             // 
             this.rdb_matOut_report.AutoSize = true;
-            this.rdb_matOut_report.Location = new System.Drawing.Point(288, 18);
+            this.rdb_matOut_report.Location = new System.Drawing.Point(213, 10);
             this.rdb_matOut_report.Name = "rdb_matOut_report";
             this.rdb_matOut_report.Size = new System.Drawing.Size(99, 23);
             this.rdb_matOut_report.TabIndex = 2;
-            this.rdb_matOut_report.TabStop = true;
             this.rdb_matOut_report.Text = "出仓报表";
             this.rdb_matOut_report.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(393, 20);
+            this.label2.Location = new System.Drawing.Point(336, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "查询日期:";
+            this.label2.Text = "开始时间:";
             // 
             // dtp_Querydate
             // 
             this.dtp_Querydate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Querydate.Location = new System.Drawing.Point(489, 16);
+            this.dtp_Querydate.Location = new System.Drawing.Point(432, 9);
             this.dtp_Querydate.Name = "dtp_Querydate";
             this.dtp_Querydate.Size = new System.Drawing.Size(144, 26);
             this.dtp_Querydate.TabIndex = 4;
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(639, 12);
+            this.btn_Query.Location = new System.Drawing.Point(623, 24);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(108, 34);
+            this.btn_Query.Size = new System.Drawing.Size(118, 34);
             this.btn_Query.TabIndex = 5;
             this.btn_Query.Text = "生成报表";
             this.btn_Query.UseVisualStyleBackColor = true;
@@ -102,21 +106,59 @@
             reportDataSource1.Value = null;
             this.mat_dayReportview.LocalReport.DataSources.Add(reportDataSource1);
             this.mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_dayoutReportview.rdlc";
-            this.mat_dayReportview.Location = new System.Drawing.Point(8, 55);
+            this.mat_dayReportview.Location = new System.Drawing.Point(8, 85);
             this.mat_dayReportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.mat_dayReportview.Name = "mat_dayReportview";
             this.mat_dayReportview.ShowBackButton = false;
             this.mat_dayReportview.ShowFindControls = false;
             this.mat_dayReportview.ShowRefreshButton = false;
             this.mat_dayReportview.ShowStopButton = false;
-            this.mat_dayReportview.Size = new System.Drawing.Size(812, 791);
+            this.mat_dayReportview.Size = new System.Drawing.Size(812, 761);
             this.mat_dayReportview.TabIndex = 6;
+            // 
+            // txt_Queryid
+            // 
+            this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Queryid.Location = new System.Drawing.Point(108, 46);
+            this.txt_Queryid.Name = "txt_Queryid";
+            this.txt_Queryid.Size = new System.Drawing.Size(204, 30);
+            this.txt_Queryid.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "材料编号:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(336, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "结束时间:";
+            // 
+            // dtp_QuerydateEnd
+            // 
+            this.dtp_QuerydateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_QuerydateEnd.Location = new System.Drawing.Point(432, 50);
+            this.dtp_QuerydateEnd.Name = "dtp_QuerydateEnd";
+            this.dtp_QuerydateEnd.Size = new System.Drawing.Size(144, 26);
+            this.dtp_QuerydateEnd.TabIndex = 10;
             // 
             // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 861);
+            this.Controls.Add(this.dtp_QuerydateEnd);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txt_Queryid);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.mat_dayReportview);
             this.Controls.Add(this.btn_Query);
             this.Controls.Add(this.dtp_Querydate);
@@ -147,5 +189,9 @@
         private System.Windows.Forms.DateTimePicker dtp_Querydate;
         private System.Windows.Forms.Button btn_Query;
         private Microsoft.Reporting.WinForms.ReportViewer mat_dayReportview;
+        private System.Windows.Forms.TextBox txt_Queryid;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtp_QuerydateEnd;
     }
 }
