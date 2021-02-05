@@ -114,6 +114,14 @@ namespace MTsystem_win.allClass
             set { _frmmatreturngoods = value; }
         }
 
+        private static string _frmcustorminfo;
+
+        public static string _Frmcustorminfo
+        {
+            set { _frmcustorminfo = value; }
+            get { return _frmcustorminfo; }
+        }
+
         #endregion
 
         #region 车间

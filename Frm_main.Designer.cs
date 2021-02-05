@@ -33,6 +33,11 @@
             this.user_Additem = new System.Windows.Forms.ToolStripMenuItem();
             this.user_Updateitem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchase_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseInfor = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierInfor = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.sale_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerInfor = new System.Windows.Forms.ToolStripMenuItem();
             this.workshop_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_Receive = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_mat_Givbackquery = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,11 +52,7 @@
             this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.purchaseInfor = new System.Windows.Forms.ToolStripMenuItem();
-            this.purchaseOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.supplierInfor = new System.Windows.Forms.ToolStripMenuItem();
-            this.sale_Item = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerInfor = new System.Windows.Forms.ToolStripMenuItem();
+            this.cus_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +105,41 @@
             this.purchase_Item.Size = new System.Drawing.Size(57, 23);
             this.purchase_Item.Text = "采购";
             // 
+            // purchaseInfor
+            // 
+            this.purchaseInfor.Name = "purchaseInfor";
+            this.purchaseInfor.Size = new System.Drawing.Size(168, 24);
+            this.purchaseInfor.Text = "材料信息";
+            this.purchaseInfor.Click += new System.EventHandler(this.purchaseInfor_Click);
+            // 
+            // supplierInfor
+            // 
+            this.supplierInfor.Name = "supplierInfor";
+            this.supplierInfor.Size = new System.Drawing.Size(168, 24);
+            this.supplierInfor.Text = "供应商信息";
+            this.supplierInfor.Click += new System.EventHandler(this.supplierInfor_Click);
+            // 
+            // purchaseOrder
+            // 
+            this.purchaseOrder.Name = "purchaseOrder";
+            this.purchaseOrder.Size = new System.Drawing.Size(168, 24);
+            this.purchaseOrder.Text = "采购订单";
+            this.purchaseOrder.Click += new System.EventHandler(this.purchaseOrder_Click);
+            // 
+            // sale_Item
+            // 
+            this.sale_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customerInfor});
+            this.sale_Item.Name = "sale_Item";
+            this.sale_Item.Size = new System.Drawing.Size(57, 23);
+            this.sale_Item.Text = "销售";
+            // 
+            // customerInfor
+            // 
+            this.customerInfor.Name = "customerInfor";
+            this.customerInfor.Size = new System.Drawing.Size(150, 24);
+            this.customerInfor.Text = "客户信息";
+            // 
             // workshop_Item
             // 
             this.workshop_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -144,7 +180,8 @@
             this.mat_Dayreport,
             this.mat_stock_Report,
             this.mat_Basestock,
-            this.pro_info_input});
+            this.pro_info_input,
+            this.cus_info_input});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
@@ -212,40 +249,12 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // purchaseInfor
+            // cus_info_input
             // 
-            this.purchaseInfor.Name = "purchaseInfor";
-            this.purchaseInfor.Size = new System.Drawing.Size(168, 24);
-            this.purchaseInfor.Text = "材料信息";
-            this.purchaseInfor.Click += new System.EventHandler(this.purchaseInfor_Click);
-            // 
-            // purchaseOrder
-            // 
-            this.purchaseOrder.Name = "purchaseOrder";
-            this.purchaseOrder.Size = new System.Drawing.Size(168, 24);
-            this.purchaseOrder.Text = "采购订单";
-            this.purchaseOrder.Click += new System.EventHandler(this.purchaseOrder_Click);
-            // 
-            // supplierInfor
-            // 
-            this.supplierInfor.Name = "supplierInfor";
-            this.supplierInfor.Size = new System.Drawing.Size(168, 24);
-            this.supplierInfor.Text = "供应商信息";
-            this.supplierInfor.Click += new System.EventHandler(this.supplierInfor_Click);
-            // 
-            // sale_Item
-            // 
-            this.sale_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customerInfor});
-            this.sale_Item.Name = "sale_Item";
-            this.sale_Item.Size = new System.Drawing.Size(57, 23);
-            this.sale_Item.Text = "销售";
-            // 
-            // customerInfor
-            // 
-            this.customerInfor.Name = "customerInfor";
-            this.customerInfor.Size = new System.Drawing.Size(150, 24);
-            this.customerInfor.Text = "客户信息";
+            this.cus_info_input.Name = "cus_info_input";
+            this.cus_info_input.Size = new System.Drawing.Size(231, 24);
+            this.cus_info_input.Text = "客户信息";
+            this.cus_info_input.Click += new System.EventHandler(this.cus_info_input_Click);
             // 
             // Frm_main
             // 
@@ -295,5 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem purchaseOrder;
         private System.Windows.Forms.ToolStripMenuItem sale_Item;
         private System.Windows.Forms.ToolStripMenuItem customerInfor;
+        private System.Windows.Forms.ToolStripMenuItem cus_info_input;
     }
 }
