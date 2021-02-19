@@ -30,25 +30,29 @@
         {
             this.tbc_customerinfo = new System.Windows.Forms.TabControl();
             this.tbp_cus_info_input = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbb_Classification_A = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_Phone_b_B = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_Contact_b_B = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_Phone_a_A = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Contact_a_A = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_cusName_A = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_cusId_A = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbp_cus_info_update = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_cusinfo_preview = new System.Windows.Forms.DataGridView();
             this.tbc_customerinfo.SuspendLayout();
             this.tbp_cus_info_input.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cusinfo_preview)).BeginInit();
             this.SuspendLayout();
             // 
             // tbc_customerinfo
@@ -63,21 +67,22 @@
             // 
             // tbp_cus_info_input
             // 
+            this.tbp_cus_info_input.Controls.Add(this.groupBox1);
             this.tbp_cus_info_input.Controls.Add(this.button2);
             this.tbp_cus_info_input.Controls.Add(this.button1);
-            this.tbp_cus_info_input.Controls.Add(this.comboBox1);
+            this.tbp_cus_info_input.Controls.Add(this.cbb_Classification_A);
             this.tbp_cus_info_input.Controls.Add(this.label7);
-            this.tbp_cus_info_input.Controls.Add(this.textBox6);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Phone_b_B);
             this.tbp_cus_info_input.Controls.Add(this.label6);
-            this.tbp_cus_info_input.Controls.Add(this.textBox5);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Contact_b_B);
             this.tbp_cus_info_input.Controls.Add(this.label5);
-            this.tbp_cus_info_input.Controls.Add(this.textBox4);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Phone_a_A);
             this.tbp_cus_info_input.Controls.Add(this.label4);
-            this.tbp_cus_info_input.Controls.Add(this.textBox3);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Contact_a_A);
             this.tbp_cus_info_input.Controls.Add(this.label3);
-            this.tbp_cus_info_input.Controls.Add(this.textBox2);
+            this.tbp_cus_info_input.Controls.Add(this.txt_cusName_A);
             this.tbp_cus_info_input.Controls.Add(this.label2);
-            this.tbp_cus_info_input.Controls.Add(this.textBox1);
+            this.tbp_cus_info_input.Controls.Add(this.txt_cusId_A);
             this.tbp_cus_info_input.Controls.Add(this.label1);
             this.tbp_cus_info_input.Location = new System.Drawing.Point(4, 28);
             this.tbp_cus_info_input.Name = "tbp_cus_info_input";
@@ -87,112 +92,127 @@
             this.tbp_cus_info_input.Text = "客户信息录入";
             this.tbp_cus_info_input.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // button2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.comboBox1.Location = new System.Drawing.Point(71, 276);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 27);
-            this.comboBox1.TabIndex = 13;
+            this.button2.Location = new System.Drawing.Point(833, 54);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "取  消";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(723, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "保  存";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cbb_Classification_A
+            // 
+            this.cbb_Classification_A.FormattingEnabled = true;
+            this.cbb_Classification_A.Location = new System.Drawing.Point(580, 56);
+            this.cbb_Classification_A.Name = "cbb_Classification_A";
+            this.cbb_Classification_A.Size = new System.Drawing.Size(121, 27);
+            this.cbb_Classification_A.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 279);
+            this.label7.Location = new System.Drawing.Point(515, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 19);
             this.label7.TabIndex = 12;
             this.label7.Text = "类别:";
             // 
-            // textBox6
+            // txt_Phone_b_B
             // 
-            this.textBox6.Location = new System.Drawing.Point(120, 219);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(295, 26);
-            this.textBox6.TabIndex = 11;
+            this.txt_Phone_b_B.Location = new System.Drawing.Point(355, 56);
+            this.txt_Phone_b_B.Name = "txt_Phone_b_B";
+            this.txt_Phone_b_B.Size = new System.Drawing.Size(154, 26);
+            this.txt_Phone_b_B.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 222);
+            this.label6.Location = new System.Drawing.Point(241, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "联系电话-2:";
             // 
-            // textBox5
+            // txt_Contact_b_B
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 178);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(295, 26);
-            this.textBox5.TabIndex = 9;
+            this.txt_Contact_b_B.Location = new System.Drawing.Point(120, 56);
+            this.txt_Contact_b_B.Name = "txt_Contact_b_B";
+            this.txt_Contact_b_B.Size = new System.Drawing.Size(115, 26);
+            this.txt_Contact_b_B.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 185);
+            this.label5.Location = new System.Drawing.Point(6, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 19);
+            this.label5.Size = new System.Drawing.Size(90, 19);
             this.label5.TabIndex = 8;
-            this.label5.Text = "联系电话-1:";
+            this.label5.Text = "联系人-2:";
             // 
-            // textBox4
+            // txt_Phone_a_A
             // 
-            this.textBox4.Location = new System.Drawing.Point(102, 137);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(313, 26);
-            this.textBox4.TabIndex = 7;
+            this.txt_Phone_a_A.Location = new System.Drawing.Point(1026, 16);
+            this.txt_Phone_a_A.Name = "txt_Phone_a_A";
+            this.txt_Phone_a_A.Size = new System.Drawing.Size(154, 26);
+            this.txt_Phone_a_A.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 144);
+            this.label4.Location = new System.Drawing.Point(912, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 19);
+            this.label4.Size = new System.Drawing.Size(108, 19);
             this.label4.TabIndex = 6;
-            this.label4.Text = "联系人:";
+            this.label4.Text = "联系电话-1:";
             // 
-            // textBox3
+            // txt_Contact_a_A
             // 
-            this.textBox3.Location = new System.Drawing.Point(102, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(313, 26);
-            this.textBox3.TabIndex = 5;
+            this.txt_Contact_a_A.Location = new System.Drawing.Point(791, 16);
+            this.txt_Contact_a_A.Name = "txt_Contact_a_A";
+            this.txt_Contact_a_A.Size = new System.Drawing.Size(115, 26);
+            this.txt_Contact_a_A.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 102);
+            this.label3.Location = new System.Drawing.Point(695, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "客户地址:";
+            this.label3.Text = "联系人-1:";
             // 
-            // textBox2
+            // txt_cusName_A
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(313, 26);
-            this.textBox2.TabIndex = 3;
+            this.txt_cusName_A.Location = new System.Drawing.Point(376, 16);
+            this.txt_cusName_A.Name = "txt_cusName_A";
+            this.txt_cusName_A.Size = new System.Drawing.Size(313, 26);
+            this.txt_cusName_A.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 62);
+            this.label2.Location = new System.Drawing.Point(280, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "客户名称:";
             // 
-            // textBox1
+            // txt_cusId_A
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 26);
-            this.textBox1.TabIndex = 1;
+            this.txt_cusId_A.Location = new System.Drawing.Point(102, 16);
+            this.txt_cusId_A.Name = "txt_cusId_A";
+            this.txt_cusId_A.Size = new System.Drawing.Size(172, 26);
+            this.txt_cusId_A.TabIndex = 1;
             // 
             // label1
             // 
@@ -213,23 +233,28 @@
             this.tbp_cus_info_update.Text = "客户信息查询&修改";
             this.tbp_cus_info_update.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // groupBox1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.dgv_cusinfo_preview);
+            this.groupBox1.Location = new System.Drawing.Point(10, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1198, 416);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "信息预览";
             // 
-            // button2
+            // dgv_cusinfo_preview
             // 
-            this.button2.Location = new System.Drawing.Point(181, 387);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.dgv_cusinfo_preview.AllowUserToAddRows = false;
+            this.dgv_cusinfo_preview.AllowUserToDeleteRows = false;
+            this.dgv_cusinfo_preview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_cusinfo_preview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_cusinfo_preview.Location = new System.Drawing.Point(3, 22);
+            this.dgv_cusinfo_preview.Name = "dgv_cusinfo_preview";
+            this.dgv_cusinfo_preview.ReadOnly = true;
+            this.dgv_cusinfo_preview.RowTemplate.Height = 23;
+            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(1192, 391);
+            this.dgv_cusinfo_preview.TabIndex = 0;
             // 
             // Frm_customerinfo
             // 
@@ -246,6 +271,8 @@
             this.tbc_customerinfo.ResumeLayout(false);
             this.tbp_cus_info_input.ResumeLayout(false);
             this.tbp_cus_info_input.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cusinfo_preview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,22 +281,24 @@
 
         private System.Windows.Forms.TabControl tbc_customerinfo;
         private System.Windows.Forms.TabPage tbp_cus_info_input;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_cusName_A;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_cusId_A;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tbp_cus_info_update;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb_Classification_A;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_Phone_b_B;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_Contact_b_B;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_Phone_a_A;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Contact_a_A;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgv_cusinfo_preview;
     }
 }
