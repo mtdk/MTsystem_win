@@ -50,9 +50,9 @@
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
+            this.cus_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.cus_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,8 +137,9 @@
             // customerInfor
             // 
             this.customerInfor.Name = "customerInfor";
-            this.customerInfor.Size = new System.Drawing.Size(150, 24);
+            this.customerInfor.Size = new System.Drawing.Size(152, 24);
             this.customerInfor.Text = "客户信息";
+            this.customerInfor.Click += new System.EventHandler(this.customerInfor_Click);
             // 
             // workshop_Item
             // 
@@ -235,6 +236,13 @@
             this.pro_info_input.Text = "产品信息录入&&修改";
             this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
             // 
+            // cus_info_input
+            // 
+            this.cus_info_input.Name = "cus_info_input";
+            this.cus_info_input.Size = new System.Drawing.Size(231, 24);
+            this.cus_info_input.Text = "客户信息";
+            this.cus_info_input.Click += new System.EventHandler(this.cus_info_input_Click);
+            // 
             // tag_Item
             // 
             this.tag_Item.Name = "tag_Item";
@@ -248,13 +256,6 @@
             this.sys_exit.Size = new System.Drawing.Size(93, 23);
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
-            // 
-            // cus_info_input
-            // 
-            this.cus_info_input.Name = "cus_info_input";
-            this.cus_info_input.Size = new System.Drawing.Size(231, 24);
-            this.cus_info_input.Text = "客户信息";
-            this.cus_info_input.Click += new System.EventHandler(this.cus_info_input_Click);
             // 
             // Frm_main
             // 

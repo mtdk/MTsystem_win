@@ -332,6 +332,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_mat_returnGoods";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "原材料退货窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_mat_returnGoods_FormClosed);
             this.Load += new System.EventHandler(this.Frm_mat_returnGoods_Load);

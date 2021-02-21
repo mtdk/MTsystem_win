@@ -30,6 +30,8 @@
         {
             this.tbc_customerinfo = new System.Windows.Forms.TabControl();
             this.tbp_cus_info_input = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_cusinfo_preview = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbb_Classification_A = new System.Windows.Forms.ComboBox();
@@ -47,8 +49,6 @@
             this.txt_cusId_A = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbp_cus_info_update = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgv_cusinfo_preview = new System.Windows.Forms.DataGridView();
             this.tbc_customerinfo.SuspendLayout();
             this.tbp_cus_info_input.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,6 +91,29 @@
             this.tbp_cus_info_input.TabIndex = 0;
             this.tbp_cus_info_input.Text = "客户信息录入";
             this.tbp_cus_info_input.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgv_cusinfo_preview);
+            this.groupBox1.Location = new System.Drawing.Point(10, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1198, 416);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "信息预览";
+            // 
+            // dgv_cusinfo_preview
+            // 
+            this.dgv_cusinfo_preview.AllowUserToAddRows = false;
+            this.dgv_cusinfo_preview.AllowUserToDeleteRows = false;
+            this.dgv_cusinfo_preview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_cusinfo_preview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_cusinfo_preview.Location = new System.Drawing.Point(3, 22);
+            this.dgv_cusinfo_preview.Name = "dgv_cusinfo_preview";
+            this.dgv_cusinfo_preview.ReadOnly = true;
+            this.dgv_cusinfo_preview.RowTemplate.Height = 23;
+            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(1192, 391);
+            this.dgv_cusinfo_preview.TabIndex = 0;
             // 
             // button2
             // 
@@ -233,29 +256,6 @@
             this.tbp_cus_info_update.Text = "客户信息查询&修改";
             this.tbp_cus_info_update.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgv_cusinfo_preview);
-            this.groupBox1.Location = new System.Drawing.Point(10, 107);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1198, 416);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "信息预览";
-            // 
-            // dgv_cusinfo_preview
-            // 
-            this.dgv_cusinfo_preview.AllowUserToAddRows = false;
-            this.dgv_cusinfo_preview.AllowUserToDeleteRows = false;
-            this.dgv_cusinfo_preview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cusinfo_preview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_cusinfo_preview.Location = new System.Drawing.Point(3, 22);
-            this.dgv_cusinfo_preview.Name = "dgv_cusinfo_preview";
-            this.dgv_cusinfo_preview.ReadOnly = true;
-            this.dgv_cusinfo_preview.RowTemplate.Height = 23;
-            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(1192, 391);
-            this.dgv_cusinfo_preview.TabIndex = 0;
-            // 
             // Frm_customerinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -264,7 +264,10 @@
             this.Controls.Add(this.tbc_customerinfo);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_customerinfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "客户信息窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_customerinfo_FormClosed);
             this.Load += new System.EventHandler(this.Frm_customerinfo_Load);
