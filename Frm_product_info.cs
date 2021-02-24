@@ -101,23 +101,30 @@ namespace MTsystem_win
         /// </summary>
         private void newSystemid()
         {
-            string strsql="SELECT id,proid,product_id,product_name,";
-            strsql += "product_unit FROM product ORDER BY id DESC LIMIT 1";
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(strsql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            dr.Read();
-            if (dr.HasRows)
+            try
             {
-                Maxid = Convert.ToInt32(dr["proid"].ToString().Substring(1, 4).ToString());
-                Maxid++;
-                txt_Systemid.Text = string.Format("P{0}", Maxid.ToString().PadLeft(4, '0'));
+                string strsql = "SELECT id,proid,product_id,product_name,";
+                strsql += "product_unit FROM product ORDER BY id DESC LIMIT 1";
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(strsql, conn);
+                MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    Maxid = Convert.ToInt32(dr["proid"].ToString().Substring(1, 4).ToString());
+                    Maxid++;
+                    txt_Systemid.Text = string.Format("P{0}", Maxid.ToString().PadLeft(4, '0'));
+                }
+                else
+                {
+                    Maxid = 1;
+                    txt_Systemid.Text = string.Format("P{0}", Maxid.ToString().PadLeft(4, '0'));
+                }
             }
-            else
+            catch (MySqlException ex)
             {
-                Maxid = 1;
-                txt_Systemid.Text = string.Format("P{0}", Maxid.ToString().PadLeft(4, '0'));
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

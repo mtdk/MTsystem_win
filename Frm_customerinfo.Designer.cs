@@ -30,19 +30,19 @@
         {
             this.tbc_customerinfo = new System.Windows.Forms.TabControl();
             this.tbp_cus_info_input = new System.Windows.Forms.TabPage();
+            this.txt_cusAdd_A = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_cusinfo_preview = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbb_Classification_A = new System.Windows.Forms.ComboBox();
+            this.btn_cancel_A = new System.Windows.Forms.Button();
+            this.btn_save_A = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_Phone_b_B = new System.Windows.Forms.TextBox();
+            this.txt_Fax_A = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_Contact_b_B = new System.Windows.Forms.TextBox();
+            this.txt_Telephone_A = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_Phone_a_A = new System.Windows.Forms.TextBox();
+            this.txt_MobilePhone_A = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_Contact_a_A = new System.Windows.Forms.TextBox();
+            this.txt_Contact_A = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_cusName_A = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,18 +67,18 @@
             // 
             // tbp_cus_info_input
             // 
+            this.tbp_cus_info_input.Controls.Add(this.txt_cusAdd_A);
             this.tbp_cus_info_input.Controls.Add(this.groupBox1);
-            this.tbp_cus_info_input.Controls.Add(this.button2);
-            this.tbp_cus_info_input.Controls.Add(this.button1);
-            this.tbp_cus_info_input.Controls.Add(this.cbb_Classification_A);
+            this.tbp_cus_info_input.Controls.Add(this.btn_cancel_A);
+            this.tbp_cus_info_input.Controls.Add(this.btn_save_A);
             this.tbp_cus_info_input.Controls.Add(this.label7);
-            this.tbp_cus_info_input.Controls.Add(this.txt_Phone_b_B);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Fax_A);
             this.tbp_cus_info_input.Controls.Add(this.label6);
-            this.tbp_cus_info_input.Controls.Add(this.txt_Contact_b_B);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Telephone_A);
             this.tbp_cus_info_input.Controls.Add(this.label5);
-            this.tbp_cus_info_input.Controls.Add(this.txt_Phone_a_A);
+            this.tbp_cus_info_input.Controls.Add(this.txt_MobilePhone_A);
             this.tbp_cus_info_input.Controls.Add(this.label4);
-            this.tbp_cus_info_input.Controls.Add(this.txt_Contact_a_A);
+            this.tbp_cus_info_input.Controls.Add(this.txt_Contact_A);
             this.tbp_cus_info_input.Controls.Add(this.label3);
             this.tbp_cus_info_input.Controls.Add(this.txt_cusName_A);
             this.tbp_cus_info_input.Controls.Add(this.label2);
@@ -91,6 +91,13 @@
             this.tbp_cus_info_input.TabIndex = 0;
             this.tbp_cus_info_input.Text = "客户信息录入";
             this.tbp_cus_info_input.UseVisualStyleBackColor = true;
+            // 
+            // txt_cusAdd_A
+            // 
+            this.txt_cusAdd_A.Location = new System.Drawing.Point(578, 58);
+            this.txt_cusAdd_A.Name = "txt_cusAdd_A";
+            this.txt_cusAdd_A.Size = new System.Drawing.Size(477, 26);
+            this.txt_cusAdd_A.TabIndex = 13;
             // 
             // groupBox1
             // 
@@ -115,116 +122,109 @@
             this.dgv_cusinfo_preview.Size = new System.Drawing.Size(1192, 391);
             this.dgv_cusinfo_preview.TabIndex = 0;
             // 
-            // button2
+            // btn_cancel_A
             // 
-            this.button2.Location = new System.Drawing.Point(833, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "取  消";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_cancel_A.Location = new System.Drawing.Point(1101, 55);
+            this.btn_cancel_A.Name = "btn_cancel_A";
+            this.btn_cancel_A.Size = new System.Drawing.Size(75, 30);
+            this.btn_cancel_A.TabIndex = 15;
+            this.btn_cancel_A.Text = "取  消";
+            this.btn_cancel_A.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_save_A
             // 
-            this.button1.Location = new System.Drawing.Point(723, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "保  存";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbb_Classification_A
-            // 
-            this.cbb_Classification_A.FormattingEnabled = true;
-            this.cbb_Classification_A.Location = new System.Drawing.Point(580, 56);
-            this.cbb_Classification_A.Name = "cbb_Classification_A";
-            this.cbb_Classification_A.Size = new System.Drawing.Size(121, 27);
-            this.cbb_Classification_A.TabIndex = 13;
+            this.btn_save_A.Location = new System.Drawing.Point(1101, 16);
+            this.btn_save_A.Name = "btn_save_A";
+            this.btn_save_A.Size = new System.Drawing.Size(75, 30);
+            this.btn_save_A.TabIndex = 14;
+            this.btn_save_A.Text = "保  存";
+            this.btn_save_A.UseVisualStyleBackColor = true;
+            this.btn_save_A.Click += new System.EventHandler(this.btn_save_A_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(515, 60);
+            this.label7.Location = new System.Drawing.Point(518, 63);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 19);
             this.label7.TabIndex = 12;
-            this.label7.Text = "类别:";
+            this.label7.Text = "地址:";
             // 
-            // txt_Phone_b_B
+            // txt_Fax_A
             // 
-            this.txt_Phone_b_B.Location = new System.Drawing.Point(355, 56);
-            this.txt_Phone_b_B.Name = "txt_Phone_b_B";
-            this.txt_Phone_b_B.Size = new System.Drawing.Size(154, 26);
-            this.txt_Phone_b_B.TabIndex = 11;
+            this.txt_Fax_A.Location = new System.Drawing.Point(358, 59);
+            this.txt_Fax_A.Name = "txt_Fax_A";
+            this.txt_Fax_A.Size = new System.Drawing.Size(154, 26);
+            this.txt_Fax_A.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(241, 60);
+            this.label6.Location = new System.Drawing.Point(262, 62);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 19);
+            this.label6.Size = new System.Drawing.Size(90, 19);
             this.label6.TabIndex = 10;
-            this.label6.Text = "联系电话-2:";
+            this.label6.Text = "传真号码:";
             // 
-            // txt_Contact_b_B
+            // txt_Telephone_A
             // 
-            this.txt_Contact_b_B.Location = new System.Drawing.Point(120, 56);
-            this.txt_Contact_b_B.Name = "txt_Contact_b_B";
-            this.txt_Contact_b_B.Size = new System.Drawing.Size(115, 26);
-            this.txt_Contact_b_B.TabIndex = 9;
+            this.txt_Telephone_A.Location = new System.Drawing.Point(102, 59);
+            this.txt_Telephone_A.Name = "txt_Telephone_A";
+            this.txt_Telephone_A.Size = new System.Drawing.Size(154, 26);
+            this.txt_Telephone_A.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 60);
+            this.label5.Location = new System.Drawing.Point(6, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 19);
             this.label5.TabIndex = 8;
-            this.label5.Text = "联系人-2:";
+            this.label5.Text = "联系电话:";
             // 
-            // txt_Phone_a_A
+            // txt_MobilePhone_A
             // 
-            this.txt_Phone_a_A.Location = new System.Drawing.Point(1026, 16);
-            this.txt_Phone_a_A.Name = "txt_Phone_a_A";
-            this.txt_Phone_a_A.Size = new System.Drawing.Size(154, 26);
-            this.txt_Phone_a_A.TabIndex = 7;
+            this.txt_MobilePhone_A.Location = new System.Drawing.Point(901, 16);
+            this.txt_MobilePhone_A.Name = "txt_MobilePhone_A";
+            this.txt_MobilePhone_A.Size = new System.Drawing.Size(154, 26);
+            this.txt_MobilePhone_A.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(912, 19);
+            this.label4.Location = new System.Drawing.Point(805, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 19);
+            this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 6;
-            this.label4.Text = "联系电话-1:";
+            this.label4.Text = "手机号码:";
             // 
-            // txt_Contact_a_A
+            // txt_Contact_A
             // 
-            this.txt_Contact_a_A.Location = new System.Drawing.Point(791, 16);
-            this.txt_Contact_a_A.Name = "txt_Contact_a_A";
-            this.txt_Contact_a_A.Size = new System.Drawing.Size(115, 26);
-            this.txt_Contact_a_A.TabIndex = 5;
+            this.txt_Contact_A.Location = new System.Drawing.Point(684, 16);
+            this.txt_Contact_A.Name = "txt_Contact_A";
+            this.txt_Contact_A.Size = new System.Drawing.Size(115, 26);
+            this.txt_Contact_A.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(695, 19);
+            this.label3.Location = new System.Drawing.Point(606, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.Size = new System.Drawing.Size(72, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "联系人-1:";
+            this.label3.Text = "联系人:";
             // 
             // txt_cusName_A
             // 
-            this.txt_cusName_A.Location = new System.Drawing.Point(376, 16);
+            this.txt_cusName_A.Location = new System.Drawing.Point(287, 16);
             this.txt_cusName_A.Name = "txt_cusName_A";
             this.txt_cusName_A.Size = new System.Drawing.Size(313, 26);
-            this.txt_cusName_A.TabIndex = 3;
+            this.txt_cusName_A.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(280, 19);
+            this.label2.Location = new System.Drawing.Point(191, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 2;
@@ -234,7 +234,8 @@
             // 
             this.txt_cusId_A.Location = new System.Drawing.Point(102, 16);
             this.txt_cusId_A.Name = "txt_cusId_A";
-            this.txt_cusId_A.Size = new System.Drawing.Size(172, 26);
+            this.txt_cusId_A.ReadOnly = true;
+            this.txt_cusId_A.Size = new System.Drawing.Size(83, 26);
             this.txt_cusId_A.TabIndex = 1;
             // 
             // label1
@@ -243,7 +244,7 @@
             this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "客户编号:";
             // 
             // tbp_cus_info_update
@@ -289,19 +290,19 @@
         private System.Windows.Forms.TextBox txt_cusId_A;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tbp_cus_info_update;
-        private System.Windows.Forms.ComboBox cbb_Classification_A;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_Phone_b_B;
+        private System.Windows.Forms.TextBox txt_Fax_A;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_Contact_b_B;
+        private System.Windows.Forms.TextBox txt_Telephone_A;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_Phone_a_A;
+        private System.Windows.Forms.TextBox txt_MobilePhone_A;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_Contact_a_A;
+        private System.Windows.Forms.TextBox txt_Contact_A;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_cancel_A;
+        private System.Windows.Forms.Button btn_save_A;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgv_cusinfo_preview;
+        private System.Windows.Forms.TextBox txt_cusAdd_A;
     }
 }
