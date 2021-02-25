@@ -30,6 +30,7 @@ namespace MTsystem_win
             {
                 frmShowstatus._Frmcustorminfo = "OPEN";
                 NewCusid();
+                CusInforResult();
                 txt_cusName.Focus();
             }
         }
@@ -126,15 +127,19 @@ namespace MTsystem_win
                 if (rdb_CusInsert.Checked == true)
                 {
                     //状态为添加客户信息时执行
+                    CusInfor_insert();
                 }
                 else
                 {
                     //状态为更新客户信息时执行
+                    CusInfo_update();
                 }
             }
         }
 
-        //客户信息添加
+        /// <summary>
+        /// 客户信息添加
+        /// </summary>
         private void CusInfor_insert()
         {
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -169,6 +174,202 @@ namespace MTsystem_win
                     transaction.Commit();
                     conn.Close();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    allClear();
+                    ds_Queryresult.Clear();
+                    CusInforResult();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 客户信息更新
+        /// </summary>
+        private void CusInfo_update()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                //string strsql = "INSERT INTO `customers` VALUES(NULL,@Cus_id,@Cus_name,@Cus_add,@Cus_contact,@Cus_mobile,@Cus_telephone,@Cus_fax,NULL)";
+
+                string strsql = "UPDATE customers SET Cus_name = @Cus_name,Cus_add = @Cus_add,";
+                strsql += "Cus_contact = @Cus_contact,Cus_mobile = @Cus_mobile,Cus_telephone = @Cus_telephone,Cus_fax = @Cus_fax";
+                strsql += " WHERE Cus_id = @Cus_id";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = strsql;
+                cmd.Parameters.AddWithValue("@Cus_id", txt_cusId.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_name", txt_cusName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_add", txt_cusAdd.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_contact", txt_Contact.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_mobile", txt_MobilePhone.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_telephone", txt_Telephone.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_fax", txt_Fax.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    allClear();
+                    ds_Queryresult.Clear();
+                    CusInfoQuery();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 客户信息无条件检索
+        /// </summary>
+        private void CusInforResult()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+
+            string sqlstr = "SELECT id,Cus_id,Cus_name,Cus_add,Cus_contact,Cus_mobile,Cus_telephone,Cus_fax FROM customers";
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            msda.Fill(ds_Queryresult, "resultTable");
+
+            dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
+            dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
+            dgv_cusinfo_preview.Columns[0].HeaderText = "序号";
+            dgv_cusinfo_preview.Columns[1].HeaderText = "客户编号";
+            dgv_cusinfo_preview.Columns[2].HeaderText = "客户名称";
+            dgv_cusinfo_preview.Columns[3].HeaderText = "客户地址";
+            dgv_cusinfo_preview.Columns[4].HeaderText = "联系人";
+            dgv_cusinfo_preview.Columns[5].HeaderText = "手机号码";
+            dgv_cusinfo_preview.Columns[6].HeaderText = "电话号码";
+            dgv_cusinfo_preview.Columns[7].HeaderText = "传真号码";
+            conn.Close();
+        }
+
+        /// <summary>
+        /// 客户信息条件检索
+        /// </summary>
+        private void CusInfoQuery()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+
+            string sqlstr = "SELECT id,Cus_id,Cus_name,Cus_add,Cus_contact,Cus_mobile,Cus_telephone,Cus_fax";
+            sqlstr += " FROM customers WHERE Cus_name LIKE '%" + txt_CusNameQuery.Text.Trim() + "%'";
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            msda.Fill(ds_Queryresult, "resultTable");
+
+            dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
+            dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
+            dgv_cusinfo_preview.Columns[0].HeaderText = "序号";
+            dgv_cusinfo_preview.Columns[1].HeaderText = "客户编号";
+            dgv_cusinfo_preview.Columns[2].HeaderText = "客户名称";
+            dgv_cusinfo_preview.Columns[3].HeaderText = "客户地址";
+            dgv_cusinfo_preview.Columns[4].HeaderText = "联系人";
+            dgv_cusinfo_preview.Columns[5].HeaderText = "手机号码";
+            dgv_cusinfo_preview.Columns[6].HeaderText = "电话号码";
+            dgv_cusinfo_preview.Columns[7].HeaderText = "传真号码";
+            conn.Close();
+        }
+
+        /// <summary>
+        /// 清楚所有控件数据
+        /// </summary>
+        private void allClear()
+        {
+            if (rdb_CusInsert.Checked == true)
+            {
+                txt_cusId.Text = "";
+                txt_cusName.Text = "";
+                txt_Contact.Text = "";
+                txt_cusAdd.Text = "";
+                txt_MobilePhone.Text = "";
+                txt_Telephone.Text = "";
+                txt_Fax.Text = "";
+                NewCusid();
+            }
+            else
+            {
+                txt_cusId.Text = "";
+                txt_cusName.Text = "";
+                txt_Contact.Text = "";
+                txt_cusAdd.Text = "";
+                txt_MobilePhone.Text = "";
+                txt_Telephone.Text = "";
+                txt_Fax.Text = "";
+            }
+        }
+
+        private void dgv_cusinfo_preview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (rdb_CusUpdate.Checked == true)
+            {
+                if (dgv_cusinfo_preview.RowCount > 0)
+                {
+                    txt_cusId.Text = dgv_cusinfo_preview.SelectedCells[1].Value.ToString().Trim();
+                    txt_cusName.Text = dgv_cusinfo_preview.SelectedCells[2].Value.ToString().Trim();
+                    txt_cusAdd.Text = dgv_cusinfo_preview.SelectedCells[3].Value.ToString().Trim();
+                    txt_Contact.Text = dgv_cusinfo_preview.SelectedCells[4].Value.ToString().Trim();
+                    txt_MobilePhone.Text = dgv_cusinfo_preview.SelectedCells[5].Value.ToString().Trim();
+                    txt_Telephone.Text = dgv_cusinfo_preview.SelectedCells[6].Value.ToString().Trim();
+                    txt_Fax.Text = dgv_cusinfo_preview.SelectedCells[7].Value.ToString().Trim();
+                }
+                else
+                {
+                    MessageBox.Show("暂无可选数据！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+            }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            allClear();
+        }
+
+        private void btn_Select_Click(object sender, EventArgs e)
+        {
+            if (txt_CusNameQuery.Text.Trim().Length != 0)
+            {
+                //清除数据源
+                ds_Queryresult.Clear();
+                //执行条件查找
+                CusInfoQuery();
+            }
+            else
+            {
+                //清除数据源
+                ds_Queryresult.Clear();
+                //执行无条件查找
+                CusInforResult();
+            }
+        }
+
+        private void txt_CusNameQuery_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                e.Handled = true;
+                if (txt_CusNameQuery.Text.Trim().Length != 0)
+                {
+                    //清除数据源
+                    ds_Queryresult.Clear();
+                    //执行条件查找
+                    CusInfoQuery();
+                }
+                else
+                {
+                    //清除数据源
+                    ds_Queryresult.Clear();
+                    //执行无条件查找
+                    CusInforResult();
                 }
             }
         }
