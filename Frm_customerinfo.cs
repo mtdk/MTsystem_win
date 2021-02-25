@@ -19,12 +19,18 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        DataSet ds_Queryresult = new DataSet();
+
+        DataView dv_Queryresult = new DataView();
+
+
         private void Frm_customerinfo_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmcustorminfo == "CLOSE" || frmShowstatus._Frmcustorminfo == null)
             {
                 frmShowstatus._Frmcustorminfo = "OPEN";
                 NewCusid();
+                txt_cusName.Focus();
             }
         }
 
@@ -41,7 +47,7 @@ namespace MTsystem_win
             try
             {
                 int MaxID = 0;
-                txt_cusName_A.Focus();
+                txt_cusName.Focus();
                 string strsql = "SELECT id,Cus_id FROM customers ORDER BY id DESC LIMIT 1";
                 MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
                 conn.Open();
@@ -52,12 +58,12 @@ namespace MTsystem_win
                 {
                     MaxID = Convert.ToInt32(dr["Cus_id"].ToString().Substring(1, 4).ToString());
                     MaxID++;
-                    txt_cusId_A.Text = string.Format("C{0}", MaxID.ToString().PadLeft(4, '0'));
+                    txt_cusId.Text = string.Format("C{0}", MaxID.ToString().PadLeft(4, '0'));
                 }
                 else
                 {
                     MaxID = 1;
-                    txt_cusId_A.Text = string.Format("C{0}", MaxID.ToString().PadLeft(4, '0'));
+                    txt_cusId.Text = string.Format("C{0}", MaxID.ToString().PadLeft(4, '0'));
                 }
             }
             catch (MySqlException ex)
@@ -66,27 +72,105 @@ namespace MTsystem_win
             }
         }
 
-        private void btn_save_A_Click(object sender, EventArgs e)
+        private void rdb_CusInsert_CheckedChanged(object sender, EventArgs e)
         {
-            if (txt_cusId_A.Text.Trim().Length == 0)
+            if (rdb_CusUpdate.Checked == true)
             {
-                MessageBox.Show("客户代码不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (txt_cusName_A.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("客户名称不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_cusName_A.Focus();
-            }
-            else if (txt_cusAdd_A.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("客户地址不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_cusAdd_A.Focus();
+                label8.Visible = true;
+                txt_CusNameQuery.Visible = true;
+                btn_Select.Visible = true;
+                txt_cusId.Text = "";
+                txt_CusNameQuery.Focus();
             }
             else
             {
-
+                label8.Visible = false;
+                txt_CusNameQuery.Visible = false;
+                btn_Select.Visible = false;
+                NewCusid();
             }
         }
 
+        private void rdb_CusUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdb_CusUpdate.Checked == true)
+            {
+                label8.Visible = true;
+                txt_CusNameQuery.Visible = true;
+                btn_Select.Visible = true;
+                txt_cusId.Text = "";
+                txt_CusNameQuery.Focus();
+            }
+            else
+            {
+                label8.Visible = false;
+                txt_CusNameQuery.Visible = false;
+                btn_Select.Visible = false;
+                NewCusid();
+            }
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            if (txt_cusId.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("客户代码不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_cusName.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("客户名称不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_cusName.Focus();
+            }
+            else
+            {
+                if (rdb_CusInsert.Checked == true)
+                {
+                    //状态为添加客户信息时执行
+                }
+                else
+                {
+                    //状态为更新客户信息时执行
+                }
+            }
+        }
+
+        //客户信息添加
+        private void CusInfor_insert()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                string strsql = "INSERT INTO `customers` VALUES(NULL,@Cus_id,@Cus_name,@Cus_add,@Cus_contact,@Cus_mobile,@Cus_telephone,@Cus_fax,NULL)";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = strsql;
+                cmd.Parameters.AddWithValue("@Cus_id", txt_cusId.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_name", txt_cusName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_add", txt_cusAdd.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_contact", txt_Contact.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_mobile", txt_MobilePhone.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_telephone", txt_Telephone.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_fax", txt_Fax.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
