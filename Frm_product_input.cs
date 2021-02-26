@@ -25,6 +25,14 @@ namespace MTsystem_win
             {
                 frmShowstatus._Frmproductinput = "OPEN";
             }
+
+            if (dataGridView1.RowCount <= 0)
+            {
+                for (int i = 0; i <= 9; i++)
+                {
+                    dataGridView1.Rows.Add();
+                }
+            }
         }
 
         private void Frm_product_input_FormClosed(object sender, FormClosedEventArgs e)

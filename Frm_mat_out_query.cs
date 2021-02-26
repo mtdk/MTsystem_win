@@ -27,6 +27,7 @@ namespace MTsystem_win
         {
             ds_Queryresult.Clear();
             doQuery();
+            matCount();
         }
 
 
@@ -132,6 +133,27 @@ namespace MTsystem_win
                 e.Handled = true;
                 ds_Queryresult.Clear();
                 doQuery();
+                matCount();
+            }
+        }
+        /// <summary>
+        /// 材料领用数量、重量统计
+        /// </summary>
+        private void matCount()
+        {
+            if (dgv_Queryresult.RowCount > 0)
+            {
+                //领用数量总和
+                decimal sumMatnum = 0;
+                //领用重量总和
+                decimal sumMattotal = 0;
+                for (int i = 0; i < dgv_Queryresult.RowCount; i++)
+               {
+                    sumMatnum += Convert.ToDecimal(dgv_Queryresult.Rows[i].Cells[4].Value.ToString().Trim());
+                    sumMattotal += Convert.ToDecimal(dgv_Queryresult.Rows[i].Cells[6].Value.ToString().Trim());
+                }
+                label5.Text = sumMatnum.ToString().Trim();
+                label7.Text = sumMattotal.ToString().Trim();
             }
         }
     }

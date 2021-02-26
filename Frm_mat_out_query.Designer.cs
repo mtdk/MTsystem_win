@@ -39,6 +39,10 @@
             this.btn_Query = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).BeginInit();
             this.SuspendLayout();
@@ -149,11 +153,51 @@
             this.dgv_Queryresult.TabIndex = 0;
             this.dgv_Queryresult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Queryresult_CellDoubleClick);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(845, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 19);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "总数量:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(923, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 19);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(845, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 19);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "总重量:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(923, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 19);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "label7";
+            // 
             // Frm_mat_out_query
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 781);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Query);
             this.Controls.Add(this.dtp_end);
@@ -191,5 +235,9 @@
         private System.Windows.Forms.Button btn_Query;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgv_Queryresult;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
