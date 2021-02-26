@@ -199,6 +199,18 @@
     <Compile Include="Frm_product_info.Designer.cs">
       <DependentUpon>Frm_product_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_product_input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_input.Designer.cs">
+      <DependentUpon>Frm_product_input.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_product_output.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_output.Designer.cs">
+      <DependentUpon>Frm_product_output.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_product_taginput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_info.resx">
       <DependentUpon>Frm_product_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_input.resx">
+      <DependentUpon>Frm_product_input.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_output.resx">
+      <DependentUpon>Frm_product_output.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_taginput.resx">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>

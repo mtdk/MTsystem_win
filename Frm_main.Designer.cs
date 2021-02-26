@@ -53,6 +53,8 @@
             this.cus_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,7 +139,7 @@
             // customerInfor
             // 
             this.customerInfor.Name = "customerInfor";
-            this.customerInfor.Size = new System.Drawing.Size(152, 24);
+            this.customerInfor.Size = new System.Drawing.Size(150, 24);
             this.customerInfor.Text = "客户信息";
             this.customerInfor.Click += new System.EventHandler(this.customerInfor_Click);
             // 
@@ -182,6 +184,8 @@
             this.mat_stock_Report,
             this.mat_Basestock,
             this.pro_info_input,
+            this.pro_input,
+            this.pro_output,
             this.cus_info_input});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
@@ -257,6 +261,20 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
+            // pro_input
+            // 
+            this.pro_input.Name = "pro_input";
+            this.pro_input.Size = new System.Drawing.Size(231, 24);
+            this.pro_input.Text = "产品进仓";
+            this.pro_input.Click += new System.EventHandler(this.pro_input_Click);
+            // 
+            // pro_output
+            // 
+            this.pro_output.Name = "pro_output";
+            this.pro_output.Size = new System.Drawing.Size(231, 24);
+            this.pro_output.Text = "产品出仓";
+            this.pro_output.Click += new System.EventHandler(this.pro_output_Click);
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -306,5 +324,7 @@
         private System.Windows.Forms.ToolStripMenuItem sale_Item;
         private System.Windows.Forms.ToolStripMenuItem customerInfor;
         private System.Windows.Forms.ToolStripMenuItem cus_info_input;
+        private System.Windows.Forms.ToolStripMenuItem pro_input;
+        private System.Windows.Forms.ToolStripMenuItem pro_output;
     }
 }

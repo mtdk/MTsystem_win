@@ -10,6 +10,21 @@ namespace MTsystem_win.allClass
     /// </summary>
     class frmShowstatus
     {
+        #region 销售
+        /// <summary>
+        /// 客户信息窗口
+        /// </summary>
+        private static string _frmcustorminfo;
+        /// <summary>
+        /// 客户信息窗口
+        /// </summary>
+        public static string _Frmcustorminfo
+        {
+            set { _frmcustorminfo = value; }
+            get { return _frmcustorminfo; }
+        }
+        #endregion
+
         #region 采购
 
         private static string _fsupinfo;
@@ -114,12 +129,30 @@ namespace MTsystem_win.allClass
             set { _frmmatreturngoods = value; }
         }
 
-        private static string _frmcustorminfo;
-
-        public static string _Frmcustorminfo
+        /// <summary>
+        /// 产品进仓窗口
+        /// </summary>
+        private static string _frmproductinput;
+        /// <summary>
+        /// 产品进仓窗口
+        /// </summary>
+        public static string _Frmproductinput
         {
-            set { _frmcustorminfo = value; }
-            get { return _frmcustorminfo; }
+            get { return _frmproductinput; }
+            set { _frmproductinput = value; }
+        }
+
+        /// <summary>
+        /// 产品出仓窗口
+        /// </summary>
+        private static string _frmproductoutput;
+        /// <summary>
+        /// 产品出仓窗口
+        /// </summary>
+        public static string _Frmproductoutput
+        {
+            set { _frmproductoutput = value; }
+            get { return _frmproductoutput; }
         }
 
         #endregion
