@@ -241,7 +241,6 @@ namespace MTsystem_win
             txt_Inputid.Text += DateTime.Now.Hour.ToString().Trim();
             txt_Inputid.Text += DateTime.Now.Minute.ToString().Trim();
             txt_Inputid.Text += DateTime.Now.Second.ToString().Trim();
-            //txt_Outid.Text += DateTime.Now.Millisecond.ToString().Trim();
         }
 
         /// <summary>

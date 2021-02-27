@@ -24,20 +24,27 @@ namespace MTsystem_win
             if (frmShowstatus._Frmproductinput == "CLOSE" || frmShowstatus._Frmproductinput == null)
             {
                 frmShowstatus._Frmproductinput = "OPEN";
-            }
-
-            if (dataGridView1.RowCount <= 0)
-            {
-                for (int i = 0; i <= 9; i++)
-                {
-                    dataGridView1.Rows.Add();
-                }
+                newInputid();
+                txt_inputDate.Text = txt_Inputid.Text.Substring(0, 8).Trim();
             }
         }
 
         private void Frm_product_input_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmShowstatus._Frmproductinput = "CLOSE";
+        }
+
+        /// <summary>
+        /// 产生进仓单号
+        /// </summary>
+        private void newInputid()
+        {
+            txt_Inputid.Text = DateTime.Now.Year.ToString().Trim();
+            txt_Inputid.Text += DateTime.Now.Month.ToString().PadLeft(2,'0').Trim();
+            txt_Inputid.Text += DateTime.Now.Day.ToString().PadLeft(2,'0').Trim();
+            txt_Inputid.Text += DateTime.Now.Hour.ToString().PadLeft(2,'0').Trim();
+            txt_Inputid.Text += DateTime.Now.Minute.ToString().PadLeft(2,'0').Trim();
+            txt_Inputid.Text += DateTime.Now.Second.ToString().PadLeft(2,'0').Trim();
         }
     }
 }

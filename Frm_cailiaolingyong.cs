@@ -214,11 +214,10 @@ namespace MTsystem_win
             {
                 if ((Convert.ToDecimal(txt_Lyzl.Text.Trim())) > (Convert.ToDecimal(txt_matStock.Text.Trim())))
                 {
-                    MessageBox.Show("领用总量超过当前材料库存总量！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    mat_out();
+                    if (MessageBox.Show("领用总量超过当前材料库存总量！是否继续领用？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        mat_out();
+                    }
                 }
             }
         }
