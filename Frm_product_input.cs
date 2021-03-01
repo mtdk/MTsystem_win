@@ -19,6 +19,8 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        JudgeNumber jnum = new JudgeNumber();
+
         private void Frm_product_input_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmproductinput == "CLOSE" || frmShowstatus._Frmproductinput == null)
@@ -45,6 +47,167 @@ namespace MTsystem_win
             txt_Inputid.Text += DateTime.Now.Hour.ToString().PadLeft(2,'0').Trim();
             txt_Inputid.Text += DateTime.Now.Minute.ToString().PadLeft(2,'0').Trim();
             txt_Inputid.Text += DateTime.Now.Second.ToString().PadLeft(2,'0').Trim();
+        }
+
+        private void txt_inputDate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (!jnum.IntegralNumber(txt_inputDate.Text.Trim()))
+                {
+                    MessageBox.Show("格式错误，这个位置只能输入数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputDate.Focus();
+                    txt_inputDate.SelectAll();
+                }
+                else
+                {
+                    txt_batchNum.Focus();
+                }
+            }
+        }
+
+        private void txt_inputDate_Leave(object sender, EventArgs e)
+        {
+            if (!jnum.IntegralNumber(txt_inputDate.Text.Trim()))
+            {
+                MessageBox.Show("格式错误，这个位置只能输入数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputDate.Focus();
+                txt_inputDate.SelectAll();
+            }
+        }
+
+        private void txt_batchNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txt_productId.Focus();
+            }
+        }
+
+        private void txt_productId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_productId.Text.Trim().Length != 0)
+                {
+                    Frm_productSelect_A frmproductselecta = new Frm_productSelect_A();
+                    frmproductselecta.Querycondition = txt_productId.Text.Trim();
+                    frmproductselecta.ShowDialog();
+                    if (frmproductselecta.pro_id!=null)
+                    {
+                        txt_proId.Text=frmproductselecta.pro_id.Trim();
+                        txt_productId.Text = frmproductselecta.product_id.Trim();
+                        txt_productName.Text = frmproductselecta.product_name.Trim();
+                        txt_inputUnit.Text = frmproductselecta.product_unit.Trim();
+                        txt_inputNum.Focus();
+                    }
+                }
+            }
+        }
+
+        private void txt_inputNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_inputNum.Text.Trim().Length != 0)
+                {
+                    if (!jnum.IntegralNumber(txt_inputNum.Text.Trim()))
+                    {
+                        MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_inputNum.Focus();
+                        txt_inputNum.SelectAll();
+                    }
+                    else if ((Convert.ToInt32(txt_inputNum.Text.Trim())) <= 0)
+                    {
+                        MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        txt_inputNum.Focus();
+                        txt_inputNum.SelectAll();
+                    }
+                    else
+                    {
+                        txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                        txt_inputUnit.Focus();
+                    }
+                }
+            }
+        }
+
+        private void txt_inputNum_Leave(object sender, EventArgs e)
+        {
+            if (txt_inputNum.Text.Trim().Length != 0)
+            {
+                if (!jnum.IntegralNumber(txt_inputNum.Text.Trim()))
+                {
+                    MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputNum.Focus();
+                    txt_inputNum.SelectAll();
+                }
+                else if ((Convert.ToInt32(txt_inputNum.Text.Trim())) <= 0)
+                {
+                    MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txt_inputNum.Focus();
+                    txt_inputNum.SelectAll();
+                }
+                else
+                {
+                    txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                }
+            }
+        }
+
+        private void txt_inputUnit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_inputUnit.Text.Trim().Length != 0)
+                {
+                    if (!jnum.ISNumeric(txt_inputUnit.Text.Trim()))
+                    {
+                        MessageBox.Show("格式错误，这个位置只能输入大于0的数字，如：20,20.1", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txt_inputUnit.Focus();
+                        txt_inputUnit.SelectAll();
+                    }
+                    else if ((Convert.ToDecimal(txt_inputUnit.Text.Trim())) <= 0)
+                    {
+                        MessageBox.Show("请输入大于0的数字，如：20,20.1", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        txt_inputUnit.Focus();
+                        txt_inputUnit.SelectAll();
+                    }
+                    else
+                    {
+                        txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                        txt_inputWeight.Focus();
+                    }
+                }
+            }
+        }
+
+        private void txt_inputUnit_Leave(object sender, EventArgs e)
+        {
+            if (txt_inputUnit.Text.Trim().Length != 0)
+            {
+                if (!jnum.ISNumeric(txt_inputUnit.Text.Trim()))
+                {
+                    MessageBox.Show("格式错误，这个位置只能输入大于0的数字，如：20,20.1", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputUnit.Focus();
+                    txt_inputUnit.SelectAll();
+                }
+                else if ((Convert.ToDecimal(txt_inputUnit.Text.Trim())) <= 0)
+                {
+                    MessageBox.Show("请输入大于0的数字，如：20,20.1", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txt_inputUnit.Focus();
+                    txt_inputUnit.SelectAll();
+                }
+                else
+                {
+                    txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                }
+            }
         }
     }
 }

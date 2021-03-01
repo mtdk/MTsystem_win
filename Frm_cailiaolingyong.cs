@@ -212,12 +212,18 @@ namespace MTsystem_win
             }
             else
             {
+                //领料总量大于库存材料库存总量
                 if ((Convert.ToDecimal(txt_Lyzl.Text.Trim())) > (Convert.ToDecimal(txt_matStock.Text.Trim())))
                 {
                     if (MessageBox.Show("领用总量超过当前材料库存总量！是否继续领用？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         mat_out();
                     }
+                }
+                else
+                {
+                    //领料总量不大于库存材料总量
+                    mat_out();
                 }
             }
         }

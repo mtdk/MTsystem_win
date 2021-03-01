@@ -29,33 +29,35 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.dgv_inputView = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_inputWeight = new System.Windows.Forms.TextBox();
+            this.txt_inputUnit = new System.Windows.Forms.TextBox();
+            this.txt_inputNum = new System.Windows.Forms.TextBox();
+            this.txt_productName = new System.Windows.Forms.TextBox();
+            this.txt_productId = new System.Windows.Forms.TextBox();
+            this.txt_proId = new System.Windows.Forms.TextBox();
             this.txt_batchNum = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_inputDate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Inputid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_proId = new System.Windows.Forms.TextBox();
-            this.txt_productId = new System.Windows.Forms.TextBox();
-            this.txt_productName = new System.Windows.Forms.TextBox();
-            this.txt_inputNum = new System.Windows.Forms.TextBox();
-            this.txt_inputUnit = new System.Windows.Forms.TextBox();
-            this.txt_inputWeight = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dgv_inputView = new System.Windows.Forms.DataGridView();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inputView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_add);
             this.groupBox2.Controls.Add(this.btn_Cancel);
             this.groupBox2.Controls.Add(this.btn_Save);
             this.groupBox2.Controls.Add(this.dgv_inputView);
@@ -80,9 +82,162 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1104, 471);
+            this.groupBox2.Size = new System.Drawing.Size(1104, 496);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Location = new System.Drawing.Point(175, 444);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 33);
+            this.btn_Cancel.TabIndex = 18;
+            this.btn_Cancel.Text = "取  消";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(94, 444);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 33);
+            this.btn_Save.TabIndex = 17;
+            this.btn_Save.Text = "保  存";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            // 
+            // dgv_inputView
+            // 
+            this.dgv_inputView.AllowUserToAddRows = false;
+            this.dgv_inputView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_inputView.Location = new System.Drawing.Point(6, 123);
+            this.dgv_inputView.Name = "dgv_inputView";
+            this.dgv_inputView.ReadOnly = true;
+            this.dgv_inputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgv_inputView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_inputView.RowTemplate.Height = 23;
+            this.dgv_inputView.Size = new System.Drawing.Size(1092, 306);
+            this.dgv_inputView.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(918, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 19);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "重量";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.Location = new System.Drawing.Point(800, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 19);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "规格";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(700, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 19);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "数量";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(449, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 19);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "产品名称";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(198, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 19);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "产品编号";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Blue;
+            this.label4.Location = new System.Drawing.Point(79, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "系统编码";
+            // 
+            // txt_inputWeight
+            // 
+            this.txt_inputWeight.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_inputWeight.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_inputWeight.Location = new System.Drawing.Point(872, 92);
+            this.txt_inputWeight.Name = "txt_inputWeight";
+            this.txt_inputWeight.ReadOnly = true;
+            this.txt_inputWeight.Size = new System.Drawing.Size(137, 30);
+            this.txt_inputWeight.TabIndex = 15;
+            // 
+            // txt_inputUnit
+            // 
+            this.txt_inputUnit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_inputUnit.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_inputUnit.Location = new System.Drawing.Point(772, 92);
+            this.txt_inputUnit.Name = "txt_inputUnit";
+            this.txt_inputUnit.Size = new System.Drawing.Size(100, 30);
+            this.txt_inputUnit.TabIndex = 4;
+            this.txt_inputUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputUnit_KeyPress);
+            this.txt_inputUnit.Leave += new System.EventHandler(this.txt_inputUnit_Leave);
+            // 
+            // txt_inputNum
+            // 
+            this.txt_inputNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_inputNum.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_inputNum.Location = new System.Drawing.Point(672, 92);
+            this.txt_inputNum.Name = "txt_inputNum";
+            this.txt_inputNum.Size = new System.Drawing.Size(100, 30);
+            this.txt_inputNum.TabIndex = 3;
+            this.txt_inputNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputNum_KeyPress);
+            this.txt_inputNum.Leave += new System.EventHandler(this.txt_inputNum_Leave);
+            // 
+            // txt_productName
+            // 
+            this.txt_productName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_productName.Location = new System.Drawing.Point(307, 92);
+            this.txt_productName.Name = "txt_productName";
+            this.txt_productName.ReadOnly = true;
+            this.txt_productName.Size = new System.Drawing.Size(365, 30);
+            this.txt_productName.TabIndex = 20;
+            // 
+            // txt_productId
+            // 
+            this.txt_productId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productId.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_productId.Location = new System.Drawing.Point(169, 92);
+            this.txt_productId.Name = "txt_productId";
+            this.txt_productId.Size = new System.Drawing.Size(138, 30);
+            this.txt_productId.TabIndex = 2;
+            this.txt_productId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_productId_KeyPress);
+            // 
+            // txt_proId
+            // 
+            this.txt_proId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proId.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_proId.Location = new System.Drawing.Point(69, 92);
+            this.txt_proId.Name = "txt_proId";
+            this.txt_proId.ReadOnly = true;
+            this.txt_proId.Size = new System.Drawing.Size(100, 30);
+            this.txt_proId.TabIndex = 14;
             // 
             // txt_batchNum
             // 
@@ -91,6 +246,7 @@
             this.txt_batchNum.Name = "txt_batchNum";
             this.txt_batchNum.Size = new System.Drawing.Size(162, 30);
             this.txt_batchNum.TabIndex = 1;
+            this.txt_batchNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_batchNum_KeyPress);
             // 
             // label3
             // 
@@ -108,6 +264,8 @@
             this.txt_inputDate.Name = "txt_inputDate";
             this.txt_inputDate.Size = new System.Drawing.Size(122, 30);
             this.txt_inputDate.TabIndex = 0;
+            this.txt_inputDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputDate_KeyPress);
+            this.txt_inputDate.Leave += new System.EventHandler(this.txt_inputDate_Leave);
             // 
             // label2
             // 
@@ -136,160 +294,21 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "进仓记录号:";
             // 
-            // txt_proId
+            // btn_add
             // 
-            this.txt_proId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_proId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_proId.Location = new System.Drawing.Point(69, 92);
-            this.txt_proId.Name = "txt_proId";
-            this.txt_proId.ReadOnly = true;
-            this.txt_proId.Size = new System.Drawing.Size(100, 30);
-            this.txt_proId.TabIndex = 14;
-            // 
-            // txt_productId
-            // 
-            this.txt_productId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_productId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_productId.Location = new System.Drawing.Point(169, 92);
-            this.txt_productId.Name = "txt_productId";
-            this.txt_productId.Size = new System.Drawing.Size(138, 30);
-            this.txt_productId.TabIndex = 2;
-            // 
-            // txt_productName
-            // 
-            this.txt_productName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_productName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_productName.Location = new System.Drawing.Point(307, 92);
-            this.txt_productName.Name = "txt_productName";
-            this.txt_productName.ReadOnly = true;
-            this.txt_productName.Size = new System.Drawing.Size(365, 30);
-            this.txt_productName.TabIndex = 20;
-            // 
-            // txt_inputNum
-            // 
-            this.txt_inputNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_inputNum.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputNum.Location = new System.Drawing.Point(672, 92);
-            this.txt_inputNum.Name = "txt_inputNum";
-            this.txt_inputNum.Size = new System.Drawing.Size(100, 30);
-            this.txt_inputNum.TabIndex = 3;
-            // 
-            // txt_inputUnit
-            // 
-            this.txt_inputUnit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_inputUnit.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputUnit.Location = new System.Drawing.Point(772, 92);
-            this.txt_inputUnit.Name = "txt_inputUnit";
-            this.txt_inputUnit.Size = new System.Drawing.Size(100, 30);
-            this.txt_inputUnit.TabIndex = 4;
-            // 
-            // txt_inputWeight
-            // 
-            this.txt_inputWeight.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_inputWeight.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputWeight.Location = new System.Drawing.Point(872, 92);
-            this.txt_inputWeight.Name = "txt_inputWeight";
-            this.txt_inputWeight.ReadOnly = true;
-            this.txt_inputWeight.Size = new System.Drawing.Size(137, 30);
-            this.txt_inputWeight.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(79, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "系统编码";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(198, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "产品编号";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(449, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 19);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "产品名称";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(700, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "数量";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(800, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 19);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "规格";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(918, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 19);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "重量";
-            // 
-            // dgv_inputView
-            // 
-            this.dgv_inputView.AllowUserToAddRows = false;
-            this.dgv_inputView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_inputView.Location = new System.Drawing.Point(6, 123);
-            this.dgv_inputView.Name = "dgv_inputView";
-            this.dgv_inputView.ReadOnly = true;
-            this.dgv_inputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgv_inputView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_inputView.RowTemplate.Height = 23;
-            this.dgv_inputView.Size = new System.Drawing.Size(1092, 306);
-            this.dgv_inputView.TabIndex = 16;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Location = new System.Drawing.Point(1023, 25);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 33);
-            this.btn_Save.TabIndex = 17;
-            this.btn_Save.Text = "保  存";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.Location = new System.Drawing.Point(1023, 70);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(75, 33);
-            this.btn_Cancel.TabIndex = 18;
-            this.btn_Cancel.Text = "取  消";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_add.Location = new System.Drawing.Point(1015, 92);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(75, 28);
+            this.btn_add.TabIndex = 21;
+            this.btn_add.Text = "添  加";
+            this.btn_add.UseVisualStyleBackColor = true;
             // 
             // Frm_product_input
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1128, 494);
+            this.ClientSize = new System.Drawing.Size(1128, 594);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -331,5 +350,6 @@
         private System.Windows.Forms.DataGridView dgv_inputView;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_add;
     }
 }

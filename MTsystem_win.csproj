@@ -193,6 +193,12 @@
     <Compile Include="Frm_productSelect.Designer.cs">
       <DependentUpon>Frm_productSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_productSelect_A.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_productSelect_A.Designer.cs">
+      <DependentUpon>Frm_productSelect_A.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_product_info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_productSelect.resx">
       <DependentUpon>Frm_productSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_productSelect_A.resx">
+      <DependentUpon>Frm_productSelect_A.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_info.resx">
       <DependentUpon>Frm_product_info.cs</DependentUpon>
