@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_add = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.dgv_inputView = new System.Windows.Forms.DataGridView();
@@ -50,7 +54,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Inputid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_add = new System.Windows.Forms.Button();
+            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inputView)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +95,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // btn_add
+            // 
+            this.btn_add.Location = new System.Drawing.Point(1015, 92);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(75, 28);
+            this.btn_add.TabIndex = 21;
+            this.btn_add.Text = "添  加";
+            this.btn_add.UseVisualStyleBackColor = true;
+            // 
             // btn_Cancel
             // 
             this.btn_Cancel.Location = new System.Drawing.Point(175, 444);
@@ -107,13 +125,47 @@
             // dgv_inputView
             // 
             this.dgv_inputView.AllowUserToAddRows = false;
+            this.dgv_inputView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgv_inputView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_inputView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_inputView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_inputView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.系统编码,
+            this.产品编号,
+            this.产品名称,
+            this.数量,
+            this.规格,
+            this.重量});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_inputView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_inputView.Location = new System.Drawing.Point(6, 123);
             this.dgv_inputView.Name = "dgv_inputView";
             this.dgv_inputView.ReadOnly = true;
-            this.dgv_inputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_inputView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_inputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgv_inputView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_inputView.RowTemplate.Height = 23;
+            this.dgv_inputView.RowTemplate.ReadOnly = true;
             this.dgv_inputView.Size = new System.Drawing.Size(1092, 306);
             this.dgv_inputView.TabIndex = 16;
             // 
@@ -186,6 +238,7 @@
             this.txt_inputWeight.ReadOnly = true;
             this.txt_inputWeight.Size = new System.Drawing.Size(137, 30);
             this.txt_inputWeight.TabIndex = 15;
+            this.txt_inputWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputWeight_KeyPress);
             // 
             // txt_inputUnit
             // 
@@ -294,14 +347,47 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "进仓记录号:";
             // 
-            // btn_add
+            // 系统编码
             // 
-            this.btn_add.Location = new System.Drawing.Point(1015, 92);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(75, 28);
-            this.btn_add.TabIndex = 21;
-            this.btn_add.Text = "添  加";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.系统编码.HeaderText = "系统编码";
+            this.系统编码.Name = "系统编码";
+            this.系统编码.ReadOnly = true;
+            this.系统编码.Width = 106;
+            // 
+            // 产品编号
+            // 
+            this.产品编号.HeaderText = "产品编号";
+            this.产品编号.Name = "产品编号";
+            this.产品编号.ReadOnly = true;
+            this.产品编号.Width = 106;
+            // 
+            // 产品名称
+            // 
+            this.产品名称.HeaderText = "产品名称";
+            this.产品名称.Name = "产品名称";
+            this.产品名称.ReadOnly = true;
+            this.产品名称.Width = 106;
+            // 
+            // 数量
+            // 
+            this.数量.HeaderText = "数量";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            this.数量.Width = 70;
+            // 
+            // 规格
+            // 
+            this.规格.HeaderText = "规格";
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            this.规格.Width = 70;
+            // 
+            // 重量
+            // 
+            this.重量.HeaderText = "重量";
+            this.重量.Name = "重量";
+            this.重量.ReadOnly = true;
+            this.重量.Width = 70;
             // 
             // Frm_product_input
             // 
@@ -351,5 +437,11 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 系统编码;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 产品名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 规格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 重量;
     }
 }

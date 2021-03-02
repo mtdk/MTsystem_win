@@ -49,6 +49,19 @@ namespace MTsystem_win
             txt_Inputid.Text += DateTime.Now.Second.ToString().PadLeft(2,'0').Trim();
         }
 
+        private void tempDateInsert()
+        {
+            DataGridViewRow Row = new DataGridViewRow();
+            Row.CreateCells(dgv_inputView);
+            Row.Cells[0].Value = txt_proId.Text.Trim();
+            Row.Cells[1].Value = txt_productId.Text.Trim();
+            Row.Cells[2].Value = txt_productName.Text.Trim();
+            Row.Cells[3].Value = txt_inputNum.Text.Trim();
+            Row.Cells[4].Value = txt_inputUnit.Text.Trim();
+            Row.Cells[5].Value = txt_inputWeight.Text.Trim();
+            dgv_inputView.Rows.Add(Row);
+        }
+
         private void txt_inputDate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -209,5 +222,52 @@ namespace MTsystem_win
                 }
             }
         }
+
+        private void txt_inputWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_Inputid.Text.Trim().Length==0)
+                {
+                    MessageBox.Show("进仓记录号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (txt_inputDate.Text.Trim().Length==0)
+                {
+                    MessageBox.Show("进仓日期不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputDate.Focus();
+                }
+                else if (txt_proId.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("产品系统编码不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (txt_productId.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("产品编号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_productId.Focus();
+                }
+                else if (txt_productName.Text.Trim().Length==0)
+                {
+                    MessageBox.Show("产品名称不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_productId.Focus();
+                }
+                else if (txt_inputNum.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("产品数量不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputNum.Focus();
+                }
+                else if (txt_inputUnit.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("产品规格不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputUnit.Focus();
+                }
+                else
+                {
+                    tempDateInsert();
+                }
+            }
+        }
+
+
     }
 }

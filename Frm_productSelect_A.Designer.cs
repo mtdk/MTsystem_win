@@ -58,6 +58,7 @@
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(954, 508);
             this.dgv_Queryresult.TabIndex = 0;
+            this.dgv_Queryresult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgv_Queryresult_PreviewKeyDown);
             // 
             // Frm_productSelect_A
             // 
@@ -73,7 +74,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "产品进出仓选择窗口";
             this.Load += new System.EventHandler(this.Frm_productSelect_A_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Frm_productSelect_A_KeyUp);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
             this.ResumeLayout(false);

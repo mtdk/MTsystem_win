@@ -66,13 +66,13 @@ namespace MTsystem_win
 
         private void Frm_productSelect_A_Load(object sender, EventArgs e)
         {
-            this.KeyPreview = true;
+            //this.KeyPreview = true;
             Productresult();
         }
 
-        private void Frm_productSelect_A_KeyUp(object sender, KeyEventArgs e)
+        private void dgv_Queryresult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyData == Keys.Escape)
+            if (e.KeyData == Keys.Enter)
             {
                 if (dgv_Queryresult.RowCount > 0)
                 {
@@ -88,6 +88,5 @@ namespace MTsystem_win
                 }
             }
         }
-
     }
 }
