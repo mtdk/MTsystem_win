@@ -21,6 +21,9 @@ namespace MTsystem_win
 
         JudgeNumber jnum = new JudgeNumber();
 
+        //一个为了迎合用户特殊习惯的不应该出现的垃圾全局变量
+        public string tmp;
+
         private void Frm_product_input_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmproductinput == "CLOSE" || frmShowstatus._Frmproductinput == null)
@@ -119,26 +122,35 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                if (!jnum.IntegralNumber(txt_inputDate.Text.Trim()))
-                {
-                    MessageBox.Show("格式错误，这个位置只能输入数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_inputDate.Focus();
-                    txt_inputDate.SelectAll();
-                }
-                else
-                {
-                    txt_batchNum.Focus();
-                }
+
+                txt_batchNum.Focus();
             }
         }
 
         private void txt_inputDate_Leave(object sender, EventArgs e)
         {
-            if (!jnum.IntegralNumber(txt_inputDate.Text.Trim()))
+            if (txt_inputDate.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("格式错误，此处不能为空，应填入如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputDate.Focus();
+                txt_inputDate.SelectAll();
+            }
+            else if (!jnum.IntegralNumber(txt_inputDate.Text.Trim()))
             {
                 MessageBox.Show("格式错误，这个位置只能输入数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_inputDate.Focus();
                 txt_inputDate.SelectAll();
+            }
+            else if (txt_inputDate.Text.Trim().Length > 8)
+            {
+                MessageBox.Show("格式错误，这个位置最多只能输入8位数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputDate.Focus();
+                txt_inputDate.SelectAll();
+            }
+            else
+            {
+                tmp = txt_inputDate.Text.Trim().Substring(0, 4) + "-" + txt_inputDate.Text.Trim().Substring(4, 2) + "-" + txt_inputDate.Text.Trim().Substring(6, 2).Trim();
+                label14.Text = tmp.Trim();
             }
         }
 
@@ -384,6 +396,10 @@ namespace MTsystem_win
             allClear();
         }
 
-
+        private void product_input_insert()
+        {
+            string sqlstr = "INSERT INTO `product_input` VALUES(NULL,@Inputid,@Proid,@Product_id,@Product_name";
+            sqlstr += " @Product_jcsl,@Product_unit,@Jczl,";
+        }
     }
 }
