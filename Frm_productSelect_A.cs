@@ -82,10 +82,17 @@ namespace MTsystem_win
                     product_unit = dgv_Queryresult.CurrentRow.Cells[3].Value.ToString().Trim();
                     this.Close();
                 }
-                else
-                {
-                    this.Close();
-                }
+            }
+        }
+
+        private void Frm_productSelect_A_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (dgv_Queryresult.RowCount > 0)
+            {
+                pro_id = dgv_Queryresult.CurrentRow.Cells[0].Value.ToString().Trim();
+                product_id = dgv_Queryresult.CurrentRow.Cells[1].Value.ToString().Trim();
+                product_name = dgv_Queryresult.CurrentRow.Cells[2].Value.ToString().Trim();
+                product_unit = dgv_Queryresult.CurrentRow.Cells[3].Value.ToString().Trim();
             }
         }
     }

@@ -73,6 +73,7 @@
             this.Name = "Frm_productSelect_A";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "产品进出仓选择窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_productSelect_A_FormClosed);
             this.Load += new System.EventHandler(this.Frm_productSelect_A_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Queryresult)).EndInit();
