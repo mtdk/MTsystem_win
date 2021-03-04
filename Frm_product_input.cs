@@ -49,6 +49,9 @@ namespace MTsystem_win
             txt_Inputid.Text += DateTime.Now.Second.ToString().PadLeft(2,'0').Trim();
         }
 
+        /// <summary>
+        /// 添加数据到datagridview
+        /// </summary>
         private void tempDateInsert()
         {
             DataGridViewRow Row = new DataGridViewRow();
@@ -60,6 +63,39 @@ namespace MTsystem_win
             Row.Cells[4].Value = txt_inputUnit.Text.Trim();
             Row.Cells[5].Value = txt_inputWeight.Text.Trim();
             dgv_inputView.Rows.Add(Row);
+
+            sumTotalcount();
+            ctrlClear();
+        }
+
+        /// <summary>
+        /// 总数量和总重量统计
+        /// </summary>
+        private void sumTotalcount()
+        {
+            decimal sumTotalweight = 0;
+            int sumTotalnumber = 0;
+            for (int i = 0; i < dgv_inputView.RowCount; i++)
+            {
+                sumTotalnumber += Convert.ToInt32(dgv_inputView.Rows[i].Cells[3].Value.ToString().Trim());
+                sumTotalweight += Convert.ToDecimal(dgv_inputView.Rows[i].Cells[5].Value.ToString().Trim());
+            }
+            label11.Text = sumTotalnumber.ToString();
+            label13.Text = sumTotalweight.ToString();
+        }
+
+        /// <summary>
+        /// 清空控件数据
+        /// </summary>
+        private void ctrlClear()
+        {
+            txt_proId.Text = "";
+            txt_productId.Text = "";
+            txt_productName.Text = "";
+            txt_inputNum.Text = "";
+            txt_inputUnit.Text = "";
+            txt_inputWeight.Text = "";
+            txt_productId.Focus();
         }
 
         private void txt_inputDate_KeyPress(object sender, KeyPressEventArgs e)
@@ -265,6 +301,60 @@ namespace MTsystem_win
                 {
                     tempDateInsert();
                 }
+            }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if (txt_Inputid.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("进仓记录号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_inputDate.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("进仓日期不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputDate.Focus();
+            }
+            else if (txt_proId.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("产品系统编码不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_productId.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("产品编号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_productId.Focus();
+            }
+            else if (txt_productName.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("产品名称不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_productId.Focus();
+            }
+            else if (txt_inputNum.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("产品数量不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputNum.Focus();
+            }
+            else if (txt_inputUnit.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("产品规格不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_inputUnit.Focus();
+            }
+            else
+            {
+                tempDateInsert();
+            }
+        }
+
+        private void dgv_inputView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dgv_inputView.Rows.Count > 0)
+            {
+                sumTotalcount();
+            }
+            else
+            {
+                label11.Text = "0";
+                label13.Text = "0";
             }
         }
 
