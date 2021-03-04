@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
@@ -59,10 +63,6 @@
             this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inputView)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +102,42 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(918, 444);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 19);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(822, 444);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 19);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "重量合计:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(685, 444);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 19);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(589, 444);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 19);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "数量合计:";
+            // 
             // btn_add
             // 
             this.btn_add.Location = new System.Drawing.Point(1015, 92);
@@ -120,6 +156,7 @@
             this.btn_Cancel.TabIndex = 18;
             this.btn_Cancel.Text = "取  消";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_Save
             // 
@@ -129,20 +166,19 @@
             this.btn_Save.TabIndex = 17;
             this.btn_Save.Text = "保  存";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // dgv_inputView
             // 
             this.dgv_inputView.AllowUserToAddRows = false;
-            this.dgv_inputView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgv_inputView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_inputView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_inputView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_inputView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inputView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.系统编码,
@@ -154,9 +190,9 @@
             this.dgv_inputView.Location = new System.Drawing.Point(6, 123);
             this.dgv_inputView.Name = "dgv_inputView";
             this.dgv_inputView.ReadOnly = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_inputView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_inputView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_inputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgv_inputView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_inputView.RowTemplate.Height = 23;
@@ -348,78 +384,42 @@
             this.系统编码.HeaderText = "系统编码";
             this.系统编码.Name = "系统编码";
             this.系统编码.ReadOnly = true;
-            this.系统编码.Width = 106;
+            this.系统编码.Width = 130;
             // 
             // 产品编号
             // 
             this.产品编号.HeaderText = "产品编号";
             this.产品编号.Name = "产品编号";
             this.产品编号.ReadOnly = true;
-            this.产品编号.Width = 106;
+            this.产品编号.Width = 130;
             // 
             // 产品名称
             // 
             this.产品名称.HeaderText = "产品名称";
             this.产品名称.Name = "产品名称";
             this.产品名称.ReadOnly = true;
-            this.产品名称.Width = 106;
+            this.产品名称.Width = 400;
             // 
             // 数量
             // 
             this.数量.HeaderText = "数量";
             this.数量.Name = "数量";
             this.数量.ReadOnly = true;
-            this.数量.Width = 70;
+            this.数量.Width = 130;
             // 
             // 规格
             // 
             this.规格.HeaderText = "规格";
             this.规格.Name = "规格";
             this.规格.ReadOnly = true;
-            this.规格.Width = 70;
+            this.规格.Width = 130;
             // 
             // 重量
             // 
             this.重量.HeaderText = "重量";
             this.重量.Name = "重量";
             this.重量.ReadOnly = true;
-            this.重量.Width = 70;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(589, 444);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 19);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "数量合计:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(685, 444);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(18, 19);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(822, 444);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 19);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "重量合计:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(918, 444);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(18, 19);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "0";
+            this.重量.Width = 130;
             // 
             // Frm_product_input
             // 
@@ -469,15 +469,15 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn 系统编码;
         private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 产品名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 规格;
         private System.Windows.Forms.DataGridViewTextBoxColumn 重量;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
     }
 }

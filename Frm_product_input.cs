@@ -98,6 +98,22 @@ namespace MTsystem_win
             txt_productId.Focus();
         }
 
+        /// <summary>
+        /// 清空所有控件数据
+        /// </summary>
+        private void allClear()
+        {
+            txt_batchNum.Text = "";
+            txt_proId.Text = "";
+            txt_productId.Text = "";
+            txt_productName.Text = "";
+            txt_inputNum.Text = "";
+            txt_inputUnit.Text = "";
+            txt_inputWeight.Text = "";
+            dgv_inputView.Rows.Clear();
+            txt_inputDate.Focus();
+        }
+
         private void txt_inputDate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -356,6 +372,16 @@ namespace MTsystem_win
                 label11.Text = "0";
                 label13.Text = "0";
             }
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            allClear();
         }
 
 
