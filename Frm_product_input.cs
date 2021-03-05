@@ -162,7 +162,6 @@ namespace MTsystem_win
                 if (DateTime.TryParse(tmp, out tmpdt))
                 {
                     txt_inputDate.ReadOnly = true;
-                    label14.Text = tmpdt.ToShortDateString();
                 }
                 else
                 {
@@ -383,6 +382,29 @@ namespace MTsystem_win
             allClear();
         }
 
+        /// <summary>
+        /// 产品库存表中是否已经存在产品编号
+        /// </summary>
+        /// <param name="i">i为DataGridView当前行</param>
+        /// <returns></returns>
+        private bool QueryProid(int i)
+        {
+            bool b = false;
+            string sqlstr = "SELECT Proid From product_stock WHERE Proid=@Proid";
+
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Proid", dgv_inputView.Rows[i].Cells[0].Value.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = dr.Read();
+            return b;
+        }
+
+        /// <summary>
+        /// 产品进仓
+        /// </summary>
         private void product_input_insert()
         {
             int ii = 0;
@@ -413,15 +435,30 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
                     cmd.ExecuteNonQuery();
 
-                    //bool b = false;
                     ii = i;
-
-                    //string sqlstrA = "SELECT Proid From product_stock WHERE Proid=@Proid";
-                    //cmd.Parameters.AddWithValue("@Proid", dgv_inputView.Rows[i].Cells[0].Value.ToString().Trim());
-                    //cmd.CommandText = sqlstrA;
-                    //MySqlDataReader dr = cmd.ExecuteReader(sqlstrA, CommandBehavior.CloseConnection);
-
-
+                    string sqlstrA = "";
+                    if (QueryProid(ii))
+                    {
+                        sqlstrA = "UPDATE product_stock SET Product_stock = Product_stock + @Product_stockA WHERE Proid = @ProidA";
+                        cmd.CommandText = sqlstrA;
+                        cmd.Parameters.AddWithValue("@ProidA", dgv_inputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_stockA", Convert.ToDecimal(dgv_inputView.Rows[ii].Cells[5].Value.ToString().Trim()));
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        sqlstrA = "";
+                        sqlstrA = "INSERT INTO `product_stock` VALUES(NULL,@ProidB,@Product_idB,@Product_nameB,";
+                        sqlstrA += "@Product_stockB,@Input_dateB,@Input_operatorB)";
+                        cmd.CommandText = sqlstrA;
+                        cmd.Parameters.AddWithValue("@ProidB", dgv_inputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_idB", dgv_inputView.Rows[ii].Cells[1].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_nameB", dgv_inputView.Rows[ii].Cells[2].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_stockB", Convert.ToDecimal(dgv_inputView.Rows[ii].Cells[5].Value.ToString().Trim()));
+                        cmd.Parameters.AddWithValue("@Input_dateB", Convert.ToDateTime(tmpdt).ToShortDateString());
+                        cmd.Parameters.AddWithValue("@Input_operatorB", userInfocheck._Usname.Trim());
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (MySqlException ex)
@@ -438,7 +475,6 @@ namespace MTsystem_win
                     conn.Close();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     allClear();
-                    newInputid();
                 }
             }
         }

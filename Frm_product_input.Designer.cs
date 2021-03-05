@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
@@ -105,15 +103,6 @@
             this.groupBox2.Size = new System.Drawing.Size(1104, 496);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(318, 451);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 19);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "label14";
             // 
             // label13
             // 
@@ -510,6 +499,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 规格;
         private System.Windows.Forms.DataGridViewTextBoxColumn 重量;
-        private System.Windows.Forms.Label label14;
     }
 }
