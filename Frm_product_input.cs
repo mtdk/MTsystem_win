@@ -21,8 +21,8 @@ namespace MTsystem_win
 
         JudgeNumber jnum = new JudgeNumber();
 
-        //一个为了迎合用户特殊习惯的不应该出现的垃圾全局变量
-        public string tmp;
+        //tmpdt 一个为了迎合用户特殊习惯的不应该出现的垃圾全局变量-1
+        public DateTime tmpdt;
 
         private void Frm_product_input_Load(object sender, EventArgs e)
         {
@@ -94,6 +94,7 @@ namespace MTsystem_win
         {
             txt_proId.Text = "";
             txt_productId.Text = "";
+            txt_productId.ReadOnly = false;
             txt_productName.Text = "";
             txt_inputNum.Text = "";
             txt_inputUnit.Text = "";
@@ -109,12 +110,14 @@ namespace MTsystem_win
             txt_batchNum.Text = "";
             txt_proId.Text = "";
             txt_productId.Text = "";
+            txt_productId.ReadOnly = false;
             txt_productName.Text = "";
             txt_inputNum.Text = "";
             txt_inputUnit.Text = "";
             txt_inputWeight.Text = "";
             dgv_inputView.Rows.Clear();
             newInputid();
+            txt_inputDate.ReadOnly = false;
             txt_inputDate.Text = txt_Inputid.Text.Substring(0, 8).Trim();
             txt_inputDate.Focus();
         }
@@ -143,16 +146,29 @@ namespace MTsystem_win
                 txt_inputDate.Focus();
                 txt_inputDate.SelectAll();
             }
-            else if (txt_inputDate.Text.Trim().Length > 8)
+            else if (txt_inputDate.Text.Trim().Length != 8)
             {
-                MessageBox.Show("格式错误，这个位置最多只能输入8位数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("格式错误，这个位置只能输入8位数字，如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_inputDate.Focus();
                 txt_inputDate.SelectAll();
             }
             else
             {
+                //tmp 一个为了迎合用户特殊习惯的不应该出现的垃圾全局变量-2
+                string tmp;
                 tmp = txt_inputDate.Text.Trim().Substring(0, 4) + "-" + txt_inputDate.Text.Trim().Substring(4, 2) + "-" + txt_inputDate.Text.Trim().Substring(6, 2).Trim();
-                label14.Text = tmp.Trim();
+
+                if (DateTime.TryParse(tmp, out tmpdt))
+                {
+                    txt_inputDate.ReadOnly = true;
+                    label14.Text = tmpdt.ToShortDateString();
+                }
+                else
+                {
+                    MessageBox.Show("格式错误，此处不能为空，应填入如：20210101", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_inputDate.Focus();
+                    txt_inputDate.SelectAll();
+                }
             }
         }
 
@@ -370,6 +386,11 @@ namespace MTsystem_win
         {
             string sqlstr = "INSERT INTO `product_input` VALUES(NULL,@Inputid,@Proid,@Product_id,@Product_name";
             sqlstr += " @Product_jcsl,@Product_unit,@Jczl,";
+        }
+
+        private void txt_inputNum_Enter(object sender, EventArgs e)
+        {
+            txt_productId.ReadOnly = true;
         }
     }
 }

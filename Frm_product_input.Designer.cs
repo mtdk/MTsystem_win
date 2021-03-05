@@ -354,6 +354,7 @@
             this.txt_inputNum.Name = "txt_inputNum";
             this.txt_inputNum.Size = new System.Drawing.Size(100, 30);
             this.txt_inputNum.TabIndex = 3;
+            this.txt_inputNum.Enter += new System.EventHandler(this.txt_inputNum_Enter);
             this.txt_inputNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputNum_KeyPress);
             this.txt_inputNum.Leave += new System.EventHandler(this.txt_inputNum_Leave);
             // 
@@ -395,6 +396,7 @@
             this.txt_batchNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_batchNum.Location = new System.Drawing.Point(583, 18);
             this.txt_batchNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_batchNum.MaxLength = 20;
             this.txt_batchNum.Name = "txt_batchNum";
             this.txt_batchNum.Size = new System.Drawing.Size(162, 30);
             this.txt_batchNum.TabIndex = 1;
@@ -414,6 +416,7 @@
             this.txt_inputDate.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_inputDate.Location = new System.Drawing.Point(396, 18);
             this.txt_inputDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_inputDate.MaxLength = 8;
             this.txt_inputDate.Name = "txt_inputDate";
             this.txt_inputDate.Size = new System.Drawing.Size(122, 30);
             this.txt_inputDate.TabIndex = 0;
@@ -434,6 +437,7 @@
             this.txt_Inputid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Inputid.Location = new System.Drawing.Point(120, 18);
             this.txt_Inputid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Inputid.MaxLength = 20;
             this.txt_Inputid.Name = "txt_Inputid";
             this.txt_Inputid.ReadOnly = true;
             this.txt_Inputid.Size = new System.Drawing.Size(174, 30);
