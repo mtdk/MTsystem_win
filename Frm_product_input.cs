@@ -30,7 +30,6 @@ namespace MTsystem_win
             {
                 frmShowstatus._Frmproductinput = "OPEN";
                 newInputid();
-                txt_inputDate.Text = txt_Inputid.Text.Substring(0, 8).Trim();
             }
         }
 
@@ -50,6 +49,8 @@ namespace MTsystem_win
             txt_Inputid.Text += DateTime.Now.Hour.ToString().PadLeft(2,'0').Trim();
             txt_Inputid.Text += DateTime.Now.Minute.ToString().PadLeft(2,'0').Trim();
             txt_Inputid.Text += DateTime.Now.Second.ToString().PadLeft(2,'0').Trim();
+            txt_inputDate.Text = txt_Inputid.Text.Substring(0, 8).Trim();
+
         }
 
         /// <summary>
@@ -374,7 +375,7 @@ namespace MTsystem_win
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
+            product_input_insert();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -384,8 +385,62 @@ namespace MTsystem_win
 
         private void product_input_insert()
         {
-            string sqlstr = "INSERT INTO `product_input` VALUES(NULL,@Inputid,@Proid,@Product_id,@Product_name";
-            sqlstr += " @Product_jcsl,@Product_unit,@Jczl,";
+            int ii = 0;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+
+            try
+            {
+                string sqlstr = "INSERT INTO `product_input` VALUES(NULL,@Inputid,@Proid,@Product_id,@Product_name,";
+                sqlstr += "@Product_jcsl,@Product_unit,@Jczl,@Pro_batchNum,@Input_date,@Input_operator)";
+
+                for (int i = 0; i < dgv_inputView.RowCount; i++)
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = sqlstr;
+
+                    cmd.Parameters.AddWithValue("@Inputid", txt_Inputid.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Proid", dgv_inputView.Rows[i].Cells[0].Value.ToString().Trim());
+                    cmd.Parameters.AddWithValue("@Product_id", dgv_inputView.Rows[i].Cells[1].Value.ToString().Trim());
+                    cmd.Parameters.AddWithValue("@Product_name", dgv_inputView.Rows[i].Cells[2].Value.ToString().Trim());
+                    cmd.Parameters.AddWithValue("@Product_jcsl", Convert.ToInt32(dgv_inputView.Rows[i].Cells[3].Value.ToString().Trim()));
+                    cmd.Parameters.AddWithValue("@Product_unit", Convert.ToDecimal(dgv_inputView.Rows[i].Cells[4].Value.ToString().Trim()));
+                    cmd.Parameters.AddWithValue("@Jczl", Convert.ToDecimal(dgv_inputView.Rows[i].Cells[5].Value.ToString().Trim()));
+                    cmd.Parameters.AddWithValue("@Pro_batchNum", txt_batchNum.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Input_date", Convert.ToDateTime(tmpdt).ToShortDateString());
+                    cmd.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
+                    cmd.ExecuteNonQuery();
+
+                    //bool b = false;
+                    ii = i;
+
+                    //string sqlstrA = "SELECT Proid From product_stock WHERE Proid=@Proid";
+                    //cmd.Parameters.AddWithValue("@Proid", dgv_inputView.Rows[i].Cells[0].Value.ToString().Trim());
+                    //cmd.CommandText = sqlstrA;
+                    //MySqlDataReader dr = cmd.ExecuteReader(sqlstrA, CommandBehavior.CloseConnection);
+
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    allClear();
+                    newInputid();
+                }
+            }
         }
 
         private void txt_inputNum_Enter(object sender, EventArgs e)
