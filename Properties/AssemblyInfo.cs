@@ -32,5 +32,8 @@ using System.Runtime.InteropServices;
 // 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: 
 // [assembly: AssemblyVersion("1.0.*")]
+//ProductCode:{73D95F24-F217-4801-BDC6-6FFE5A076214}
+//UpgradeCode:{4A47E6DB-DDD6-4C85-B837-75BD902FB15B}
+
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

@@ -155,6 +155,14 @@ namespace MTsystem_win.allClass
             get { return _frmproductoutput; }
         }
 
+        private static string _frmproductinputupdate;
+
+        public static string _Frmproductinputupdate
+        {
+            set { _frmproductinputupdate = value; }
+            get { return _frmproductinputupdate; }
+        }
+
         #endregion
 
         #region 车间

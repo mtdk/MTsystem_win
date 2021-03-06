@@ -54,6 +54,332 @@ namespace MTsystem_win
         }
         #endregion
 
+        #region 仓库
+
+        /// <summary>
+        /// 客户信息录入窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cus_info_input_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmcustorminfo == "CLOSE" || frmShowstatus._Frmcustorminfo == null)
+                    {
+                        Frm_customerinfo frmcustomerinfo = new Frm_customerinfo();
+                        frmcustomerinfo.MdiParent = this;
+                        frmcustomerinfo.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料进仓窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmi_mat_In_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmcljc == "CLOSE" || frmShowstatus._Frmcljc == null)
+                    {
+                        Frm_cailiaojincang frm_cljc = new Frm_cailiaojincang();
+                        frm_cljc.MdiParent = this;
+                        frm_cljc.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料退货窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_returnPurchase_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmmatreturngoods == "CLOSE" || frmShowstatus._Frmmatreturngoods == null)
+                    {
+                        Frm_mat_returnGoods frmmatreturngoods = new Frm_mat_returnGoods();
+                        frmmatreturngoods.MdiParent = this;
+                        frmmatreturngoods.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料退回确认窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_giveback_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmmatconfirm == "CLOSE" || frmShowstatus._Frmmatconfirm == null)
+                    {
+                        Frm_mat_confirm frmmatconfirm = new Frm_mat_confirm();
+                        frmmatconfirm.MdiParent = this;
+                        frmmatconfirm.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料期初数据录入窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_Basestock_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmbsin == "CLOSE" || frmShowstatus._Frmbsin == null)
+                    {
+                        Frm_matbaseinput frm_bsin = new Frm_matbaseinput();
+                        frm_bsin.MdiParent = this;
+                        frm_bsin.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 产品信息录入窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_info_input_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductinfo == "CLOSE" || frmShowstatus._Frmproductinfo == null)
+                    {
+                        Frm_product_info frmpinfo = new Frm_product_info();
+                        frmpinfo.MdiParent = this;
+                        frmpinfo.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 产品进仓窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_input_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductinput == "CLOSE" || frmShowstatus._Frmproductinput == null)
+                    {
+                        //Frm_product_info frmpinfo = new Frm_product_info();
+                        //frmpinfo.MdiParent = this;
+                        //frmpinfo.Show();
+                        Frm_product_input frmproinput = new Frm_product_input();
+                        frmproinput.MdiParent = this;
+                        frmproinput.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 产品出仓窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_output_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductoutput == "CLOSE" || frmShowstatus._Frmproductoutput == null)
+                    {
+                        Frm_product_output frmprooutput = new Frm_product_output();
+                        frmprooutput.MdiParent = this;
+                        frmprooutput.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料库存日报表窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_Dayreport_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frdmsrv == "CLOSE" || frmShowstatus._Frdmsrv == null)
+                    {
+                        Frm_mat_dayReportview frm_dmsr = new Frm_mat_dayReportview();
+                        frm_dmsr.MdiParent = this;
+                        frm_dmsr.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 材料库存报表窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_stock_Report_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmsrv == "CLOSE" || frmShowstatus._Frmsrv == null)
+                    {
+                        Frm_mat_stockReportview frm_msrv = new Frm_mat_stockReportview();
+                        frm_msrv.MdiParent = this;
+                        frm_msrv.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 产品进仓修改窗口验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_input_update_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
+                    {
+                        Frm_product_input_update frm_pro_input_update = new Frm_product_input_update();
+                        frm_pro_input_update.MdiParent = this;
+                        frm_pro_input_update.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        #endregion
+
         #region 车间
         /// <summary>
         /// 材料领用窗口验证
@@ -139,295 +465,6 @@ namespace MTsystem_win
                 MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        #endregion
-
-        #region 仓库
-
-        /// <summary>
-        /// 材料进仓窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsmi_mat_In_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmcljc == "CLOSE" || frmShowstatus._Frmcljc == null)
-                    {
-                        Frm_cailiaojincang frm_cljc = new Frm_cailiaojincang();
-                        frm_cljc.MdiParent = this;
-                        frm_cljc.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 材料期初数据录入窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mat_Basestock_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmbsin == "CLOSE" || frmShowstatus._Frmbsin == null)
-                    {
-                        Frm_matbaseinput frm_bsin = new Frm_matbaseinput();
-                        frm_bsin.MdiParent = this;
-                        frm_bsin.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 材料库存报表窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mat_stock_Report_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmsrv == "CLOSE" || frmShowstatus._Frmsrv == null)
-                    {
-                        Frm_mat_stockReportview frm_msrv = new Frm_mat_stockReportview();
-                        frm_msrv.MdiParent = this;
-                        frm_msrv.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 材料库存日报表窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mat_Dayreport_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frdmsrv == "CLOSE" || frmShowstatus._Frdmsrv == null)
-                    {
-                        Frm_mat_dayReportview frm_dmsr = new Frm_mat_dayReportview();
-                        frm_dmsr.MdiParent = this;
-                        frm_dmsr.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-        /// <summary>
-        /// 材料退回确认窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mat_giveback_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmmatconfirm == "CLOSE" || frmShowstatus._Frmmatconfirm == null)
-                    {
-                        Frm_mat_confirm frmmatconfirm = new Frm_mat_confirm();
-                        frmmatconfirm.MdiParent = this;
-                        frmmatconfirm.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 材料退货窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mat_returnPurchase_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmmatreturngoods == "CLOSE" || frmShowstatus._Frmmatreturngoods == null)
-                    {
-                        Frm_mat_returnGoods frmmatreturngoods = new Frm_mat_returnGoods();
-                        frmmatreturngoods.MdiParent = this;
-                        frmmatreturngoods.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 客户信息录入窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cus_info_input_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmcustorminfo == "CLOSE" || frmShowstatus._Frmcustorminfo == null)
-                    {
-                        Frm_customerinfo frmcustomerinfo = new Frm_customerinfo();
-                        frmcustomerinfo.MdiParent = this;
-                        frmcustomerinfo.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 产品信息录入窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pro_info_input_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmproductinfo == "CLOSE" || frmShowstatus._Frmproductinfo == null)
-                    {
-                        Frm_product_info frmpinfo = new Frm_product_info();
-                        frmpinfo.MdiParent = this;
-                        frmpinfo.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 产品进仓窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pro_input_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmproductinput == "CLOSE" || frmShowstatus._Frmproductinput == null)
-                    {
-                        //Frm_product_info frmpinfo = new Frm_product_info();
-                        //frmpinfo.MdiParent = this;
-                        //frmpinfo.Show();
-                        Frm_product_input frmproinput = new Frm_product_input();
-                        frmproinput.MdiParent = this;
-                        frmproinput.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        /// <summary>
-        /// 产品出仓窗口验证
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pro_output_Click(object sender, EventArgs e)
-        {
-            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
-            {
-                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
-                {
-                    if (frmShowstatus._Frmproductoutput == "CLOSE" || frmShowstatus._Frmproductoutput == null)
-                    {
-                        Frm_product_output frmprooutput = new Frm_product_output();
-                        frmprooutput.MdiParent = this;
-                        frmprooutput.Show();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         #endregion
 
         #region 采购菜单
@@ -538,6 +575,7 @@ namespace MTsystem_win
             Application.Exit();
         }
         #endregion
+
 
     }
 }
