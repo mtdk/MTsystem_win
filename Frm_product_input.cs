@@ -234,7 +234,10 @@ namespace MTsystem_win
             }
             else
             {
-                txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                if (txt_inputUnit.Text.Trim().Length != 0)
+                {
+                    txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                }
             }
         }
 
@@ -269,7 +272,10 @@ namespace MTsystem_win
             }
             else
             {
-                txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                if (txt_inputNum.Text.Trim().Length != 0)
+                {
+                    txt_inputWeight.Text = (Convert.ToInt32(txt_inputNum.Text.Trim()) * Convert.ToDecimal(txt_inputUnit.Text.Trim())).ToString().Trim();
+                }
             }
         }
 
@@ -315,47 +321,6 @@ namespace MTsystem_win
                 {
                     tempDateInsert();
                 }
-            }
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            if (txt_Inputid.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("进仓记录号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (txt_inputDate.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("进仓日期不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_inputDate.Focus();
-            }
-            else if (txt_proId.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("产品系统编码不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (txt_productId.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("产品编号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_productId.Focus();
-            }
-            else if (txt_productName.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("产品名称不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_productId.Focus();
-            }
-            else if (txt_inputNum.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("产品数量不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_inputNum.Focus();
-            }
-            else if (txt_inputUnit.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("产品规格不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_inputUnit.Focus();
-            }
-            else
-            {
-                tempDateInsert();
             }
         }
 
@@ -482,6 +447,11 @@ namespace MTsystem_win
         private void txt_inputNum_Enter(object sender, EventArgs e)
         {
             txt_productId.ReadOnly = true;
+        }
+
+        private void btn_Cancel_B_Click(object sender, EventArgs e)
+        {
+            ctrlClear();
         }
     }
 }

@@ -50,11 +50,11 @@
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
             this.cus_info_input = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,8 +178,8 @@
             // 
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_In,
-            this.mat_giveback,
             this.mat_returnPurchase,
+            this.mat_giveback,
             this.mat_Dayreport,
             this.mat_stock_Report,
             this.mat_Basestock,
@@ -240,6 +240,20 @@
             this.pro_info_input.Text = "产品信息录入&&修改";
             this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
             // 
+            // pro_input
+            // 
+            this.pro_input.Name = "pro_input";
+            this.pro_input.Size = new System.Drawing.Size(231, 24);
+            this.pro_input.Text = "产品进仓";
+            this.pro_input.Click += new System.EventHandler(this.pro_input_Click);
+            // 
+            // pro_output
+            // 
+            this.pro_output.Name = "pro_output";
+            this.pro_output.Size = new System.Drawing.Size(231, 24);
+            this.pro_output.Text = "产品出仓";
+            this.pro_output.Click += new System.EventHandler(this.pro_output_Click);
+            // 
             // cus_info_input
             // 
             this.cus_info_input.Name = "cus_info_input";
@@ -260,20 +274,6 @@
             this.sys_exit.Size = new System.Drawing.Size(93, 23);
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
-            // 
-            // pro_input
-            // 
-            this.pro_input.Name = "pro_input";
-            this.pro_input.Size = new System.Drawing.Size(231, 24);
-            this.pro_input.Text = "产品进仓";
-            this.pro_input.Click += new System.EventHandler(this.pro_input_Click);
-            // 
-            // pro_output
-            // 
-            this.pro_output.Name = "pro_output";
-            this.pro_output.Size = new System.Drawing.Size(231, 24);
-            this.pro_output.Text = "产品出仓";
-            this.pro_output.Click += new System.EventHandler(this.pro_output_Click);
             // 
             // Frm_main
             // 

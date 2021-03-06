@@ -35,7 +35,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_Cancel_B = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.dgv_inputView = new System.Windows.Forms.DataGridView();
@@ -73,7 +73,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.btn_add);
+            this.groupBox2.Controls.Add(this.btn_Cancel_B);
             this.groupBox2.Controls.Add(this.btn_Cancel);
             this.groupBox2.Controls.Add(this.btn_Save);
             this.groupBox2.Controls.Add(this.dgv_inputView);
@@ -140,17 +140,17 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "数量合计:";
             // 
-            // btn_add
+            // btn_Cancel_B
             // 
-            this.btn_add.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Location = new System.Drawing.Point(1015, 91);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(75, 28);
-            this.btn_add.TabIndex = 21;
-            this.btn_add.Text = "添  加";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            this.btn_Cancel_B.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel_B.Location = new System.Drawing.Point(1015, 91);
+            this.btn_Cancel_B.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Cancel_B.Name = "btn_Cancel_B";
+            this.btn_Cancel_B.Size = new System.Drawing.Size(75, 28);
+            this.btn_Cancel_B.TabIndex = 21;
+            this.btn_Cancel_B.Text = "取 消";
+            this.btn_Cancel_B.UseVisualStyleBackColor = true;
+            this.btn_Cancel_B.Click += new System.EventHandler(this.btn_Cancel_B_Click);
             // 
             // btn_Cancel
             // 
@@ -488,7 +488,7 @@
         private System.Windows.Forms.DataGridView dgv_inputView;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_Cancel_B;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
