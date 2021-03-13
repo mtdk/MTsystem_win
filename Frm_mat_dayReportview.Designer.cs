@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtp_QuerydateEnd = new System.Windows.Forms.DateTimePicker();
+            this.cb_date = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +93,7 @@
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(623, 24);
+            this.btn_Query.Location = new System.Drawing.Point(634, 43);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(118, 34);
             this.btn_Query.TabIndex = 5;
@@ -150,11 +151,24 @@
             this.dtp_QuerydateEnd.Size = new System.Drawing.Size(144, 26);
             this.dtp_QuerydateEnd.TabIndex = 10;
             // 
+            // cb_date
+            // 
+            this.cb_date.AutoSize = true;
+            this.cb_date.Checked = true;
+            this.cb_date.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_date.Location = new System.Drawing.Point(634, 12);
+            this.cb_date.Name = "cb_date";
+            this.cb_date.Size = new System.Drawing.Size(118, 23);
+            this.cb_date.TabIndex = 11;
+            this.cb_date.Text = "按日期排序";
+            this.cb_date.UseVisualStyleBackColor = true;
+            // 
             // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 861);
+            this.Controls.Add(this.cb_date);
             this.Controls.Add(this.dtp_QuerydateEnd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_Queryid);
@@ -193,5 +207,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtp_QuerydateEnd;
+        private System.Windows.Forms.CheckBox cb_date;
     }
 }

@@ -58,6 +58,7 @@ namespace MTsystem_win
             string strsql;
             if (txt_Queryid.Text.Trim().Length != 0)
             {
+
                 strsql = "SELECT material_input.Material_id,";
                 strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
                 strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
@@ -99,14 +100,28 @@ namespace MTsystem_win
             }
             else
             {
-                strsql = "SELECT material_input.Material_id,";
-                strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
-                strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
-                strsql += "material.Material_class FROM material_input,material";
-                strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
-                strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
-                strsql += " AND material_input.Matid = material.Matid";
-                strsql += " ORDER BY material.Material_class ASC, material_input.Input_date ASC";
+                if (cb_date.Checked)
+                {
+                    strsql = "SELECT material_input.Material_id,";
+                    strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
+                    strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
+                    strsql += "material.Material_class FROM material_input,material";
+                    strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " ORDER BY material_input.Input_date ASC";
+                }
+                else
+                {
+                    strsql = "SELECT material_input.Material_id,";
+                    strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
+                    strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
+                    strsql += "material.Material_class FROM material_input,material";
+                    strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " ORDER BY material.Material_class ASC";
+                }
                 #region
                 ds_mat_stockReport ds = new ds_mat_stockReport();
                 MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -187,13 +202,26 @@ namespace MTsystem_win
             }
             else
             {
-                strsql = "SELECT material_out.Material_id,material_out.Material_inside_name,";
-                strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,";
-                strsql += "material_out.Out_date,material.Material_class FROM material_out,material";
-                strsql += " WHERE material_out.Out_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
-                strsql += " AND material_out.Out_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
-                strsql += " AND material_out.Matid = material.Matid";
-                strsql += " ORDER BY material.Material_class ASC, material_out.Out_date ASC";
+                if (cb_date.Checked)
+                {
+                    strsql = "SELECT material_out.Material_id,material_out.Material_inside_name,";
+                    strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,";
+                    strsql += "material_out.Out_date,material.Material_class FROM material_out,material";
+                    strsql += " WHERE material_out.Out_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_out.Out_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_out.Matid = material.Matid";
+                    strsql += " ORDER BY material_out.Out_date ASC";
+                }
+                else
+                {
+                    strsql = "SELECT material_out.Material_id,material_out.Material_inside_name,";
+                    strsql += "material_out.Material_lysl,material_out.Material_unit,material_out.Lyzl,";
+                    strsql += "material_out.Out_date,material.Material_class FROM material_out,material";
+                    strsql += " WHERE material_out.Out_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_out.Out_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_out.Matid = material.Matid";
+                    strsql += " ORDER BY material.Material_class DESC";
+                }
                 #region
                 ds_mat_stockReport ds = new ds_mat_stockReport();
                 MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
