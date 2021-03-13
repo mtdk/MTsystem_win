@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTsystem_win", "MTsystem_win.csproj", "{E593D88F-B66A-4FC1-ABE6-B896A450E7F5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MTsystem_win_Setup", "..\MTsystem_win_Setup\MTsystem_win_Setup.vdproj", "{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MTsystem_win_Setup", "..\MTsystem_win_Setup\MTsystem_win_Setup.vdproj", "{C646A9B1-E025-4536-BB62-8989281D672A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,11 +24,11 @@ Global
 		{E593D88F-B66A-4FC1-ABE6-B896A450E7F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E593D88F-B66A-4FC1-ABE6-B896A450E7F5}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{E593D88F-B66A-4FC1-ABE6-B896A450E7F5}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}.CD_ROM|Any CPU.ActiveCfg = Release
-		{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}.Debug|Any CPU.ActiveCfg = Debug
-		{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}.DVD-5|Any CPU.ActiveCfg = Debug
-		{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}.Release|Any CPU.ActiveCfg = Release
-		{C98FC2C0-7B35-4D52-B4A0-462C26D64CBD}.SingleImage|Any CPU.ActiveCfg = Release
+		{C646A9B1-E025-4536-BB62-8989281D672A}.CD_ROM|Any CPU.ActiveCfg = Release
+		{C646A9B1-E025-4536-BB62-8989281D672A}.Debug|Any CPU.ActiveCfg = Debug
+		{C646A9B1-E025-4536-BB62-8989281D672A}.DVD-5|Any CPU.ActiveCfg = Debug
+		{C646A9B1-E025-4536-BB62-8989281D672A}.Release|Any CPU.ActiveCfg = Release
+		{C646A9B1-E025-4536-BB62-8989281D672A}.SingleImage|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
