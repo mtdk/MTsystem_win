@@ -262,22 +262,22 @@ namespace MTsystem_win
                     cmdA.ExecuteNonQuery();
 
                     //材料进仓表增加一条进仓数量
-                    MySqlCommand cmdB = new MySqlCommand();
-                    cmdB.Connection = conn;
-                    string sqlstrB = "INSERT INTO `material_input` VALUES (NULL, @Inpuid, @Matid, @Material_id, @Material_inside_name,";
-                    sqlstrB += " @Material_jlsl, @Material_unit, @Jlzl, @Input_date, @Input_operator)";
+                    //MySqlCommand cmdB = new MySqlCommand();
+                    //cmdB.Connection = conn;
+                    //string sqlstrB = "INSERT INTO `material_input` VALUES (NULL, @Inpuid, @Matid, @Material_id, @Material_inside_name,";
+                    //sqlstrB += " @Material_jlsl, @Material_unit, @Jlzl, @Input_date, @Input_operator)";
 
-                    cmdB.CommandText = sqlstrB;
-                    cmdB.Parameters.AddWithValue("@Inpuid", txt_gbid.Text.Trim());
-                    cmdB.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
-                    cmdB.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
-                    cmdB.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
-                    cmdB.Parameters.AddWithValue("@Material_jlsl", Convert.ToDecimal(txt_Lysl.Text.Trim()));
-                    cmdB.Parameters.AddWithValue("@Material_unit", Convert.ToDecimal(txt_Materia_unit.Text.Trim()));
-                    cmdB.Parameters.AddWithValue("@Jlzl", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
-                    cmdB.Parameters.AddWithValue("@Input_date", Convert.ToDateTime(txt_Savedate.Text.Trim()));
-                    cmdB.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
-                    cmdB.ExecuteNonQuery();
+                    //cmdB.CommandText = sqlstrB;
+                    //cmdB.Parameters.AddWithValue("@Inpuid", txt_gbid.Text.Trim());
+                    //cmdB.Parameters.AddWithValue("@Matid", txt_matid.Text.Trim());
+                    //cmdB.Parameters.AddWithValue("@Material_id", txt_Materia_id.Text.Trim());
+                    //cmdB.Parameters.AddWithValue("@Material_inside_name", txt_Materia_name.Text.Trim());
+                    //cmdB.Parameters.AddWithValue("@Material_jlsl", Convert.ToDecimal(txt_Lysl.Text.Trim()));
+                    //cmdB.Parameters.AddWithValue("@Material_unit", Convert.ToDecimal(txt_Materia_unit.Text.Trim()));
+                    //cmdB.Parameters.AddWithValue("@Jlzl", Convert.ToDecimal(txt_Lyzl.Text.Trim()));
+                    //cmdB.Parameters.AddWithValue("@Input_date", Convert.ToDateTime(txt_Savedate.Text.Trim()));
+                    //cmdB.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
+                    //cmdB.ExecuteNonQuery();
 
                     //更新材料库存表
                     MySqlCommand cmdC = new MySqlCommand();
