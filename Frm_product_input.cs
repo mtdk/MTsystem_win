@@ -380,7 +380,7 @@ namespace MTsystem_win
             try
             {
                 string sqlstr = "INSERT INTO `product_input` VALUES(NULL,@Inputid,@Proid,@Product_id,@Product_name,";
-                sqlstr += "@Product_jcsl,@Product_unit,@Jczl,@Pro_batchNum,@Input_date,@Input_operator)";
+                sqlstr += "@Product_jcsl,@Product_unit,@Jczl,@Pro_batchNum,@Input_date,@Input_operator,@Record_status)";
 
                 for (int i = 0; i < dgv_inputView.RowCount; i++)
                 {
@@ -398,6 +398,7 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Pro_batchNum", txt_batchNum.Text.Trim());
                     cmd.Parameters.AddWithValue("@Input_date", Convert.ToDateTime(tmpdt).ToShortDateString());
                     cmd.Parameters.AddWithValue("@Input_operator", userInfocheck._Usname.Trim());
+                    cmd.Parameters.AddWithValue("@Record_status", "有效");
                     cmd.ExecuteNonQuery();
 
                     ii = i;
