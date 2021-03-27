@@ -25,7 +25,11 @@ namespace MTsystem_win
 
         private void Frm_product_input_update_Load(object sender, EventArgs e)
         {
-            allDataLoad();
+            if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
+            {
+                frmShowstatus._Frmproductinputupdate = "OPEN";
+                allDataLoad();
+            }
         }
 
         //检索所有产品进仓记录
@@ -174,6 +178,90 @@ namespace MTsystem_win
                     conn.Close();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        //产品进仓单整单状态修改及库存数量更新
+        private void ProductStock_AllUpdate()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+
+            //string sqlstr = "UPDATE `product_input` SET Record_status = @Record_status WHERE id = @id";
+            //string sqlstrA = "UPDATE `product_stock` SET Product_stock = Product_stock + @Product_stock WHERE Proid = (SELECT Proid FROM product_input WHERE Inputid = '"+txt_Inputid.Text.Trim()+"'";
+            //string sqlstrB = "UPDATE `product_stock` SET Product_stock = Product_stock - @Product_stock WHERE Proid = @Proid";
+
+            //string sqlstrC="UPDATE product_input p, product_stock ps, SET p.Record_status = '"+lb_status.Text+"'
+
+            for (int i = 0; i < dgv_SelectResult.RowCount; i++)
+            {
+
+            }
+        }
+
+        //进仓单记录查询
+        private void dataConditionLoad()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            ds_Queryresult.Clear();
+            string sqlstr = "";
+            if (rdb_SelectID.Checked == true)
+            {
+                sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,Jczl,Pro_batchNum,";
+                sqlstr += "Input_date,Input_operator,Record_status FROM product_input WHERE Product_id LIKE '%" + txt_SelectCondition.Text.Trim() + "%'";
+            }
+            else if(rdb_SelectName.Checked==true)
+            {
+                sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,Jczl,Pro_batchNum,";
+                sqlstr += "Input_date,Input_operator,Record_status FROM product_input WHERE Product_name LIKE '%" + txt_SelectCondition.Text.Trim() + "%'";
+            }
+            else
+            {
+                sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,";
+                sqlstr += "Jczl,Pro_batchNum,Input_date,Input_operator,Record_status FROM product_input";
+            }
+
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            msda.Fill(ds_Queryresult, "resultData");
+
+            dv_Queryresult.Table = ds_Queryresult.Tables["resultData"];
+            dgv_SelectResult.DataSource = dv_Queryresult.ToTable("resultData");
+            dgv_SelectResult.Columns[0].HeaderText = "序号";
+            dgv_SelectResult.Columns[1].HeaderText = "进仓记录号";
+            dgv_SelectResult.Columns[2].HeaderText = "产品系统编号";
+            dgv_SelectResult.Columns[2].Visible = false;
+            dgv_SelectResult.Columns[3].HeaderText = "产品编号";
+            dgv_SelectResult.Columns[4].HeaderText = "产品名称";
+            dgv_SelectResult.Columns[4].Frozen = true;
+            dgv_SelectResult.Columns[5].HeaderText = "进仓数量";
+            dgv_SelectResult.Columns[6].HeaderText = "规格";
+            dgv_SelectResult.Columns[7].HeaderText = "进仓总量";
+            dgv_SelectResult.Columns[8].HeaderText = "生产批号";
+            dgv_SelectResult.Columns[9].HeaderText = "进仓时间";
+            dgv_SelectResult.Columns[10].HeaderText = "操作人";
+            dgv_SelectResult.Columns[11].HeaderText = "记录状态";
+            conn.Close();
+            msda.Dispose();
+            txt_Inputid.Text = dgv_SelectResult.Rows[0].Cells[1].Value.ToString().Trim();
+            txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.Rows[0].Cells[9].Value.ToString().Trim()).ToShortDateString();
+            txt_batchNum.Text = dgv_SelectResult.Rows[0].Cells[8].Value.ToString().Trim();
+            lb_status.Text = dgv_SelectResult.Rows[0].Cells[11].Value.ToString().Trim();
+        }
+
+        private void Frm_product_input_update_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmShowstatus._Frmproductinputupdate = "CLOSE";
+        }
+
+        private void txt_SelectCondition_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+
+                dataConditionLoad();
             }
         }
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_MoveLast = new System.Windows.Forms.Button();
+            this.btn_MoveFirst = new System.Windows.Forms.Button();
             this.btn_MoveNext = new System.Windows.Forms.Button();
             this.btn_MovePrevious = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.rdb_SelectName = new System.Windows.Forms.RadioButton();
             this.rdb_SelectID = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.btn_MoveFirst = new System.Windows.Forms.Button();
-            this.btn_MoveLast = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,6 +77,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "整单记录状态修改";
+            // 
+            // btn_MoveLast
+            // 
+            this.btn_MoveLast.Location = new System.Drawing.Point(755, 74);
+            this.btn_MoveLast.Name = "btn_MoveLast";
+            this.btn_MoveLast.Size = new System.Drawing.Size(75, 32);
+            this.btn_MoveLast.TabIndex = 32;
+            this.btn_MoveLast.Text = ">>|";
+            this.btn_MoveLast.UseVisualStyleBackColor = true;
+            this.btn_MoveLast.Click += new System.EventHandler(this.btn_MoveLast_Click);
+            // 
+            // btn_MoveFirst
+            // 
+            this.btn_MoveFirst.Location = new System.Drawing.Point(304, 74);
+            this.btn_MoveFirst.Name = "btn_MoveFirst";
+            this.btn_MoveFirst.Size = new System.Drawing.Size(75, 32);
+            this.btn_MoveFirst.TabIndex = 31;
+            this.btn_MoveFirst.Text = "|<<";
+            this.btn_MoveFirst.UseVisualStyleBackColor = true;
+            this.btn_MoveFirst.Click += new System.EventHandler(this.btn_MoveFirst_Click);
             // 
             // btn_MoveNext
             // 
@@ -240,6 +260,7 @@
             this.txt_SelectCondition.Name = "txt_SelectCondition";
             this.txt_SelectCondition.Size = new System.Drawing.Size(201, 30);
             this.txt_SelectCondition.TabIndex = 0;
+            this.txt_SelectCondition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_SelectCondition_KeyPress);
             // 
             // rdb_SelectName
             // 
@@ -273,26 +294,6 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "查询选项:";
             // 
-            // btn_MoveFirst
-            // 
-            this.btn_MoveFirst.Location = new System.Drawing.Point(304, 74);
-            this.btn_MoveFirst.Name = "btn_MoveFirst";
-            this.btn_MoveFirst.Size = new System.Drawing.Size(75, 32);
-            this.btn_MoveFirst.TabIndex = 31;
-            this.btn_MoveFirst.Text = "|<<";
-            this.btn_MoveFirst.UseVisualStyleBackColor = true;
-            this.btn_MoveFirst.Click += new System.EventHandler(this.btn_MoveFirst_Click);
-            // 
-            // btn_MoveLast
-            // 
-            this.btn_MoveLast.Location = new System.Drawing.Point(755, 74);
-            this.btn_MoveLast.Name = "btn_MoveLast";
-            this.btn_MoveLast.Size = new System.Drawing.Size(75, 32);
-            this.btn_MoveLast.TabIndex = 32;
-            this.btn_MoveLast.Text = ">>|";
-            this.btn_MoveLast.UseVisualStyleBackColor = true;
-            this.btn_MoveLast.Click += new System.EventHandler(this.btn_MoveLast_Click);
-            // 
             // Frm_product_input_update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -307,6 +308,7 @@
             this.Name = "Frm_product_input_update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "产品进仓修改窗口";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_product_input_update_FormClosed);
             this.Load += new System.EventHandler(this.Frm_product_input_update_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
