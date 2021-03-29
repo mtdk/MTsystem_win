@@ -60,29 +60,49 @@ namespace MTsystem_win
             dgv_SelectResult.Columns[11].HeaderText = "记录状态";
             conn.Close();
             msda.Dispose();
-
-            txt_Inputid.Text = dgv_SelectResult.Rows[0].Cells[1].Value.ToString().Trim();
-            txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.Rows[0].Cells[9].Value.ToString().Trim()).ToShortDateString();
-            txt_batchNum.Text = dgv_SelectResult.Rows[0].Cells[8].Value.ToString().Trim();
+            if (dgv_SelectResult.RowCount > 0)
+            {
+                txt_Inputid.Text = dgv_SelectResult.Rows[0].Cells[1].Value.ToString().Trim();
+                txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.Rows[0].Cells[9].Value.ToString().Trim()).ToShortDateString();
+                txt_batchNum.Text = dgv_SelectResult.Rows[0].Cells[8].Value.ToString().Trim();
+            }
         }
 
         private void btn_MovePrevious_Click(object sender, EventArgs e)
         {
-            if (dgv_SelectResult.CurrentCell.RowIndex > 0)
+            if (dgv_SelectResult.RowCount > 0)
             {
-                this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.CurrentCell.RowIndex - 1];
+                if (dgv_SelectResult.CurrentCell.RowIndex > 0)
+                {
+                    this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.CurrentCell.RowIndex - 1];
 
-                txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
-                txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
-                txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
+                    txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
+                    txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
+                    txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
+                }
             }
         }
 
         private void btn_MoveNext_Click(object sender, EventArgs e)
         {
-            if (dgv_SelectResult.CurrentCell.RowIndex < dgv_SelectResult.RowCount - 1)
+            if (dgv_SelectResult.RowCount > 0)
             {
-                this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.CurrentCell.RowIndex + 1];
+                if (dgv_SelectResult.CurrentCell.RowIndex < dgv_SelectResult.RowCount - 1)
+                {
+                    this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.CurrentCell.RowIndex + 1];
+
+                    txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
+                    txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
+                    txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
+                }
+            }
+        }
+
+        private void btn_MoveFirst_Click(object sender, EventArgs e)
+        {
+            if (dgv_SelectResult.RowCount > 0)
+            {
+                this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, 0];
 
                 txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
                 txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
@@ -90,22 +110,16 @@ namespace MTsystem_win
             }
         }
 
-        private void btn_MoveFirst_Click(object sender, EventArgs e)
-        {
-            this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, 0];
-
-            txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
-            txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
-            txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
-        }
-
         private void btn_MoveLast_Click(object sender, EventArgs e)
         {
-            this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.RowCount - 1];
+            if (dgv_SelectResult.RowCount > 0)
+            {
+                this.dgv_SelectResult.CurrentCell = this.dgv_SelectResult[this.dgv_SelectResult.CurrentCell.ColumnIndex, this.dgv_SelectResult.RowCount - 1];
 
-            txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
-            txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
-            txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
+                txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
+                txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
+                txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
+            }
         }
 
         private void dgv_SelectResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
