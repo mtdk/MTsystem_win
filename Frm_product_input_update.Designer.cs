@@ -33,9 +33,6 @@
             this.btn_MoveFirst = new System.Windows.Forms.Button();
             this.btn_MoveNext = new System.Windows.Forms.Button();
             this.btn_MovePrevious = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lb_status = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txt_batchNum = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_inputDate = new System.Windows.Forms.TextBox();
@@ -61,9 +58,6 @@
             this.groupBox1.Controls.Add(this.btn_MoveFirst);
             this.groupBox1.Controls.Add(this.btn_MoveNext);
             this.groupBox1.Controls.Add(this.btn_MovePrevious);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.lb_status);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txt_batchNum);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_inputDate);
@@ -76,7 +70,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1126, 114);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "整单记录状态修改";
             // 
             // btn_MoveLast
             // 
@@ -117,37 +110,6 @@
             this.btn_MovePrevious.Text = "<<";
             this.btn_MovePrevious.UseVisualStyleBackColor = true;
             this.btn_MovePrevious.Click += new System.EventHandler(this.btn_MovePrevious_Click);
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(921, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 34);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "状态修改";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lb_status
-            // 
-            this.lb_status.AutoSize = true;
-            this.lb_status.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_status.ForeColor = System.Drawing.Color.Red;
-            this.lb_status.Location = new System.Drawing.Point(856, 39);
-            this.lb_status.Name = "lb_status";
-            this.lb_status.Size = new System.Drawing.Size(47, 19);
-            this.lb_status.TabIndex = 27;
-            this.lb_status.Text = "有效";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(751, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 19);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "当前状态：";
             // 
             // txt_batchNum
             // 
@@ -225,7 +187,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1126, 450);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "单条记录状态修改";
+            this.groupBox2.Text = "记录状态修改区";
             // 
             // groupBox3
             // 
@@ -247,11 +209,13 @@
             this.dgv_SelectResult.Location = new System.Drawing.Point(3, 22);
             this.dgv_SelectResult.Name = "dgv_SelectResult";
             this.dgv_SelectResult.ReadOnly = true;
+            this.dgv_SelectResult.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
             this.dgv_SelectResult.RowTemplate.Height = 23;
             this.dgv_SelectResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_SelectResult.Size = new System.Drawing.Size(1108, 354);
             this.dgv_SelectResult.TabIndex = 0;
             this.dgv_SelectResult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_SelectResult_CellDoubleClick);
+            this.dgv_SelectResult.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_SelectResult_CellFormatting);
             // 
             // txt_SelectCondition
             // 
@@ -329,9 +293,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Inputid;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lb_status;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_MoveNext;
         private System.Windows.Forms.Button btn_MovePrevious;
         private System.Windows.Forms.GroupBox groupBox2;

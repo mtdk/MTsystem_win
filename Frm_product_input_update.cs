@@ -60,10 +60,10 @@ namespace MTsystem_win
             dgv_SelectResult.Columns[11].HeaderText = "记录状态";
             conn.Close();
             msda.Dispose();
+
             txt_Inputid.Text = dgv_SelectResult.Rows[0].Cells[1].Value.ToString().Trim();
             txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.Rows[0].Cells[9].Value.ToString().Trim()).ToShortDateString();
             txt_batchNum.Text = dgv_SelectResult.Rows[0].Cells[8].Value.ToString().Trim();
-            lb_status.Text = dgv_SelectResult.Rows[0].Cells[11].Value.ToString().Trim();
         }
 
         private void btn_MovePrevious_Click(object sender, EventArgs e)
@@ -75,7 +75,6 @@ namespace MTsystem_win
                 txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
                 txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
                 txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
-                lb_status.Text = dgv_SelectResult.CurrentRow.Cells[11].Value.ToString().Trim();
             }
         }
 
@@ -88,7 +87,6 @@ namespace MTsystem_win
                 txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
                 txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
                 txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
-                lb_status.Text = dgv_SelectResult.CurrentRow.Cells[11].Value.ToString().Trim();
             }
         }
 
@@ -99,7 +97,6 @@ namespace MTsystem_win
             txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
             txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
             txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
-            lb_status.Text = dgv_SelectResult.CurrentRow.Cells[11].Value.ToString().Trim();
         }
 
         private void btn_MoveLast_Click(object sender, EventArgs e)
@@ -109,7 +106,6 @@ namespace MTsystem_win
             txt_Inputid.Text = dgv_SelectResult.CurrentRow.Cells[1].Value.ToString().Trim();
             txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.CurrentRow.Cells[9].Value.ToString().Trim()).ToShortDateString();
             txt_batchNum.Text = dgv_SelectResult.CurrentRow.Cells[8].Value.ToString().Trim();
-            lb_status.Text = dgv_SelectResult.CurrentRow.Cells[11].Value.ToString().Trim();
         }
 
         private void dgv_SelectResult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -121,11 +117,27 @@ namespace MTsystem_win
                     if (dgv_SelectResult.Rows[e.RowIndex].Cells[11].Value.ToString().Trim() == "有效")
                     {
                         dgv_SelectResult.Rows[e.RowIndex].Cells[11].Value = "无效";
+                        if (dgv_SelectResult.Rows[e.RowIndex].Cells[11].Value.ToString().Trim() == "无效")
+                        {
+                            dgv_SelectResult.Rows[e.RowIndex].Cells[11].Style.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            dgv_SelectResult.Rows[e.RowIndex].Cells[11].Style.ForeColor = Color.MediumBlue;
+                        }
                         ProductStock_RecordUpdate();
                     }
                     else
                     {
                         dgv_SelectResult.Rows[e.RowIndex].Cells[11].Value = "有效";
+                        if (dgv_SelectResult.Rows[e.RowIndex].Cells[11].Value.ToString().Trim() == "无效")
+                        {
+                            dgv_SelectResult.Rows[e.RowIndex].Cells[11].Style.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            dgv_SelectResult.Rows[e.RowIndex].Cells[11].Style.ForeColor = Color.MediumBlue;
+                        }
                         ProductStock_RecordUpdate();
                     }
                 }
@@ -181,25 +193,6 @@ namespace MTsystem_win
             }
         }
 
-        //产品进仓单整单状态修改及库存数量更新
-        private void ProductStock_AllUpdate()
-        {
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
-            MySqlTransaction transaction = conn.BeginTransaction();
-
-            //string sqlstr = "UPDATE `product_input` SET Record_status = @Record_status WHERE id = @id";
-            //string sqlstrA = "UPDATE `product_stock` SET Product_stock = Product_stock + @Product_stock WHERE Proid = (SELECT Proid FROM product_input WHERE Inputid = '"+txt_Inputid.Text.Trim()+"'";
-            //string sqlstrB = "UPDATE `product_stock` SET Product_stock = Product_stock - @Product_stock WHERE Proid = @Proid";
-
-            //string sqlstrC="UPDATE product_input p, product_stock ps, SET p.Record_status = '"+lb_status.Text+"'
-
-            for (int i = 0; i < dgv_SelectResult.RowCount; i++)
-            {
-
-            }
-        }
-
         //进仓单记录查询
         private void dataConditionLoad()
         {
@@ -247,7 +240,6 @@ namespace MTsystem_win
             txt_Inputid.Text = dgv_SelectResult.Rows[0].Cells[1].Value.ToString().Trim();
             txt_inputDate.Text = Convert.ToDateTime(dgv_SelectResult.Rows[0].Cells[9].Value.ToString().Trim()).ToShortDateString();
             txt_batchNum.Text = dgv_SelectResult.Rows[0].Cells[8].Value.ToString().Trim();
-            lb_status.Text = dgv_SelectResult.Rows[0].Cells[11].Value.ToString().Trim();
         }
 
         private void Frm_product_input_update_FormClosed(object sender, FormClosedEventArgs e)
@@ -262,6 +254,21 @@ namespace MTsystem_win
                 e.Handled = true;
 
                 dataConditionLoad();
+            }
+        }
+
+        private void dgv_SelectResult_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < this.dgv_SelectResult.RowCount; i++)
+            {
+                if (this.dgv_SelectResult.Rows[i].Cells[11].Value.ToString().Trim() == "无效")
+                {
+                    this.dgv_SelectResult.Rows[i].Cells[11].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    this.dgv_SelectResult.Rows[i].Cells[11].Style.ForeColor = Color.MediumBlue;
+                }
             }
         }
     }
