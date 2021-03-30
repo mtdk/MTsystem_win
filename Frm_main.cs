@@ -378,6 +378,35 @@ namespace MTsystem_win
             }
         }
 
+        /// <summary>
+        /// 信封打印窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void envelope_print_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
+                    {
+                        Frm_envelope_print frm_envelopePrint = new Frm_envelope_print();
+                        frm_envelopePrint.MdiParent = this;
+                        frm_envelopePrint.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         #endregion
 
         #region 车间
@@ -575,7 +604,6 @@ namespace MTsystem_win
             Application.Exit();
         }
         #endregion
-
 
     }
 }

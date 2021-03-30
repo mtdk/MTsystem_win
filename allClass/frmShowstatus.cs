@@ -155,12 +155,30 @@ namespace MTsystem_win.allClass
             get { return _frmproductoutput; }
         }
 
+        /// <summary>
+        /// 产品进仓修改
+        /// </summary>
         private static string _frmproductinputupdate;
-
+        /// <summary>
+        /// 产品进仓修改
+        /// </summary>
         public static string _Frmproductinputupdate
         {
             set { _frmproductinputupdate = value; }
             get { return _frmproductinputupdate; }
+        }
+
+        /// <summary>
+        /// 信封打印窗口
+        /// </summary>
+        private static string _frmenvelopeprint;
+        /// <summary>
+        /// 信封打印窗口
+        /// </summary>
+        public static string _Frmenvelopeprint
+        {
+            set { _frmenvelopeprint = value; }
+            get { return _frmenvelopeprint; }
         }
 
         #endregion

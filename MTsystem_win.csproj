@@ -75,6 +75,11 @@
     <Compile Include="allClass\JudgeNumber.cs" />
     <Compile Include="allClass\sendParameters.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
+    <Compile Include="dsControl\ds_cus_info.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cus_info.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsControl\ds_mat_stockReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +102,12 @@
     <Compile Include="Frm_cailiaolingyong.Designer.cs">
       <DependentUpon>Frm_cailiaolingyong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_CusinfoShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_CusinfoShow.Designer.cs">
+      <DependentUpon>Frm_CusinfoShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_customerinfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +119,12 @@
     </Compile>
     <Compile Include="Frm_customerSelect.Designer.cs">
       <DependentUpon>Frm_customerSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_envelope_print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_envelope_print.Designer.cs">
+      <DependentUpon>Frm_envelope_print.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -255,11 +272,17 @@
     <EmbeddedResource Include="Frm_cailiaolingyong.resx">
       <DependentUpon>Frm_cailiaolingyong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_CusinfoShow.resx">
+      <DependentUpon>Frm_CusinfoShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_customerinfo.resx">
       <DependentUpon>Frm_customerinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_customerSelect.resx">
       <DependentUpon>Frm_customerSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_envelope_print.resx">
+      <DependentUpon>Frm_envelope_print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -330,6 +353,7 @@
     <EmbeddedResource Include="Frm_tag_print.resx">
       <DependentUpon>Frm_tag_print.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="printForm\envelope_Reportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_dayinReportview.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -346,6 +370,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dsControl\ds_cus_info.xsc">
+      <DependentUpon>ds_cus_info.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_cus_info.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cus_info.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_cus_info.xss">
+      <DependentUpon>ds_cus_info.xsd</DependentUpon>
+    </None>
     <None Include="dsControl\ds_mat_stockReport.xsc">
       <DependentUpon>ds_mat_stockReport.xsd</DependentUpon>
     </None>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_cus_info" targetNamespace="http://tempuri.org/ds_cus_info.xsd" xmlns:mstns="http://tempuri.org/ds_cus_info.xsd" xmlns="http://tempuri.org/ds_cus_info.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_cus_info" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cus_info" msprop:Generator_UserDSName="ds_cus_info">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_cusinfo" msprop:Generator_TableClassName="tb_cusinfoDataTable" msprop:Generator_TableVarName="tabletb_cusinfo" msprop:Generator_TablePropName="tb_cusinfo" msprop:Generator_RowDeletingName="tb_cusinfoRowDeleting" msprop:Generator_RowChangingName="tb_cusinfoRowChanging" msprop:Generator_RowEvHandlerName="tb_cusinfoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_cusinfoRowDeleted" msprop:Generator_UserTableName="tb_cusinfo" msprop:Generator_RowChangedName="tb_cusinfoRowChanged" msprop:Generator_RowEvArgName="tb_cusinfoRowChangeEvent" msprop:Generator_RowClassName="tb_cusinfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cus_id" msprop:Generator_ColumnVarNameInTable="columnCus_id" msprop:Generator_ColumnPropNameInRow="Cus_id" msprop:Generator_ColumnPropNameInTable="Cus_idColumn" msprop:Generator_UserColumnName="Cus_id" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_name" msprop:Generator_ColumnVarNameInTable="columnCus_name" msprop:Generator_ColumnPropNameInRow="Cus_name" msprop:Generator_ColumnPropNameInTable="Cus_nameColumn" msprop:Generator_UserColumnName="Cus_name" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_contact" msprop:Generator_ColumnVarNameInTable="columnCus_contact" msprop:Generator_ColumnPropNameInRow="Cus_contact" msprop:Generator_ColumnPropNameInTable="Cus_contactColumn" msprop:Generator_UserColumnName="Cus_contact" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_add" msprop:Generator_ColumnVarNameInTable="columnCus_add" msprop:Generator_ColumnPropNameInRow="Cus_add" msprop:Generator_ColumnPropNameInTable="Cus_addColumn" msprop:Generator_UserColumnName="Cus_add" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_mobile" msprop:Generator_ColumnVarNameInTable="columnCus_mobile" msprop:Generator_ColumnPropNameInRow="Cus_mobile" msprop:Generator_ColumnPropNameInTable="Cus_mobileColumn" msprop:Generator_UserColumnName="Cus_mobile" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_telephone" msprop:Generator_ColumnVarNameInTable="columnCus_telephone" msprop:Generator_ColumnPropNameInRow="Cus_telephone" msprop:Generator_ColumnPropNameInTable="Cus_telephoneColumn" msprop:Generator_UserColumnName="Cus_telephone" type="xs:string" minOccurs="0" />
+              <xs:element name="Cus_fax" msprop:Generator_ColumnVarNameInTable="columnCus_fax" msprop:Generator_ColumnPropNameInRow="Cus_fax" msprop:Generator_ColumnPropNameInTable="Cus_faxColumn" msprop:Generator_UserColumnName="Cus_fax" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
