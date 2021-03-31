@@ -90,6 +90,18 @@ namespace MTsystem_win
             {
                 MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                txt_Cusid.Text = "";
+                txt_Cusname.Text = "";
+            }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            txt_Cusid.Text = "";
+            txt_Cusname.Text = "";
+            envelope_reportViewer.Reset();
         }
     }
 }
