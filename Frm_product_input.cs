@@ -119,7 +119,6 @@ namespace MTsystem_win
             dgv_inputView.Rows.Clear();
             newInputid();
             txt_inputDate.ReadOnly = false;
-            txt_inputDate.Text = txt_Inputid.Text.Substring(0, 8).Trim();
             txt_inputDate.Focus();
         }
 
