@@ -39,21 +39,34 @@ namespace MTsystem_win
             frmShowstatus._Frmproductoutput = "CLOSE";
         }
 
+        private void btn_Cancel_B_Click(object sender, EventArgs e)
+        {
+            ctrlClear();
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            AllClear();
+        }
+
         /// <summary>
         /// 产品出库单号
         /// </summary>
         private void newOutputid()
         {
-            txt_outputDate.Text = DateTime.Now.Year.ToString().Trim();
-            txt_outputDate.Text += DateTime.Now.Month.ToString().PadLeft(2, '0').Trim();
-            txt_outputDate.Text += DateTime.Now.Day.ToString().PadLeft(2, '0').Trim();
-            txt_outputDate.Text += DateTime.Now.Hour.ToString().PadLeft(2, '0').Trim();
-            txt_outputDate.Text += DateTime.Now.Minute.ToString().PadLeft(2, '0').Trim();
-            txt_outputDate.Text += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
-            txt_outputDate.Text = txt_outputDate.Text.Substring(0, 8).Trim();
+            txt_outputid.Text = DateTime.Now.Year.ToString().Trim();
+            txt_outputid.Text += DateTime.Now.Month.ToString().PadLeft(2, '0').Trim();
+            txt_outputid.Text += DateTime.Now.Day.ToString().PadLeft(2, '0').Trim();
+            txt_outputid.Text += DateTime.Now.Hour.ToString().PadLeft(2, '0').Trim();
+            txt_outputid.Text += DateTime.Now.Minute.ToString().PadLeft(2, '0').Trim();
+            txt_outputid.Text += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
+            txt_outputDate.Text = txt_outputid.Text.Substring(0, 8).Trim();
 
         }
 
+        /// <summary>
+        /// 清除录入控件数据
+        /// </summary>
         private void ctrlClear()
         {
             txt_proId.Text = "";
@@ -91,6 +104,93 @@ namespace MTsystem_win
             txt_AmountMoney.Text = "";
             txt_Remarks.Text = "";
             dgv_OutputView.Rows.Clear();
+        }
+
+        /// <summary>
+        /// 添加数据到datagridview
+        /// </summary>
+        private void tempDateInsert()
+        {
+            DataGridViewRow Row = new DataGridViewRow();
+            Row.CreateCells(dgv_OutputView);
+            Row.Cells[0].Value = txt_proId.Text.Trim();
+            Row.Cells[1].Value = txt_productId.Text.Trim();
+            Row.Cells[2].Value = txt_productName.Text.Trim();
+            Row.Cells[3].Value = txt_OutputNum.Text.Trim();
+            Row.Cells[4].Value = txt_OutputUnit.Text.Trim();
+            Row.Cells[5].Value = txt_OutputWeight.Text.Trim();
+            Row.Cells[6].Value = txt_Price.Text.Trim();
+            Row.Cells[7].Value = txt_AmountMoney.Text.Trim();
+            Row.Cells[8].Value = txt_Remarks.Text.Trim();
+            dgv_OutputView.Rows.Add(Row);
+
+            sumTotalcount();
+            ctrlClear();
+        }
+
+        /// <summary>
+        /// 总数量和总重量统计
+        /// </summary>
+        private void sumTotalcount()
+        {
+            decimal sumTotalweight = 0;
+            int sumTotalnumber = 0;
+            for (int i = 0; i < dgv_OutputView.RowCount; i++)
+            {
+                sumTotalnumber += Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim());
+                sumTotalweight += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim());
+            }
+            label11.Text = sumTotalnumber.ToString();
+            label13.Text = sumTotalweight.ToString();
+        }
+
+        /// <summary>
+        /// 添加订单数据
+        /// </summary>
+        private void dataInsert()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+
+            try
+            {
+                string sqlstr = "INSERT INTO `product_out_main` VALUES(NULL,@Outid,@Cus_id,@Cus_name,@Out_date,@Output_id,@Out_status,@Out_operator)";
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@Outid", txt_outputid.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_id", txt_Cusid.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_name", txt_CusName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Out_date",Convert.ToDateTime(txt_outputDate.Text.Trim()).ToShortDateString()));
+                cmd.Parameters.AddWithValue("@Output_id",txt_batchNum.Text.Trim());
+                cmd.Parameters.AddWithValue("@Out_status","有效");
+                cmd.Parameters.AddWithValue("@Out_operator",userInfocheck._Usname.Trim());
+                cmd.ExecuteNonQuery();
+
+                for(int i=0;i<dgv_OutputView.RowCount;i++)
+                {
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AllClear();
+                    newOutputid();
+                }
+            }
         }
 
         private void txt_CusName_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,11 +296,6 @@ namespace MTsystem_win
             }
         }
 
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            AllClear();
-        }
-
         private void txt_OutputNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar==13)
@@ -239,9 +334,96 @@ namespace MTsystem_win
             }
         }
 
-        private void btn_Cancel_B_Click(object sender, EventArgs e)
+        private void txt_OutputUnit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ctrlClear();
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txt_Price.Focus();
+            }
+        }
+
+        private void txt_OutputUnit_Leave(object sender, EventArgs e)
+        {
+            if (txt_OutputUnit.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_OutputUnit.Focus();
+                txt_OutputUnit.SelectAll();
+            }
+            else if (!jnum.IntegralNumber(txt_OutputUnit.Text.Trim()))
+            {
+                MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_OutputUnit.Focus();
+                txt_OutputUnit.SelectAll();
+            }
+            else if ((Convert.ToInt32(txt_OutputUnit.Text.Trim())) <= 0)
+            {
+                MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txt_OutputUnit.Focus();
+                txt_OutputUnit.SelectAll();
+            }
+            else
+            {
+                if (txt_OutputNum.Text.Trim().Length != 0)
+                {
+                    txt_OutputWeight.Text = (Convert.ToInt32(txt_OutputNum.Text.Trim()) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
+                }
+            }
+        }
+
+        private void txt_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txt_Remarks.Focus();
+            }
+        }
+
+        private void txt_Price_Leave(object sender, EventArgs e)
+        {
+            if (txt_Price.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Price.Focus();
+                txt_Price.SelectAll();
+            }
+            else if (!jnum.IntegralNumber(txt_Price.Text.Trim()))
+            {
+                MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Price.Focus();
+                txt_Price.SelectAll();
+            }
+            else
+            {
+                if (txt_OutputUnit.Text.Trim().Length != 0)
+                {
+                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
+                }
+            }
+        }
+
+        private void txt_Remarks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                tempDateInsert();
+            }
+        }
+
+        private void dgv_OutputView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dgv_OutputView.Rows.Count > 0)
+            {
+                sumTotalcount();
+            }
+            else
+            {
+                label11.Text = "0";
+                label13.Text = "0";
+            }
         }
 
     }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_batchNum = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +40,8 @@
             this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_Remarks = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_AmountMoney = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -52,6 +54,15 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.dgv_OutputView = new System.Windows.Forms.DataGridView();
+            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.小计 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,17 +75,8 @@
             this.txt_productName = new System.Windows.Forms.TextBox();
             this.txt_productId = new System.Windows.Forms.TextBox();
             this.txt_proId = new System.Windows.Forms.TextBox();
-            this.txt_Remarks = new System.Windows.Forms.TextBox();
-            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.小计 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label17 = new System.Windows.Forms.Label();
+            this.txt_outputid = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OutputView)).BeginInit();
@@ -82,6 +84,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_outputid);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.txt_batchNum);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_outputDate);
@@ -92,7 +96,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1191, 86);
+            this.groupBox1.Size = new System.Drawing.Size(1385, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -207,6 +211,28 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Blue;
+            this.label17.Location = new System.Drawing.Point(1165, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 19);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "备注";
+            // 
+            // txt_Remarks
+            // 
+            this.txt_Remarks.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Remarks.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_Remarks.Location = new System.Drawing.Point(1103, 53);
+            this.txt_Remarks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Remarks.MaxLength = 15;
+            this.txt_Remarks.Name = "txt_Remarks";
+            this.txt_Remarks.Size = new System.Drawing.Size(168, 30);
+            this.txt_Remarks.TabIndex = 5;
+            this.txt_Remarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Remarks_KeyPress);
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -249,6 +275,8 @@
             this.txt_Price.Size = new System.Drawing.Size(57, 30);
             this.txt_Price.TabIndex = 4;
             this.txt_Price.Text = "0";
+            this.txt_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Price_KeyPress);
+            this.txt_Price.Leave += new System.EventHandler(this.txt_Price_Leave);
             // 
             // label13
             // 
@@ -322,14 +350,14 @@
             // dgv_OutputView
             // 
             this.dgv_OutputView.AllowUserToAddRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_OutputView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_OutputView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_OutputView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_OutputView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.系统编码,
@@ -345,15 +373,76 @@
             this.dgv_OutputView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_OutputView.Name = "dgv_OutputView";
             this.dgv_OutputView.ReadOnly = true;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_OutputView.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_OutputView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_OutputView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgv_OutputView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_OutputView.RowTemplate.Height = 23;
             this.dgv_OutputView.RowTemplate.ReadOnly = true;
             this.dgv_OutputView.Size = new System.Drawing.Size(1379, 306);
             this.dgv_OutputView.TabIndex = 7;
+            this.dgv_OutputView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_OutputView_RowsRemoved);
+            // 
+            // 系统编码
+            // 
+            this.系统编码.HeaderText = "系统编码";
+            this.系统编码.Name = "系统编码";
+            this.系统编码.ReadOnly = true;
+            this.系统编码.Width = 130;
+            // 
+            // 产品编号
+            // 
+            this.产品编号.HeaderText = "产品编号";
+            this.产品编号.Name = "产品编号";
+            this.产品编号.ReadOnly = true;
+            this.产品编号.Width = 130;
+            // 
+            // 产品名称
+            // 
+            this.产品名称.HeaderText = "产品名称";
+            this.产品名称.Name = "产品名称";
+            this.产品名称.ReadOnly = true;
+            this.产品名称.Width = 400;
+            // 
+            // 数量
+            // 
+            this.数量.HeaderText = "数量";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            this.数量.Width = 130;
+            // 
+            // 规格
+            // 
+            this.规格.HeaderText = "规格";
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            this.规格.Width = 130;
+            // 
+            // 重量
+            // 
+            this.重量.HeaderText = "重量";
+            this.重量.Name = "重量";
+            this.重量.ReadOnly = true;
+            this.重量.Width = 130;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            // 
+            // 小计
+            // 
+            this.小计.HeaderText = "小计";
+            this.小计.Name = "小计";
+            this.小计.ReadOnly = true;
+            // 
+            // 备注
+            // 
+            this.备注.HeaderText = "备注";
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
             // 
             // label9
             // 
@@ -437,6 +526,8 @@
             this.txt_OutputUnit.Size = new System.Drawing.Size(100, 30);
             this.txt_OutputUnit.TabIndex = 2;
             this.txt_OutputUnit.Text = "0";
+            this.txt_OutputUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OutputUnit_KeyPress);
+            this.txt_OutputUnit.Leave += new System.EventHandler(this.txt_OutputUnit_Leave);
             // 
             // txt_OutputNum
             // 
@@ -484,86 +575,25 @@
             this.txt_proId.Size = new System.Drawing.Size(100, 30);
             this.txt_proId.TabIndex = 11;
             // 
-            // txt_Remarks
+            // txt_outputid
             // 
-            this.txt_Remarks.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Remarks.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_Remarks.Location = new System.Drawing.Point(1103, 53);
-            this.txt_Remarks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_Remarks.MaxLength = 15;
-            this.txt_Remarks.Name = "txt_Remarks";
-            this.txt_Remarks.Size = new System.Drawing.Size(168, 30);
-            this.txt_Remarks.TabIndex = 5;
+            this.txt_outputid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_outputid.Location = new System.Drawing.Point(1189, 30);
+            this.txt_outputid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_outputid.MaxLength = 20;
+            this.txt_outputid.Name = "txt_outputid";
+            this.txt_outputid.ReadOnly = true;
+            this.txt_outputid.Size = new System.Drawing.Size(174, 30);
+            this.txt_outputid.TabIndex = 25;
             // 
-            // 系统编码
+            // label18
             // 
-            this.系统编码.HeaderText = "系统编码";
-            this.系统编码.Name = "系统编码";
-            this.系统编码.ReadOnly = true;
-            this.系统编码.Width = 130;
-            // 
-            // 产品编号
-            // 
-            this.产品编号.HeaderText = "产品编号";
-            this.产品编号.Name = "产品编号";
-            this.产品编号.ReadOnly = true;
-            this.产品编号.Width = 130;
-            // 
-            // 产品名称
-            // 
-            this.产品名称.HeaderText = "产品名称";
-            this.产品名称.Name = "产品名称";
-            this.产品名称.ReadOnly = true;
-            this.产品名称.Width = 400;
-            // 
-            // 数量
-            // 
-            this.数量.HeaderText = "数量";
-            this.数量.Name = "数量";
-            this.数量.ReadOnly = true;
-            this.数量.Width = 130;
-            // 
-            // 规格
-            // 
-            this.规格.HeaderText = "规格";
-            this.规格.Name = "规格";
-            this.规格.ReadOnly = true;
-            this.规格.Width = 130;
-            // 
-            // 重量
-            // 
-            this.重量.HeaderText = "重量";
-            this.重量.Name = "重量";
-            this.重量.ReadOnly = true;
-            this.重量.Width = 130;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            // 
-            // 小计
-            // 
-            this.小计.HeaderText = "小计";
-            this.小计.Name = "小计";
-            this.小计.ReadOnly = true;
-            // 
-            // 备注
-            // 
-            this.备注.HeaderText = "备注";
-            this.备注.Name = "备注";
-            this.备注.ReadOnly = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Blue;
-            this.label17.Location = new System.Drawing.Point(1165, 30);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(45, 19);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "备注";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1075, 36);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(108, 19);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "出仓记录号:";
             // 
             // Frm_product_output
             // 
@@ -637,5 +667,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
         private System.Windows.Forms.DataGridViewTextBoxColumn 小计;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.TextBox txt_outputid;
+        private System.Windows.Forms.Label label18;
     }
 }
