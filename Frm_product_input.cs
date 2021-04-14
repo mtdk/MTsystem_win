@@ -400,6 +400,7 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Record_status", "有效");
                     cmd.ExecuteNonQuery();
 
+                    //ii作为当前行号传递给QueryProid()方法，进行查询比较，确定数据表中是否已存在相关记录，有则进行数据更新，无则添加新记录
                     ii = i;
                     string sqlstrA = "";
                     if (QueryProid(ii))
