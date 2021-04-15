@@ -164,24 +164,16 @@ namespace MTsystem_win
         /// </summary>
         private void dataInsert()
         {
-            int ii = 0;
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             MySqlTransaction transaction = conn.BeginTransaction();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = conn;
 
             try
             {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
                 //产品出库主单信息添加
                 string sqlstr = "INSERT INTO `product_out_main` VALUES(NULL,@Outid,@Cus_id,@Cus_name,@Out_date,@Output_id,@Out_status,@Out_operator)";
-                //产品出库子单信息添加
-                string sqlstrA = "INSERT INTO `product_out` VALUES(NULL,@OutidA,@Cus_idA,@ProidA,@Product_idA,@Product_nameA,@Product_ckslA,@Product_unitA,";
-                sqlstrA += "@CkzlA,@Product_priceA,@Product_total_amountA,@Out_remarksA,@Out_dateA,@Out_statusA)";
-                //客户产品单价信息添加
-                string sqlstrB = "INSERT INTO `product_offer` VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB)";
-                //客户产品单价更新
-                string sqlstrC = "UPDATE `product_offer` SET product_price=@product_priceC,upgrade_date=@upgrade_dateC WHERE Cus_id=@Cus_idC AND proid=@proidC";
 
                 cmd.CommandText = sqlstr;
                 cmd.Parameters.AddWithValue("@Outid", txt_outputid.Text.Trim());
@@ -193,52 +185,99 @@ namespace MTsystem_win
                 cmd.Parameters.AddWithValue("@Out_operator",userInfocheck._Usname.Trim());
                 cmd.ExecuteNonQuery();
 
-
-                for(int i=0;i<dgv_OutputView.RowCount;i++)
+                for (int i = 0; i < dgv_OutputView.RowCount; i++)
                 {
-                    cmd.CommandText = sqlstrA;
-                    cmd.Parameters.AddWithValue("@OutidA", txt_outputid.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Cus_idA", txt_Cusid.Text.Trim());
-                    cmd.Parameters.AddWithValue("@ProidA", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-                    cmd.Parameters.AddWithValue("@Product_idA", dgv_OutputView.Rows[i].Cells[1].Value.ToString().Trim());
-                    cmd.Parameters.AddWithValue("@Product_nameA", dgv_OutputView.Rows[i].Cells[2].Value.ToString().Trim());
-                    cmd.Parameters.AddWithValue("@Product_ckslA", Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim()));
-                    cmd.Parameters.AddWithValue("@Product_unitA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[4].Value.ToString().Trim()));
-                    cmd.Parameters.AddWithValue("@CkzlA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[5].Value.ToString().Trim()));
-                    cmd.Parameters.AddWithValue("@Product_priceA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
-                    cmd.Parameters.AddWithValue("@Product_total_amountA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim()));
-                    cmd.Parameters.AddWithValue("@Out_remarksA", dgv_OutputView.Rows[i].Cells[8].Value.ToString().Trim());
-                    cmd.Parameters.AddWithValue("@Out_dateA", Convert.ToDateTime(tmpdt).ToShortDateString());
-                    cmd.Parameters.AddWithValue("@Out_statusA", "有效");
-                    cmd.ExecuteNonQuery();
+                    MySqlCommand cmdA = new MySqlCommand();
+                    cmdA.Connection = conn;
+                    string sqlstrA = "";
+                    //产品出库子单信息添加
+                    sqlstrA = "INSERT INTO `product_out` VALUES(NULL,@OutidA,@ProidA,@Product_idA,@Product_nameA,@Product_ckslA,@Product_unitA,";
+                    sqlstrA += "@CkzlA,@Product_priceA,@Product_total_amountA,@Out_remarksA,@Out_dateA,@Out_statusA)";
 
-                    ii = i;
-                    //if (price_of_custome(ii))
-                    //{
-                    //    cmd.CommandText = sqlstrC;
-                    //    cmd.Parameters.AddWithValue("@Cus_idC", txt_Cusid.Text.Trim());
-                    //    cmd.Parameters.AddWithValue("@proidC", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-                    //    cmd.Parameters.AddWithValue("@product_priceC", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
-                    //    cmd.Parameters.AddWithValue("@upgrade_dateC", Convert.ToDateTime(tmpdt).ToShortDateString());
-                    //    cmd.ExecuteNonQuery();
-                    //}
-                    //else
-                    //{
-                    //    cmd.CommandText = sqlstrB;
-                    //    //@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB
-                    //    cmd.Parameters.AddWithValue("@Cus_idB", txt_Cusid.Text.Trim());
-                    //    cmd.Parameters.AddWithValue("@Cus_nameB", txt_CusName.Text.Trim());
-                    //    cmd.Parameters.AddWithValue("@proidB", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-                    //    cmd.Parameters.AddWithValue("@product_priceB", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
-                    //    cmd.Parameters.AddWithValue("@upgrade_dateB", Convert.ToDateTime(tmpdt).ToShortDateString());
-                    //    cmd.ExecuteNonQuery();
-                    //}
+                    cmdA.CommandText = sqlstrA;
+                    cmdA.Parameters.AddWithValue("@OutidA", txt_outputid.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@ProidA", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
+                    cmdA.Parameters.AddWithValue("@Product_idA", dgv_OutputView.Rows[i].Cells[1].Value.ToString().Trim());
+                    cmdA.Parameters.AddWithValue("@Product_nameA", dgv_OutputView.Rows[i].Cells[2].Value.ToString().Trim());
+                    cmdA.Parameters.AddWithValue("@Product_ckslA", Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim()));
+                    cmdA.Parameters.AddWithValue("@Product_unitA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[4].Value.ToString().Trim()));
+                    cmdA.Parameters.AddWithValue("@CkzlA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[5].Value.ToString().Trim()));
+                    cmdA.Parameters.AddWithValue("@Product_priceA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
+                    cmdA.Parameters.AddWithValue("@Product_total_amountA", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim()));
+                    cmdA.Parameters.AddWithValue("@Out_remarksA", dgv_OutputView.Rows[i].Cells[8].Value.ToString().Trim());
+                    cmdA.Parameters.AddWithValue("@Out_dateA", Convert.ToDateTime(tmpdt).ToShortDateString());
+                    cmdA.Parameters.AddWithValue("@Out_statusA", "有效");
+                    cmdA.ExecuteNonQuery();
                 }
 
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    price_insertORupdate();
+                }
+            }
+        }
+
+        private void price_insertORupdate()
+        {
+            int ii = 0;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                MySqlCommand cmdB = new MySqlCommand();
+                cmdB.Connection = conn;
+                for (int i = 0; i < dgv_OutputView.RowCount; i++)
+                {
+                    string sqlstrB = "";
+                    ii = i;
+                    if (price_of_custome(ii))
+                    {
+                        //客户产品单价更新
+                        sqlstrB = "UPDATE product_offer SET product_price=@product_priceC,upgrade_date=@upgrade_dateC WHERE Cus_id=@Cus_idC AND proid=@proidC";
+
+                        cmdB.CommandText = sqlstrB;
+                        cmdB.Parameters.AddWithValue("@Cus_idC", txt_Cusid.Text.Trim());
+                        cmdB.Parameters.AddWithValue("@proidC", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
+                        cmdB.Parameters.AddWithValue("@product_priceC", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
+                        cmdB.Parameters.AddWithValue("@upgrade_dateC", Convert.ToDateTime(tmpdt).ToShortDateString());
+                        cmdB.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        //客户产品单价信息添加
+                        sqlstrB = "";
+                        sqlstrB = "INSERT INTO product_offer VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB)";
+                        cmdB.CommandText = sqlstrB;
+                        //@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB
+                        cmdB.Parameters.AddWithValue("@Cus_idB", txt_Cusid.Text.Trim());
+                        cmdB.Parameters.AddWithValue("@Cus_nameB", txt_CusName.Text.Trim());
+                        cmdB.Parameters.AddWithValue("@proidB", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
+                        cmdB.Parameters.AddWithValue("@product_priceB", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
+                        cmdB.Parameters.AddWithValue("@upgrade_dateB", Convert.ToDateTime(tmpdt).ToShortDateString());
+                        cmdB.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 transaction.Rollback();
                 conn.Close();
             }
@@ -253,6 +292,7 @@ namespace MTsystem_win
                     newOutputid();
                 }
             }
+
         }
 
         private void txt_CusName_KeyPress(object sender, KeyPressEventArgs e)
@@ -345,7 +385,7 @@ namespace MTsystem_win
                     Frm_productOutSelect frmpOutselect = new Frm_productOutSelect();
                     frmpOutselect.selectCondition = txt_productId.Text.Trim();
                     frmpOutselect.ShowDialog();
-                    if (frmpOutselect.pro_id != "")
+                    if (frmpOutselect.pro_id !="" && frmpOutselect.pro_id!=null)
                     {
                         txt_proId.Text = frmpOutselect.pro_id.Trim();
                         txt_productId.Text = frmpOutselect.product_id.Trim();
