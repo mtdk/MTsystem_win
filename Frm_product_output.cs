@@ -97,11 +97,11 @@ namespace MTsystem_win
             txt_proId.Text = "";
             txt_productId.Text = "";
             txt_productName.Text = "";
-            txt_OutputNum.Text = "";
-            txt_OutputUnit.Text = "";
-            txt_OutputWeight.Text = "";
-            txt_Price.Text = "";
-            txt_AmountMoney.Text = "";
+            txt_OutputNum.Text = "0";
+            txt_OutputUnit.Text = "0";
+            txt_OutputWeight.Text = "0";
+            txt_Price.Text = "0";
+            txt_AmountMoney.Text = "0";
             txt_Remarks.Text = "";
             dgv_OutputView.Rows.Clear();
         }
@@ -144,11 +144,15 @@ namespace MTsystem_win
             label13.Text = sumTotalweight.ToString();
         }
 
-
+        /// <summary>
+        /// 产品单价修改判断，默认不修改，状态为false时进行修改
+        /// </summary>
+        Boolean price_jugement = true;
         private bool price_of_custome(int i)
         {
+            ///标记是否找到符合条件的报价记录，默认为false未找到
             bool b = false;
-            string sqlstr = "SELECT Cus_id,proid FROM product_offer WHERE Cus_id=@Cus_id AND proid=@proid";
+            string sqlstr = "SELECT product_price FROM product_offer WHERE Cus_id=@Cus_id AND proid=@proid";
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
@@ -157,8 +161,43 @@ namespace MTsystem_win
             cmd.CommandText = sqlstr;
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             b = dr.Read();
+            if (b == true)
+            {
+                //如果产品单价不相等返回false,执行单价更新
+                if ((Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim())) != (Convert.ToDecimal(dr["product_price"].ToString().Trim())))
+                {
+                    price_jugement = false;
+                }
+            }
             return b;
         }
+
+        /// <summary>
+        /// 客户产品单价查询
+        /// </summary>
+        private void priceOfquery()
+        {
+            if (txt_proId.Text.Trim().Length != 0)
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                string sqlstr = "SELECT product_price FROM product_offer WHERE Cus_id=@Cus_id AND proid=@proid";
+                MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+                cmd.Parameters.AddWithValue("@proid", txt_proId.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_id", txt_Cusid.Text.Trim());
+                cmd.CommandText = sqlstr;
+                MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (dr.Read())
+                {
+                    txt_Price.Text = dr["product_price"].ToString().Trim();
+                }
+                else
+                {
+                    txt_Price.Text = "0";
+                }
+            }
+        }
+
         /// <summary>
         /// 添加订单数据
         /// </summary>
@@ -170,6 +209,7 @@ namespace MTsystem_win
 
             try
             {
+                int ii = 0;
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
                 //产品出库主单信息添加
@@ -191,8 +231,9 @@ namespace MTsystem_win
                     cmdA.Connection = conn;
                     string sqlstrA = "";
                     //产品出库子单信息添加
-                    sqlstrA = "INSERT INTO `product_out` VALUES(NULL,@OutidA,@ProidA,@Product_idA,@Product_nameA,@Product_ckslA,@Product_unitA,";
-                    sqlstrA += "@CkzlA,@Product_priceA,@Product_total_amountA,@Out_remarksA,@Out_dateA,@Out_statusA)";
+                    sqlstrA = "INSERT INTO `product_out` VALUES(NULL,@OutidA,@ProidA,@Product_idA,@Product_nameA,";
+                    sqlstrA += "@Product_ckslA,@Product_unitA,@CkzlA,@Product_priceA,";
+                    sqlstrA += "@Product_total_amountA,@Out_remarksA,@Out_dateA,@Out_statusA)";
 
                     cmdA.CommandText = sqlstrA;
                     cmdA.Parameters.AddWithValue("@OutidA", txt_outputid.Text.Trim());
@@ -208,76 +249,47 @@ namespace MTsystem_win
                     cmdA.Parameters.AddWithValue("@Out_dateA", Convert.ToDateTime(tmpdt).ToShortDateString());
                     cmdA.Parameters.AddWithValue("@Out_statusA", "有效");
                     cmdA.ExecuteNonQuery();
-                }
 
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show("错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                transaction.Rollback();
-                conn.Close();
-            }
-            finally
-            {
-                if (conn.State != ConnectionState.Closed)
-                {
-                    transaction.Commit();
-                    conn.Close();
-                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    price_insertORupdate();
-                }
-            }
-        }
-
-        private void price_insertORupdate()
-        {
-            int ii = 0;
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
-            MySqlTransaction transaction = conn.BeginTransaction();
-            try
-            {
-                MySqlCommand cmdB = new MySqlCommand();
-                cmdB.Connection = conn;
-                for (int i = 0; i < dgv_OutputView.RowCount; i++)
-                {
-                    string sqlstrB = "";
                     ii = i;
                     if (price_of_custome(ii))
                     {
-                        //客户产品单价更新
-                        sqlstrB = "UPDATE product_offer SET product_price=@product_priceC,upgrade_date=@upgrade_dateC WHERE Cus_id=@Cus_idC AND proid=@proidC";
-
-                        cmdB.CommandText = sqlstrB;
-                        cmdB.Parameters.AddWithValue("@Cus_idC", txt_Cusid.Text.Trim());
-                        cmdB.Parameters.AddWithValue("@proidC", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-                        cmdB.Parameters.AddWithValue("@product_priceC", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
-                        cmdB.Parameters.AddWithValue("@upgrade_dateC", Convert.ToDateTime(tmpdt).ToShortDateString());
-                        cmdB.ExecuteNonQuery();
+                        if (price_jugement == false)
+                        {
+                            string sqlstrB = "";
+                            sqlstrB = "UPDATE product_offer set product_price = @product_priceC,upgrade_date = @upgrade_dateC where Cus_id=@Cus_idC and proid=@proidC";
+                            MySqlCommand cmdB = new MySqlCommand();
+                            cmdB.Connection = conn;
+                            cmdB.CommandText = sqlstrB;
+                            cmdB.Parameters.Add("@Cus_idC", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
+                            cmdB.Parameters.Add("@proidC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
+                            cmdB.Parameters.Add("@product_priceC", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
+                            cmdB.Parameters.Add("@upgrade_dateC", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
+                            cmdB.ExecuteNonQuery();
+                        }
                     }
                     else
                     {
-                        //客户产品单价信息添加
-                        sqlstrB = "";
-                        sqlstrB = "INSERT INTO product_offer VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB)";
-                        cmdB.CommandText = sqlstrB;
-                        //@Cus_idB,@Cus_nameB,@proidB,@product_nameB,@product_priceB,@upgrade_dateB
-                        cmdB.Parameters.AddWithValue("@Cus_idB", txt_Cusid.Text.Trim());
-                        cmdB.Parameters.AddWithValue("@Cus_nameB", txt_CusName.Text.Trim());
-                        cmdB.Parameters.AddWithValue("@proidB", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-                        cmdB.Parameters.AddWithValue("@product_priceB", Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim()));
-                        cmdB.Parameters.AddWithValue("@upgrade_dateB", Convert.ToDateTime(tmpdt).ToShortDateString());
-                        cmdB.ExecuteNonQuery();
+                        string sqlstrC = "";
+                        sqlstrC = "INSERT INTO product_offer VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_idB,";
+                        sqlstrC += "@product_nameB,@product_priceB,@upgrade_dateB)"; 
+                        MySqlCommand cmdC = new MySqlCommand();
+                        cmdC.Connection = conn;
+                        cmdC.CommandText = sqlstrC;
+                        cmdC.Parameters.Add("@Cus_idB", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
+                        cmdC.Parameters.Add("@Cus_nameB", MySqlDbType.VarChar).Value = txt_CusName.Text.Trim();
+                        cmdC.Parameters.Add("@proidB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_idB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_nameB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_priceB", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
+                        cmdC.Parameters.Add("@upgrade_dateB", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
+                        cmdC.ExecuteNonQuery();
                     }
                 }
+
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show("错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 transaction.Rollback();
                 conn.Close();
             }
@@ -292,7 +304,6 @@ namespace MTsystem_win
                     newOutputid();
                 }
             }
-
         }
 
         private void txt_CusName_KeyPress(object sender, KeyPressEventArgs e)
@@ -392,6 +403,7 @@ namespace MTsystem_win
                         txt_productName.Text = frmpOutselect.product_name.Trim();
                         txt_OutputUnit.Text = frmpOutselect.product_unit.Trim();
                         txt_OutputNum.Focus();
+                        priceOfquery();
                     }
 
                 }
@@ -449,22 +461,22 @@ namespace MTsystem_win
         {
             if (txt_OutputUnit.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("格式错误，这个位置不能为空，请输入数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_OutputUnit.Focus();
                 txt_OutputUnit.SelectAll();
             }
-            else if (!jnum.IntegralNumber(txt_OutputUnit.Text.Trim()))
+            else if (!jnum.ISNumeric(txt_OutputUnit.Text.Trim()))
             {
-                MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("格式错误，这个位置只能输入大于0的数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_OutputUnit.Focus();
                 txt_OutputUnit.SelectAll();
             }
-            else if ((Convert.ToInt32(txt_OutputUnit.Text.Trim())) <= 0)
-            {
-                MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                txt_OutputUnit.Focus();
-                txt_OutputUnit.SelectAll();
-            }
+            //else if ((Convert.ToInt32(txt_OutputUnit.Text.Trim())) <= 0)
+            //{
+            //    MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    txt_OutputUnit.Focus();
+            //    txt_OutputUnit.SelectAll();
+            //}
             else
             {
                 if (txt_OutputNum.Text.Trim().Length != 0)
@@ -487,13 +499,13 @@ namespace MTsystem_win
         {
             if (txt_Price.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("格式错误，这个位置不能为空，请输入数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Price.Focus();
                 txt_Price.SelectAll();
             }
-            else if (!jnum.IntegralNumber(txt_Price.Text.Trim()))
+            else if (!jnum.ISNumeric(txt_Price.Text.Trim()))
             {
-                MessageBox.Show("格式错误，这个位置只能输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("格式错误，这个位置只能输入大于0的数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Price.Focus();
                 txt_Price.SelectAll();
             }
