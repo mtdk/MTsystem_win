@@ -106,6 +106,19 @@ namespace MTsystem_win
             dgv_OutputView.Rows.Clear();
         }
 
+        private int theSameRecord(string tmp_proid)
+        {
+            int t = 0;
+            for (int i = 0; i < dgv_OutputView.RowCount; i++)
+            {
+                if (txt_proId.Text.Trim() == dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim())
+                {
+                    t = t + 1;
+                }
+            }
+            return t;
+        }
+
         /// <summary>
         /// 添加数据到datagridview
         /// </summary>
@@ -423,9 +436,7 @@ namespace MTsystem_win
         {
             if (txt_OutputNum.Text.Trim().Length==0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_OutputNum.Focus();
-                txt_OutputNum.SelectAll();
+                txt_OutputNum.Text = "0";
             }
             else if (!jnum.IntegralNumber(txt_OutputNum.Text.Trim()))
             {
@@ -433,7 +444,7 @@ namespace MTsystem_win
                 txt_OutputNum.Focus();
                 txt_OutputNum.SelectAll();
             }
-            else if ((Convert.ToInt32(txt_OutputNum.Text.Trim())) <= 0)
+            else if ((Convert.ToInt32(txt_OutputNum.Text.Trim())) < 0)
             {
                 MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_OutputNum.Focus();
@@ -444,6 +455,7 @@ namespace MTsystem_win
                 if (txt_OutputUnit.Text.Trim().Length != 0)
                 {
                     txt_OutputWeight.Text = (Convert.ToInt32(txt_OutputNum.Text.Trim()) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
+                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
                 }
             }
         }
@@ -461,9 +473,7 @@ namespace MTsystem_win
         {
             if (txt_OutputUnit.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_OutputUnit.Focus();
-                txt_OutputUnit.SelectAll();
+                txt_OutputUnit.Text = "20";
             }
             else if (!jnum.ISNumeric(txt_OutputUnit.Text.Trim()))
             {
@@ -471,17 +481,12 @@ namespace MTsystem_win
                 txt_OutputUnit.Focus();
                 txt_OutputUnit.SelectAll();
             }
-            //else if ((Convert.ToInt32(txt_OutputUnit.Text.Trim())) <= 0)
-            //{
-            //    MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            //    txt_OutputUnit.Focus();
-            //    txt_OutputUnit.SelectAll();
-            //}
             else
             {
                 if (txt_OutputNum.Text.Trim().Length != 0)
                 {
                     txt_OutputWeight.Text = (Convert.ToInt32(txt_OutputNum.Text.Trim()) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
+                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
                 }
             }
         }
@@ -499,9 +504,7 @@ namespace MTsystem_win
         {
             if (txt_Price.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Price.Focus();
-                txt_Price.SelectAll();
+                txt_Price.Text = "0";
             }
             else if (!jnum.ISNumeric(txt_Price.Text.Trim()))
             {
@@ -523,7 +526,28 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                tempDateInsert();
+                if (dgv_OutputView.RowCount < 5)
+                {
+                    if (dgv_OutputView.RowCount >= 1)
+                    {
+                        if ((theSameRecord(txt_proId.Text.Trim()))>0)
+                        {
+                            MessageBox.Show("请不要输入相同的记录！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            tempDateInsert();
+                        }
+                    }
+                    else
+                    {
+                        tempDateInsert();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("最多只能输入5条记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
