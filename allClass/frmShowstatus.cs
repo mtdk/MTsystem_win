@@ -168,6 +168,14 @@ namespace MTsystem_win.allClass
             get { return _frmproductinputupdate; }
         }
 
+        //Frm_proPriceUpdate
+        private static string _frmpropriceupdate;
+
+        public static string _Frmpropriceupdate
+        {
+            set { _frmpropriceupdate = value; }
+            get { return _frmpropriceupdate; }
+        }
         /// <summary>
         /// 信封打印窗口
         /// </summary>

@@ -258,6 +258,12 @@
     <Compile Include="Frm_product_taginput.Designer.cs">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_proPriceUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_proPriceUpdate.Designer.cs">
+      <DependentUpon>Frm_proPriceUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Supplier_info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_taginput.resx">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_proPriceUpdate.resx">
+      <DependentUpon>Frm_proPriceUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Supplier_info.resx">
       <DependentUpon>Frm_Supplier_info.cs</DependentUpon>

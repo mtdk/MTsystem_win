@@ -292,6 +292,35 @@ namespace MTsystem_win
         }
 
         /// <summary>
+        /// 产品价格维护窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_price_update_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmpropriceupdate == "CLOSE" || frmShowstatus._Frmpropriceupdate == null)
+                    {
+                        Frm_proPriceUpdate frmpropriceupdate = new Frm_proPriceUpdate();
+                        frmpropriceupdate.MdiParent = this;
+                        frmpropriceupdate.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
         /// 材料库存日报表窗口验证
         /// </summary>
         /// <param name="sender"></param>
@@ -604,6 +633,7 @@ namespace MTsystem_win
             Application.Exit();
         }
         #endregion
+
 
     }
 }
