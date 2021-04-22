@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_productoutReportview" targetNamespace="http://tempuri.org/ds_productoutReportview.xsd" xmlns:mstns="http://tempuri.org/ds_productoutReportview.xsd" xmlns="http://tempuri.org/ds_productoutReportview.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_productoutReportview" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_productoutReportview" msprop:Generator_UserDSName="ds_productoutReportview">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_productPrint" msprop:Generator_TableClassName="tb_productPrintDataTable" msprop:Generator_TableVarName="tabletb_productPrint" msprop:Generator_TablePropName="tb_productPrint" msprop:Generator_RowDeletingName="tb_productPrintRowDeleting" msprop:Generator_RowChangingName="tb_productPrintRowChanging" msprop:Generator_RowEvHandlerName="tb_productPrintRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_productPrintRowDeleted" msprop:Generator_UserTableName="tb_productPrint" msprop:Generator_RowChangedName="tb_productPrintRowChanged" msprop:Generator_RowEvArgName="tb_productPrintRowChangeEvent" msprop:Generator_RowClassName="tb_productPrintRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

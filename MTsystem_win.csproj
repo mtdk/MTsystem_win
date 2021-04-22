@@ -90,6 +90,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ds_product.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsControl\ds_productoutReportview.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Frm_cailiaojincang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +251,12 @@
     <Compile Include="Frm_product_input_update.Designer.cs">
       <DependentUpon>Frm_product_input_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_product_outPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_outPrint.Designer.cs">
+      <DependentUpon>Frm_product_outPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_product_output.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +367,9 @@
     <EmbeddedResource Include="Frm_product_input_update.resx">
       <DependentUpon>Frm_product_input_update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_outPrint.resx">
+      <DependentUpon>Frm_product_outPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_output.resx">
       <DependentUpon>Frm_product_output.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +434,17 @@
     </None>
     <None Include="dsControl\ds_product.xss">
       <DependentUpon>ds_product.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xsc">
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_productoutReportview.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xss">
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
