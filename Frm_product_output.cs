@@ -374,6 +374,9 @@ namespace MTsystem_win
                     transaction.Commit();
                     conn.Close();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Frm_product_outPrint fpoutprint = new Frm_product_outPrint();
+                    fpoutprint.out_id = txt_outputid.Text.Trim();
+                    fpoutprint.ShowDialog();
                     AllClear();
                     newOutputid();
                 }
