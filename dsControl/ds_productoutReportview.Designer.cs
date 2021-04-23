@@ -279,6 +279,32 @@ namespace MTsystem_win.dsControl {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class tb_productPrintDataTable : global::System.Data.TypedTableBase<tb_productPrintRow> {
             
+            private global::System.Data.DataColumn columnOutid;
+            
+            private global::System.Data.DataColumn columnCus_id;
+            
+            private global::System.Data.DataColumn columnCus_name;
+            
+            private global::System.Data.DataColumn columnOut_date;
+            
+            private global::System.Data.DataColumn columnProid;
+            
+            private global::System.Data.DataColumn columnProduct_id;
+            
+            private global::System.Data.DataColumn columnProduct_name;
+            
+            private global::System.Data.DataColumn columnProduct_cksl;
+            
+            private global::System.Data.DataColumn columnProduct_unit;
+            
+            private global::System.Data.DataColumn columnCkzl;
+            
+            private global::System.Data.DataColumn columnProduct_price;
+            
+            private global::System.Data.DataColumn columnProduct_total_amount;
+            
+            private global::System.Data.DataColumn columnOut_remarks;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tb_productPrintDataTable() {
@@ -310,6 +336,110 @@ namespace MTsystem_win.dsControl {
             protected tb_productPrintDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OutidColumn {
+                get {
+                    return this.columnOutid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cus_idColumn {
+                get {
+                    return this.columnCus_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cus_nameColumn {
+                get {
+                    return this.columnCus_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Out_dateColumn {
+                get {
+                    return this.columnOut_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProidColumn {
+                get {
+                    return this.columnProid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_idColumn {
+                get {
+                    return this.columnProduct_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_nameColumn {
+                get {
+                    return this.columnProduct_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_ckslColumn {
+                get {
+                    return this.columnProduct_cksl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_unitColumn {
+                get {
+                    return this.columnProduct_unit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CkzlColumn {
+                get {
+                    return this.columnCkzl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_priceColumn {
+                get {
+                    return this.columnProduct_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Product_total_amountColumn {
+                get {
+                    return this.columnProduct_total_amount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Out_remarksColumn {
+                get {
+                    return this.columnOut_remarks;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -349,9 +479,22 @@ namespace MTsystem_win.dsControl {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tb_productPrintRow Addtb_productPrintRow() {
+            public tb_productPrintRow Addtb_productPrintRow(string Outid, string Cus_id, string Cus_name, System.DateTime Out_date, string Proid, string Product_id, string Product_name, int Product_cksl, int Product_unit, decimal Ckzl, decimal Product_price, decimal Product_total_amount, string Out_remarks) {
                 tb_productPrintRow rowtb_productPrintRow = ((tb_productPrintRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        Outid,
+                        Cus_id,
+                        Cus_name,
+                        Out_date,
+                        Proid,
+                        Product_id,
+                        Product_name,
+                        Product_cksl,
+                        Product_unit,
+                        Ckzl,
+                        Product_price,
+                        Product_total_amount,
+                        Out_remarks};
                 rowtb_productPrintRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtb_productPrintRow);
                 return rowtb_productPrintRow;
@@ -374,11 +517,50 @@ namespace MTsystem_win.dsControl {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnOutid = base.Columns["Outid"];
+                this.columnCus_id = base.Columns["Cus_id"];
+                this.columnCus_name = base.Columns["Cus_name"];
+                this.columnOut_date = base.Columns["Out_date"];
+                this.columnProid = base.Columns["Proid"];
+                this.columnProduct_id = base.Columns["Product_id"];
+                this.columnProduct_name = base.Columns["Product_name"];
+                this.columnProduct_cksl = base.Columns["Product_cksl"];
+                this.columnProduct_unit = base.Columns["Product_unit"];
+                this.columnCkzl = base.Columns["Ckzl"];
+                this.columnProduct_price = base.Columns["Product_price"];
+                this.columnProduct_total_amount = base.Columns["Product_total_amount"];
+                this.columnOut_remarks = base.Columns["Out_remarks"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnOutid = new global::System.Data.DataColumn("Outid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutid);
+                this.columnCus_id = new global::System.Data.DataColumn("Cus_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCus_id);
+                this.columnCus_name = new global::System.Data.DataColumn("Cus_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCus_name);
+                this.columnOut_date = new global::System.Data.DataColumn("Out_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOut_date);
+                this.columnProid = new global::System.Data.DataColumn("Proid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProid);
+                this.columnProduct_id = new global::System.Data.DataColumn("Product_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_id);
+                this.columnProduct_name = new global::System.Data.DataColumn("Product_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_name);
+                this.columnProduct_cksl = new global::System.Data.DataColumn("Product_cksl", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_cksl);
+                this.columnProduct_unit = new global::System.Data.DataColumn("Product_unit", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_unit);
+                this.columnCkzl = new global::System.Data.DataColumn("Ckzl", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCkzl);
+                this.columnProduct_price = new global::System.Data.DataColumn("Product_price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_price);
+                this.columnProduct_total_amount = new global::System.Data.DataColumn("Product_total_amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_total_amount);
+                this.columnOut_remarks = new global::System.Data.DataColumn("Out_remarks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOut_remarks);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -517,6 +699,370 @@ namespace MTsystem_win.dsControl {
             internal tb_productPrintRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tabletb_productPrint = ((tb_productPrintDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Outid {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.OutidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Outid”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.OutidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cus_id {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.Cus_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Cus_id”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Cus_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cus_name {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.Cus_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Cus_name”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Cus_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Out_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletb_productPrint.Out_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Out_date”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Out_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Proid {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.ProidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Proid”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.ProidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Product_id {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.Product_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_id”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Product_name {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.Product_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_name”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Product_cksl {
+                get {
+                    try {
+                        return ((int)(this[this.tabletb_productPrint.Product_ckslColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_cksl”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_ckslColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Product_unit {
+                get {
+                    try {
+                        return ((int)(this[this.tabletb_productPrint.Product_unitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_unit”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_unitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Ckzl {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_productPrint.CkzlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Ckzl”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.CkzlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Product_price {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_productPrint.Product_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_price”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Product_total_amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabletb_productPrint.Product_total_amountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Product_total_amount”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Product_total_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Out_remarks {
+                get {
+                    try {
+                        return ((string)(this[this.tabletb_productPrint.Out_remarksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“tb_productPrint”中列“Out_remarks”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabletb_productPrint.Out_remarksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOutidNull() {
+                return this.IsNull(this.tabletb_productPrint.OutidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOutidNull() {
+                this[this.tabletb_productPrint.OutidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCus_idNull() {
+                return this.IsNull(this.tabletb_productPrint.Cus_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCus_idNull() {
+                this[this.tabletb_productPrint.Cus_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCus_nameNull() {
+                return this.IsNull(this.tabletb_productPrint.Cus_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCus_nameNull() {
+                this[this.tabletb_productPrint.Cus_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOut_dateNull() {
+                return this.IsNull(this.tabletb_productPrint.Out_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOut_dateNull() {
+                this[this.tabletb_productPrint.Out_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProidNull() {
+                return this.IsNull(this.tabletb_productPrint.ProidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProidNull() {
+                this[this.tabletb_productPrint.ProidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_idNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_idNull() {
+                this[this.tabletb_productPrint.Product_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_nameNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_nameNull() {
+                this[this.tabletb_productPrint.Product_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_ckslNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_ckslColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_ckslNull() {
+                this[this.tabletb_productPrint.Product_ckslColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_unitNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_unitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_unitNull() {
+                this[this.tabletb_productPrint.Product_unitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCkzlNull() {
+                return this.IsNull(this.tabletb_productPrint.CkzlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCkzlNull() {
+                this[this.tabletb_productPrint.CkzlColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_priceNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_priceNull() {
+                this[this.tabletb_productPrint.Product_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProduct_total_amountNull() {
+                return this.IsNull(this.tabletb_productPrint.Product_total_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProduct_total_amountNull() {
+                this[this.tabletb_productPrint.Product_total_amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOut_remarksNull() {
+                return this.IsNull(this.tabletb_productPrint.Out_remarksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOut_remarksNull() {
+                this[this.tabletb_productPrint.Out_remarksColumn] = global::System.Convert.DBNull;
             }
         }
         
