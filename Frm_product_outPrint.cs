@@ -37,6 +37,12 @@ namespace MTsystem_win
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_productPrint"].Load(dr);
 
+                for (int i = 0; i <= 6 - ds.Tables["tb_productPrint"].Rows.Count; i++)
+                {
+                    var row = ds.Tables["tb_productPrint"].NewRow();
+                    ds.Tables["tb_productPrint"].Rows.Add(row);
+                }
+
                 ReportDataSource rds = new ReportDataSource();
                 product_out_reportViewer.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_Report.rdlc";
                 rds.Name = "ds_productoutReportview";
@@ -55,6 +61,8 @@ namespace MTsystem_win
 
         private void Frm_product_outPrint_Load(object sender, EventArgs e)
         {
+            //out_id = "20210424105156";
+            out_id = "20210424093118";
             product_out_reportViewer.Reset();
             outPrint();
             //this.product_out_reportViewer.RefreshReport();
