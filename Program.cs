@@ -15,8 +15,7 @@ namespace MTsystem_win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frm_Login());
-            Application.Run(new Frm_product_outPrint());
+            Application.Run(new frm_Login());
         }
     }
 }

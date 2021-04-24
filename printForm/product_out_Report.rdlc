@@ -119,6 +119,7 @@
                               <Value>=IIf(Fields!Product_id.Value&lt;&gt;"",(Fields!Product_id.Value +" "+Fields!Product_name.Value),"")</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -150,9 +151,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!Product_cksl.Value&lt;&gt;0,(Fields!Product_cksl.Value.ToString()+"×"+Fields!Product_unit.Value.ToString()),0)</Value>
+                              <Value>=IIf(Fields!Product_cksl.Value Is Nothing,"",Fields!Product_cksl.Value &amp; "×" &amp; Fields!Product_unit.Value)</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -173,7 +175,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -188,6 +189,7 @@
                               <Value>=Fields!Ckzl.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -222,6 +224,7 @@
                               <Value>=Fields!Product_price.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -256,6 +259,7 @@
                               <Value>=Fields!Product_total_amount.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -290,6 +294,7 @@
                               <Value>=Fields!Out_remarks.Value</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
+                                <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -337,6 +342,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ds_productoutReportview</DataSetName>
+        <Top>1.5875cm</Top>
         <Left>1.016cm</Left>
         <Height>0.94397cm</Height>
         <Width>16.13769cm</Width>
@@ -367,7 +373,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.2676cm</Top>
+        <Top>2.6326cm</Top>
         <Left>8.33345cm</Left>
         <Height>0.6cm</Height>
         <Width>1.70625cm</Width>
@@ -403,7 +409,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.2676cm</Top>
+        <Top>2.6326cm</Top>
         <Left>11.77241cm</Left>
         <Height>0.6cm</Height>
         <Width>2.49999cm</Width>
@@ -439,7 +445,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.2676cm</Top>
+        <Top>2.6326cm</Top>
         <Left>6.45286cm</Left>
         <Height>0.6cm</Height>
         <Width>1.81209cm</Width>
@@ -455,98 +461,78 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox43">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Cus_name.Value, "ds_productoutReportview")</Value>
+                <Style>
+                  <FontFamily>新宋体</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>0.1076cm</Top>
+        <Left>2.91341cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=FormatDateTime(First(Fields!Out_date.Value, "ds_productoutReportview"),DateFormat.ShortDate)</Value>
+                <Style>
+                  <FontFamily>新宋体</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.1076cm</Top>
+        <Left>13.47536cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.62303in</Height>
+    <Height>1.82095in</Height>
     <Style />
   </Body>
   <Width>7.43652in</Width>
   <Page>
-    <PageHeader>
-      <Height>3.44904cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <ReportItems>
-        <Textbox Name="Textbox43">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!Cus_name.Value, "ds_productoutReportview")</Value>
-                  <Style>
-                    <FontFamily>新宋体</FontFamily>
-                    <FontSize>12pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox43</rd:DefaultName>
-          <Top>2.20874cm</Top>
-          <Left>3.135cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox44">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=FormatDateTime(First(Fields!Out_date.Value, "ds_productoutReportview"),DateFormat.ShortDate)</Value>
-                  <Style>
-                    <FontFamily>新宋体</FontFamily>
-                    <FontSize>12pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox44</rd:DefaultName>
-          <Top>2.20874cm</Top>
-          <Left>13.69695cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>2.54cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>1.5cm</LeftMargin>

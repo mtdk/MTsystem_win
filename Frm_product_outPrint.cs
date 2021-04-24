@@ -65,12 +65,8 @@ namespace MTsystem_win
 
         private void Frm_product_outPrint_Load(object sender, EventArgs e)
         {
-            //out_id = "20210424105156";
-            out_id = "20210417105303";
-            //out_id = "20210424093118";
             product_out_reportViewer.Reset();
             outPrint();
-            //this.product_out_reportViewer.RefreshReport();
         }
     }
 }
