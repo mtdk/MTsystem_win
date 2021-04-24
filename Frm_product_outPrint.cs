@@ -28,6 +28,7 @@ namespace MTsystem_win
         {
             string sqlstr = "SELECT * FROM mtsystemdb.product_out_view WHERE Outid = '" + out_id.ToString().Trim() + "'";
             ds_productoutReportview ds = new ds_productoutReportview();
+            DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             try
@@ -37,10 +38,13 @@ namespace MTsystem_win
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_productPrint"].Load(dr);
 
-                for (int i = 0; i <= 6 - ds.Tables["tb_productPrint"].Rows.Count; i++)
+                if (ds.Tables["tb_productPrint"].Rows.Count < 6)
                 {
-                    var row = ds.Tables["tb_productPrint"].NewRow();
-                    ds.Tables["tb_productPrint"].Rows.Add(row);
+                    for (int i = 6 - (ds.Tables["tb_productPrint"].Rows.Count); i > 0; i--)
+                    {
+                        DataRow dtr = ds.Tables["tb_productPrint"].NewRow();
+                        ds.Tables["tb_productPrint"].Rows.Add(dtr);
+                    }
                 }
 
                 ReportDataSource rds = new ReportDataSource();
@@ -62,7 +66,8 @@ namespace MTsystem_win
         private void Frm_product_outPrint_Load(object sender, EventArgs e)
         {
             //out_id = "20210424105156";
-            out_id = "20210424093118";
+            out_id = "20210417105303";
+            //out_id = "20210424093118";
             product_out_reportViewer.Reset();
             outPrint();
             //this.product_out_reportViewer.RefreshReport();

@@ -116,7 +116,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Product_id.Value +" "+First(Fields!Product_name.Value, "ds_productoutReportview")</Value>
+                              <Value>=IIf(Fields!Product_id.Value&lt;&gt;"",(Fields!Product_id.Value +" "+Fields!Product_name.Value),"")</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
@@ -150,7 +150,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Product_cksl.Value.ToString() + " × " + Fields!Product_unit.Value.ToString()</Value>
+                              <Value>=IIf(Fields!Product_cksl.Value&lt;&gt;0,(Fields!Product_cksl.Value.ToString()+"×"+Fields!Product_unit.Value.ToString()),0)</Value>
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                               </Style>
@@ -173,6 +173,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -329,12 +330,15 @@
           <TablixMembers>
             <TablixMember>
               <Group Name="详细信息" />
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ds_productoutReportview</DataSetName>
         <Left>1.016cm</Left>
-        <Height>0.94396cm</Height>
+        <Height>0.94397cm</Height>
         <Width>16.13769cm</Width>
         <Style>
           <Border>
@@ -452,7 +456,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>1.55914in</Height>
+    <Height>1.62303in</Height>
     <Style />
   </Body>
   <Width>7.43652in</Width>
