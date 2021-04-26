@@ -106,6 +106,11 @@ namespace MTsystem_win
             dgv_OutputView.Rows.Clear();
         }
 
+        /// <summary>
+        /// 查询已有的datagridview表格中是否有相同的记录存在
+        /// </summary>
+        /// <param name="tmp_proid">产品内码</param>
+        /// <returns>0 or 1(0 标识没有相同的记录，1或者各大的数表示有相同记录出现</returns>
         private int theSameRecord(string tmp_proid)
         {
             int t = 0;
@@ -120,11 +125,55 @@ namespace MTsystem_win
         }
 
         /// <summary>
+        /// 数据临时保存到datagridview前的数据完整性校验
+        /// </summary>
+        private void tempInsertJudge()
+        {
+            if (txt_Cusid.Text.Trim().Length != 0)
+            {
+                if (txt_proId.Text.Trim().Length != 0)
+                {
+                    if (dgv_OutputView.RowCount < 6)
+                    {
+                        if (dgv_OutputView.RowCount >= 1)
+                        {
+                            if ((theSameRecord(txt_proId.Text.Trim())) > 0)
+                            {
+                                MessageBox.Show("请不要输入相同的记录！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                tempDateInsert();
+                            }
+                        }
+                        else
+                        {
+                            tempDateInsert();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("最多只能输入6条记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("请输入产品后再提交数据！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("客户不存在，不能保存记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        /// <summary>
         /// 添加数据到datagridview
         /// </summary>
         private void tempDateInsert()
         {
             DataGridViewRow Row = new DataGridViewRow();
+            SetBorderAndGridlineStyles();
             Row.CreateCells(dgv_OutputView);
             Row.Cells[0].Value = txt_proId.Text.Trim();
             Row.Cells[1].Value = txt_productId.Text.Trim();
@@ -141,6 +190,14 @@ namespace MTsystem_win
             ctrlClear();
         }
 
+        private void SetBorderAndGridlineStyles()
+        {
+            this.dgv_OutputView.GridColor = Color.Black;    //datagridview网格线颜色
+            this.dgv_OutputView.BorderStyle = BorderStyle.FixedSingle;  //datagridview边框样式
+            this.dgv_OutputView.CellBorderStyle = DataGridViewCellBorderStyle.Single;   //单元格边框样式
+            this.dgv_OutputView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;   //行标题单元格样式
+            this.dgv_OutputView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;    //列标题边框样式
+        }
         /// <summary>
         /// 总数量和总重量统计
         /// </summary>
@@ -148,13 +205,17 @@ namespace MTsystem_win
         {
             decimal sumTotalweight = 0;
             int sumTotalnumber = 0;
+            decimal sumTotalmoney = 0;
             for (int i = 0; i < dgv_OutputView.RowCount; i++)
             {
                 sumTotalnumber += Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim());
-                sumTotalweight += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim());
+                sumTotalweight += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[5].Value.ToString().Trim());
+                sumTotalmoney += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim());
+
             }
             label11.Text = sumTotalnumber.ToString();
             label13.Text = sumTotalweight.ToString();
+            label20.Text = sumTotalmoney.ToString();
         }
 
         /// <summary>
@@ -313,6 +374,9 @@ namespace MTsystem_win
                     transaction.Commit();
                     conn.Close();
                     MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Frm_product_outPrint fpoutprint = new Frm_product_outPrint();
+                    fpoutprint.out_id = txt_outputid.Text.Trim();
+                    fpoutprint.ShowDialog();
                     AllClear();
                     newOutputid();
                 }
@@ -526,30 +590,10 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                if (dgv_OutputView.RowCount < 5)
-                {
-                    if (dgv_OutputView.RowCount >= 1)
-                    {
-                        if ((theSameRecord(txt_proId.Text.Trim()))>0)
-                        {
-                            MessageBox.Show("请不要输入相同的记录！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            tempDateInsert();
-                        }
-                    }
-                    else
-                    {
-                        tempDateInsert();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("最多只能输入5条记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                tempInsertJudge();
             }
         }
+
 
         private void dgv_OutputView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
@@ -566,7 +610,19 @@ namespace MTsystem_win
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            dataInsert();
+            if (dgv_OutputView.RowCount > 0)
+            {
+                dataInsert();
+            }
+            else
+            {
+                MessageBox.Show("没有数据记录可以保存的！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_tempInsert_Click(object sender, EventArgs e)
+        {
+            tempInsertJudge();
         }
 
     }

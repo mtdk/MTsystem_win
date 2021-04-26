@@ -54,7 +54,7 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.3\Assemblies\v4.0\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.8.3\Assemblies\v4.0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,6 +89,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ds_product.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsControl\ds_productoutReportview.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
     </Compile>
     <Compile Include="Frm_cailiaojincang.cs">
       <SubType>Form</SubType>
@@ -246,6 +251,12 @@
     <Compile Include="Frm_product_input_update.Designer.cs">
       <DependentUpon>Frm_product_input_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_product_outPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_outPrint.Designer.cs">
+      <DependentUpon>Frm_product_outPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_product_output.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +268,12 @@
     </Compile>
     <Compile Include="Frm_product_taginput.Designer.cs">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_proPriceUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_proPriceUpdate.Designer.cs">
+      <DependentUpon>Frm_proPriceUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Supplier_info.cs">
       <SubType>Form</SubType>
@@ -350,11 +367,17 @@
     <EmbeddedResource Include="Frm_product_input_update.resx">
       <DependentUpon>Frm_product_input_update.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_outPrint.resx">
+      <DependentUpon>Frm_product_outPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_output.resx">
       <DependentUpon>Frm_product_output.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_taginput.resx">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_proPriceUpdate.resx">
+      <DependentUpon>Frm_proPriceUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Supplier_info.resx">
       <DependentUpon>Frm_Supplier_info.cs</DependentUpon>
@@ -368,6 +391,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="printForm\mat_dayoutReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
+    <EmbeddedResource Include="printForm\product_out_Report.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview_a.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -411,6 +435,17 @@
     </None>
     <None Include="dsControl\ds_product.xss">
       <DependentUpon>ds_product.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xsc">
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_productoutReportview.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsControl\ds_productoutReportview.xss">
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

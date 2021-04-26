@@ -57,9 +57,10 @@
             this.tms_ReportView = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
+            this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_price_update = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,7 +195,7 @@
             // cus_info_input
             // 
             this.cus_info_input.Name = "cus_info_input";
-            this.cus_info_input.Size = new System.Drawing.Size(150, 24);
+            this.cus_info_input.Size = new System.Drawing.Size(152, 24);
             this.cus_info_input.Text = "客户信息";
             this.cus_info_input.Click += new System.EventHandler(this.cus_info_input_Click);
             // 
@@ -206,7 +207,7 @@
             this.mat_giveback,
             this.mat_Basestock});
             this.tsm_Material.Name = "tsm_Material";
-            this.tsm_Material.Size = new System.Drawing.Size(150, 24);
+            this.tsm_Material.Size = new System.Drawing.Size(152, 24);
             this.tsm_Material.Text = "原材料";
             // 
             // tsmi_mat_In
@@ -243,9 +244,10 @@
             this.pro_info_input,
             this.pro_input,
             this.pro_input_update,
-            this.pro_output});
+            this.pro_output,
+            this.pro_price_update});
             this.tsm_Product.Name = "tsm_Product";
-            this.tsm_Product.Size = new System.Drawing.Size(150, 24);
+            this.tsm_Product.Size = new System.Drawing.Size(152, 24);
             this.tsm_Product.Text = "产品";
             // 
             // pro_info_input
@@ -282,7 +284,7 @@
             this.mat_Dayreport,
             this.mat_stock_Report});
             this.tms_ReportView.Name = "tms_ReportView";
-            this.tms_ReportView.Size = new System.Drawing.Size(150, 24);
+            this.tms_ReportView.Size = new System.Drawing.Size(152, 24);
             this.tms_ReportView.Text = "报表";
             // 
             // mat_Dayreport
@@ -299,6 +301,13 @@
             this.mat_stock_Report.Text = "材料库存报表";
             this.mat_stock_Report.Click += new System.EventHandler(this.mat_stock_Report_Click);
             // 
+            // envelope_print
+            // 
+            this.envelope_print.Name = "envelope_print";
+            this.envelope_print.Size = new System.Drawing.Size(93, 23);
+            this.envelope_print.Text = "信封打印";
+            this.envelope_print.Click += new System.EventHandler(this.envelope_print_Click);
+            // 
             // tag_Item
             // 
             this.tag_Item.Name = "tag_Item";
@@ -313,12 +322,12 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // envelope_print
+            // pro_price_update
             // 
-            this.envelope_print.Name = "envelope_print";
-            this.envelope_print.Size = new System.Drawing.Size(93, 23);
-            this.envelope_print.Text = "信封打印";
-            this.envelope_print.Click += new System.EventHandler(this.envelope_print_Click);
+            this.pro_price_update.Name = "pro_price_update";
+            this.pro_price_update.Size = new System.Drawing.Size(231, 24);
+            this.pro_price_update.Text = "产品价格维护";
+            this.pro_price_update.Click += new System.EventHandler(this.pro_price_update_Click);
             // 
             // Frm_main
             // 
@@ -376,5 +385,6 @@
         private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
         private System.Windows.Forms.ToolStripMenuItem pro_input_update;
         private System.Windows.Forms.ToolStripMenuItem envelope_print;
+        private System.Windows.Forms.ToolStripMenuItem pro_price_update;
     }
 }
