@@ -321,7 +321,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -351,7 +350,7 @@
         <DataSetName>ds_productoutReportview</DataSetName>
         <Top>2.88925cm</Top>
         <Left>1.016cm</Left>
-        <Height>0.91751cm</Height>
+        <Height>0.9175cm</Height>
         <Width>17.56644cm</Width>
         <Style>
           <Border>
@@ -400,10 +399,11 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=FormatDateTime(First(Fields!Out_date.Value, "ds_productoutReportview"),DateFormat.ShortDate)</Value>
+                <Value>=CDate(First(Fields!Out_date.Value, "ds_productoutReportview"))</Value>
                 <Style>
                   <FontFamily>新宋体</FontFamily>
                   <FontSize>12pt</FontSize>
+                  <Format>yyyy'年'M'月'd'日'</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -414,7 +414,7 @@
         <Top>1.6951cm</Top>
         <Left>13.53886cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>3.79646cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>

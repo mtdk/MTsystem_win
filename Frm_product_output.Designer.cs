@@ -61,6 +61,15 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.dgv_OutputView = new System.Windows.Forms.DataGridView();
+            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.小计 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,15 +82,6 @@
             this.txt_productName = new System.Windows.Forms.TextBox();
             this.txt_productId = new System.Windows.Forms.TextBox();
             this.txt_proId = new System.Windows.Forms.TextBox();
-            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.小计 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OutputView)).BeginInit();
@@ -273,7 +273,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Blue;
-            this.label17.Location = new System.Drawing.Point(1165, 30);
+            this.label17.Location = new System.Drawing.Point(1133, 30);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(45, 19);
             this.label17.TabIndex = 20;
@@ -281,13 +281,14 @@
             // 
             // txt_Remarks
             // 
+            this.txt_Remarks.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.txt_Remarks.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Remarks.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_Remarks.Location = new System.Drawing.Point(1103, 53);
+            this.txt_Remarks.Location = new System.Drawing.Point(1039, 53);
             this.txt_Remarks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Remarks.MaxLength = 15;
             this.txt_Remarks.Name = "txt_Remarks";
-            this.txt_Remarks.Size = new System.Drawing.Size(168, 30);
+            this.txt_Remarks.Size = new System.Drawing.Size(232, 30);
             this.txt_Remarks.TabIndex = 5;
             this.txt_Remarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Remarks_KeyPress);
             // 
@@ -295,7 +296,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.Blue;
-            this.label16.Location = new System.Drawing.Point(1031, 30);
+            this.label16.Location = new System.Drawing.Point(948, 30);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(45, 19);
             this.label16.TabIndex = 19;
@@ -303,13 +304,14 @@
             // 
             // txt_AmountMoney
             // 
+            this.txt_AmountMoney.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.txt_AmountMoney.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_AmountMoney.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_AmountMoney.Location = new System.Drawing.Point(1003, 53);
+            this.txt_AmountMoney.Location = new System.Drawing.Point(901, 53);
             this.txt_AmountMoney.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_AmountMoney.Name = "txt_AmountMoney";
             this.txt_AmountMoney.ReadOnly = true;
-            this.txt_AmountMoney.Size = new System.Drawing.Size(100, 30);
+            this.txt_AmountMoney.Size = new System.Drawing.Size(138, 30);
             this.txt_AmountMoney.TabIndex = 21;
             this.txt_AmountMoney.Text = "0";
             // 
@@ -317,7 +319,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(952, 30);
+            this.label15.Location = new System.Drawing.Point(841, 30);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(45, 19);
             this.label15.TabIndex = 18;
@@ -325,12 +327,13 @@
             // 
             // txt_Price
             // 
+            this.txt_Price.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.txt_Price.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Price.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_Price.Location = new System.Drawing.Point(928, 53);
+            this.txt_Price.Location = new System.Drawing.Point(825, 53);
             this.txt_Price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Price.Name = "txt_Price";
-            this.txt_Price.Size = new System.Drawing.Size(75, 30);
+            this.txt_Price.Size = new System.Drawing.Size(76, 30);
             this.txt_Price.TabIndex = 4;
             this.txt_Price.Text = "0";
             this.txt_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Price_KeyPress);
@@ -442,137 +445,6 @@
             this.dgv_OutputView.TabIndex = 7;
             this.dgv_OutputView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_OutputView_RowsRemoved);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(855, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 19);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "重量";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(737, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 19);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "规格";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(637, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "数量";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(386, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 19);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "产品名称";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(135, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 19);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "产品编号";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Blue;
-            this.label14.Location = new System.Drawing.Point(16, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 19);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "系统编码";
-            // 
-            // txt_OutputWeight
-            // 
-            this.txt_OutputWeight.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_OutputWeight.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_OutputWeight.Location = new System.Drawing.Point(809, 53);
-            this.txt_OutputWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_OutputWeight.Name = "txt_OutputWeight";
-            this.txt_OutputWeight.ReadOnly = true;
-            this.txt_OutputWeight.Size = new System.Drawing.Size(120, 30);
-            this.txt_OutputWeight.TabIndex = 3;
-            this.txt_OutputWeight.Text = "0";
-            // 
-            // txt_OutputUnit
-            // 
-            this.txt_OutputUnit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_OutputUnit.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_OutputUnit.Location = new System.Drawing.Point(709, 53);
-            this.txt_OutputUnit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_OutputUnit.Name = "txt_OutputUnit";
-            this.txt_OutputUnit.Size = new System.Drawing.Size(100, 30);
-            this.txt_OutputUnit.TabIndex = 2;
-            this.txt_OutputUnit.Text = "0";
-            this.txt_OutputUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OutputUnit_KeyPress);
-            this.txt_OutputUnit.Leave += new System.EventHandler(this.txt_OutputUnit_Leave);
-            // 
-            // txt_OutputNum
-            // 
-            this.txt_OutputNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_OutputNum.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_OutputNum.Location = new System.Drawing.Point(609, 53);
-            this.txt_OutputNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_OutputNum.Name = "txt_OutputNum";
-            this.txt_OutputNum.Size = new System.Drawing.Size(100, 30);
-            this.txt_OutputNum.TabIndex = 1;
-            this.txt_OutputNum.Text = "0";
-            this.txt_OutputNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OutputNum_KeyPress);
-            this.txt_OutputNum.Leave += new System.EventHandler(this.txt_OutputNum_Leave);
-            // 
-            // txt_productName
-            // 
-            this.txt_productName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_productName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_productName.Location = new System.Drawing.Point(244, 53);
-            this.txt_productName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_productName.Name = "txt_productName";
-            this.txt_productName.ReadOnly = true;
-            this.txt_productName.Size = new System.Drawing.Size(365, 30);
-            this.txt_productName.TabIndex = 0;
-            // 
-            // txt_productId
-            // 
-            this.txt_productId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_productId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_productId.Location = new System.Drawing.Point(106, 53);
-            this.txt_productId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_productId.Name = "txt_productId";
-            this.txt_productId.Size = new System.Drawing.Size(138, 30);
-            this.txt_productId.TabIndex = 13;
-            this.txt_productId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_productId_KeyPress);
-            // 
-            // txt_proId
-            // 
-            this.txt_proId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_proId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_proId.Location = new System.Drawing.Point(6, 53);
-            this.txt_proId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_proId.Name = "txt_proId";
-            this.txt_proId.ReadOnly = true;
-            this.txt_proId.Size = new System.Drawing.Size(100, 30);
-            this.txt_proId.TabIndex = 11;
-            // 
             // 系统编码
             // 
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
@@ -634,6 +506,143 @@
             this.备注.HeaderText = "备注";
             this.备注.Name = "备注";
             this.备注.ReadOnly = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(743, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 19);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "重量";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.Location = new System.Drawing.Point(659, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 19);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "规格";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(611, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 19);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "数量";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(386, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 19);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "产品名称";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(135, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 19);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "产品编号";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Blue;
+            this.label14.Location = new System.Drawing.Point(16, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 19);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "系统编码";
+            // 
+            // txt_OutputWeight
+            // 
+            this.txt_OutputWeight.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_OutputWeight.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_OutputWeight.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_OutputWeight.Location = new System.Drawing.Point(705, 53);
+            this.txt_OutputWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_OutputWeight.Name = "txt_OutputWeight";
+            this.txt_OutputWeight.ReadOnly = true;
+            this.txt_OutputWeight.Size = new System.Drawing.Size(120, 30);
+            this.txt_OutputWeight.TabIndex = 3;
+            this.txt_OutputWeight.Text = "0";
+            // 
+            // txt_OutputUnit
+            // 
+            this.txt_OutputUnit.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_OutputUnit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_OutputUnit.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_OutputUnit.Location = new System.Drawing.Point(657, 53);
+            this.txt_OutputUnit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_OutputUnit.Name = "txt_OutputUnit";
+            this.txt_OutputUnit.Size = new System.Drawing.Size(48, 30);
+            this.txt_OutputUnit.TabIndex = 2;
+            this.txt_OutputUnit.Text = "0";
+            this.txt_OutputUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OutputUnit_KeyPress);
+            this.txt_OutputUnit.Leave += new System.EventHandler(this.txt_OutputUnit_Leave);
+            // 
+            // txt_OutputNum
+            // 
+            this.txt_OutputNum.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_OutputNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_OutputNum.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_OutputNum.Location = new System.Drawing.Point(609, 53);
+            this.txt_OutputNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_OutputNum.Name = "txt_OutputNum";
+            this.txt_OutputNum.Size = new System.Drawing.Size(48, 30);
+            this.txt_OutputNum.TabIndex = 1;
+            this.txt_OutputNum.Text = "0";
+            this.txt_OutputNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OutputNum_KeyPress);
+            this.txt_OutputNum.Leave += new System.EventHandler(this.txt_OutputNum_Leave);
+            // 
+            // txt_productName
+            // 
+            this.txt_productName.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_productName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_productName.Location = new System.Drawing.Point(244, 53);
+            this.txt_productName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_productName.Name = "txt_productName";
+            this.txt_productName.ReadOnly = true;
+            this.txt_productName.Size = new System.Drawing.Size(365, 30);
+            this.txt_productName.TabIndex = 0;
+            // 
+            // txt_productId
+            // 
+            this.txt_productId.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_productId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productId.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_productId.Location = new System.Drawing.Point(106, 53);
+            this.txt_productId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_productId.Name = "txt_productId";
+            this.txt_productId.Size = new System.Drawing.Size(138, 30);
+            this.txt_productId.TabIndex = 13;
+            this.txt_productId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_productId_KeyPress);
+            // 
+            // txt_proId
+            // 
+            this.txt_proId.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.txt_proId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_proId.ForeColor = System.Drawing.Color.DarkCyan;
+            this.txt_proId.Location = new System.Drawing.Point(6, 53);
+            this.txt_proId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_proId.Name = "txt_proId";
+            this.txt_proId.ReadOnly = true;
+            this.txt_proId.Size = new System.Drawing.Size(100, 30);
+            this.txt_proId.TabIndex = 11;
             // 
             // Frm_product_output
             // 
