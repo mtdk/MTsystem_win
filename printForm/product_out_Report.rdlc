@@ -321,7 +321,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -349,9 +348,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ds_productoutReportview</DataSetName>
-        <Top>2.88925cm</Top>
+        <Top>0.41275cm</Top>
         <Left>1.016cm</Left>
-        <Height>0.91751cm</Height>
+        <Height>0.9175cm</Height>
         <Width>17.56644cm</Width>
         <Style>
           <Border>
@@ -360,78 +359,90 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox43">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Cus_name.Value, "ds_productoutReportview")</Value>
-                <Style>
-                  <FontFamily>新宋体</FontFamily>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox43</rd:DefaultName>
-        <Top>1.6951cm</Top>
-        <Left>3.10391cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox44">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=FormatDateTime(First(Fields!Out_date.Value, "ds_productoutReportview"),DateFormat.ShortDate)</Value>
-                <Style>
-                  <FontFamily>新宋体</FontFamily>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.6951cm</Top>
-        <Left>13.53886cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
-    <Height>1.49872in</Height>
+    <Height>0.52372in</Height>
     <Style />
   </Body>
   <Width>7.43652in</Width>
   <Page>
+    <PageHeader>
+      <Height>2.5225cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox43">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Cus_name.Value, "ds_productoutReportview")</Value>
+                  <Style>
+                    <FontFamily>新宋体</FontFamily>
+                    <FontSize>12pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox43</rd:DefaultName>
+          <Top>1.9225cm</Top>
+          <Left>3.28118cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox44">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=CDate(First(Fields!Out_date.Value, "ds_productoutReportview"))</Value>
+                  <Style>
+                    <FontFamily>新宋体</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <Format>yyyy'年'M'月'd'日'</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox44</rd:DefaultName>
+          <Top>1.9225cm</Top>
+          <Left>13.71613cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.79646cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
     <PageFooter>
       <Height>0.6cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
@@ -457,6 +468,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>8.33221cm</Left>
           <Height>0.6cm</Height>
           <Width>1.70625cm</Width>
@@ -491,6 +503,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>11.77116cm</Left>
           <Height>0.6cm</Height>
           <Width>2.49999cm</Width>
@@ -526,6 +539,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>6.52261cm</Left>
           <Height>0.6cm</Height>
           <Width>1.8096cm</Width>
