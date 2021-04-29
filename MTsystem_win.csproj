@@ -391,6 +391,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="printForm\mat_dayoutReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
+    <EmbeddedResource Include="printForm\product_out_DayReport.rdlc" />
     <EmbeddedResource Include="printForm\product_out_Report.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview_a.rdlc" />
