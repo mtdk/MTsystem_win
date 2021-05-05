@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_CusId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_CusName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_CusId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_productPrice = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -53,6 +53,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户选择区";
             // 
+            // txt_CusName
+            // 
+            this.txt_CusName.Location = new System.Drawing.Point(319, 28);
+            this.txt_CusName.Name = "txt_CusName";
+            this.txt_CusName.Size = new System.Drawing.Size(305, 26);
+            this.txt_CusName.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(223, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "客户名称:";
+            // 
+            // txt_CusId
+            // 
+            this.txt_CusId.Location = new System.Drawing.Point(102, 28);
+            this.txt_CusId.Name = "txt_CusId";
+            this.txt_CusId.ReadOnly = true;
+            this.txt_CusId.Size = new System.Drawing.Size(115, 26);
+            this.txt_CusId.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "客户编号:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgv_productPrice);
@@ -62,39 +95,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "结果选择区";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "客户编号:";
-            // 
-            // txt_CusId
-            // 
-            this.txt_CusId.Location = new System.Drawing.Point(102, 28);
-            this.txt_CusId.Name = "txt_CusId";
-            this.txt_CusId.ReadOnly = true;
-            this.txt_CusId.Size = new System.Drawing.Size(115, 26);
-            this.txt_CusId.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "客户名称:";
-            // 
-            // txt_CusName
-            // 
-            this.txt_CusName.Location = new System.Drawing.Point(319, 28);
-            this.txt_CusName.Name = "txt_CusName";
-            this.txt_CusName.Size = new System.Drawing.Size(305, 26);
-            this.txt_CusName.TabIndex = 3;
             // 
             // dgv_productPrice
             // 

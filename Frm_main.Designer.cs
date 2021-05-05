@@ -54,13 +54,13 @@
             this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_input_update = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_price_update = new System.Windows.Forms.ToolStripMenuItem();
-            this.tms_ReportView = new System.Windows.Forms.ToolStripMenuItem();
-            this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
             this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tms_ReportView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             this.sale_Item,
             this.workshop_Item,
             this.warehouse_Item,
+            this.tms_ReportView,
             this.pro_output,
             this.envelope_print,
             this.tag_Item,
@@ -187,8 +188,7 @@
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cus_info_input,
             this.tsm_Material,
-            this.tsm_Product,
-            this.tms_ReportView});
+            this.tsm_Product});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
@@ -278,29 +278,6 @@
             this.pro_price_update.Text = "产品价格维护";
             this.pro_price_update.Click += new System.EventHandler(this.pro_price_update_Click);
             // 
-            // tms_ReportView
-            // 
-            this.tms_ReportView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mat_Dayreport,
-            this.mat_stock_Report});
-            this.tms_ReportView.Name = "tms_ReportView";
-            this.tms_ReportView.Size = new System.Drawing.Size(152, 24);
-            this.tms_ReportView.Text = "报表";
-            // 
-            // mat_Dayreport
-            // 
-            this.mat_Dayreport.Name = "mat_Dayreport";
-            this.mat_Dayreport.Size = new System.Drawing.Size(186, 24);
-            this.mat_Dayreport.Text = "材料日报表";
-            this.mat_Dayreport.Click += new System.EventHandler(this.mat_Dayreport_Click);
-            // 
-            // mat_stock_Report
-            // 
-            this.mat_stock_Report.Name = "mat_stock_Report";
-            this.mat_stock_Report.Size = new System.Drawing.Size(186, 24);
-            this.mat_stock_Report.Text = "材料库存报表";
-            this.mat_stock_Report.Click += new System.EventHandler(this.mat_stock_Report_Click);
-            // 
             // pro_output
             // 
             this.pro_output.Name = "pro_output";
@@ -328,6 +305,29 @@
             this.sys_exit.Size = new System.Drawing.Size(93, 23);
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
+            // 
+            // tms_ReportView
+            // 
+            this.tms_ReportView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mat_Dayreport,
+            this.mat_stock_Report});
+            this.tms_ReportView.Name = "tms_ReportView";
+            this.tms_ReportView.Size = new System.Drawing.Size(57, 23);
+            this.tms_ReportView.Text = "报表";
+            // 
+            // mat_Dayreport
+            // 
+            this.mat_Dayreport.Name = "mat_Dayreport";
+            this.mat_Dayreport.Size = new System.Drawing.Size(186, 24);
+            this.mat_Dayreport.Text = "材料日报表";
+            this.mat_Dayreport.Click += new System.EventHandler(this.mat_Dayreport_Click);
+            // 
+            // mat_stock_Report
+            // 
+            this.mat_stock_Report.Name = "mat_stock_Report";
+            this.mat_stock_Report.Size = new System.Drawing.Size(186, 24);
+            this.mat_stock_Report.Text = "材料库存报表";
+            this.mat_stock_Report.Click += new System.EventHandler(this.mat_stock_Report_Click);
             // 
             // Frm_main
             // 
@@ -379,12 +379,12 @@
         private System.Windows.Forms.ToolStripMenuItem mat_Basestock;
         private System.Windows.Forms.ToolStripMenuItem pro_info_input;
         private System.Windows.Forms.ToolStripMenuItem pro_input;
-        private System.Windows.Forms.ToolStripMenuItem tms_ReportView;
-        private System.Windows.Forms.ToolStripMenuItem mat_stock_Report;
-        private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
         private System.Windows.Forms.ToolStripMenuItem pro_input_update;
         private System.Windows.Forms.ToolStripMenuItem envelope_print;
         private System.Windows.Forms.ToolStripMenuItem pro_price_update;
         private System.Windows.Forms.ToolStripMenuItem pro_output;
+        private System.Windows.Forms.ToolStripMenuItem tms_ReportView;
+        private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
+        private System.Windows.Forms.ToolStripMenuItem mat_stock_Report;
     }
 }

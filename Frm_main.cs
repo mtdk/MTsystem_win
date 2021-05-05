@@ -263,21 +263,21 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品出仓窗口验证
+        /// 产品进仓修改窗口验证
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pro_output_Click(object sender, EventArgs e)
+        private void pro_input_update_Click(object sender, EventArgs e)
         {
             if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-                    if (frmShowstatus._Frmproductoutput == "CLOSE" || frmShowstatus._Frmproductoutput == null)
+                    if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
                     {
-                        Frm_product_output frmprooutput = new Frm_product_output();
-                        frmprooutput.MdiParent = this;
-                        frmprooutput.Show();
+                        Frm_product_input_update frm_pro_input_update = new Frm_product_input_update();
+                        frm_pro_input_update.MdiParent = this;
+                        frm_pro_input_update.Show();
                     }
                 }
                 else
@@ -379,21 +379,21 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品进仓修改窗口验证
+        /// 产品出仓窗口验证
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pro_input_update_Click(object sender, EventArgs e)
+        private void pro_output_Click(object sender, EventArgs e)
         {
             if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-                    if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
+                    if (frmShowstatus._Frmproductoutput == "CLOSE" || frmShowstatus._Frmproductoutput == null)
                     {
-                        Frm_product_input_update frm_pro_input_update = new Frm_product_input_update();
-                        frm_pro_input_update.MdiParent = this;
-                        frm_pro_input_update.Show();
+                        Frm_product_output frmprooutput = new Frm_product_output();
+                        frmprooutput.MdiParent = this;
+                        frmprooutput.Show();
                     }
                 }
                 else
