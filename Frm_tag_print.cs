@@ -49,13 +49,17 @@ namespace MTsystem_win
                 ds.Tables["tag_print"].Load(dr);
 
                 ReportDataSource rds = new ReportDataSource();
-                if (rdb_printSelectA.Checked==true)
+                if (rdb_printSelectA.Checked == true)
                 {
                     tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview.rdlc";
                 }
-                else
+                else if (rdb_printSelectB.Checked == true)
                 {
                     tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_a.rdlc";
+                }
+                else
+                {
+                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_b.rdlc";
                 }
                 rds.Name = "ds_product";
                 rds.Value = ds.Tables["tag_print"];
@@ -67,7 +71,7 @@ namespace MTsystem_win
                 this.tagPrint_reportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 this.tagPrint_reportview.ZoomMode = ZoomMode.PageWidth;
                 this.tagPrint_reportview.ZoomPercent = 100;
-                this.tagPrint_reportview.RefreshReport();                
+                this.tagPrint_reportview.RefreshReport();
             }
             catch (MySqlException ex)
             {

@@ -33,12 +33,14 @@
             this.rdb_printSelectA = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tagPrint_reportview = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rdb_printSelectC = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdb_printSelectC);
             this.groupBox1.Controls.Add(this.rdb_printSelectB);
             this.groupBox1.Controls.Add(this.rdb_printSelectA);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -103,6 +105,18 @@
             this.tagPrint_reportview.TabIndex = 1;
             this.tagPrint_reportview.PrintingBegin += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.tagPrint_reportview_PrintingBegin);
             // 
+            // rdb_printSelectC
+            // 
+            this.rdb_printSelectC.AutoSize = true;
+            this.rdb_printSelectC.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_printSelectC.Location = new System.Drawing.Point(291, 27);
+            this.rdb_printSelectC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdb_printSelectC.Name = "rdb_printSelectC";
+            this.rdb_printSelectC.Size = new System.Drawing.Size(130, 20);
+            this.rdb_printSelectC.TabIndex = 5;
+            this.rdb_printSelectC.Text = "ESPON LQ-630K";
+            this.rdb_printSelectC.UseVisualStyleBackColor = true;
+            // 
             // Frm_tag_print
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -133,5 +147,6 @@
         private System.Windows.Forms.RadioButton rdb_printSelectA;
         private System.Windows.Forms.GroupBox groupBox2;
         private Microsoft.Reporting.WinForms.ReportViewer tagPrint_reportview;
+        private System.Windows.Forms.RadioButton rdb_printSelectC;
     }
 }
