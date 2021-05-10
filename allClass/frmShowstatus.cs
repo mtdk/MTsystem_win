@@ -89,7 +89,18 @@ namespace MTsystem_win.allClass
             set { _frdmsrv = value; }
             get { return _frdmsrv; }
         }
-
+        /// <summary>
+        /// 产品出仓报表窗口
+        /// </summary>
+        private static string _frmproductoutputreport;
+        /// <summary>
+        /// 产品出仓报表窗口
+        /// </summary>
+        public static string _Frmproductoutputreport
+        {
+            set { _frmproductoutputreport = value; }
+            get { return _frmproductoutputreport; }
+        }
         /// <summary>
         /// 产品信息录入窗口
         /// </summary>

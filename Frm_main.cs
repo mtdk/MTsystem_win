@@ -634,5 +634,29 @@ namespace MTsystem_win
         }
         #endregion
 
+        private void pro_all_report_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductoutputreport == "CLOSE" || frmShowstatus._Frmproductoutputreport == null)
+                    {
+                        Frm_product_outputReport Frmprooutreoprt = new Frm_product_outputReport();
+                        Frmprooutreoprt.MdiParent = this;
+                        Frmprooutreoprt.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
 }

@@ -263,6 +263,12 @@
     <Compile Include="Frm_product_output.Designer.cs">
       <DependentUpon>Frm_product_output.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_product_outputReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_product_outputReport.Designer.cs">
+      <DependentUpon>Frm_product_outputReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_product_taginput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,9 @@
     <EmbeddedResource Include="Frm_product_output.resx">
       <DependentUpon>Frm_product_output.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_product_outputReport.resx">
+      <DependentUpon>Frm_product_outputReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_product_taginput.resx">
       <DependentUpon>Frm_product_taginput.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,7 +400,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="printForm\mat_dayoutReportview.rdlc" />
     <EmbeddedResource Include="printForm\mat_stockReportview.rdlc" />
-    <EmbeddedResource Include="printForm\product_out_DayReport.rdlc" />
+    <EmbeddedResource Include="printForm\product_out_OutReport.rdlc" />
     <EmbeddedResource Include="printForm\product_out_Report.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview_a.rdlc" />
