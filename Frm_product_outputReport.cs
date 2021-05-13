@@ -26,7 +26,7 @@ namespace MTsystem_win
 
         private void outPrint()
         {
-            string sqlstr = "SELECT * FROM mtsystemdb.product_out_view";
+            string sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view";
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);

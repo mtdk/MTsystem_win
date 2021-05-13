@@ -90,6 +90,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ds_product.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsControl\ds_productoutReportview.cs">
+      <DependentUpon>ds_productoutReportview.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dsControl\ds_productoutReportview.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

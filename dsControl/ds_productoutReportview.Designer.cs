@@ -729,15 +729,11 @@ namespace MTsystem_win.dsControl {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class tb_productAllReportDataTable : global::System.Data.TypedTableBase<tb_productAllReportRow> {
             
-            private global::System.Data.DataColumn columnOutid;
-            
-            private global::System.Data.DataColumn columnCus_id;
+            private global::System.Data.DataColumn columnOutput_id;
             
             private global::System.Data.DataColumn columnCus_name;
             
             private global::System.Data.DataColumn columnOut_date;
-            
-            private global::System.Data.DataColumn columnProid;
             
             private global::System.Data.DataColumn columnProduct_id;
             
@@ -790,17 +786,9 @@ namespace MTsystem_win.dsControl {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn OutidColumn {
+            public global::System.Data.DataColumn Output_idColumn {
                 get {
-                    return this.columnOutid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cus_idColumn {
-                get {
-                    return this.columnCus_id;
+                    return this.columnOutput_id;
                 }
             }
             
@@ -817,14 +805,6 @@ namespace MTsystem_win.dsControl {
             public global::System.Data.DataColumn Out_dateColumn {
                 get {
                     return this.columnOut_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ProidColumn {
-                get {
-                    return this.columnProid;
                 }
             }
             
@@ -929,14 +909,12 @@ namespace MTsystem_win.dsControl {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tb_productAllReportRow Addtb_productAllReportRow(string Outid, string Cus_id, string Cus_name, System.DateTime Out_date, string Proid, string Product_id, string Product_name, int Product_cksl, int Product_unit, decimal Ckzl, decimal Product_price, decimal Product_total_amount, string Out_remarks) {
+            public tb_productAllReportRow Addtb_productAllReportRow(string Output_id, string Cus_name, System.DateTime Out_date, string Product_id, string Product_name, int Product_cksl, int Product_unit, decimal Ckzl, decimal Product_price, decimal Product_total_amount, string Out_remarks) {
                 tb_productAllReportRow rowtb_productAllReportRow = ((tb_productAllReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Outid,
-                        Cus_id,
+                        Output_id,
                         Cus_name,
                         Out_date,
-                        Proid,
                         Product_id,
                         Product_name,
                         Product_cksl,
@@ -967,11 +945,9 @@ namespace MTsystem_win.dsControl {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnOutid = base.Columns["Outid"];
-                this.columnCus_id = base.Columns["Cus_id"];
+                this.columnOutput_id = base.Columns["Output_id"];
                 this.columnCus_name = base.Columns["Cus_name"];
                 this.columnOut_date = base.Columns["Out_date"];
-                this.columnProid = base.Columns["Proid"];
                 this.columnProduct_id = base.Columns["Product_id"];
                 this.columnProduct_name = base.Columns["Product_name"];
                 this.columnProduct_cksl = base.Columns["Product_cksl"];
@@ -985,16 +961,12 @@ namespace MTsystem_win.dsControl {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnOutid = new global::System.Data.DataColumn("Outid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOutid);
-                this.columnCus_id = new global::System.Data.DataColumn("Cus_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCus_id);
+                this.columnOutput_id = new global::System.Data.DataColumn("Output_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutput_id);
                 this.columnCus_name = new global::System.Data.DataColumn("Cus_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCus_name);
                 this.columnOut_date = new global::System.Data.DataColumn("Out_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOut_date);
-                this.columnProid = new global::System.Data.DataColumn("Proid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProid);
                 this.columnProduct_id = new global::System.Data.DataColumn("Product_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_id);
                 this.columnProduct_name = new global::System.Data.DataColumn("Product_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1532,33 +1504,17 @@ namespace MTsystem_win.dsControl {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Outid {
+            public string Output_id {
                 get {
                     try {
-                        return ((string)(this[this.tabletb_productAllReport.OutidColumn]));
+                        return ((string)(this[this.tabletb_productAllReport.Output_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“tb_productAllReport”中列“Outid”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“tb_productAllReport”中列“Output_id”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabletb_productAllReport.OutidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cus_id {
-                get {
-                    try {
-                        return ((string)(this[this.tabletb_productAllReport.Cus_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“tb_productAllReport”中列“Cus_id”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletb_productAllReport.Cus_idColumn] = value;
+                    this[this.tabletb_productAllReport.Output_idColumn] = value;
                 }
             }
             
@@ -1591,22 +1547,6 @@ namespace MTsystem_win.dsControl {
                 }
                 set {
                     this[this.tabletb_productAllReport.Out_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Proid {
-                get {
-                    try {
-                        return ((string)(this[this.tabletb_productAllReport.ProidColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“tb_productAllReport”中列“Proid”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletb_productAllReport.ProidColumn] = value;
                 }
             }
             
@@ -1740,26 +1680,14 @@ namespace MTsystem_win.dsControl {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOutidNull() {
-                return this.IsNull(this.tabletb_productAllReport.OutidColumn);
+            public bool IsOutput_idNull() {
+                return this.IsNull(this.tabletb_productAllReport.Output_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOutidNull() {
-                this[this.tabletb_productAllReport.OutidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCus_idNull() {
-                return this.IsNull(this.tabletb_productAllReport.Cus_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCus_idNull() {
-                this[this.tabletb_productAllReport.Cus_idColumn] = global::System.Convert.DBNull;
+            public void SetOutput_idNull() {
+                this[this.tabletb_productAllReport.Output_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1784,18 +1712,6 @@ namespace MTsystem_win.dsControl {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOut_dateNull() {
                 this[this.tabletb_productAllReport.Out_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProidNull() {
-                return this.IsNull(this.tabletb_productAllReport.ProidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProidNull() {
-                this[this.tabletb_productAllReport.ProidColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
