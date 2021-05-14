@@ -98,7 +98,7 @@
               <Width>0.7898in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>0.828in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -120,7 +120,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox24</rd:DefaultName>
@@ -131,6 +133,7 @@
                         <LeftBorder>
                           <Style>None</Style>
                         </LeftBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -154,7 +157,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -165,6 +170,7 @@
                         <LeftBorder>
                           <Style>None</Style>
                         </LeftBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -188,7 +194,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -209,6 +217,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -232,7 +241,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -253,6 +264,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -276,7 +288,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -297,6 +311,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -320,7 +335,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -341,6 +358,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -364,7 +382,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -385,6 +405,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -408,7 +429,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -429,6 +452,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -457,7 +481,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_id</rd:DefaultName>
@@ -478,6 +504,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -495,14 +522,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Product_name.Value</Value>
+                              <Value>=Left(Fields!Product_name.Value,10)</Value>
                               <Style>
                                 <FontFamily>宋体</FontFamily>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_name</rd:DefaultName>
@@ -523,6 +552,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -542,12 +572,14 @@
                             <TextRun>
                               <Value>=Fields!Product_cksl.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
                                 <Format>0;(0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_cksl</rd:DefaultName>
@@ -568,6 +600,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -587,12 +620,14 @@
                             <TextRun>
                               <Value>=Fields!Product_unit.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
-                                <Format>0;(0)</Format>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_unit</rd:DefaultName>
@@ -613,6 +648,7 @@
                         <RightBorder>
                           <Color>Black</Color>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -632,11 +668,14 @@
                             <TextRun>
                               <Value>=Fields!Ckzl.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Ckzl</rd:DefaultName>
@@ -654,6 +693,7 @@
                         <RightBorder>
                           <Style>Solid</Style>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -673,11 +713,14 @@
                             <TextRun>
                               <Value>=Fields!Product_price.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_price</rd:DefaultName>
@@ -695,6 +738,7 @@
                         <RightBorder>
                           <Style>Solid</Style>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -714,11 +758,14 @@
                             <TextRun>
                               <Value>=Fields!Product_total_amount.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Product_total_amount</rd:DefaultName>
@@ -736,6 +783,7 @@
                         <RightBorder>
                           <Style>Solid</Style>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -755,11 +803,13 @@
                             <TextRun>
                               <Value>=Fields!Out_remarks.Value</Value>
                               <Style>
-                                <FontFamily>Consolas</FontFamily>
+                                <FontFamily>宋体</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Out_remarks</rd:DefaultName>
@@ -777,6 +827,382 @@
                         <RightBorder>
                           <Style>Solid</Style>
                         </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23622in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox152">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox152</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox153">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox153</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox154">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Product_cksl.Value)</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0;(0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox154</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox155">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Product_unit.Value)</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox155</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox156">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Ckzl.Value)</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox156</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>Solid</Style>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox157">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Product_price.Value)</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox157</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>Solid</Style>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox158">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Product_total_amount.Value)</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <Format>0.00;(0.00);''</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox158</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>Solid</Style>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox159">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox159</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>Solid</Style>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -820,7 +1246,9 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox22</rd:DefaultName>
@@ -828,6 +1256,7 @@
                       <Border>
                         <Style>Solid</Style>
                       </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -846,7 +1275,8 @@
             <TablixMember>
               <Group Name="Group1">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Cus_name.Value</GroupExpression>
+                  <GroupExpression>=Fields!Output_id.Value</GroupExpression>
+                  <GroupExpression>Int((RowNumber(Nothing)-1)/10)</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
@@ -864,7 +1294,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!Cus_name.Value &amp; vbcrlf &amp; Fields!Output_id.Value &amp; vbcrlf &amp; FormatDateTime(Fields!Out_date.Value,DateFormat.ShortDate)</Value>
+                            <Value>=FormatDateTime(Fields!Out_date.Value,DateFormat.ShortDate) +" "+ Fields!Output_id.Value &amp; vbcrlf &amp; " " &amp; vbcrlf &amp; Left(Fields!Cus_name.Value,6)</Value>
                             <Style>
                               <FontFamily>宋体</FontFamily>
                             </Style>
@@ -880,7 +1310,7 @@
                       <Border>
                         <Style>Solid</Style>
                       </Border>
-                      <VerticalAlign>Middle</VerticalAlign>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -895,12 +1325,50 @@
                 </TablixMember>
               </TablixMembers>
             </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>1.42176in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox151">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>总计</Value>
+                            <Style>
+                              <FontFamily>宋体</FontFamily>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox151</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Top</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <KeepWithGroup>Before</KeepWithGroup>
+            </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ds_productoutReportview</DataSetName>
-        <Left>0.16359cm</Left>
-        <Height>1.2cm</Height>
-        <Width>19.52785cm</Width>
+        <Left>0.36201cm</Left>
+        <Height>1.8cm</Height>
+        <Width>19.131cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -920,7 +1388,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.47244in</Height>
+    <Height>0.70866in</Height>
     <Style />
   </Body>
   <Width>7.81694in</Width>
@@ -936,7 +1404,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>2.54007cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -947,22 +1415,91 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Sum(Fields!Ckzl.Value, "ds_productoutReportview")</Value>
-                  <Style />
+                  <Value>="当前页重量合计：" &amp; Sum(ReportItems!Ckzl.Value) &amp; "Kg"</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox65</rd:DefaultName>
-          <Top>1.08459cm</Top>
-          <Left>10.76889cm</Left>
+          <Left>3.77486cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>5.7232cm</Width>
+          <Style>
+            <Border />
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox66">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="当前页金额合计：" &amp; Sum(ReportItems!Product_total_amount.Value) &amp; "元"</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox65</rd:DefaultName>
+          <Left>12.79176cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.7232cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border />
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox33">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="第" &amp; Globals!PageNumber &amp; "页 共" &amp; Globals!TotalPages &amp; "页"</Value>
+                  <Style>
+                    <FontFamily>宋体</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox33</rd:DefaultName>
+          <Top>1.60504cm</Top>
+          <Left>7.80439cm</Left>
+          <Height>0.6cm</Height>
+          <Width>4.24625cm</Width>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
