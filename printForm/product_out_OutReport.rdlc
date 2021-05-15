@@ -560,7 +560,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -909,12 +908,11 @@
               <Group Name="Group1">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Output_id.Value</GroupExpression>
-                  <GroupExpression>Int((RowNumber(Nothing)-1)/10)</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Cus_name.Value</Value>
+                  <Value>=Fields!Out_date.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
@@ -922,6 +920,9 @@
                 <CellContents>
                   <Textbox Name="Group1">
                     <CanGrow>true</CanGrow>
+                    <UserSort>
+                      <SortExpression>=Fields!Out_date.Value</SortExpression>
+                    </UserSort>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
@@ -951,6 +952,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -964,7 +966,7 @@
         <DataSetName>ds_productoutReportview</DataSetName>
         <Left>0.36201cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.131cm</Width>
+        <Width>19.13103cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

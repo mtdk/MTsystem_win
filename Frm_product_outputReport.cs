@@ -26,7 +26,7 @@ namespace MTsystem_win
 
         private void outPrint()
         {
-            string sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view";
+            string sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view ORDER BY Out_date ASC";
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -37,15 +37,6 @@ namespace MTsystem_win
                 MySqlDataReader dr = null;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_productAllReport"].Load(dr);
-
-                if (ds.Tables["tb_productAllReport"].Rows.Count < 6)
-                {
-                    for (int i = 6 - (ds.Tables["tb_productAllReport"].Rows.Count); i > 0; i--)
-                    {
-                        DataRow dtr = ds.Tables["tb_productAllReport"].NewRow();
-                        ds.Tables["tb_productAllReport"].Rows.Add(dtr);
-                    }
-                }
 
                 ReportDataSource rds = new ReportDataSource();
                 product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport.rdlc";
@@ -67,6 +58,11 @@ namespace MTsystem_win
 
             this.product_outputallReportview.Reset();
             outPrint();
+        }
+
+        private void btn_Query_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

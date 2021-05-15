@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_cusName = new System.Windows.Forms.TextBox();
-            this.cb_Querydate = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Query = new System.Windows.Forms.Button();
+            this.rdb_sortDatetime = new System.Windows.Forms.RadioButton();
+            this.rdb_sortProid = new System.Windows.Forms.RadioButton();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
-            this.rdb_sortProid = new System.Windows.Forms.RadioButton();
-            this.rdb_sortDatetime = new System.Windows.Forms.RadioButton();
-            this.btn_Query = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cb_Querydate = new System.Windows.Forms.CheckBox();
+            this.txt_cusName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.product_outputallReportview = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1.SuspendLayout();
@@ -65,49 +65,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询选择区";
             // 
-            // label1
+            // btn_Query
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "按客户名称查询：";
+            this.btn_Query.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Query.Location = new System.Drawing.Point(1072, 35);
+            this.btn_Query.Name = "btn_Query";
+            this.btn_Query.Size = new System.Drawing.Size(75, 49);
+            this.btn_Query.TabIndex = 10;
+            this.btn_Query.Text = "开始\r\n查询";
+            this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
-            // txt_cusName
+            // rdb_sortDatetime
             // 
-            this.txt_cusName.Location = new System.Drawing.Point(148, 50);
-            this.txt_cusName.Name = "txt_cusName";
-            this.txt_cusName.Size = new System.Drawing.Size(342, 26);
-            this.txt_cusName.TabIndex = 1;
+            this.rdb_sortDatetime.AutoSize = true;
+            this.rdb_sortDatetime.Location = new System.Drawing.Point(913, 66);
+            this.rdb_sortDatetime.Name = "rdb_sortDatetime";
+            this.rdb_sortDatetime.Size = new System.Drawing.Size(153, 23);
+            this.rdb_sortDatetime.TabIndex = 12;
+            this.rdb_sortDatetime.TabStop = true;
+            this.rdb_sortDatetime.Text = "按产品时间排序";
+            this.rdb_sortDatetime.UseVisualStyleBackColor = true;
             // 
-            // cb_Querydate
+            // rdb_sortProid
             // 
-            this.cb_Querydate.AutoSize = true;
-            this.cb_Querydate.Location = new System.Drawing.Point(496, 52);
-            this.cb_Querydate.Name = "cb_Querydate";
-            this.cb_Querydate.Size = new System.Drawing.Size(136, 23);
-            this.cb_Querydate.TabIndex = 2;
-            this.cb_Querydate.Text = "添加查询时间";
-            this.cb_Querydate.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(638, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "开始时间：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(638, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "结束时间：";
+            this.rdb_sortProid.AutoSize = true;
+            this.rdb_sortProid.Location = new System.Drawing.Point(913, 32);
+            this.rdb_sortProid.Name = "rdb_sortProid";
+            this.rdb_sortProid.Size = new System.Drawing.Size(153, 23);
+            this.rdb_sortProid.TabIndex = 11;
+            this.rdb_sortProid.TabStop = true;
+            this.rdb_sortProid.Text = "按产品编号排序";
+            this.rdb_sortProid.UseVisualStyleBackColor = true;
             // 
             // dtp_end
             // 
@@ -125,37 +114,49 @@
             this.dtp_start.Size = new System.Drawing.Size(175, 26);
             this.dtp_start.TabIndex = 9;
             // 
-            // rdb_sortProid
+            // label3
             // 
-            this.rdb_sortProid.AutoSize = true;
-            this.rdb_sortProid.Location = new System.Drawing.Point(913, 32);
-            this.rdb_sortProid.Name = "rdb_sortProid";
-            this.rdb_sortProid.Size = new System.Drawing.Size(153, 23);
-            this.rdb_sortProid.TabIndex = 11;
-            this.rdb_sortProid.TabStop = true;
-            this.rdb_sortProid.Text = "按产品编号排序";
-            this.rdb_sortProid.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(638, 72);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "结束时间：";
             // 
-            // rdb_sortDatetime
+            // label2
             // 
-            this.rdb_sortDatetime.AutoSize = true;
-            this.rdb_sortDatetime.Location = new System.Drawing.Point(913, 66);
-            this.rdb_sortDatetime.Name = "rdb_sortDatetime";
-            this.rdb_sortDatetime.Size = new System.Drawing.Size(153, 23);
-            this.rdb_sortDatetime.TabIndex = 12;
-            this.rdb_sortDatetime.TabStop = true;
-            this.rdb_sortDatetime.Text = "按产品时间排序";
-            this.rdb_sortDatetime.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(638, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "开始时间：";
             // 
-            // btn_Query
+            // cb_Querydate
             // 
-            this.btn_Query.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Query.Location = new System.Drawing.Point(1072, 35);
-            this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 49);
-            this.btn_Query.TabIndex = 10;
-            this.btn_Query.Text = "开始\r\n查询";
-            this.btn_Query.UseVisualStyleBackColor = true;
+            this.cb_Querydate.AutoSize = true;
+            this.cb_Querydate.Location = new System.Drawing.Point(496, 52);
+            this.cb_Querydate.Name = "cb_Querydate";
+            this.cb_Querydate.Size = new System.Drawing.Size(136, 23);
+            this.cb_Querydate.TabIndex = 2;
+            this.cb_Querydate.Text = "添加查询时间";
+            this.cb_Querydate.UseVisualStyleBackColor = true;
+            // 
+            // txt_cusName
+            // 
+            this.txt_cusName.Location = new System.Drawing.Point(148, 50);
+            this.txt_cusName.Name = "txt_cusName";
+            this.txt_cusName.Size = new System.Drawing.Size(342, 26);
+            this.txt_cusName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "按客户名称查询：";
             // 
             // groupBox2
             // 
@@ -183,7 +184,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_product_outputReport";
