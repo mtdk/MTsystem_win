@@ -30,8 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Query = new System.Windows.Forms.Button();
-            this.rdb_sortDatetime = new System.Windows.Forms.RadioButton();
-            this.rdb_sortProid = new System.Windows.Forms.RadioButton();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,8 +46,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_Query);
-            this.groupBox1.Controls.Add(this.rdb_sortDatetime);
-            this.groupBox1.Controls.Add(this.rdb_sortProid);
             this.groupBox1.Controls.Add(this.dtp_end);
             this.groupBox1.Controls.Add(this.dtp_start);
             this.groupBox1.Controls.Add(this.label3);
@@ -68,35 +64,13 @@
             // btn_Query
             // 
             this.btn_Query.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Query.Location = new System.Drawing.Point(1072, 35);
+            this.btn_Query.Location = new System.Drawing.Point(995, 35);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(75, 49);
             this.btn_Query.TabIndex = 10;
             this.btn_Query.Text = "开始\r\n查询";
             this.btn_Query.UseVisualStyleBackColor = true;
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
-            // 
-            // rdb_sortDatetime
-            // 
-            this.rdb_sortDatetime.AutoSize = true;
-            this.rdb_sortDatetime.Location = new System.Drawing.Point(913, 66);
-            this.rdb_sortDatetime.Name = "rdb_sortDatetime";
-            this.rdb_sortDatetime.Size = new System.Drawing.Size(153, 23);
-            this.rdb_sortDatetime.TabIndex = 12;
-            this.rdb_sortDatetime.TabStop = true;
-            this.rdb_sortDatetime.Text = "按产品时间排序";
-            this.rdb_sortDatetime.UseVisualStyleBackColor = true;
-            // 
-            // rdb_sortProid
-            // 
-            this.rdb_sortProid.AutoSize = true;
-            this.rdb_sortProid.Location = new System.Drawing.Point(913, 32);
-            this.rdb_sortProid.Name = "rdb_sortProid";
-            this.rdb_sortProid.Size = new System.Drawing.Size(153, 23);
-            this.rdb_sortProid.TabIndex = 11;
-            this.rdb_sortProid.TabStop = true;
-            this.rdb_sortProid.Text = "按产品编号排序";
-            this.rdb_sortProid.UseVisualStyleBackColor = true;
             // 
             // dtp_end
             // 
@@ -206,8 +180,6 @@
         private System.Windows.Forms.CheckBox cb_Querydate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rdb_sortDatetime;
-        private System.Windows.Forms.RadioButton rdb_sortProid;
         private System.Windows.Forms.DateTimePicker dtp_end;
         private System.Windows.Forms.DateTimePicker dtp_start;
         private System.Windows.Forms.Button btn_Query;
