@@ -409,6 +409,7 @@
     <EmbeddedResource Include="printForm\product_tagReportview.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview_a.rdlc" />
     <EmbeddedResource Include="printForm\product_tagReportview_b.rdlc" />
+    <EmbeddedResource Include="printForm\product_out_OutReport_a.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

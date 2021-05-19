@@ -29,20 +29,14 @@ namespace MTsystem_win
             string sqlstr = "";
             if (txt_cusName.Text.Trim().Length != 0)
             {
-                if (cb_Querydate.Checked == true)
-                {
-                    sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_cusName.Text.Trim() + "'";
-                    sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
-                    sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
-                }
-                else
-                {
-                    sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_cusName.Text.Trim() + "'";
-                }
+                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_cusName.Text.Trim() + "'";
+                sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
             }
             else
             {
-                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view";
+                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
             }
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();
@@ -57,9 +51,15 @@ namespace MTsystem_win
 
                 ReportDataSource rds = new ReportDataSource();
 
+                if (rdb_all.Checked == true)
+                {
+                    product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport.rdlc";
+                }
+                else
+                {
+                    product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport_a.rdlc";
+                }
 
-
-                product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport.rdlc";
                 rds.Name = "ds_productoutReportview";
                 rds.Value = ds.Tables["tb_productAllReport"];
                 product_outputallReportview.LocalReport.DataSources.Add(rds);
@@ -69,7 +69,9 @@ namespace MTsystem_win
 
                 product_outputallReportview.ShowParameterPrompts = true;
                 ReportParameter stp = new ReportParameter("StartTime", dtp_start.Value.ToShortDateString());
+                ReportParameter ndt = new ReportParameter("EndTime", dtp_end.Value.ToShortDateString());
                 this.product_outputallReportview.LocalReport.SetParameters(new ReportParameter[] { stp });
+                this.product_outputallReportview.LocalReport.SetParameters(new ReportParameter[] { ndt });
 
                 this.product_outputallReportview.RefreshReport();
             }
@@ -86,9 +88,44 @@ namespace MTsystem_win
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-            this.product_outputallReportview.Reset();
+            if (rdb_Account_Statement.Checked == true)
+            {
+                if (txt_cusName.Text.Trim().Length != 0)
+                {
+                    this.product_outputallReportview.Reset();
+                    outPrint();
+                }
+                else
+                {
+                    MessageBox.Show("请输入客户名称后在查询！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_cusName.Focus();
+                }
+            }
+            else
+            {
+                this.product_outputallReportview.Reset();
+                outPrint();
+            }
+        }
 
-            outPrint();
+        private void txt_cusName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_cusName.Text.Trim().Length != 0)
+                {
+                    Frm_CusinfoShow frmcusinfoshow = new Frm_CusinfoShow();
+                    frmcusinfoshow.selectCondition = txt_cusName.Text.Trim();
+                    frmcusinfoshow.ShowDialog();
+                    if (frmcusinfoshow.Cus_id != "")
+                    {
+                        txt_cusName.Text = frmcusinfoshow.Cus_id.Trim();
+                        txt_cusName.Text = frmcusinfoshow.Cus_name.Trim();
+                        txt_cusName.Focus();
+                    }
+                }
+            }
         }
     }
 }
