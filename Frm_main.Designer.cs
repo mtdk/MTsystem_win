@@ -51,17 +51,19 @@
             this.mat_Basestock = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_info_input = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_input_update = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_price_update = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_ProductBillstatus = new System.Windows.Forms.ToolStripMenuItem();
             this.tms_ReportView = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_all_report = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_returnGoods = new System.Windows.Forms.ToolStripMenuItem();
             this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_all_report = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +77,9 @@
             this.workshop_Item,
             this.warehouse_Item,
             this.tms_ReportView,
+            this.pro_input,
             this.pro_output,
+            this.pro_returnGoods,
             this.envelope_print,
             this.tag_Item,
             this.sys_exit});
@@ -189,7 +193,8 @@
             this.warehouse_Item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cus_info_input,
             this.tsm_Material,
-            this.tsm_Product});
+            this.tsm_Product,
+            this.tsm_ProductBillstatus});
             this.warehouse_Item.Name = "warehouse_Item";
             this.warehouse_Item.Size = new System.Drawing.Size(57, 23);
             this.warehouse_Item.Text = "仓库";
@@ -197,7 +202,7 @@
             // cus_info_input
             // 
             this.cus_info_input.Name = "cus_info_input";
-            this.cus_info_input.Size = new System.Drawing.Size(150, 24);
+            this.cus_info_input.Size = new System.Drawing.Size(186, 24);
             this.cus_info_input.Text = "客户信息";
             this.cus_info_input.Click += new System.EventHandler(this.cus_info_input_Click);
             // 
@@ -209,7 +214,7 @@
             this.mat_giveback,
             this.mat_Basestock});
             this.tsm_Material.Name = "tsm_Material";
-            this.tsm_Material.Size = new System.Drawing.Size(150, 24);
+            this.tsm_Material.Size = new System.Drawing.Size(186, 24);
             this.tsm_Material.Text = "原材料";
             // 
             // tsmi_mat_In
@@ -244,26 +249,18 @@
             // 
             this.tsm_Product.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pro_info_input,
-            this.pro_input,
             this.pro_input_update,
             this.pro_price_update});
             this.tsm_Product.Name = "tsm_Product";
-            this.tsm_Product.Size = new System.Drawing.Size(150, 24);
+            this.tsm_Product.Size = new System.Drawing.Size(186, 24);
             this.tsm_Product.Text = "产品";
             // 
             // pro_info_input
             // 
             this.pro_info_input.Name = "pro_info_input";
-            this.pro_info_input.Size = new System.Drawing.Size(231, 24);
-            this.pro_info_input.Text = "产品信息录入&&修改";
+            this.pro_info_input.Size = new System.Drawing.Size(186, 24);
+            this.pro_info_input.Text = "产品信息维护";
             this.pro_info_input.Click += new System.EventHandler(this.pro_info_input_Click);
-            // 
-            // pro_input
-            // 
-            this.pro_input.Name = "pro_input";
-            this.pro_input.Size = new System.Drawing.Size(231, 24);
-            this.pro_input.Text = "产品进仓";
-            this.pro_input.Click += new System.EventHandler(this.pro_input_Click);
             // 
             // pro_input_update
             // 
@@ -278,6 +275,12 @@
             this.pro_price_update.Size = new System.Drawing.Size(231, 24);
             this.pro_price_update.Text = "产品价格维护";
             this.pro_price_update.Click += new System.EventHandler(this.pro_price_update_Click);
+            // 
+            // tsm_ProductBillstatus
+            // 
+            this.tsm_ProductBillstatus.Name = "tsm_ProductBillstatus";
+            this.tsm_ProductBillstatus.Size = new System.Drawing.Size(186, 24);
+            this.tsm_ProductBillstatus.Text = "单据状态处理";
             // 
             // tms_ReportView
             // 
@@ -303,12 +306,33 @@
             this.mat_stock_Report.Text = "材料库存报表";
             this.mat_stock_Report.Click += new System.EventHandler(this.mat_stock_Report_Click);
             // 
+            // pro_all_report
+            // 
+            this.pro_all_report.Name = "pro_all_report";
+            this.pro_all_report.Size = new System.Drawing.Size(186, 24);
+            this.pro_all_report.Text = "成品出库报表";
+            this.pro_all_report.Click += new System.EventHandler(this.pro_all_report_Click);
+            // 
+            // pro_input
+            // 
+            this.pro_input.Name = "pro_input";
+            this.pro_input.Size = new System.Drawing.Size(93, 23);
+            this.pro_input.Text = "产品进仓";
+            this.pro_input.Click += new System.EventHandler(this.pro_input_Click);
+            // 
             // pro_output
             // 
             this.pro_output.Name = "pro_output";
             this.pro_output.Size = new System.Drawing.Size(93, 23);
             this.pro_output.Text = "产品出仓";
             this.pro_output.Click += new System.EventHandler(this.pro_output_Click);
+            // 
+            // pro_returnGoods
+            // 
+            this.pro_returnGoods.Name = "pro_returnGoods";
+            this.pro_returnGoods.Size = new System.Drawing.Size(93, 23);
+            this.pro_returnGoods.Text = "销售退货";
+            this.pro_returnGoods.Click += new System.EventHandler(this.pro_returnGoods_Click);
             // 
             // envelope_print
             // 
@@ -330,13 +354,6 @@
             this.sys_exit.Size = new System.Drawing.Size(93, 23);
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
-            // 
-            // pro_all_report
-            // 
-            this.pro_all_report.Name = "pro_all_report";
-            this.pro_all_report.Size = new System.Drawing.Size(186, 24);
-            this.pro_all_report.Text = "成品出库报表";
-            this.pro_all_report.Click += new System.EventHandler(this.pro_all_report_Click);
             // 
             // Frm_main
             // 
@@ -387,7 +404,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_Product;
         private System.Windows.Forms.ToolStripMenuItem mat_Basestock;
         private System.Windows.Forms.ToolStripMenuItem pro_info_input;
-        private System.Windows.Forms.ToolStripMenuItem pro_input;
         private System.Windows.Forms.ToolStripMenuItem pro_input_update;
         private System.Windows.Forms.ToolStripMenuItem envelope_print;
         private System.Windows.Forms.ToolStripMenuItem pro_price_update;
@@ -396,5 +412,8 @@
         private System.Windows.Forms.ToolStripMenuItem mat_Dayreport;
         private System.Windows.Forms.ToolStripMenuItem mat_stock_Report;
         private System.Windows.Forms.ToolStripMenuItem pro_all_report;
+        private System.Windows.Forms.ToolStripMenuItem pro_returnGoods;
+        private System.Windows.Forms.ToolStripMenuItem tsm_ProductBillstatus;
+        private System.Windows.Forms.ToolStripMenuItem pro_input;
     }
 }

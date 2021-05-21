@@ -575,7 +575,7 @@
                               <Style>
                                 <FontFamily>宋体</FontFamily>
                                 <FontSize>11pt</FontSize>
-                                <Format>0;(0)</Format>
+                                <Format>0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -673,7 +673,7 @@
                               <Style>
                                 <FontFamily>宋体</FontFamily>
                                 <FontSize>11pt</FontSize>
-                                <Format>0.00;(0.00);''</Format>
+                                <Format>0.00;-0.00;''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -765,7 +765,7 @@
                               <Style>
                                 <FontFamily>宋体</FontFamily>
                                 <FontSize>11pt</FontSize>
-                                <Format>0.00;(0.00);''</Format>
+                                <Format>0.00;-0.00;''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1210,7 +1210,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox65</rd:DefaultName>
-          <Left>1.55236cm</Left>
+          <Top>0.93801cm</Top>
+          <Left>0.36201cm</Left>
           <Height>0.6cm</Height>
           <Width>5.7232cm</Width>
           <Style>
@@ -1242,7 +1243,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox65</rd:DefaultName>
-          <Left>12.79176cm</Left>
+          <Top>0.9525cm</Top>
+          <Left>13.76981cm</Left>
           <Height>0.6cm</Height>
           <Width>5.7232cm</Width>
           <ZIndex>1</ZIndex>

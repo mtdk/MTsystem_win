@@ -32,11 +32,13 @@ namespace MTsystem_win
                 sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_cusName.Text.Trim() + "'";
                 sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_status = '有效'";
             }
             else
             {
                 sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_status = '有效'";
             }
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();

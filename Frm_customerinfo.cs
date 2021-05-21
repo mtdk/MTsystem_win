@@ -237,20 +237,15 @@ namespace MTsystem_win
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
 
-            string sqlstr = "SELECT id,Cus_id,Cus_name,Cus_add,Cus_contact,Cus_mobile,Cus_telephone,Cus_fax FROM customers";
+            string sqlstr = "SELECT id AS 序号,Cus_id AS 编号,Cus_name AS 客户名称,Cus_add AS 客户地址,Cus_contact AS 联系人,";
+            sqlstr+=" Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码 FROM customers";
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
             msda.Fill(ds_Queryresult, "resultTable");
 
             dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
             dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
-            dgv_cusinfo_preview.Columns[0].HeaderText = "序号";
-            dgv_cusinfo_preview.Columns[1].HeaderText = "客户编号";
-            dgv_cusinfo_preview.Columns[2].HeaderText = "客户名称";
-            dgv_cusinfo_preview.Columns[3].HeaderText = "客户地址";
-            dgv_cusinfo_preview.Columns[4].HeaderText = "联系人";
-            dgv_cusinfo_preview.Columns[5].HeaderText = "手机号码";
-            dgv_cusinfo_preview.Columns[6].HeaderText = "电话号码";
-            dgv_cusinfo_preview.Columns[7].HeaderText = "传真号码";
+            this.dgv_cusinfo_preview.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgv_cusinfo_preview.AutoResizeColumnHeadersHeight();
             conn.Close();
         }
 
@@ -259,25 +254,26 @@ namespace MTsystem_win
         /// </summary>
         private void CusInfoQuery()
         {
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
+            if (txt_CusNameQuery.Text.Trim().Length == 0)
+            {
+                CusInforResult();
+            }
+            else
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
 
-            string sqlstr = "SELECT id,Cus_id,Cus_name,Cus_add,Cus_contact,Cus_mobile,Cus_telephone,Cus_fax";
-            sqlstr += " FROM customers WHERE Cus_name LIKE '%" + txt_CusNameQuery.Text.Trim() + "%'";
-            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
-            msda.Fill(ds_Queryresult, "resultTable");
+                string sqlstr = "SELECT id AS 序号,Cus_id AS 编号,Cus_name AS 客户名称,Cus_add AS 客户地址,Cus_contact AS 联系人,";
+                sqlstr += " Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码 FROM customers";
+                sqlstr += " WHERE Cus_name LIKE '%" + txt_CusNameQuery.Text.Trim() + "%'";
+                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+                msda.Fill(ds_Queryresult, "resultTable");
 
-            dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
-            dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
-            dgv_cusinfo_preview.Columns[0].HeaderText = "序号";
-            dgv_cusinfo_preview.Columns[1].HeaderText = "客户编号";
-            dgv_cusinfo_preview.Columns[2].HeaderText = "客户名称";
-            dgv_cusinfo_preview.Columns[3].HeaderText = "客户地址";
-            dgv_cusinfo_preview.Columns[4].HeaderText = "联系人";
-            dgv_cusinfo_preview.Columns[5].HeaderText = "手机号码";
-            dgv_cusinfo_preview.Columns[6].HeaderText = "电话号码";
-            dgv_cusinfo_preview.Columns[7].HeaderText = "传真号码";
-            conn.Close();
+                dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
+                dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
+
+                conn.Close();
+            }
         }
 
         /// <summary>

@@ -154,6 +154,19 @@ namespace MTsystem_win.allClass
         }
 
         /// <summary>
+        /// 产品进仓修改
+        /// </summary>
+        private static string _frmproductinputupdate;
+        /// <summary>
+        /// 产品进仓修改
+        /// </summary>
+        public static string _Frmproductinputupdate
+        {
+            set { _frmproductinputupdate = value; }
+            get { return _frmproductinputupdate; }
+        }
+
+        /// <summary>
         /// 产品出仓窗口
         /// </summary>
         private static string _frmproductoutput;
@@ -167,19 +180,21 @@ namespace MTsystem_win.allClass
         }
 
         /// <summary>
-        /// 产品进仓修改
+        /// 销售退货窗口
         /// </summary>
-        private static string _frmproductinputupdate;
+        private static string _frmproreturngoods;
         /// <summary>
-        /// 产品进仓修改
+        /// 销售退货窗口
         /// </summary>
-        public static string _Frmproductinputupdate
+        public static string _Frmproreturngoods
         {
-            set { _frmproductinputupdate = value; }
-            get { return _frmproductinputupdate; }
+            set { _frmproreturngoods = value; }
+            get { return _frmproreturngoods; }
         }
 
-        //Frm_proPriceUpdate
+        /// <summary>
+        /// 产品价格修改
+        /// </summary>
         private static string _frmpropriceupdate;
 
         public static string _Frmpropriceupdate

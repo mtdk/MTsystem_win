@@ -299,6 +299,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Frm_pro_returnGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_pro_returnGoods.Designer.cs">
+      <DependentUpon>Frm_pro_returnGoods.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Frm_cailiaojincang.resx">
       <DependentUpon>Frm_cailiaojincang.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,6 +425,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Frm_pro_returnGoods.resx">
+      <DependentUpon>Frm_pro_returnGoods.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dsControl\ds_cus_info.xsc">
       <DependentUpon>ds_cus_info.xsd</DependentUpon>
     </None>

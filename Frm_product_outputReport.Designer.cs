@@ -99,7 +99,7 @@
             // dtp_end
             // 
             this.dtp_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_end.Location = new System.Drawing.Point(673, 62);
+            this.dtp_end.Location = new System.Drawing.Point(678, 62);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(175, 26);
             this.dtp_end.TabIndex = 10;
@@ -107,7 +107,7 @@
             // dtp_start
             // 
             this.dtp_start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_start.Location = new System.Drawing.Point(673, 25);
+            this.dtp_start.Location = new System.Drawing.Point(678, 25);
             this.dtp_start.Name = "dtp_start";
             this.dtp_start.Size = new System.Drawing.Size(175, 26);
             this.dtp_start.TabIndex = 9;
