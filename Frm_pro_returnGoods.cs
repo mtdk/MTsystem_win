@@ -27,16 +27,16 @@ namespace MTsystem_win
 
         private void Frm_pro_returnGoods_Load(object sender, EventArgs e)
         {
-            if (frmShowstatus._Frmproductoutput == "CLOSE" || frmShowstatus._Frmproductoutput == null)
+            if (frmShowstatus._Frmmatreturngoods == "CLOSE" || frmShowstatus._Frmmatreturngoods == null)
             {
-                frmShowstatus._Frmproductoutput = "OPEN";
+                frmShowstatus._Frmmatreturngoods = "OPEN";
                 newOutputid();
             }
         }
 
         private void Frm_pro_returnGoods_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmShowstatus._Frmproductoutput = "CLOSE";
+            frmShowstatus._Frmmatreturngoods = "CLOSE";
         }
 
         private void btn_Cancel_B_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品出库单号
+        /// 产品退货单号
         /// </summary>
         private void newOutputid()
         {
@@ -61,7 +61,7 @@ namespace MTsystem_win
             txt_outputid.Text += DateTime.Now.Minute.ToString().PadLeft(2, '0').Trim();
             txt_outputid.Text += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
             txt_outputDate.Text = txt_outputid.Text.Substring(0, 8).Trim();
-
+            txt_batchNum.Text = txt_outputid.Text.Substring(8, 6).Trim();
         }
 
         /// <summary>
@@ -90,9 +90,9 @@ namespace MTsystem_win
             txt_Cusid.Text = "";
             txt_CusName.Text = "";
             txt_CusName.ReadOnly = false;
+            txt_batchNum.Text = "";
             newOutputid();
             txt_outputDate.ReadOnly = false;
-            txt_batchNum.Text = "";
             txt_batchNum.ReadOnly = false;
             txt_proId.Text = "";
             txt_productId.Text = "";
@@ -219,34 +219,6 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品单价修改判断，默认不修改，状态为false时进行修改
-        /// </summary>
-        Boolean price_jugement = true;
-        private bool price_of_custome(int i)
-        {
-            ///标记是否找到符合条件的报价记录，默认为false未找到
-            bool b = false;
-            string sqlstr = "SELECT product_price FROM product_offer WHERE Cus_id=@Cus_id AND proid=@proid";
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
-            cmd.Parameters.AddWithValue("@proid", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
-            cmd.Parameters.AddWithValue("@Cus_id", txt_Cusid.Text.Trim());
-            cmd.CommandText = sqlstr;
-            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            b = dr.Read();
-            if (b == true)
-            {
-                //如果产品单价不相等返回false,执行单价更新
-                if ((Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[6].Value.ToString().Trim())) != (Convert.ToDecimal(dr["product_price"].ToString().Trim())))
-                {
-                    price_jugement = false;
-                }
-            }
-            return b;
-        }
-
-        /// <summary>
         /// 客户产品单价查询
         /// </summary>
         private void priceOfquery()
@@ -273,7 +245,7 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 添加订单数据
+        /// 添加退货数据
         /// </summary>
         private void dataInsert()
         {
@@ -286,7 +258,7 @@ namespace MTsystem_win
                 int ii = 0;
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
-                //产品出库主单信息添加
+                //产品退货主单信息添加
                 string sqlstr = "INSERT INTO `product_out_main` VALUES(NULL,@Outid,@Cus_id,@Cus_name,@Out_date,@Output_id,@Out_status,@Out_operator)";
 
                 cmd.CommandText = sqlstr;
@@ -304,7 +276,7 @@ namespace MTsystem_win
                     MySqlCommand cmdA = new MySqlCommand();
                     cmdA.Connection = conn;
                     string sqlstrA = "";
-                    //产品出库子单信息添加
+                    //产品退货子单信息添加
                     sqlstrA = "INSERT INTO `product_out` VALUES(NULL,@OutidA,@ProidA,@Product_idA,@Product_nameA,";
                     sqlstrA += "@Product_ckslA,@Product_unitA,@CkzlA,@Product_priceA,";
                     sqlstrA += "@Product_total_amountA,@Out_remarksA,@Out_dateA,@Out_statusA)";
@@ -323,41 +295,6 @@ namespace MTsystem_win
                     cmdA.Parameters.AddWithValue("@Out_dateA", Convert.ToDateTime(tmpdt).ToShortDateString());
                     cmdA.Parameters.AddWithValue("@Out_statusA", "有效");
                     cmdA.ExecuteNonQuery();
-
-                    ii = i;
-                    if (price_of_custome(ii))
-                    {
-                        if (price_jugement == false)
-                        {
-                            string sqlstrB = "";
-                            sqlstrB = "UPDATE product_offer set product_price = @product_priceC,upgrade_date = @upgrade_dateC where Cus_id=@Cus_idC and proid=@proidC";
-                            MySqlCommand cmdB = new MySqlCommand();
-                            cmdB.Connection = conn;
-                            cmdB.CommandText = sqlstrB;
-                            cmdB.Parameters.Add("@Cus_idC", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
-                            cmdB.Parameters.Add("@proidC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
-                            cmdB.Parameters.Add("@product_priceC", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
-                            cmdB.Parameters.Add("@upgrade_dateC", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
-                            cmdB.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        string sqlstrC = "";
-                        sqlstrC = "INSERT INTO product_offer VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_idB,";
-                        sqlstrC += "@product_nameB,@product_priceB,@upgrade_dateB)"; 
-                        MySqlCommand cmdC = new MySqlCommand();
-                        cmdC.Connection = conn;
-                        cmdC.CommandText = sqlstrC;
-                        cmdC.Parameters.Add("@Cus_idB", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
-                        cmdC.Parameters.Add("@Cus_nameB", MySqlDbType.VarChar).Value = txt_CusName.Text.Trim();
-                        cmdC.Parameters.Add("@proidB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_idB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_nameB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_priceB", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
-                        cmdC.Parameters.Add("@upgrade_dateB", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
-                        cmdC.ExecuteNonQuery();
-                    }
                 }
 
             }

@@ -132,7 +132,7 @@
             // 
             // txt_cusName
             // 
-            this.txt_cusName.Location = new System.Drawing.Point(189, 58);
+            this.txt_cusName.Location = new System.Drawing.Point(191, 58);
             this.txt_cusName.Name = "txt_cusName";
             this.txt_cusName.Size = new System.Drawing.Size(342, 26);
             this.txt_cusName.TabIndex = 1;

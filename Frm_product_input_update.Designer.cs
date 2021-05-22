@@ -1,6 +1,6 @@
 ﻿namespace MTsystem_win
 {
-    partial class Frm_product_input_update
+    partial class Frm_pro_outstatus_up
     {
         /// <summary>
         /// Required designer variable.
@@ -202,8 +202,7 @@
             // 
             this.dgv_SelectResult.AllowUserToAddRows = false;
             this.dgv_SelectResult.AllowUserToDeleteRows = false;
-            this.dgv_SelectResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_SelectResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_SelectResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_SelectResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_SelectResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SelectResult.Location = new System.Drawing.Point(3, 22);

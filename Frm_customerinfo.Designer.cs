@@ -54,6 +54,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_cusId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -161,6 +175,20 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.dgv_cusinfo_preview);
             this.groupBox3.Location = new System.Drawing.Point(15, 116);
             this.groupBox3.Name = "groupBox3";
@@ -174,6 +202,7 @@
             this.dgv_cusinfo_preview.AllowUserToAddRows = false;
             this.dgv_cusinfo_preview.AllowUserToDeleteRows = false;
             this.dgv_cusinfo_preview.AllowUserToResizeRows = false;
+            this.dgv_cusinfo_preview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_cusinfo_preview.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgv_cusinfo_preview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -185,16 +214,15 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_cusinfo_preview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_cusinfo_preview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cusinfo_preview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_cusinfo_preview.Location = new System.Drawing.Point(3, 22);
             this.dgv_cusinfo_preview.Name = "dgv_cusinfo_preview";
             this.dgv_cusinfo_preview.ReadOnly = true;
-            this.dgv_cusinfo_preview.RowHeadersVisible = false;
             this.dgv_cusinfo_preview.RowTemplate.Height = 30;
             this.dgv_cusinfo_preview.RowTemplate.ReadOnly = true;
             this.dgv_cusinfo_preview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(1192, 388);
+            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(774, 388);
             this.dgv_cusinfo_preview.TabIndex = 0;
+            this.dgv_cusinfo_preview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cusinfo_preview_CellClick);
             this.dgv_cusinfo_preview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cusinfo_preview_CellDoubleClick);
             // 
             // btn_cancel
@@ -323,6 +351,126 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "客户编号:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(879, 313);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(313, 55);
+            this.textBox1.TabIndex = 44;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(809, 330);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 19);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "地址:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(879, 265);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(154, 26);
+            this.textBox2.TabIndex = 42;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(783, 268);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 19);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "传真号码:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(879, 217);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(154, 26);
+            this.textBox3.TabIndex = 40;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(783, 220);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 19);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "联系电话:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(879, 169);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(154, 26);
+            this.textBox4.TabIndex = 38;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(783, 172);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 19);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "手机号码:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(879, 121);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(115, 26);
+            this.textBox5.TabIndex = 36;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(801, 124);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 19);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "联系人:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(879, 73);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(313, 26);
+            this.textBox6.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(783, 76);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "客户名称:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(879, 25);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(83, 26);
+            this.textBox7.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(783, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 19);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "客户编号:";
+            // 
             // Frm_customerinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -344,6 +492,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cusinfo_preview)).EndInit();
             this.ResumeLayout(false);
 
@@ -376,6 +525,20 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rdb_CusUpdate;
         private System.Windows.Forms.RadioButton rdb_CusInsert;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label15;
 
     }
 }

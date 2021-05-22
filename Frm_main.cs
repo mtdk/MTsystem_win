@@ -244,7 +244,7 @@ namespace MTsystem_win
                 {
                     if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
                     {
-                        Frm_product_input_update frm_pro_input_update = new Frm_product_input_update();
+                        Frm_pro_outstatus_up frm_pro_input_update = new Frm_pro_outstatus_up();
                         frm_pro_input_update.MdiParent = this;
                         frm_pro_input_update.Show();
                     }

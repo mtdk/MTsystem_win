@@ -369,5 +369,23 @@ namespace MTsystem_win
                 }
             }
         }
+
+        private void dgv_cusinfo_preview_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_cusinfo_preview.Rows.Count > 0)
+            {
+                if (rdb_CusInsert.Checked == true)
+                {
+                    
+                    textBox7.Text = dgv_cusinfo_preview.SelectedCells[1].Value.ToString().Trim();
+                    textBox6.Text = dgv_cusinfo_preview.SelectedCells[2].Value.ToString().Trim();
+                    textBox5.Text = dgv_cusinfo_preview.SelectedCells[4].Value.ToString().Trim();
+                    textBox4.Text = dgv_cusinfo_preview.SelectedCells[5].Value.ToString().Trim();
+                    textBox3.Text = dgv_cusinfo_preview.SelectedCells[6].Value.ToString().Trim();
+                    textBox2.Text = dgv_cusinfo_preview.SelectedCells[7].Value.ToString().Trim();
+                    textBox1.Text = dgv_cusinfo_preview.SelectedCells[3].Value.ToString().Trim();
+                }
+            }
+        }
     }
 }
