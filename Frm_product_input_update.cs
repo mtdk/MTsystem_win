@@ -12,9 +12,9 @@ using MTsystem_win.allClass;
 
 namespace MTsystem_win
 {
-    public partial class Frm_pro_outstatus_up : Form
+    public partial class Frm_product_input_update : Form
     {
-        public Frm_pro_outstatus_up()
+        public Frm_product_input_update()
         {
             InitializeComponent();
         }

@@ -265,14 +265,14 @@
             // pro_input_update
             // 
             this.pro_input_update.Name = "pro_input_update";
-            this.pro_input_update.Size = new System.Drawing.Size(231, 24);
+            this.pro_input_update.Size = new System.Drawing.Size(186, 24);
             this.pro_input_update.Text = "产品进仓修改";
             this.pro_input_update.Click += new System.EventHandler(this.pro_input_update_Click);
             // 
             // pro_price_update
             // 
             this.pro_price_update.Name = "pro_price_update";
-            this.pro_price_update.Size = new System.Drawing.Size(231, 24);
+            this.pro_price_update.Size = new System.Drawing.Size(186, 24);
             this.pro_price_update.Text = "产品价格维护";
             this.pro_price_update.Click += new System.EventHandler(this.pro_price_update_Click);
             // 
@@ -281,6 +281,7 @@
             this.tsm_ProductBillstatus.Name = "tsm_ProductBillstatus";
             this.tsm_ProductBillstatus.Size = new System.Drawing.Size(186, 24);
             this.tsm_ProductBillstatus.Text = "单据状态处理";
+            this.tsm_ProductBillstatus.Click += new System.EventHandler(this.tsm_ProductBillstatus_Click);
             // 
             // tms_ReportView
             // 

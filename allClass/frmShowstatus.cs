@@ -180,6 +180,18 @@ namespace MTsystem_win.allClass
         }
 
         /// <summary>
+        /// 产品出货单状态修改
+        /// </summary>
+        private static string _frmpro_outstatusup;
+        /// <summary>
+        /// 产品出货单状态修改
+        /// </summary>
+        public static string _Frmpro_outstatusup
+        {
+            set { _frmpro_outstatusup = value; }
+            get { return _frmpro_outstatusup; }
+        }
+        /// <summary>
         /// 销售退货窗口
         /// </summary>
         private static string _frmproreturngoods;
@@ -191,7 +203,6 @@ namespace MTsystem_win.allClass
             set { _frmproreturngoods = value; }
             get { return _frmproreturngoods; }
         }
-
         /// <summary>
         /// 产品价格修改
         /// </summary>

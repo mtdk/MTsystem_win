@@ -1,6 +1,6 @@
 ﻿namespace MTsystem_win
 {
-    partial class Frm_pro_outstatus_up
+    partial class Frm_product_input_update
     {
         /// <summary>
         /// Required designer variable.

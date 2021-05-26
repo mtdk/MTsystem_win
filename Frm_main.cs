@@ -244,7 +244,7 @@ namespace MTsystem_win
                 {
                     if (frmShowstatus._Frmproductinputupdate == "CLOSE" || frmShowstatus._Frmproductinputupdate == null)
                     {
-                        Frm_pro_outstatus_up frm_pro_input_update = new Frm_pro_outstatus_up();
+                        Frm_product_input_update frm_pro_input_update = new Frm_product_input_update();
                         frm_pro_input_update.MdiParent = this;
                         frm_pro_input_update.Show();
                     }
@@ -407,6 +407,35 @@ namespace MTsystem_win
                 MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /// <summary>
+        /// 产品出货单状态修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsm_ProductBillstatus_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmpro_outstatusup == "CLOSE" || frmShowstatus._Frmpro_outstatusup == null)
+                    {
+                        Frm_pro_outStatus_update Frmpro_outStatusup = new Frm_pro_outStatus_update();
+                        Frmpro_outStatusup.MdiParent = this;
+                        Frmpro_outStatusup.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         /// <summary>
         /// 销售退货
         /// </summary>
@@ -691,6 +720,8 @@ namespace MTsystem_win
             Application.Exit();
         }
         #endregion
+
+
 
     }
 }
