@@ -23,6 +23,7 @@ namespace MTsystem_win
 
         DataView dv_Queryresult = new DataView();
 
+        public string selectCondition;
         public string prsystemid;
         public string prid;
         public string prname;
@@ -30,17 +31,19 @@ namespace MTsystem_win
 
         private void Frm_productSelect_Load(object sender, EventArgs e)
         {
-            Productresult();
+            ProductQuery();
         }
 
         /// <summary>
-        /// 所有产品信息检索
+        /// 产品信息查找
         /// </summary>
-        private void Productresult()
+        private void ProductQuery()
         {
+
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
-            string strsql = "SELECT id,proid,product_id,product_name,product_unit FROM product";
+            string strsql = "SELECT id,proid,product_id,product_name,product_unit FROM product WHERE product_id LIKE '%" + selectCondition.Trim() + "%'";
+
             MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
             msda.Fill(ds_Queryresult, "resultTable");
 
@@ -52,78 +55,21 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[3].HeaderText = "产品名称";
             dgv_Queryresult.Columns[4].HeaderText = "产品规格";
             conn.Close();
-            //txt_Querycondition.Focus();
+
         }
 
-        /// <summary>
-        /// 产品信息查找
-        /// </summary>
-        private void ProductQuery()
+        private void dgv_Queryresult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (txt_Querycondition.Text.Trim().Length != 0)
-            {
-                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-                conn.Open();
-                string strsql = null;
-                if (rdb_Queryid.Checked==true)
-                {
-                    strsql = "SELECT id,proid,product_id,product_name,product_unit FROM product WHERE product_id LIKE '%" + txt_Querycondition.Text.Trim() + "%'";
-                }
-                else
-                {
-                    strsql = "SELECT id,proid,product_id,product_name,product_unit FROM product WHERE product_name LIKE '%" + txt_Querycondition.Text.Trim() + "%'";
-                }
-                MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
-                msda.Fill(ds_Queryresult, "resultTable");
-
-                dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
-                dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
-                dgv_Queryresult.Columns[0].HeaderText = "序号";
-                dgv_Queryresult.Columns[1].HeaderText = "系统编号";
-                dgv_Queryresult.Columns[2].HeaderText = "产品编号";
-                dgv_Queryresult.Columns[3].HeaderText = "产品名称";
-                dgv_Queryresult.Columns[4].HeaderText = "产品规格";
-                conn.Close();
-            }
-            else
-            {
-                ds_Queryresult.Clear();
-                Productresult();
-            }
-        }
-
-        private void btn_Query_Click(object sender, EventArgs e)
-        {
-            ds_Queryresult.Clear();
-            ProductQuery();
-        }
-
-        private void txt_Querycondition_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar==13)
-            {
-                e.Handled = true;
-                ds_Queryresult.Clear();
-                ProductQuery();
-            }
-        }
-
-        private void dgv_Queryresult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
+            if (e.KeyData == Keys.Enter)
             {
                 if (dgv_Queryresult.RowCount > 0)
                 {
-                    prsystemid = dgv_Queryresult.SelectedCells[1].Value.ToString().Trim();
-                    prid = dgv_Queryresult.SelectedCells[2].Value.ToString().Trim();
-                    prname = dgv_Queryresult.SelectedCells[3].Value.ToString().Trim();
-                    prunit = dgv_Queryresult.SelectedCells[4].Value.ToString().Trim();
+                    prsystemid = dgv_Queryresult.CurrentRow.Cells[1].Value.ToString().Trim();
+                    prid = dgv_Queryresult.CurrentRow.Cells[2].Value.ToString().Trim();
+                    prname = dgv_Queryresult.CurrentRow.Cells[3].Value.ToString().Trim();
+                    prunit = dgv_Queryresult.CurrentRow.Cells[4].Value.ToString().Trim();
+                    this.Close();
                 }
-            }
-            finally
-            {
-                this.Close();
-                this.Dispose();
             }
         }
     }

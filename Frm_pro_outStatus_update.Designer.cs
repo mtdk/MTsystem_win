@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btn_Upstatus = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,6 +67,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.btn_Upstatus);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label4);
@@ -76,6 +80,24 @@
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "状态修改";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(323, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 19);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "NULL";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(200, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "货单流水号：";
             // 
             // btn_Upstatus
             // 
@@ -172,6 +194,7 @@
             this.dgv_Pro_outmain_view.Size = new System.Drawing.Size(574, 669);
             this.dgv_Pro_outmain_view.TabIndex = 0;
             this.dgv_Pro_outmain_view.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Pro_outmain_view_CellClick);
+            this.dgv_Pro_outmain_view.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv_Pro_outmain_view_KeyPress);
             // 
             // txt_Outputid
             // 
@@ -232,5 +255,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_Upstatus;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

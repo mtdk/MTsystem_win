@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.txt_num = new System.Windows.Forms.TextBox();
@@ -265,10 +265,9 @@
             this.txt_Productid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Productid.Location = new System.Drawing.Point(293, 61);
             this.txt_Productid.Name = "txt_Productid";
-            this.txt_Productid.ReadOnly = true;
             this.txt_Productid.Size = new System.Drawing.Size(132, 30);
             this.txt_Productid.TabIndex = 13;
-            this.txt_Productid.DoubleClick += new System.EventHandler(this.txt_Productid_DoubleClick);
+            this.txt_Productid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Productid_KeyPress);
             // 
             // label1
             // 
@@ -293,15 +292,14 @@
             // 
             this.dgv_tagprint.AllowUserToAddRows = false;
             this.dgv_tagprint.AllowUserToDeleteRows = false;
-            this.dgv_tagprint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_tagprint.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_tagprint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_tagprint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tagprint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tagprint.Location = new System.Drawing.Point(3, 22);
             this.dgv_tagprint.Name = "dgv_tagprint";
             this.dgv_tagprint.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tagprint.RowTemplate.Height = 23;
             this.dgv_tagprint.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tagprint.Size = new System.Drawing.Size(853, 450);

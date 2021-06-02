@@ -47,8 +47,7 @@
             // 
             this.dgv_productOutSelect.AllowUserToAddRows = false;
             this.dgv_productOutSelect.AllowUserToDeleteRows = false;
-            this.dgv_productOutSelect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_productOutSelect.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_productOutSelect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_productOutSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productOutSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_productOutSelect.Location = new System.Drawing.Point(3, 22);

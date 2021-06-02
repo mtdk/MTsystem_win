@@ -47,8 +47,7 @@
             // 
             this.dgv_Queryresult.AllowUserToAddRows = false;
             this.dgv_Queryresult.AllowUserToDeleteRows = false;
-            this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Queryresult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 26);

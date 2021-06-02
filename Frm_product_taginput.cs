@@ -23,22 +23,6 @@ namespace MTsystem_win
 
         DataView dv_tagprint = new DataView();
 
-
-
-        private void txt_Productid_DoubleClick(object sender, EventArgs e)
-        {
-            Frm_productSelect frmps = new Frm_productSelect();
-            frmps.ShowDialog();
-            if (frmps.prid != null)
-            {
-                txt_Systemid.Text = frmps.prsystemid.ToString().Trim();
-                txt_Productid.Text = frmps.prid.ToString().Trim();
-                txt_ProductName.Text = frmps.prname.ToString().Trim();
-                txt_Unit.Text = frmps.prunit.ToString().Trim();
-                txt_Unit.Focus();
-            }
-        }
-
         private void dgv_tagprint_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgv_tagprint.RowCount > 0)
@@ -264,6 +248,28 @@ namespace MTsystem_win
         {
             ds_tagprint.Clear();
             tagQuery();
+        }
+
+        private void txt_Productid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                if (txt_Productid.Text.Trim().Length != 0)
+                {
+                    Frm_productSelect frmps = new Frm_productSelect();
+                    frmps.selectCondition = txt_Productid.Text.Trim();
+                    frmps.ShowDialog();
+                    if (frmps.prid != null)
+                    {
+                        txt_Systemid.Text = frmps.prsystemid.ToString().Trim();
+                        txt_Productid.Text = frmps.prid.ToString().Trim();
+                        txt_ProductName.Text = frmps.prname.ToString().Trim();
+                        txt_Unit.Text = frmps.prunit.ToString().Trim();
+                        txt_Unit.Focus();
+                    }
+                }
+            }
         }
     }
 }
