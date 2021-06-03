@@ -34,6 +34,7 @@ namespace MTsystem_win
             }
             ds_tagprint.Clear();
             tagQuery();
+            txt_Productid.Focus();
         }
 
         private void btn_Saveprint_Click(object sender, EventArgs e)
@@ -162,6 +163,7 @@ namespace MTsystem_win
         {
             txt_Systemid.Text = "";
             txt_Productid.Text = "";
+            txt_Productid.Focus();
             txt_ProductName.Text = "";
             dtp_Productdate.Value = DateTime.Now;
             txt_Unit.Text = "";
