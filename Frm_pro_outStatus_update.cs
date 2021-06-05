@@ -77,7 +77,7 @@ namespace MTsystem_win
             {
                 MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
                 conn.Open();
-                string strsql = "SELECT Product_id AS 编号,Product_name AS 名称,Product_cksl AS 数量,Product_unit AS 规格,";
+                string strsql = "SELECT Proid AS 系统码, Product_id AS 编号,Product_name AS 名称,Product_cksl AS 数量,Product_unit AS 规格,";
                 strsql += "Ckzl AS 重量,Product_price AS 单价,Product_total_amount AS 金额,Out_remarks AS 备注 FROM product_out";
                 strsql += " WHERE Outid = '" + dgv_Pro_outmain_view.SelectedCells[0].Value.ToString().Trim() + "'";
                 MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
@@ -141,6 +141,27 @@ namespace MTsystem_win
             }
         }
 
+
+        /// <summary>
+        /// 产品库存表中是否已经存在产品编号
+        /// </summary>
+        /// <param name="i">i为DataGridView当前行</param>
+        /// <returns></returns>
+        private bool QueryProid(int i)
+        {
+            bool b = false;
+            string sqlstr = "SELECT Proid From product_stock WHERE Proid=@Proid";
+
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Proid", dgv_pro_outview.Rows[i].Cells[0].Value.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = dr.Read();
+            return b;
+        }
+
         //单据状态更新
         private void statusUpdate()
         {
@@ -162,6 +183,39 @@ namespace MTsystem_win
                 cmd.Parameters.Add("@Out_statusB", MySqlDbType.VarChar).Value = "无效";
                 cmd.Parameters.Add("@OutidB", MySqlDbType.VarChar).Value = label7.Text.Trim();
                 cmd.ExecuteNonQuery();
+
+                for (int i = 0; i < dgv_pro_outview.RowCount; i++)
+                {
+                    //ii作为当前行号传递给QueryProid()方法，进行查询比较，确定数据表中是否已存在相关记录，有则进行数据更新，无则添加新记录
+                    if (QueryProid(i))
+                    {
+                        string sqlstrD = "";
+                        sqlstrD = "UPDATE product_stock SET Product_stock = Product_stock + @Product_stockD WHERE Proid = @ProidD";
+                        MySqlCommand cmdD = new MySqlCommand();
+                        cmdD.Connection = conn;
+                        cmdD.CommandText = sqlstrD;
+                        cmdD.Parameters.AddWithValue("@ProidD", dgv_pro_outview.Rows[i].Cells[0].Value.ToString().Trim());
+                        cmdD.Parameters.AddWithValue("@Product_stockD", Convert.ToDecimal(dgv_pro_outview.Rows[i].Cells[5].Value.ToString().Trim()));
+                        cmdD.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        string sqlstrE = "";
+                        sqlstrE = "INSERT INTO `product_stock` VALUES(NULL,@ProidE,@Product_idE,@Product_nameE,";
+                        sqlstrE += "@Product_stockE,@Input_dateE,@Input_operatorE)";
+                        MySqlCommand cmdE = new MySqlCommand();
+                        cmdE.Connection = conn;
+                        cmdE.CommandText = sqlstrE;
+                        cmdE.Parameters.AddWithValue("@ProidE", dgv_pro_outview.Rows[i].Cells[0].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_idE", dgv_pro_outview.Rows[i].Cells[1].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_nameE", dgv_pro_outview.Rows[i].Cells[2].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_stockE", Convert.ToDecimal(dgv_pro_outview.Rows[i].Cells[5].Value.ToString().Trim()));
+                        cmdE.Parameters.AddWithValue("@Input_dateE", DateTime.Now.ToShortDateString().Trim());
+                        cmdE.Parameters.AddWithValue("@Input_operatorE", userInfocheck._Usname.Trim());
+                        cmdE.ExecuteNonQuery();
+                    }
+                }
+
             }
             catch (MySqlException ex)
             {

@@ -24,7 +24,6 @@ namespace MTsystem_win
         //tmpdt 一个为了迎合用户特殊习惯的不应该出现的垃圾全局变量-1
         public DateTime tmpdt;
 
-
         private void Frm_pro_returnGoods_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmmatreturngoods == "CLOSE" || frmShowstatus._Frmmatreturngoods == null)
@@ -244,6 +243,28 @@ namespace MTsystem_win
             }
         }
 
+
+        /// <summary>
+        /// 产品库存表中是否已经存在产品编号
+        /// </summary>
+        /// <param name="i">i为DataGridView当前行</param>
+        /// <returns></returns>
+        private bool QueryProid(int i)
+        {
+            bool b = false;
+            string sqlstr = "SELECT Proid From product_stock WHERE Proid=@Proid";
+
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Proid", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = dr.Read();
+            return b;
+        }
+
+
         /// <summary>
         /// 添加退货数据
         /// </summary>
@@ -295,6 +316,36 @@ namespace MTsystem_win
                     cmdA.Parameters.AddWithValue("@Out_dateA", Convert.ToDateTime(tmpdt).ToShortDateString());
                     cmdA.Parameters.AddWithValue("@Out_statusA", "有效");
                     cmdA.ExecuteNonQuery();
+
+                    //ii作为当前行号传递给QueryProid()方法，进行查询比较，确定数据表中是否已存在相关记录，有则进行数据更新，无则添加新记录
+                    ii = i;
+                    if (QueryProid(ii))
+                    {
+                        string sqlstrD = "";
+                        sqlstrD = "UPDATE product_stock SET Product_stock = Product_stock + @Product_stockD WHERE Proid = @ProidD";
+                        MySqlCommand cmdD = new MySqlCommand();
+                        cmdD.Connection = conn;
+                        cmdD.CommandText = sqlstrD;
+                        cmdD.Parameters.AddWithValue("@ProidD", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmdD.Parameters.AddWithValue("@Product_stockD", Math.Abs(Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim())));
+                        cmdD.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        string sqlstrE = "";
+                        sqlstrE = "INSERT INTO `product_stock` VALUES(NULL,@ProidE,@Product_idE,@Product_nameE,";
+                        sqlstrE += "@Product_stockE,@Input_dateE,@Input_operatorE)";
+                        MySqlCommand cmdE = new MySqlCommand();
+                        cmdE.Connection = conn;
+                        cmdE.CommandText = sqlstrE;
+                        cmdE.Parameters.AddWithValue("@ProidE", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_idE", dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_nameE", dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_stockE", Math.Abs(Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim())));
+                        cmdE.Parameters.AddWithValue("@Input_dateE", Convert.ToDateTime(tmpdt).ToShortDateString());
+                        cmdE.Parameters.AddWithValue("@Input_operatorE", userInfocheck._Usname.Trim());
+                        cmdE.ExecuteNonQuery();
+                    }
                 }
 
             }

@@ -273,6 +273,26 @@ namespace MTsystem_win
         }
 
         /// <summary>
+        /// 产品库存表中是否已经存在产品编号
+        /// </summary>
+        /// <param name="i">i为DataGridView当前行</param>
+        /// <returns></returns>
+        private bool QueryProid(int i)
+        {
+            bool b = false;
+            string sqlstr = "SELECT Proid From product_stock WHERE Proid=@Proid";
+
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Proid", dgv_OutputView.Rows[i].Cells[0].Value.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            b = dr.Read();
+            return b;
+        }
+
+        /// <summary>
         /// 添加订单数据
         /// </summary>
         private void dataInsert()
@@ -324,39 +344,72 @@ namespace MTsystem_win
                     cmdA.Parameters.AddWithValue("@Out_statusA", "有效");
                     cmdA.ExecuteNonQuery();
 
+
+
                     ii = i;
+                    //ii作为当前行号传递给price_of_custome()方法，进行查询比较，确定数据表中是否已存在相关记录，有则进行数据更新，无则添加新记录
                     if (price_of_custome(ii))
                     {
                         if (price_jugement == false)
                         {
                             string sqlstrB = "";
-                            sqlstrB = "UPDATE product_offer set product_price = @product_priceC,upgrade_date = @upgrade_dateC where Cus_id=@Cus_idC and proid=@proidC";
+                            sqlstrB = "UPDATE product_offer set product_price = @product_priceB,upgrade_date = @upgrade_dateB where Cus_id=@Cus_idB and proid=@proidB";
                             MySqlCommand cmdB = new MySqlCommand();
                             cmdB.Connection = conn;
                             cmdB.CommandText = sqlstrB;
-                            cmdB.Parameters.Add("@Cus_idC", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
-                            cmdB.Parameters.Add("@proidC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
-                            cmdB.Parameters.Add("@product_priceC", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
-                            cmdB.Parameters.Add("@upgrade_dateC", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
+                            cmdB.Parameters.Add("@Cus_idB", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
+                            cmdB.Parameters.Add("@proidB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
+                            cmdB.Parameters.Add("@product_priceB", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
+                            cmdB.Parameters.Add("@upgrade_dateB", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
                             cmdB.ExecuteNonQuery();
                         }
                     }
                     else
                     {
                         string sqlstrC = "";
-                        sqlstrC = "INSERT INTO product_offer VALUES(NULL,@Cus_idB,@Cus_nameB,@proidB,@product_idB,";
-                        sqlstrC += "@product_nameB,@product_priceB,@upgrade_dateB)"; 
+                        sqlstrC = "INSERT INTO product_offer VALUES(NULL,@Cus_idC,@Cus_nameC,@proidC,@product_idC,";
+                        sqlstrC += "@product_nameC,@product_priceC,@upgrade_dateC)"; 
                         MySqlCommand cmdC = new MySqlCommand();
                         cmdC.Connection = conn;
                         cmdC.CommandText = sqlstrC;
-                        cmdC.Parameters.Add("@Cus_idB", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
-                        cmdC.Parameters.Add("@Cus_nameB", MySqlDbType.VarChar).Value = txt_CusName.Text.Trim();
-                        cmdC.Parameters.Add("@proidB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_idB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_nameB", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim();
-                        cmdC.Parameters.Add("@product_priceB", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
-                        cmdC.Parameters.Add("@upgrade_dateB", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
+                        cmdC.Parameters.Add("@Cus_idC", MySqlDbType.VarChar).Value = txt_Cusid.Text.Trim();
+                        cmdC.Parameters.Add("@Cus_nameC", MySqlDbType.VarChar).Value = txt_CusName.Text.Trim();
+                        cmdC.Parameters.Add("@proidC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_idC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_nameC", MySqlDbType.VarChar).Value = dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim();
+                        cmdC.Parameters.Add("@product_priceC", MySqlDbType.Decimal).Value = Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[6].Value.ToString().Trim());
+                        cmdC.Parameters.Add("@upgrade_dateC", MySqlDbType.DateTime).Value = Convert.ToDateTime(tmpdt).ToShortDateString().Trim();
                         cmdC.ExecuteNonQuery();
+                    }
+
+
+                    //ii作为当前行号传递给QueryProid()方法，进行查询比较，确定数据表中是否已存在相关记录，有则进行数据更新，无则添加新记录
+                    if (QueryProid(ii))
+                    {
+                        string sqlstrD = "";
+                        sqlstrD = "UPDATE product_stock SET Product_stock = Product_stock - @Product_stockD WHERE Proid = @ProidD";
+                        MySqlCommand cmdD = new MySqlCommand();
+                        cmdD.Connection = conn;
+                        cmdD.CommandText = sqlstrD;
+                        cmdD.Parameters.AddWithValue("@ProidD", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmdD.Parameters.AddWithValue("@Product_stockD", Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim()));
+                        cmdD.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        string sqlstrE = "";
+                        sqlstrE = "INSERT INTO `product_stock` VALUES(NULL,@ProidE,@Product_idE,@Product_nameE,";
+                        sqlstrE += "@Product_stockE,@Input_dateE,@Input_operatorE)";
+                        MySqlCommand cmdE = new MySqlCommand();
+                        cmdE.Connection = conn;
+                        cmdE.CommandText = sqlstrE;
+                        cmdE.Parameters.AddWithValue("@ProidE", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_idE", dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_nameE", dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_stockE", Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim()) * -1);
+                        cmdE.Parameters.AddWithValue("@Input_dateE", Convert.ToDateTime(tmpdt).ToShortDateString());
+                        cmdE.Parameters.AddWithValue("@Input_operatorE", userInfocheck._Usname.Trim());
+                        cmdE.ExecuteNonQuery();
                     }
                 }
 
