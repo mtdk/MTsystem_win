@@ -311,6 +311,7 @@
     <Compile Include="Frm_pro_returnGoods.Designer.cs">
       <DependentUpon>Frm_pro_returnGoods.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Frm_cailiaojincang.resx">
       <DependentUpon>Frm_cailiaojincang.cs</DependentUpon>
     </EmbeddedResource>

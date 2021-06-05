@@ -82,6 +82,8 @@
             this.txt_productName = new System.Windows.Forms.TextBox();
             this.txt_productId = new System.Windows.Forms.TextBox();
             this.txt_proId = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OutputView)).BeginInit();
@@ -204,6 +206,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.btn_tempInsert);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label19);
@@ -644,6 +648,26 @@
             this.txt_proId.Size = new System.Drawing.Size(100, 30);
             this.txt_proId.TabIndex = 11;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Blue;
+            this.label21.Location = new System.Drawing.Point(1217, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 19);
+            this.label21.TabIndex = 29;
+            this.label21.Text = "库存数:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(1295, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 19);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "NULL";
+            // 
             // Frm_product_output
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -721,5 +745,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
         private System.Windows.Forms.DataGridViewTextBoxColumn 小计;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }
