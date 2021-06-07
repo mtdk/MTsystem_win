@@ -179,14 +179,15 @@ namespace MTsystem_win
                 string sqlstrA = "";
                 if (dgv_SelectResult.CurrentRow.Cells[11].Value.ToString().Trim() == "有效")
                 {
-                    sqlstrA = "UPDATE `product_stock` SET Product_stock = Product_stock + @Product_stock WHERE Proid = @Proid";
+                    sqlstrA = "UPDATE `product_stock` SET Product_num = Product_num + @Product_num, Product_stock = Product_stock + @Product_stock WHERE Proid = @Proid";
                 }
                 else
                 {
-                    sqlstrA = "UPDATE `product_stock` SET Product_stock = Product_stock - @Product_stock WHERE Proid = @Proid";
+                    sqlstrA = "UPDATE `product_stock` SET Product_num = Product_num - @Product_num, Product_stock = Product_stock - @Product_stock WHERE Proid = @Proid";
                 }
                 cmd.CommandText = sqlstrA;
                 cmd.Parameters.AddWithValue("@Proid", dgv_SelectResult.CurrentRow.Cells[2].Value.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Product_num", Convert.ToInt32(dgv_SelectResult.CurrentRow.Cells[5].Value.ToString().Trim()));
                 cmd.Parameters.AddWithValue("@Product_stock", Convert.ToDecimal(dgv_SelectResult.CurrentRow.Cells[7].Value.ToString().Trim()));
                 cmd.ExecuteNonQuery();
             }

@@ -405,9 +405,11 @@ namespace MTsystem_win
                     string sqlstrA = "";
                     if (QueryProid(ii))
                     {
-                        sqlstrA = "UPDATE product_stock SET Product_stock = Product_stock + @Product_stockA WHERE Proid = @ProidA";
+                        sqlstrA = "UPDATE product_stock SET Product_num = Product_num + @Product_numA,";
+                        sqlstrA += "Product_stock = Product_stock + @Product_stockA WHERE Proid = @ProidA";
                         cmd.CommandText = sqlstrA;
                         cmd.Parameters.AddWithValue("@ProidA", dgv_inputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_numA", Convert.ToInt32(dgv_inputView.Rows[ii].Cells[3].Value.ToString().Trim()));
                         cmd.Parameters.AddWithValue("@Product_stockA", Convert.ToDecimal(dgv_inputView.Rows[ii].Cells[5].Value.ToString().Trim()));
                         cmd.ExecuteNonQuery();
                     }
@@ -415,11 +417,12 @@ namespace MTsystem_win
                     {
                         sqlstrA = "";
                         sqlstrA = "INSERT INTO `product_stock` VALUES(NULL,@ProidB,@Product_idB,@Product_nameB,";
-                        sqlstrA += "@Product_stockB,@Input_dateB,@Input_operatorB)";
+                        sqlstrA += "@Product_numB,@Product_stockB,@Input_dateB,@Input_operatorB)";
                         cmd.CommandText = sqlstrA;
                         cmd.Parameters.AddWithValue("@ProidB", dgv_inputView.Rows[ii].Cells[0].Value.ToString().Trim());
                         cmd.Parameters.AddWithValue("@Product_idB", dgv_inputView.Rows[ii].Cells[1].Value.ToString().Trim());
                         cmd.Parameters.AddWithValue("@Product_nameB", dgv_inputView.Rows[ii].Cells[2].Value.ToString().Trim());
+                        cmd.Parameters.AddWithValue("@Product_numB", Convert.ToInt32(dgv_inputView.Rows[ii].Cells[3].Value.ToString().Trim()));
                         cmd.Parameters.AddWithValue("@Product_stockB", Convert.ToDecimal(dgv_inputView.Rows[ii].Cells[5].Value.ToString().Trim()));
                         cmd.Parameters.AddWithValue("@Input_dateB", Convert.ToDateTime(tmpdt).ToShortDateString());
                         cmd.Parameters.AddWithValue("@Input_operatorB", userInfocheck._Usname.Trim());

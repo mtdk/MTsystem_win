@@ -387,11 +387,13 @@ namespace MTsystem_win
                     if (QueryProid(ii))
                     {
                         string sqlstrD = "";
-                        sqlstrD = "UPDATE product_stock SET Product_stock = Product_stock - @Product_stockD WHERE Proid = @ProidD";
+                        sqlstrD = "UPDATE product_stock SET Product_num = Product_num - @Product_numD,";
+                        sqlstrD += "Product_stock = Product_stock - @Product_stockD WHERE Proid = @ProidD";
                         MySqlCommand cmdD = new MySqlCommand();
                         cmdD.Connection = conn;
                         cmdD.CommandText = sqlstrD;
                         cmdD.Parameters.AddWithValue("@ProidD", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
+                        cmdD.Parameters.AddWithValue("@Product_numD", Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim()));
                         cmdD.Parameters.AddWithValue("@Product_stockD", Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim()));
                         cmdD.ExecuteNonQuery();
                     }
@@ -399,13 +401,14 @@ namespace MTsystem_win
                     {
                         string sqlstrE = "";
                         sqlstrE = "INSERT INTO `product_stock` VALUES(NULL,@ProidE,@Product_idE,@Product_nameE,";
-                        sqlstrE += "@Product_stockE,@Input_dateE,@Input_operatorE)";
+                        sqlstrE += "@Product_numE,@Product_stockE,@Input_dateE,@Input_operatorE)";
                         MySqlCommand cmdE = new MySqlCommand();
                         cmdE.Connection = conn;
                         cmdE.CommandText = sqlstrE;
                         cmdE.Parameters.AddWithValue("@ProidE", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
                         cmdE.Parameters.AddWithValue("@Product_idE", dgv_OutputView.Rows[ii].Cells[1].Value.ToString().Trim());
                         cmdE.Parameters.AddWithValue("@Product_nameE", dgv_OutputView.Rows[ii].Cells[2].Value.ToString().Trim());
+                        cmdE.Parameters.AddWithValue("@Product_numE", Convert.ToInt32(dgv_OutputView.Rows[ii].Cells[3].Value.ToString().Trim()) * -1);
                         cmdE.Parameters.AddWithValue("@Product_stockE", Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim()) * -1);
                         cmdE.Parameters.AddWithValue("@Input_dateE", Convert.ToDateTime(tmpdt).ToShortDateString());
                         cmdE.Parameters.AddWithValue("@Input_operatorE", userInfocheck._Usname.Trim());
