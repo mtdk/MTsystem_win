@@ -27,19 +27,36 @@ namespace MTsystem_win
         private void outPrint()
         {
             string sqlstr = "";
-            if (txt_QueryCondition.Text.Trim().Length != 0)
+            if (rdb_all.Checked == true)
+            {
+                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
+                sqlstr += " AND Out_status = '有效'";
+            }
+            else if (rdb_Account_Statement.Checked == true)
             {
                 sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_QueryCondition.Text.Trim() + "'";
                 sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_status = '有效'";
             }
-            else
+            else if (rdb_Productid.Checked == true)
             {
-                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
-                sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
-                sqlstr += " AND Out_status = '有效'";
+                if (txt_QueryCondition.Text.Trim().Length != 0)
+                {
+                    sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Product_id = '" + txt_QueryCondition.Text.Trim() + "'";
+                    sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
+                    sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
+                    sqlstr += " AND Out_status = '有效'";
+                }
+                else
+                {
+                    sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
+                    sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
+                    sqlstr += " AND Out_status = '有效'";
+                }
             }
+
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -57,9 +74,13 @@ namespace MTsystem_win
                 {
                     product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport.rdlc";
                 }
-                else
+                else if(rdb_Account_Statement.Checked==true)
                 {
                     product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport_a.rdlc";
+                }
+                else
+                {
+                    product_outputallReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_out_OutReport_b.rdlc";
                 }
 
                 rds.Name = "ds_productoutReportview";
@@ -90,7 +111,12 @@ namespace MTsystem_win
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-            if (rdb_Account_Statement.Checked == true)
+            if (rdb_all.Checked == true || rdb_Productid.Checked == true)
+            {
+                this.product_outputallReportview.Reset();
+                outPrint();
+            }
+            else if (rdb_Account_Statement.Checked == true)
             {
                 if (txt_QueryCondition.Text.Trim().Length != 0)
                 {
@@ -103,11 +129,6 @@ namespace MTsystem_win
                     txt_QueryCondition.Focus();
                 }
             }
-            else
-            {
-                this.product_outputallReportview.Reset();
-                outPrint();
-            }
         }
 
         private void txt_cusName_KeyPress(object sender, KeyPressEventArgs e)
@@ -117,14 +138,17 @@ namespace MTsystem_win
                 e.Handled = true;
                 if (txt_QueryCondition.Text.Trim().Length != 0)
                 {
-                    Frm_CusinfoShow frmcusinfoshow = new Frm_CusinfoShow();
-                    frmcusinfoshow.selectCondition = txt_QueryCondition.Text.Trim();
-                    frmcusinfoshow.ShowDialog();
-                    if (frmcusinfoshow.Cus_id != "")
+                    if (rdb_Account_Statement.Checked == true)
                     {
-                        txt_QueryCondition.Text = frmcusinfoshow.Cus_id.Trim();
-                        txt_QueryCondition.Text = frmcusinfoshow.Cus_name.Trim();
-                        txt_QueryCondition.Focus();
+                        Frm_CusinfoShow frmcusinfoshow = new Frm_CusinfoShow();
+                        frmcusinfoshow.selectCondition = txt_QueryCondition.Text.Trim();
+                        frmcusinfoshow.ShowDialog();
+                        if (frmcusinfoshow.Cus_id != "")
+                        {
+                            txt_QueryCondition.Text = frmcusinfoshow.Cus_id.Trim();
+                            txt_QueryCondition.Text = frmcusinfoshow.Cus_name.Trim();
+                            txt_QueryCondition.Focus();
+                        }
                     }
                 }
             }

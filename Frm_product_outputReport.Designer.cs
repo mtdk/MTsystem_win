@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdb_Productid = new System.Windows.Forms.RadioButton();
             this.rdb_Account_Statement = new System.Windows.Forms.RadioButton();
             this.rdb_all = new System.Windows.Forms.RadioButton();
             this.btn_Query = new System.Windows.Forms.Button();
@@ -40,23 +41,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.product_outputallReportview = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rdb_Productid = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.rdb_Productid);
             this.groupBox1.Controls.Add(this.rdb_Account_Statement);
             this.groupBox1.Controls.Add(this.rdb_all);
             this.groupBox1.Controls.Add(this.btn_Query);
             this.groupBox1.Controls.Add(this.dtp_end);
             this.groupBox1.Controls.Add(this.dtp_start);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_QueryCondition);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -64,6 +64,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询选择区";
+            // 
+            // rdb_Productid
+            // 
+            this.rdb_Productid.AutoSize = true;
+            this.rdb_Productid.Location = new System.Drawing.Point(264, 22);
+            this.rdb_Productid.Name = "rdb_Productid";
+            this.rdb_Productid.Size = new System.Drawing.Size(117, 23);
+            this.rdb_Productid.TabIndex = 13;
+            this.rdb_Productid.Text = "按品名查找";
+            this.rdb_Productid.UseVisualStyleBackColor = true;
             // 
             // rdb_Account_Statement
             // 
@@ -143,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 61);
+            this.label1.Location = new System.Drawing.Point(18, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 0;
@@ -172,21 +182,11 @@
             this.product_outputallReportview.Size = new System.Drawing.Size(1162, 791);
             this.product_outputallReportview.TabIndex = 0;
             // 
-            // rdb_Productid
-            // 
-            this.rdb_Productid.AutoSize = true;
-            this.rdb_Productid.Location = new System.Drawing.Point(264, 22);
-            this.rdb_Productid.Name = "rdb_Productid";
-            this.rdb_Productid.Size = new System.Drawing.Size(117, 23);
-            this.rdb_Productid.TabIndex = 13;
-            this.rdb_Productid.Text = "按品名查找";
-            this.rdb_Productid.UseVisualStyleBackColor = true;
-            // 
             // Frm_product_outputReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 941);
+            this.ClientSize = new System.Drawing.Size(1192, 749);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
