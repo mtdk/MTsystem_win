@@ -27,9 +27,9 @@ namespace MTsystem_win
         private void outPrint()
         {
             string sqlstr = "";
-            if (txt_cusName.Text.Trim().Length != 0)
+            if (txt_QueryCondition.Text.Trim().Length != 0)
             {
-                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_cusName.Text.Trim() + "'";
+                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_QueryCondition.Text.Trim() + "'";
                 sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_status = '有效'";
@@ -92,7 +92,7 @@ namespace MTsystem_win
         {
             if (rdb_Account_Statement.Checked == true)
             {
-                if (txt_cusName.Text.Trim().Length != 0)
+                if (txt_QueryCondition.Text.Trim().Length != 0)
                 {
                     this.product_outputallReportview.Reset();
                     outPrint();
@@ -100,7 +100,7 @@ namespace MTsystem_win
                 else
                 {
                     MessageBox.Show("请输入客户名称后在查询！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txt_cusName.Focus();
+                    txt_QueryCondition.Focus();
                 }
             }
             else
@@ -115,16 +115,16 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                if (txt_cusName.Text.Trim().Length != 0)
+                if (txt_QueryCondition.Text.Trim().Length != 0)
                 {
                     Frm_CusinfoShow frmcusinfoshow = new Frm_CusinfoShow();
-                    frmcusinfoshow.selectCondition = txt_cusName.Text.Trim();
+                    frmcusinfoshow.selectCondition = txt_QueryCondition.Text.Trim();
                     frmcusinfoshow.ShowDialog();
                     if (frmcusinfoshow.Cus_id != "")
                     {
-                        txt_cusName.Text = frmcusinfoshow.Cus_id.Trim();
-                        txt_cusName.Text = frmcusinfoshow.Cus_name.Trim();
-                        txt_cusName.Focus();
+                        txt_QueryCondition.Text = frmcusinfoshow.Cus_id.Trim();
+                        txt_QueryCondition.Text = frmcusinfoshow.Cus_name.Trim();
+                        txt_QueryCondition.Focus();
                     }
                 }
             }

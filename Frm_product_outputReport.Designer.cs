@@ -36,16 +36,18 @@
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_cusName = new System.Windows.Forms.TextBox();
+            this.txt_QueryCondition = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.product_outputallReportview = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rdb_Productid = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdb_Productid);
             this.groupBox1.Controls.Add(this.rdb_Account_Statement);
             this.groupBox1.Controls.Add(this.rdb_all);
             this.groupBox1.Controls.Add(this.btn_Query);
@@ -53,7 +55,7 @@
             this.groupBox1.Controls.Add(this.dtp_start);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txt_cusName);
+            this.groupBox1.Controls.Add(this.txt_QueryCondition);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -130,22 +132,22 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "开始时间：";
             // 
-            // txt_cusName
+            // txt_QueryCondition
             // 
-            this.txt_cusName.Location = new System.Drawing.Point(191, 58);
-            this.txt_cusName.Name = "txt_cusName";
-            this.txt_cusName.Size = new System.Drawing.Size(342, 26);
-            this.txt_cusName.TabIndex = 1;
-            this.txt_cusName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cusName_KeyPress);
+            this.txt_QueryCondition.Location = new System.Drawing.Point(141, 58);
+            this.txt_QueryCondition.Name = "txt_QueryCondition";
+            this.txt_QueryCondition.Size = new System.Drawing.Size(392, 26);
+            this.txt_QueryCondition.TabIndex = 1;
+            this.txt_QueryCondition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cusName_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 19);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "按客户名称查询：";
+            this.label1.Text = "查询条件：";
             // 
             // groupBox2
             // 
@@ -169,6 +171,16 @@
             this.product_outputallReportview.ShowStopButton = false;
             this.product_outputallReportview.Size = new System.Drawing.Size(1162, 791);
             this.product_outputallReportview.TabIndex = 0;
+            // 
+            // rdb_Productid
+            // 
+            this.rdb_Productid.AutoSize = true;
+            this.rdb_Productid.Location = new System.Drawing.Point(264, 22);
+            this.rdb_Productid.Name = "rdb_Productid";
+            this.rdb_Productid.Size = new System.Drawing.Size(117, 23);
+            this.rdb_Productid.TabIndex = 13;
+            this.rdb_Productid.Text = "按品名查找";
+            this.rdb_Productid.UseVisualStyleBackColor = true;
             // 
             // Frm_product_outputReport
             // 
@@ -195,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txt_cusName;
+        private System.Windows.Forms.TextBox txt_QueryCondition;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -206,5 +218,6 @@
         private Microsoft.Reporting.WinForms.ReportViewer product_outputallReportview;
         private System.Windows.Forms.RadioButton rdb_Account_Statement;
         private System.Windows.Forms.RadioButton rdb_all;
+        private System.Windows.Forms.RadioButton rdb_Productid;
     }
 }
