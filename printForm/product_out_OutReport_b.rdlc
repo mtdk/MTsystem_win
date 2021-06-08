@@ -613,7 +613,6 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ds_productoutReportview</DataSetName>
-        <Top>0cm</Top>
         <Left>0.09712cm</Left>
         <Height>0.6cm</Height>
         <Width>19.131cm</Width>
@@ -663,7 +662,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>产品出仓报表</Value>
+                  <Value>客户购货情况表</Value>
                   <Style>
                     <FontFamily>宋体</FontFamily>
                     <FontSize>18pt</FontSize>
@@ -955,7 +954,7 @@
           <Top>2.64619cm</Top>
           <Left>6.20839cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.49999cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -988,9 +987,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox34</rd:DefaultName>
           <Top>2.64619cm</Top>
-          <Left>8.70237cm</Left>
+          <Left>8.70838cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.84238cm</Width>
+          <Width>2.83637cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -1010,7 +1009,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>同数</Value>
+                  <Value>桶数</Value>
                   <Style>
                     <FontFamily>宋体</FontFamily>
                   </Style>

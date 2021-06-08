@@ -348,7 +348,7 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品报表
+        /// 产品出库报表
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -363,6 +363,35 @@ namespace MTsystem_win
                         Frm_product_outputReport Frmprooutreoprt = new Frm_product_outputReport();
                         Frmprooutreoprt.MdiParent = this;
                         Frmprooutreoprt.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你不能操作这个功能！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("你不是这个部门的操作人员！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// 产品库存报表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pro_stock_report_Click(object sender, EventArgs e)
+        {
+            if (userInfocheck._Usdepartmentid == 200 || userInfocheck._Usdepartmentid == 201 || userInfocheck._Usdepartmentid == 209)
+            {
+                if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
+                {
+                    if (frmShowstatus._Frmproductstockreport == "CLOSE" || frmShowstatus._Frmproductstockreport == null)
+                    {
+                        Frm_product_stock_report Frmproductstockreport = new Frm_product_stock_report();
+                        Frmproductstockreport.MdiParent = this;
+                        Frmproductstockreport.Show();
                     }
                 }
                 else
@@ -720,8 +749,6 @@ namespace MTsystem_win
             Application.Exit();
         }
         #endregion
-
-
 
     }
 }

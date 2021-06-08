@@ -102,6 +102,18 @@ namespace MTsystem_win.allClass
             get { return _frmproductoutputreport; }
         }
         /// <summary>
+        /// 产品库存报表
+        /// </summary>
+        private static string _frmproductstockreport;
+        /// <summary>
+        /// 产品库存报表
+        /// </summary>
+        public static string _Frmproductstockreport
+        {
+            set { _frmproductstockreport = value; }
+            get { return _frmproductstockreport; }
+        }
+        /// <summary>
         /// 产品信息录入窗口
         /// </summary>
         private static string _frmproductinfo;

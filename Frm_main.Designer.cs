@@ -64,6 +64,7 @@
             this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_stock_report = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -288,7 +289,8 @@
             this.tms_ReportView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mat_Dayreport,
             this.mat_stock_Report,
-            this.pro_all_report});
+            this.pro_all_report,
+            this.pro_stock_report});
             this.tms_ReportView.Name = "tms_ReportView";
             this.tms_ReportView.Size = new System.Drawing.Size(57, 23);
             this.tms_ReportView.Text = "报表";
@@ -356,6 +358,13 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
+            // pro_stock_report
+            // 
+            this.pro_stock_report.Name = "pro_stock_report";
+            this.pro_stock_report.Size = new System.Drawing.Size(186, 24);
+            this.pro_stock_report.Text = "成品库存报表";
+            this.pro_stock_report.Click += new System.EventHandler(this.pro_stock_report_Click);
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -416,5 +425,6 @@
         private System.Windows.Forms.ToolStripMenuItem pro_returnGoods;
         private System.Windows.Forms.ToolStripMenuItem tsm_ProductBillstatus;
         private System.Windows.Forms.ToolStripMenuItem pro_input;
+        private System.Windows.Forms.ToolStripMenuItem pro_stock_report;
     }
 }

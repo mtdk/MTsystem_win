@@ -105,8 +105,10 @@ namespace MTsystem_win
         }
         private void Frm_product_outputReport_Load(object sender, EventArgs e)
         {
-
-            //this.product_outputallReportview.Reset();
+            if (frmShowstatus._Frmproductoutputreport == "CLOSE" || frmShowstatus._Frmproductoutputreport == null)
+            {
+                frmShowstatus._Frmproductoutputreport = "OPEN";
+            }
         }
 
         private void btn_Query_Click(object sender, EventArgs e)
@@ -152,6 +154,11 @@ namespace MTsystem_win
                     }
                 }
             }
+        }
+
+        private void Frm_product_outputReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmShowstatus._Frmproductoutputreport = "CLOSE";
         }
     }
 }
