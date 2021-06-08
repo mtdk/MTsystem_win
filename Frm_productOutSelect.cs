@@ -31,6 +31,9 @@ namespace MTsystem_win
 
         public string product_price;
 
+        public string pro_num;
+
+        public string pro_stock;
 
         DataSet ds_Queryresult = new DataSet();
 
@@ -65,8 +68,35 @@ namespace MTsystem_win
                     product_id = dgv_productOutSelect.CurrentRow.Cells[1].Value.ToString().Trim();
                     product_name = dgv_productOutSelect.CurrentRow.Cells[2].Value.ToString().Trim();
                     product_unit = dgv_productOutSelect.CurrentRow.Cells[3].Value.ToString().Trim();
+                    product_stock();
                     this.Close();
                 }
+            }
+        }
+
+        /// <summary>
+        /// 产品库存数量
+        /// </summary>
+        private void product_stock()
+        {
+            string sqlstr = "SELECT Proid, Product_id, Product_name, Product_num, Product_stock FROM product_stock WHERE Proid = @Proid";
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            cmd.Parameters.AddWithValue("@Proid", dgv_productOutSelect.CurrentRow.Cells[0].Value.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            if (dr.HasRows)
+            {
+                pro_num = dr["Product_num"].ToString().Trim();
+                pro_stock = dr["Product_stock"].ToString().Trim();
+            }
+            else
+            {
+                pro_num = "NULL";
+                pro_stock = "NULL";
+
             }
         }
     }

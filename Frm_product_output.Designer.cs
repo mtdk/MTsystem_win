@@ -44,6 +44,8 @@
             this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.btn_tempInsert = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -82,8 +84,7 @@
             this.txt_productName = new System.Windows.Forms.TextBox();
             this.txt_productId = new System.Windows.Forms.TextBox();
             this.txt_proId = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OutputView)).BeginInit();
@@ -206,6 +207,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.btn_tempInsert);
@@ -242,6 +244,27 @@
             this.groupBox2.Size = new System.Drawing.Size(1391, 478);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(1262, 15);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 19);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "NULL";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Blue;
+            this.label21.Location = new System.Drawing.Point(1184, 15);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 19);
+            this.label21.TabIndex = 29;
+            this.label21.Text = "库存数:";
             // 
             // btn_tempInsert
             // 
@@ -648,25 +671,16 @@
             this.txt_proId.Size = new System.Drawing.Size(100, 30);
             this.txt_proId.TabIndex = 11;
             // 
-            // label21
+            // label23
             // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Blue;
-            this.label21.Location = new System.Drawing.Point(1217, 22);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(72, 19);
-            this.label21.TabIndex = 29;
-            this.label21.Text = "库存数:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(1295, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 19);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "NULL";
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(1317, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 19);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "NULL";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Frm_product_output
             // 
@@ -747,5 +761,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
     }
 }

@@ -535,6 +535,8 @@ namespace MTsystem_win
                         txt_productId.Text = frmpOutselect.product_id.Trim();
                         txt_productName.Text = frmpOutselect.product_name.Trim();
                         txt_OutputUnit.Text = frmpOutselect.product_unit.Trim();
+                        label22.Text = frmpOutselect.pro_num.Trim();
+                        label23.Text = frmpOutselect.pro_stock.Trim();
                         txt_OutputNum.Focus();
                         priceOfquery();
                     }
@@ -554,7 +556,7 @@ namespace MTsystem_win
 
         private void txt_OutputNum_Leave(object sender, EventArgs e)
         {
-            if (txt_OutputNum.Text.Trim().Length==0)
+            if (txt_OutputNum.Text.Trim().Length == 0)
             {
                 txt_OutputNum.Text = "0";
             }

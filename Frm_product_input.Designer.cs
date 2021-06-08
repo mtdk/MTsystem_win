@@ -320,6 +320,7 @@
             this.txt_inputWeight.ReadOnly = true;
             this.txt_inputWeight.Size = new System.Drawing.Size(137, 30);
             this.txt_inputWeight.TabIndex = 15;
+            this.txt_inputWeight.Text = "0";
             this.txt_inputWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputWeight_KeyPress);
             // 
             // txt_inputUnit
@@ -331,6 +332,7 @@
             this.txt_inputUnit.Name = "txt_inputUnit";
             this.txt_inputUnit.Size = new System.Drawing.Size(100, 30);
             this.txt_inputUnit.TabIndex = 4;
+            this.txt_inputUnit.Text = "0";
             this.txt_inputUnit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputUnit_KeyPress);
             this.txt_inputUnit.Leave += new System.EventHandler(this.txt_inputUnit_Leave);
             // 
@@ -343,6 +345,7 @@
             this.txt_inputNum.Name = "txt_inputNum";
             this.txt_inputNum.Size = new System.Drawing.Size(100, 30);
             this.txt_inputNum.TabIndex = 3;
+            this.txt_inputNum.Text = "0";
             this.txt_inputNum.Enter += new System.EventHandler(this.txt_inputNum_Enter);
             this.txt_inputNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inputNum_KeyPress);
             this.txt_inputNum.Leave += new System.EventHandler(this.txt_inputNum_Leave);

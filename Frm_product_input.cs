@@ -215,9 +215,7 @@ namespace MTsystem_win
         {
             if (txt_inputNum.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_inputNum.Focus();
-                txt_inputNum.SelectAll();
+                txt_inputNum.Text = "0";
             }
             else if (!jnum.IntegralNumber(txt_inputNum.Text.Trim()))
             {
@@ -225,7 +223,7 @@ namespace MTsystem_win
                 txt_inputNum.Focus();
                 txt_inputNum.SelectAll();
             }
-            else if ((Convert.ToInt32(txt_inputNum.Text.Trim())) <= 0)
+            else if ((Convert.ToInt32(txt_inputNum.Text.Trim())) < 0)
             {
                 MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_inputNum.Focus();
@@ -253,9 +251,7 @@ namespace MTsystem_win
         {
             if (txt_inputUnit.Text.Trim().Length == 0)
             {
-                MessageBox.Show("格式错误，这个位置不能为空，请输入如：20,20.1的数字", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_inputUnit.Focus();
-                txt_inputUnit.SelectAll();
+                txt_inputUnit.Text = "0";
             }
             else if (!jnum.ISNumeric(txt_inputUnit.Text.Trim()))
             {
@@ -263,7 +259,7 @@ namespace MTsystem_win
                 txt_inputUnit.Focus();
                 txt_inputUnit.SelectAll();
             }
-            else if ((Convert.ToDecimal(txt_inputUnit.Text.Trim())) <= 0)
+            else if ((Convert.ToDecimal(txt_inputUnit.Text.Trim())) < 0)
             {
                 MessageBox.Show("请输入大于0的数字，如：20,20.1", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_inputUnit.Focus();
