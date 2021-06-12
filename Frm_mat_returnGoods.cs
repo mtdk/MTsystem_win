@@ -75,6 +75,7 @@ namespace MTsystem_win
             dgv_Query_result.Columns[2].HeaderText = "材料名称";
             dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
             conn.Close();
+            conn.Dispose();
             msda.Dispose();
         }
 

@@ -62,6 +62,8 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[2].HeaderText = "产品名称";
             dgv_Queryresult.Columns[3].HeaderText = "产品规格";
             conn.Close();
+            conn.Dispose();
+            msda.Dispose();
         }
 
         private void Frm_productSelect_A_Load(object sender, EventArgs e)

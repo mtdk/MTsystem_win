@@ -64,6 +64,8 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[1].HeaderText = "材料编号";
             dgv_Queryresult.Columns[2].HeaderText = "材料名称";
             conn.Close();
+            conn.Dispose();
+            msda.Dispose();
         }
 
         private void btn_Query_Click(object sender, EventArgs e)
@@ -92,6 +94,9 @@ namespace MTsystem_win
                     dgv_Queryresult.Columns[0].HeaderText = "序号";
                     dgv_Queryresult.Columns[1].HeaderText = "材料编号";
                     dgv_Queryresult.Columns[2].HeaderText = "材料名称";
+                    conn.Close();
+                    conn.Dispose();
+                    msda.Dispose();
                 }
                 else
                 {
@@ -108,6 +113,9 @@ namespace MTsystem_win
                     dgv_Queryresult.Columns[0].HeaderText = "序号";
                     dgv_Queryresult.Columns[1].HeaderText = "材料编号";
                     dgv_Queryresult.Columns[2].HeaderText = "材料名称";
+                    conn.Close();
+                    conn.Dispose();
+                    msda.Dispose();
                 }
             }
             else

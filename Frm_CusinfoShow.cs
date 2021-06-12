@@ -47,6 +47,8 @@ namespace MTsystem_win
             dgv_cusinfoview.Columns[0].HeaderText = "客户编号";
             dgv_cusinfoview.Columns[1].HeaderText = "客户名称";
             conn.Close();
+            conn.Dispose();
+            msda.Dispose();
         }
 
         private void dgv_cusinfoview_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

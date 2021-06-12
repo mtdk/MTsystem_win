@@ -93,6 +93,8 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[8].HeaderText = "操作员";
 
             conn.Close();
+            conn.Dispose();
+            msda.Dispose();
         }
 
         private void Frm_mat_input_query_Load(object sender, EventArgs e)
