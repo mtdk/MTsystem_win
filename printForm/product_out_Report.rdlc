@@ -229,6 +229,7 @@
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -265,6 +266,7 @@
                               <Style>
                                 <FontFamily>新宋体</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <Format>0.00;(0.00);''</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -493,6 +495,7 @@
                   <Style>
                     <FontFamily>新宋体</FontFamily>
                     <FontSize>12pt</FontSize>
+                    <Format>0.00;(0.00);''</Format>
                   </Style>
                 </TextRun>
               </TextRuns>

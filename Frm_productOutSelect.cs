@@ -56,6 +56,7 @@ namespace MTsystem_win
             dgv_productOutSelect.Columns[2].HeaderText = "产品名称";
             dgv_productOutSelect.Columns[3].HeaderText = "产品规格";
             conn.Close();
+            conn.Dispose();
         }
 
         private void dgv_productOutSelect_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -98,6 +99,7 @@ namespace MTsystem_win
                 pro_stock = "NULL";
 
             }
+            conn.Dispose();
         }
     }
 }

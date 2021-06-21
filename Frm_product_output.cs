@@ -269,6 +269,8 @@ namespace MTsystem_win
                 {
                     txt_Price.Text = "0";
                 }
+
+                conn.Dispose();
             }
         }
 
@@ -289,6 +291,7 @@ namespace MTsystem_win
             cmd.CommandText = sqlstr;
             MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             b = dr.Read();
+            conn.Dispose();
             return b;
         }
 
@@ -513,9 +516,45 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                txt_CusName.ReadOnly = true;
-                txt_batchNum.ReadOnly = true;
-                txt_productId.Focus();
+                if (txt_batchNum.Text.Trim().Length != 0)
+                {
+                    if (batchNumSame(this.txt_batchNum.Text.Trim()))
+                    {
+                        txt_CusName.ReadOnly = true;
+                        txt_batchNum.ReadOnly = true;
+                        txt_productId.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("出货单号已存在！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.txt_batchNum.Focus();
+                        this.txt_batchNum.SelectAll();
+                    }
+
+                }
+                else
+                {
+                    txt_productId.Focus();
+                }
+            }
+        }
+
+        private void txt_batchNum_Leave(object sender, EventArgs e)
+        {
+            if (txt_batchNum.Text.Trim().Length != 0)
+            {
+                if (batchNumSame(this.txt_batchNum.Text.Trim()))
+                {
+                    txt_CusName.ReadOnly = true;
+                    txt_batchNum.ReadOnly = true;
+                    txt_productId.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("出货单号已存在！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.txt_batchNum.Focus();
+                    this.txt_batchNum.SelectAll();
+                }
             }
         }
 
@@ -668,19 +707,45 @@ namespace MTsystem_win
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (dgv_OutputView.RowCount > 0)
+            if (txt_batchNum.Text.Trim().Length != 0)
             {
-                dataInsert();
+                if (dgv_OutputView.RowCount > 0)
+                {
+                    dataInsert();
+                }
+                else
+                {
+                    MessageBox.Show("没有数据记录可以保存的！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                MessageBox.Show("没有数据记录可以保存的！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("出货单号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btn_tempInsert_Click(object sender, EventArgs e)
         {
             tempInsertJudge();
+        }
+
+        private bool batchNumSame(string btid)
+        {
+            bool bt = true;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string sqlstr = "SELECT Output_id FROM product_out_main WHERE Output_id = @Output_id";
+            MySqlCommand cmd = new MySqlCommand(sqlstr,conn);
+            cmd.Parameters.AddWithValue("@Output_id", btid.ToString().Trim());
+            cmd.CommandText = sqlstr;
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            if (dr.HasRows)
+            {
+                bt = false;
+            }
+            conn.Dispose();
+            return bt;
         }
 
     }

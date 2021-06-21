@@ -44,6 +44,7 @@
             this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.btn_tempInsert = new System.Windows.Forms.Button();
@@ -84,7 +85,6 @@
             this.txt_productName = new System.Windows.Forms.TextBox();
             this.txt_productId = new System.Windows.Forms.TextBox();
             this.txt_proId = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OutputView)).BeginInit();
@@ -138,6 +138,7 @@
             this.txt_batchNum.Size = new System.Drawing.Size(162, 30);
             this.txt_batchNum.TabIndex = 2;
             this.txt_batchNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_batchNum_KeyPress);
+            this.txt_batchNum.Leave += new System.EventHandler(this.txt_batchNum_Leave);
             // 
             // label3
             // 
@@ -244,6 +245,17 @@
             this.groupBox2.Size = new System.Drawing.Size(1391, 478);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(1317, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 19);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "NULL";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label22
             // 
@@ -670,17 +682,6 @@
             this.txt_proId.ReadOnly = true;
             this.txt_proId.Size = new System.Drawing.Size(100, 30);
             this.txt_proId.TabIndex = 11;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(1317, 15);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 19);
-            this.label23.TabIndex = 31;
-            this.label23.Text = "NULL";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Frm_product_output
             // 
