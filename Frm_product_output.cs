@@ -396,7 +396,7 @@ namespace MTsystem_win
                         cmdD.Connection = conn;
                         cmdD.CommandText = sqlstrD;
                         cmdD.Parameters.AddWithValue("@ProidD", dgv_OutputView.Rows[ii].Cells[0].Value.ToString().Trim());
-                        cmdD.Parameters.AddWithValue("@Product_numD", Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim()));
+                        cmdD.Parameters.AddWithValue("@Product_numD", Convert.ToInt32(dgv_OutputView.Rows[ii].Cells[3].Value.ToString().Trim()));
                         cmdD.Parameters.AddWithValue("@Product_stockD", Convert.ToDecimal(dgv_OutputView.Rows[ii].Cells[5].Value.ToString().Trim()));
                         cmdD.ExecuteNonQuery();
                     }

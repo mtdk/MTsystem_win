@@ -60,7 +60,8 @@ namespace MTsystem_win
             txt_outputid.Text += DateTime.Now.Minute.ToString().PadLeft(2, '0').Trim();
             txt_outputid.Text += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
             txt_outputDate.Text = txt_outputid.Text.Substring(0, 8).Trim();
-            txt_batchNum.Text = txt_outputid.Text.Substring(8, 6).Trim();
+            //txt_batchNum.Text = txt_outputid.Text.Substring(8, 6).Trim();
+            txt_batchNum.Text = txt_outputid.Text.Trim();
         }
 
         /// <summary>
