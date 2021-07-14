@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.txt_num = new System.Windows.Forms.TextBox();
@@ -244,6 +244,7 @@
             // 
             this.txt_ProductName.BackColor = System.Drawing.Color.LemonChiffon;
             this.txt_ProductName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ProductName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txt_ProductName.Location = new System.Drawing.Point(293, 95);
             this.txt_ProductName.Name = "txt_ProductName";
             this.txt_ProductName.ReadOnly = true;
@@ -298,8 +299,8 @@
             this.dgv_tagprint.Location = new System.Drawing.Point(3, 22);
             this.dgv_tagprint.Name = "dgv_tagprint";
             this.dgv_tagprint.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tagprint.RowTemplate.Height = 23;
             this.dgv_tagprint.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tagprint.Size = new System.Drawing.Size(853, 450);

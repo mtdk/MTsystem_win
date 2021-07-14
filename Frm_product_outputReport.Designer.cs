@@ -153,6 +153,7 @@
             // 
             // txt_QueryCondition
             // 
+            this.txt_QueryCondition.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txt_QueryCondition.Location = new System.Drawing.Point(145, 58);
             this.txt_QueryCondition.Name = "txt_QueryCondition";
             this.txt_QueryCondition.Size = new System.Drawing.Size(364, 26);
