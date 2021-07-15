@@ -36,16 +36,16 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_productPrice = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_proid = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_ProductId = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_ProductName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_ProductPrice = new System.Windows.Forms.TextBox();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.txt_ProductPrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_ProductName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_ProductId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_proid = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productPrice)).BeginInit();
@@ -127,6 +127,7 @@
             this.dgv_productPrice.Size = new System.Drawing.Size(706, 357);
             this.dgv_productPrice.TabIndex = 0;
             this.dgv_productPrice.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productPrice_CellDoubleClick);
+            this.dgv_productPrice.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_productPrice_CellValidating);
             this.dgv_productPrice.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgv_productPrice_PreviewKeyDown);
             // 
             // groupBox3
@@ -148,73 +149,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "单价修改";
             // 
-            // label3
+            // btn_Cancel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "系统码";
-            // 
-            // txt_proid
-            // 
-            this.txt_proid.Location = new System.Drawing.Point(24, 54);
-            this.txt_proid.Name = "txt_proid";
-            this.txt_proid.ReadOnly = true;
-            this.txt_proid.Size = new System.Drawing.Size(100, 26);
-            this.txt_proid.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(168, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 19);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "编号";
-            // 
-            // txt_ProductId
-            // 
-            this.txt_ProductId.Location = new System.Drawing.Point(124, 54);
-            this.txt_ProductId.Name = "txt_ProductId";
-            this.txt_ProductId.ReadOnly = true;
-            this.txt_ProductId.Size = new System.Drawing.Size(133, 26);
-            this.txt_ProductId.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(399, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 19);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "品名";
-            // 
-            // txt_ProductName
-            // 
-            this.txt_ProductName.Location = new System.Drawing.Point(257, 54);
-            this.txt_ProductName.Name = "txt_ProductName";
-            this.txt_ProductName.ReadOnly = true;
-            this.txt_ProductName.Size = new System.Drawing.Size(329, 26);
-            this.txt_ProductName.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(614, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "单价";
-            // 
-            // txt_ProductPrice
-            // 
-            this.txt_ProductPrice.Location = new System.Drawing.Point(586, 54);
-            this.txt_ProductPrice.Name = "txt_ProductPrice";
-            this.txt_ProductPrice.Size = new System.Drawing.Size(100, 26);
-            this.txt_ProductPrice.TabIndex = 7;
-            this.txt_ProductPrice.Leave += new System.EventHandler(this.txt_ProductPrice_Leave);
+            this.btn_Cancel.Location = new System.Drawing.Point(410, 88);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 28);
+            this.btn_Cancel.TabIndex = 9;
+            this.btn_Cancel.Text = "清  空";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_Save
             // 
@@ -226,15 +169,74 @@
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // btn_Cancel
+            // txt_ProductPrice
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(410, 88);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(75, 28);
-            this.btn_Cancel.TabIndex = 9;
-            this.btn_Cancel.Text = "取  消";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.txt_ProductPrice.Location = new System.Drawing.Point(586, 54);
+            this.txt_ProductPrice.Name = "txt_ProductPrice";
+            this.txt_ProductPrice.Size = new System.Drawing.Size(100, 26);
+            this.txt_ProductPrice.TabIndex = 7;
+            this.txt_ProductPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ProductPrice_KeyPress);
+            this.txt_ProductPrice.Leave += new System.EventHandler(this.txt_ProductPrice_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(614, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "单价";
+            // 
+            // txt_ProductName
+            // 
+            this.txt_ProductName.Location = new System.Drawing.Point(257, 54);
+            this.txt_ProductName.Name = "txt_ProductName";
+            this.txt_ProductName.ReadOnly = true;
+            this.txt_ProductName.Size = new System.Drawing.Size(329, 26);
+            this.txt_ProductName.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(399, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 19);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "品名";
+            // 
+            // txt_ProductId
+            // 
+            this.txt_ProductId.Location = new System.Drawing.Point(124, 54);
+            this.txt_ProductId.Name = "txt_ProductId";
+            this.txt_ProductId.ReadOnly = true;
+            this.txt_ProductId.Size = new System.Drawing.Size(133, 26);
+            this.txt_ProductId.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(168, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "编号";
+            // 
+            // txt_proid
+            // 
+            this.txt_proid.Location = new System.Drawing.Point(24, 54);
+            this.txt_proid.Name = "txt_proid";
+            this.txt_proid.ReadOnly = true;
+            this.txt_proid.Size = new System.Drawing.Size(100, 26);
+            this.txt_proid.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "系统码";
             // 
             // Frm_proPriceUpdate
             // 

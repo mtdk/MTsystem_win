@@ -60,6 +60,60 @@ namespace MTsystem_win
             msda.Dispose();
         }
 
+        private void Update_pro_price()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                string sqlstr = "update product_offer set product_price = @product_price where Cus_id = @Cus_id and proid = @proid";
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@Cus_id", txt_CusId.Text.Trim());
+                cmd.Parameters.AddWithValue("@proid", txt_proid.Text.Trim());
+                cmd.Parameters.AddWithValue("@product_price", Convert.ToDecimal(txt_ProductPrice.Text.Trim()));
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_productPrice.DataSource = null;
+                    ds_Queryresult.Clear();
+                    Query_product_offer();
+                    txt_proid.Text = "";
+                    txt_ProductId.Text = "";
+                    txt_ProductName.Text = "";
+                    txt_ProductPrice.Text = "";
+                }
+            }
+        }
+
+        private void Control_clear()
+        {
+            dgv_productPrice.DataSource = null;
+            dgv_productPrice.Refresh();
+            ds_Queryresult.Clear();
+            txt_CusId.Text = "";
+            txt_CusName.Text = "";
+            txt_CusName.ReadOnly = false;
+            txt_proid.Text = "";
+            txt_ProductId.Text = "";
+            txt_ProductName.Text = "";
+            txt_ProductPrice.Text = "";
+        }
+
         private void txt_CusName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -117,12 +171,22 @@ namespace MTsystem_win
             {
                 MessageBox.Show("客户编号不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (txt_proid.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("系统码不能为空！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Update_pro_price();
+            }
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             dgv_productPrice.DataSource = null;
             dgv_productPrice.Refresh();
+            ds_Queryresult.Clear();
+            txt_CusId.Text = "";
             txt_CusName.Text = "";
             txt_CusName.ReadOnly = false;
             txt_proid.Text = "";
@@ -143,6 +207,20 @@ namespace MTsystem_win
                 txt_ProductPrice.Focus();
                 txt_ProductPrice.SelectAll();
             }
+        }
+
+        private void txt_ProductPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btn_Save.Focus();
+            }
+        }
+
+        private void dgv_productPrice_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+
         }
     }
 }
