@@ -500,7 +500,7 @@ namespace MTsystem_win
                 txt_OutputNum.Focus();
                 txt_OutputNum.SelectAll();
             }
-            else if ((Convert.ToInt32(txt_OutputNum.Text.Trim())) < 0)
+            else if ((Convert.ToDecimal(txt_OutputNum.Text.Trim())) < 0)
             {
                 MessageBox.Show("请输入大于0的整数，如：20", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txt_OutputNum.Focus();
@@ -510,8 +510,8 @@ namespace MTsystem_win
             {
                 if (txt_OutputUnit.Text.Trim().Length != 0)
                 {
-                    txt_OutputWeight.Text = ((Convert.ToInt32(txt_OutputNum.Text.Trim()) * -1) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
-                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
+                    txt_OutputWeight.Text = ((Convert.ToDecimal(txt_OutputNum.Text.Trim()) * -1) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
+                    txt_AmountMoney.Text = (Convert.ToDecimal(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
                 }
             }
         }
@@ -541,8 +541,8 @@ namespace MTsystem_win
             {
                 if (txt_OutputNum.Text.Trim().Length != 0)
                 {
-                    txt_OutputWeight.Text = ((Convert.ToInt32(txt_OutputNum.Text.Trim()) * -1) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString().Trim();
-                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
+                    txt_OutputWeight.Text = ((Convert.ToDecimal(txt_OutputNum.Text.Trim()) * -1) * Convert.ToDecimal(txt_OutputUnit.Text.Trim())).ToString();
+                    txt_AmountMoney.Text = (Convert.ToDecimal(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
                 }
             }
         }
@@ -572,7 +572,7 @@ namespace MTsystem_win
             {
                 if (txt_OutputUnit.Text.Trim().Length != 0)
                 {
-                    txt_AmountMoney.Text = (Convert.ToInt32(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
+                    txt_AmountMoney.Text = (Convert.ToDecimal(txt_OutputWeight.Text.Trim()) * Convert.ToDecimal(txt_Price.Text.Trim())).ToString().Trim();
                 }
             }
         }

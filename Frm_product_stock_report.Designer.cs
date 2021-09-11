@@ -49,7 +49,6 @@
             this.product_stock_reportview.Location = new System.Drawing.Point(3, 22);
             this.product_stock_reportview.Name = "product_stock_reportview";
             this.product_stock_reportview.ShowBackButton = false;
-            this.product_stock_reportview.ShowExportButton = false;
             this.product_stock_reportview.ShowFindControls = false;
             this.product_stock_reportview.ShowRefreshButton = false;
             this.product_stock_reportview.ShowStopButton = false;
@@ -63,7 +62,7 @@
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_product_stock_report";

@@ -23,12 +23,15 @@ namespace MTsystem_win
 
         DataView dv_Queryresult = new DataView();
 
+        DataSet ds_Classinfo = new DataSet();
+
 
         private void Frm_customerinfo_Load(object sender, EventArgs e)
         {
             if (frmShowstatus._Frmcustorminfo == "CLOSE" || frmShowstatus._Frmcustorminfo == null)
             {
                 frmShowstatus._Frmcustorminfo = "OPEN";
+                Cus_Classinfo_Query();
                 NewCusid();
                 CusInforResult();
                 txt_cusName.Focus();
@@ -136,6 +139,23 @@ namespace MTsystem_win
                 }
             }
         }
+
+        ///<summary>
+        /// 客户归属检索
+        ///</summary>
+        private void Cus_Classinfo_Query()
+        {
+            string sqlstr = "SELECT Classification_id, Classification_name FROM cus_classification";
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            msda.Fill(ds_Classinfo,"tb_Classinfo");
+            cmb_Cus_classification.DataSource = ds_Classinfo.Tables["tb_Classinfo"];
+            cmb_Cus_classification.DisplayMember = "Classification_name";
+            cmb_Cus_classification.ValueMember = "Classification_id";
+            msda.Dispose();
+            conn.Close();
+        }
+
 
         /// <summary>
         /// 客户信息添加

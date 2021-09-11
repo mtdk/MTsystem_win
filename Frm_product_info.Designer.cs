@@ -45,7 +45,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_Query = new System.Windows.Forms.Button();
+            this.txt_QueryName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txt_Queryid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -69,7 +70,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(101, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(568, 190);
             this.groupBox1.TabIndex = 0;
@@ -218,7 +219,6 @@
             this.dgv_Queryresult.AllowUserToAddRows = false;
             this.dgv_Queryresult.AllowUserToDeleteRows = false;
             this.dgv_Queryresult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_Queryresult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_Queryresult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Queryresult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
@@ -233,32 +233,41 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btn_Query);
+            this.groupBox3.Controls.Add(this.txt_QueryName);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txt_Queryid);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(12, 208);
+            this.groupBox3.Location = new System.Drawing.Point(101, 208);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(568, 70);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "产品信息查询";
             // 
-            // btn_Query
+            // txt_QueryName
             // 
-            this.btn_Query.Location = new System.Drawing.Point(437, 22);
-            this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 39);
-            this.btn_Query.TabIndex = 2;
-            this.btn_Query.Text = "查 询";
-            this.btn_Query.UseVisualStyleBackColor = true;
-            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
+            this.txt_QueryName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_QueryName.Location = new System.Drawing.Point(365, 27);
+            this.txt_QueryName.Name = "txt_QueryName";
+            this.txt_QueryName.Size = new System.Drawing.Size(178, 30);
+            this.txt_QueryName.TabIndex = 4;
+            this.txt_QueryName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_QueryName_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(269, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 19);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "产品名称:";
             // 
             // txt_Queryid
             // 
             this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Queryid.Location = new System.Drawing.Point(127, 26);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.Size = new System.Drawing.Size(300, 30);
+            this.txt_Queryid.Size = new System.Drawing.Size(136, 30);
             this.txt_Queryid.TabIndex = 1;
             this.txt_Queryid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Queryid_KeyPress);
             // 
@@ -319,6 +328,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_Queryid;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_Query;
+        private System.Windows.Forms.TextBox txt_QueryName;
+        private System.Windows.Forms.Label label7;
     }
 }

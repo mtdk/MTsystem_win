@@ -38,6 +38,20 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_cusAdd = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.dgv_cusinfo_preview = new System.Windows.Forms.DataGridView();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
@@ -54,20 +68,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_cusId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmb_Cus_classification = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_CusClassinfo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,7 +87,7 @@
             this.groupBox1.Controls.Add(this.rdb_CusInsert);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1222, 62);
+            this.groupBox1.Size = new System.Drawing.Size(1279, 62);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -143,6 +147,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmb_Cus_classification);
+            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txt_cusAdd);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.btn_cancel);
@@ -162,7 +168,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1222, 535);
+            this.groupBox2.Size = new System.Drawing.Size(1279, 535);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -175,6 +181,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txt_CusClassinfo);
+            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.textBox2);
@@ -192,10 +200,130 @@
             this.groupBox3.Controls.Add(this.dgv_cusinfo_preview);
             this.groupBox3.Location = new System.Drawing.Point(15, 116);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1198, 413);
+            this.groupBox3.Size = new System.Drawing.Size(1247, 413);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "信息预览";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(928, 313);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(313, 55);
+            this.textBox1.TabIndex = 44;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(858, 330);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 19);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "地址:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(928, 265);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(154, 26);
+            this.textBox2.TabIndex = 42;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(832, 268);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 19);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "传真号码:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(928, 217);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(154, 26);
+            this.textBox3.TabIndex = 40;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(832, 220);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 19);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "联系电话:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(928, 169);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(154, 26);
+            this.textBox4.TabIndex = 38;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(832, 172);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 19);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "手机号码:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(928, 121);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(115, 26);
+            this.textBox5.TabIndex = 36;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(850, 124);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 19);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "联系人:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(928, 73);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(313, 26);
+            this.textBox6.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(832, 76);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "客户名称:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(928, 25);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(83, 26);
+            this.textBox7.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(832, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 19);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "客户编号:";
             // 
             // dgv_cusinfo_preview
             // 
@@ -220,14 +348,14 @@
             this.dgv_cusinfo_preview.RowTemplate.Height = 30;
             this.dgv_cusinfo_preview.RowTemplate.ReadOnly = true;
             this.dgv_cusinfo_preview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(774, 388);
+            this.dgv_cusinfo_preview.Size = new System.Drawing.Size(823, 388);
             this.dgv_cusinfo_preview.TabIndex = 0;
             this.dgv_cusinfo_preview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cusinfo_preview_CellClick);
             this.dgv_cusinfo_preview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cusinfo_preview_CellDoubleClick);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(1106, 64);
+            this.btn_cancel.Location = new System.Drawing.Point(1187, 64);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_cancel.TabIndex = 32;
@@ -237,7 +365,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(1106, 25);
+            this.btn_save.Location = new System.Drawing.Point(1091, 64);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 30);
             this.btn_save.TabIndex = 31;
@@ -351,131 +479,46 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "客户编号:";
             // 
-            // textBox1
+            // label16
             // 
-            this.textBox1.Location = new System.Drawing.Point(879, 313);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(313, 55);
-            this.textBox1.TabIndex = 44;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1066, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 19);
+            this.label16.TabIndex = 34;
+            this.label16.Text = "负责人：";
             // 
-            // label9
+            // cmb_Cus_classification
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(809, 330);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 19);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "地址:";
+            this.cmb_Cus_classification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Cus_classification.FormattingEnabled = true;
+            this.cmb_Cus_classification.Location = new System.Drawing.Point(1152, 25);
+            this.cmb_Cus_classification.Name = "cmb_Cus_classification";
+            this.cmb_Cus_classification.Size = new System.Drawing.Size(121, 27);
+            this.cmb_Cus_classification.TabIndex = 35;
             // 
-            // textBox2
+            // label17
             // 
-            this.textBox2.Location = new System.Drawing.Point(879, 265);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(154, 26);
-            this.textBox2.TabIndex = 42;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1051, 124);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 19);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "负责人：";
             // 
-            // label10
+            // txt_CusClassinfo
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(783, 268);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 19);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "传真号码:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(879, 217);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(154, 26);
-            this.textBox3.TabIndex = 40;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(783, 220);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 19);
-            this.label11.TabIndex = 39;
-            this.label11.Text = "联系电话:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(879, 169);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(154, 26);
-            this.textBox4.TabIndex = 38;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(783, 172);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 19);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "手机号码:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(879, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(115, 26);
-            this.textBox5.TabIndex = 36;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(801, 124);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 19);
-            this.label13.TabIndex = 35;
-            this.label13.Text = "联系人:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(879, 73);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(313, 26);
-            this.textBox6.TabIndex = 31;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(783, 76);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 19);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "客户名称:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(879, 25);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(83, 26);
-            this.textBox7.TabIndex = 33;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(783, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(90, 19);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "客户编号:";
+            this.txt_CusClassinfo.Location = new System.Drawing.Point(1126, 121);
+            this.txt_CusClassinfo.Name = "txt_CusClassinfo";
+            this.txt_CusClassinfo.ReadOnly = true;
+            this.txt_CusClassinfo.Size = new System.Drawing.Size(115, 26);
+            this.txt_CusClassinfo.TabIndex = 46;
             // 
             // Frm_customerinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1246, 640);
+            this.ClientSize = new System.Drawing.Size(1303, 640);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -539,6 +582,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmb_Cus_classification;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txt_CusClassinfo;
+        private System.Windows.Forms.Label label17;
 
     }
 }

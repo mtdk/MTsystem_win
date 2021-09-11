@@ -271,10 +271,28 @@ namespace MTsystem_win
             }
         }
 
-        private void btn_Query_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 产品信息查找
+        /// </summary>
+        private void ProductQuery_Name()
         {
-            ds_Queryresult.Clear();
-            ProductQuery();
+            if (txt_QueryName.Text.Trim().Length != 0)
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                string strsql = "SELECT id,proid,product_id,product_name,product_unit FROM product WHERE product_name LIKE '%" + txt_QueryName.Text.Trim() + "%'";
+                MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
+                msda.Fill(ds_Queryresult, "resultTable");
+
+                dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
+                dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
+                dgv_Queryresult.Columns[0].HeaderText = "序号";
+                dgv_Queryresult.Columns[1].HeaderText = "系统编号";
+                dgv_Queryresult.Columns[2].HeaderText = "产品编号";
+                dgv_Queryresult.Columns[3].HeaderText = "产品名称";
+                dgv_Queryresult.Columns[4].HeaderText = "产品规格";
+                conn.Close();
+            }
         }
 
         private void txt_Queryid_KeyPress(object sender, KeyPressEventArgs e)
@@ -284,6 +302,17 @@ namespace MTsystem_win
                 e.Handled = true;
                 ds_Queryresult.Clear();
                 ProductQuery();
+            }
+        }
+
+
+        private void txt_QueryName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                ds_Queryresult.Clear();
+                ProductQuery_Name();
             }
         }
 
