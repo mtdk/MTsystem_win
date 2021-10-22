@@ -25,6 +25,14 @@ namespace MTsystem_win.allClass
         /// </summary>
         private static string _usname;
         /// <summary>
+        /// 用户姓名
+        /// </summary>
+        private static string _username;
+        /// <summary>
+        /// 用户组代码
+        /// </summary>
+        private static int _ugroupid;
+        /// <summary>
         /// 用户密码
         /// </summary>
         private static string _uspwd;
@@ -62,12 +70,28 @@ namespace MTsystem_win.allClass
             set { _usname = value; }
         }
         /// <summary>
+        /// 用户姓名
+        /// </summary>
+        public static string _Username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
+        /// <summary>
         /// 用户密码
         /// </summary>
         public static string _Uspwd
         {
             get { return _uspwd; }
             set { _uspwd = value; }
+        }
+        /// <summary>
+        /// 用户组代码
+        /// </summary>
+        public static int _Ugroupid
+        {
+            get { return _ugroupid; }
+            set { _ugroupid = value; }
         }
         /// <summary>
         /// 用户权限代码
