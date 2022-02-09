@@ -390,6 +390,7 @@ namespace MTsystem_win
                         txt_Cusid.Text = frmcusinfoshow.Cus_id.Trim();
                         txt_CusName.Text = frmcusinfoshow.Cus_name.Trim();
                         txt_outputDate.Focus();
+                        txt_CusName.ReadOnly = true;
                     }
                 }
             }
@@ -449,7 +450,7 @@ namespace MTsystem_win
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                txt_CusName.ReadOnly = true;
+                //txt_CusName.ReadOnly = true;
                 txt_batchNum.ReadOnly = true;
                 txt_productId.Focus();
             }

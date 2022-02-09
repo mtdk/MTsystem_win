@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtp_QuerydateEnd = new System.Windows.Forms.DateTimePicker();
             this.cb_date = new System.Windows.Forms.CheckBox();
+            this.rdb_matReturn_report = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -77,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(336, 14);
+            this.label2.Location = new System.Drawing.Point(318, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 3;
@@ -86,14 +87,14 @@
             // dtp_Querydate
             // 
             this.dtp_Querydate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Querydate.Location = new System.Drawing.Point(432, 9);
+            this.dtp_Querydate.Location = new System.Drawing.Point(414, 48);
             this.dtp_Querydate.Name = "dtp_Querydate";
             this.dtp_Querydate.Size = new System.Drawing.Size(144, 26);
             this.dtp_Querydate.TabIndex = 4;
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(634, 43);
+            this.btn_Query.Location = new System.Drawing.Point(828, 114);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(118, 34);
             this.btn_Query.TabIndex = 5;
@@ -114,7 +115,7 @@
             this.mat_dayReportview.ShowFindControls = false;
             this.mat_dayReportview.ShowRefreshButton = false;
             this.mat_dayReportview.ShowStopButton = false;
-            this.mat_dayReportview.Size = new System.Drawing.Size(812, 761);
+            this.mat_dayReportview.Size = new System.Drawing.Size(812, 780);
             this.mat_dayReportview.TabIndex = 6;
             // 
             // txt_Queryid
@@ -137,7 +138,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(336, 51);
+            this.label4.Location = new System.Drawing.Point(564, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 9;
@@ -146,7 +147,7 @@
             // dtp_QuerydateEnd
             // 
             this.dtp_QuerydateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_QuerydateEnd.Location = new System.Drawing.Point(432, 50);
+            this.dtp_QuerydateEnd.Location = new System.Drawing.Point(660, 48);
             this.dtp_QuerydateEnd.Name = "dtp_QuerydateEnd";
             this.dtp_QuerydateEnd.Size = new System.Drawing.Size(144, 26);
             this.dtp_QuerydateEnd.TabIndex = 10;
@@ -156,18 +157,29 @@
             this.cb_date.AutoSize = true;
             this.cb_date.Checked = true;
             this.cb_date.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_date.Location = new System.Drawing.Point(634, 12);
+            this.cb_date.Location = new System.Drawing.Point(828, 85);
             this.cb_date.Name = "cb_date";
             this.cb_date.Size = new System.Drawing.Size(118, 23);
             this.cb_date.TabIndex = 11;
             this.cb_date.Text = "按日期排序";
             this.cb_date.UseVisualStyleBackColor = true;
             // 
+            // rdb_matReturn_report
+            // 
+            this.rdb_matReturn_report.AutoSize = true;
+            this.rdb_matReturn_report.Location = new System.Drawing.Point(322, 10);
+            this.rdb_matReturn_report.Name = "rdb_matReturn_report";
+            this.rdb_matReturn_report.Size = new System.Drawing.Size(99, 23);
+            this.rdb_matReturn_report.TabIndex = 12;
+            this.rdb_matReturn_report.Text = "退货报表";
+            this.rdb_matReturn_report.UseVisualStyleBackColor = true;
+            // 
             // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 749);
+            this.ClientSize = new System.Drawing.Size(964, 871);
+            this.Controls.Add(this.rdb_matReturn_report);
             this.Controls.Add(this.cb_date);
             this.Controls.Add(this.dtp_QuerydateEnd);
             this.Controls.Add(this.label4);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtp_QuerydateEnd;
         private System.Windows.Forms.CheckBox cb_date;
+        private System.Windows.Forms.RadioButton rdb_matReturn_report;
     }
 }

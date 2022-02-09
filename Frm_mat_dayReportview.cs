@@ -43,10 +43,15 @@ namespace MTsystem_win
                 mat_dayReportview.Reset();
                 matInputReport();
             }
-            else
+            else if (rdb_matOut_report.Checked == true)
             {
                 mat_dayReportview.Reset();
                 matOutputReport();
+            }
+            else
+            {
+                mat_dayReportview.Reset();
+                matReturnReport();
             }
         }
 
@@ -67,6 +72,7 @@ namespace MTsystem_win
                 strsql += " AND material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
                 strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
                 strsql += " AND material_input.Matid = material.Matid";
+                strsql += " AND material_input.Jlzl > 0"; 
                 strsql += " ORDER BY material_input.Input_date ASC";
                 #region
                 ds_mat_stockReport ds = new ds_mat_stockReport();
@@ -109,6 +115,7 @@ namespace MTsystem_win
                     strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " AND material_input.Jlzl > 0"; 
                     strsql += " ORDER BY material_input.Input_date ASC";
                 }
                 else
@@ -120,6 +127,7 @@ namespace MTsystem_win
                     strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
                     strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " AND material_input.Jlzl > 0"; 
                     strsql += " ORDER BY material.Material_class ASC";
                 }
                 #region
@@ -151,9 +159,7 @@ namespace MTsystem_win
                 }
                 #endregion
             }
-        }
-        
-              
+        }   
 
         /// <summary>
         /// 材料出仓日报表
@@ -237,6 +243,112 @@ namespace MTsystem_win
                     mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_dayoutReportview.rdlc";
                     rds.Name = "ds_mat_stockReport";
                     rds.Value = ds.Tables["tb_mat_outputReport"];
+
+                    mat_dayReportview.LocalReport.DataSources.Add(rds);
+
+                    this.mat_dayReportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    this.mat_dayReportview.ZoomMode = ZoomMode.PageWidth;
+                    this.mat_dayReportview.ZoomPercent = 100;
+                    this.mat_dayReportview.RefreshReport();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                #endregion
+            }
+        }
+
+        /// <summary>
+        /// 材料退货报表
+        /// </summary>
+        private void matReturnReport()
+        {
+            string strsql;
+            if (txt_Queryid.Text.Trim().Length != 0)
+            {
+
+                strsql = "SELECT material_input.Material_id,";
+                strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
+                strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
+                strsql += "material.Material_class FROM material_input,material";
+                strsql += " WHERE material_input.Material_id = '" + txt_Queryid.Text.Trim() + "'";
+                strsql += " AND material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                strsql += " AND material_input.Matid = material.Matid";
+                strsql += " AND material_input.Jlzl <= 0"; 
+                strsql += " ORDER BY material_input.Input_date ASC";
+                #region
+                ds_mat_stockReport ds = new ds_mat_stockReport();
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(strsql, conn);
+                    MySqlDataReader dr = null;
+                    dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    ds.Tables["tb_mat_ReturnReport"].Load(dr);
+
+                    ReportDataSource rds = new ReportDataSource();
+                    mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_returnReportview.rdlc";
+                    rds.Name = "ds_mat_stockReport";
+                    rds.Value = ds.Tables["tb_mat_ReturnReport"];
+
+                    mat_dayReportview.LocalReport.DataSources.Add(rds);
+
+                    this.mat_dayReportview.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    this.mat_dayReportview.ZoomMode = ZoomMode.PageWidth;
+                    this.mat_dayReportview.ZoomPercent = 100;
+                    this.mat_dayReportview.RefreshReport();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                #endregion
+            }
+            else
+            {
+                if (cb_date.Checked)
+                {
+                    strsql = "SELECT material_input.Material_id,";
+                    strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
+                    strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
+                    strsql += "material.Material_class FROM material_input,material";
+                    strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " AND material_input.Jlzl <= 0"; 
+                    strsql += " ORDER BY material_input.Input_date ASC";
+                }
+                else
+                {
+                    strsql = "SELECT material_input.Material_id,";
+                    strsql += "material_input.Material_inside_name,material_input.Material_jlsl,";
+                    strsql += "material_input.Material_unit,material_input.Jlzl,material_input.Input_date,";
+                    strsql += "material.Material_class FROM material_input,material";
+                    strsql += " WHERE material_input.Input_date >= '" + dtp_Querydate.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Input_date <= '" + dtp_QuerydateEnd.Value.ToShortDateString().Trim() + "'";
+                    strsql += " AND material_input.Matid = material.Matid";
+                    strsql += " AND material_input.Jlzl <= 0"; 
+                    strsql += " ORDER BY material.Material_class ASC";
+                }
+                #region
+                ds_mat_stockReport ds = new ds_mat_stockReport();
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(strsql, conn);
+                    MySqlDataReader dr = null;
+                    dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    ds.Tables["tb_mat_ReturnReport"].Load(dr);
+
+                    ReportDataSource rds = new ReportDataSource();
+                    mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_returnReportview.rdlc";
+                    rds.Name = "ds_mat_stockReport";
+                    rds.Value = ds.Tables["tb_mat_ReturnReport"];
 
                     mat_dayReportview.LocalReport.DataSources.Add(rds);
 
