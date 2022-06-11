@@ -37,7 +37,9 @@ namespace MTsystem_win
             strsql += "material_stock.Material_inside_name,";
             strsql += "material_stock.Material_stock,";
             strsql += "material.Material_class";
-            strsql += " FROM material_stock, material WHERE material_stock.Matid = material.Matid ORDER BY material.Material_class ASC,material_stock.Material_inside_name ASC ";
+            strsql += " FROM material_stock, material";
+            strsql += " WHERE material_stock.Material_stock <> 0 AND material_stock.Matid = material.Matid";
+            strsql+=" ORDER BY material.Material_class ASC,material_stock.Material_inside_name ASC ";
             
             ds_mat_stockReport ds = new ds_mat_stockReport();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
