@@ -41,12 +41,14 @@
             this.txt_QueryCondition = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.product_outputallReportview = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_Cusid);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -183,6 +185,14 @@
             this.product_outputallReportview.Size = new System.Drawing.Size(1162, 767);
             this.product_outputallReportview.TabIndex = 0;
             // 
+            // txt_Cusid
+            // 
+            this.txt_Cusid.Location = new System.Drawing.Point(409, 26);
+            this.txt_Cusid.Name = "txt_Cusid";
+            this.txt_Cusid.ReadOnly = true;
+            this.txt_Cusid.Size = new System.Drawing.Size(100, 26);
+            this.txt_Cusid.TabIndex = 14;
+            // 
             // Frm_product_outputReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -221,5 +231,6 @@
         private System.Windows.Forms.RadioButton rdb_Account_Statement;
         private System.Windows.Forms.RadioButton rdb_all;
         private System.Windows.Forms.RadioButton rdb_Productid;
+        private System.Windows.Forms.TextBox txt_Cusid;
     }
 }

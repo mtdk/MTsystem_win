@@ -35,7 +35,7 @@ namespace MTsystem_win
             }
             else if (rdb_Account_Statement.Checked == true)
             {
-                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_name = '" + txt_QueryCondition.Text.Trim() + "'";
+                sqlstr = "SELECT * FROM mtsystemdb.product_outReport_view WHERE Cus_id = '" + txt_Cusid.Text.Trim() + "'";
                 sqlstr += " AND Out_date >= '" + dtp_start.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_date <= '" + dtp_end.Value.ToShortDateString().Trim() + "'";
                 sqlstr += " AND Out_status = '有效'";
@@ -147,7 +147,7 @@ namespace MTsystem_win
                         frmcusinfoshow.ShowDialog();
                         if (frmcusinfoshow.Cus_id != "")
                         {
-                            txt_QueryCondition.Text = frmcusinfoshow.Cus_id.Trim();
+                            txt_Cusid.Text = frmcusinfoshow.Cus_id.Trim();
                             txt_QueryCondition.Text = frmcusinfoshow.Cus_name.Trim();
                             txt_QueryCondition.Focus();
                         }
