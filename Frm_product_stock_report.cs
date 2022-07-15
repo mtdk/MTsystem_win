@@ -38,8 +38,8 @@ namespace MTsystem_win
 
         private void Querybind()
         {
-            string sqlstr = "SELECT Product_id, Product_name, Product_num, Product_stock FROM product_stock WHERE Product_num <> 0 OR Product_stock <> 0 ORDER BY Product_id ASC";
-
+            //string sqlstr = "SELECT Product_id, Product_name, Product_num, Product_stock FROM product_stock WHERE Product_num <> 0 OR Product_stock <> 0 ORDER BY Product_id ASC";
+            string sqlstr = "SELECT * FROM product_stock_view WHERE Product_num <> 0 OR Product_stock <> 0 ORDER BY Product_id ASC";
             ds_productoutReportview ds = new ds_productoutReportview();
             DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
