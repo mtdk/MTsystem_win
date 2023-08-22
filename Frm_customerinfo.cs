@@ -151,7 +151,7 @@ namespace MTsystem_win
             msda.Fill(ds_Classinfo,"tb_Classinfo");
             cmb_Cus_classification.DataSource = ds_Classinfo.Tables["tb_Classinfo"];
             cmb_Cus_classification.DisplayMember = "Classification_name";
-            cmb_Cus_classification.ValueMember = "Classification_id";
+            cmb_Cus_classification.ValueMember = "Classification_name";
             msda.Dispose();
             conn.Close();
         }
@@ -167,7 +167,7 @@ namespace MTsystem_win
             MySqlTransaction transaction = conn.BeginTransaction();
             try
             {
-                string strsql = "INSERT INTO `customers` VALUES(NULL,@Cus_id,@Cus_name,@Cus_add,@Cus_contact,@Cus_mobile,@Cus_telephone,@Cus_fax,NULL)";
+                string strsql = "INSERT INTO `customers` VALUES(NULL,@Cus_id,@Cus_name,@Cus_add,@Cus_contact,@Cus_mobile,@Cus_telephone,@Cus_fax,@Cus_classification)";
 
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
@@ -179,6 +179,7 @@ namespace MTsystem_win
                 cmd.Parameters.AddWithValue("@Cus_mobile", txt_MobilePhone.Text.Trim());
                 cmd.Parameters.AddWithValue("@Cus_telephone", txt_Telephone.Text.Trim());
                 cmd.Parameters.AddWithValue("@Cus_fax", txt_Fax.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_classification", cmb_Cus_classification.SelectedValue.ToString().Trim());
                 cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -214,8 +215,8 @@ namespace MTsystem_win
                 //string strsql = "INSERT INTO `customers` VALUES(NULL,@Cus_id,@Cus_name,@Cus_add,@Cus_contact,@Cus_mobile,@Cus_telephone,@Cus_fax,NULL)";
 
                 string strsql = "UPDATE customers SET Cus_name = @Cus_name,Cus_add = @Cus_add,";
-                strsql += "Cus_contact = @Cus_contact,Cus_mobile = @Cus_mobile,Cus_telephone = @Cus_telephone,Cus_fax = @Cus_fax";
-                strsql += " WHERE Cus_id = @Cus_id";
+                strsql += "Cus_contact = @Cus_contact,Cus_mobile = @Cus_mobile,Cus_telephone = @Cus_telephone,Cus_fax = @Cus_fax,";
+                strsql += "Cus_classification = @Cus_classification WHERE Cus_id = @Cus_id";
 
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
@@ -227,6 +228,7 @@ namespace MTsystem_win
                 cmd.Parameters.AddWithValue("@Cus_mobile", txt_MobilePhone.Text.Trim());
                 cmd.Parameters.AddWithValue("@Cus_telephone", txt_Telephone.Text.Trim());
                 cmd.Parameters.AddWithValue("@Cus_fax", txt_Fax.Text.Trim());
+                cmd.Parameters.AddWithValue("@Cus_classification", cmb_Cus_classification.SelectedValue.ToString().Trim());
                 cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -258,7 +260,7 @@ namespace MTsystem_win
             conn.Open();
 
             string sqlstr = "SELECT id AS 序号,Cus_id AS 编号,Cus_name AS 客户名称,Cus_add AS 客户地址,Cus_contact AS 联系人,";
-            sqlstr+=" Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码 FROM customers";
+            sqlstr += " Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码,Cus_classification AS 负责人 FROM customers";
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
             msda.Fill(ds_Queryresult, "resultTable");
 
@@ -266,6 +268,13 @@ namespace MTsystem_win
             dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
             this.dgv_cusinfo_preview.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgv_cusinfo_preview.AutoResizeColumnHeadersHeight();
+            dgv_cusinfo_preview.Columns[0].Visible = false;
+            dgv_cusinfo_preview.Columns[4].Visible = false;
+            dgv_cusinfo_preview.Columns[5].Visible = false;
+            dgv_cusinfo_preview.Columns[6].Visible = false;
+            dgv_cusinfo_preview.Columns[7].Visible = false;
+            //dgv_cusinfo_preview.Columns[8].Visible = false;
+
             conn.Close();
         }
 
@@ -284,14 +293,19 @@ namespace MTsystem_win
                 conn.Open();
 
                 string sqlstr = "SELECT id AS 序号,Cus_id AS 编号,Cus_name AS 客户名称,Cus_add AS 客户地址,Cus_contact AS 联系人,";
-                sqlstr += " Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码 FROM customers";
+                sqlstr += " Cus_mobile AS 手机号码,Cus_telephone AS 电话号码,Cus_fax AS 传真号码,Cus_classification AS 负责人 FROM customers";
                 sqlstr += " WHERE Cus_name LIKE '%" + txt_CusNameQuery.Text.Trim() + "%'";
                 MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
                 msda.Fill(ds_Queryresult, "resultTable");
 
                 dv_Queryresult.Table = ds_Queryresult.Tables["resultTable"];
                 dgv_cusinfo_preview.DataSource = dv_Queryresult.ToTable("resultTable");
-
+                dgv_cusinfo_preview.Columns[0].Visible = false;
+                dgv_cusinfo_preview.Columns[4].Visible = false;
+                dgv_cusinfo_preview.Columns[5].Visible = false;
+                dgv_cusinfo_preview.Columns[6].Visible = false;
+                dgv_cusinfo_preview.Columns[7].Visible = false;
+                //dgv_cusinfo_preview.Columns[8].Visible = false;
                 conn.Close();
             }
         }
@@ -306,6 +320,7 @@ namespace MTsystem_win
                 txt_cusId.Text = "";
                 txt_cusName.Text = "";
                 txt_Contact.Text = "";
+                cmb_Cus_classification.SelectedIndex = 0;
                 txt_cusAdd.Text = "";
                 txt_MobilePhone.Text = "";
                 txt_Telephone.Text = "";
@@ -317,6 +332,7 @@ namespace MTsystem_win
                 txt_cusId.Text = "";
                 txt_cusName.Text = "";
                 txt_Contact.Text = "";
+                cmb_Cus_classification.SelectedIndex = 0;
                 txt_cusAdd.Text = "";
                 txt_MobilePhone.Text = "";
                 txt_Telephone.Text = "";
@@ -335,6 +351,8 @@ namespace MTsystem_win
                     txt_cusAdd.Text = dgv_cusinfo_preview.SelectedCells[3].Value.ToString().Trim();
                     txt_Contact.Text = dgv_cusinfo_preview.SelectedCells[4].Value.ToString().Trim();
                     txt_MobilePhone.Text = dgv_cusinfo_preview.SelectedCells[5].Value.ToString().Trim();
+                    int tmp_Cus_classification = cmb_Cus_classification.FindString(dgv_cusinfo_preview.SelectedCells[8].Value.ToString().Trim());
+                    cmb_Cus_classification.SelectedIndex = tmp_Cus_classification;
                     txt_Telephone.Text = dgv_cusinfo_preview.SelectedCells[6].Value.ToString().Trim();
                     txt_Fax.Text = dgv_cusinfo_preview.SelectedCells[7].Value.ToString().Trim();
                 }
@@ -400,6 +418,7 @@ namespace MTsystem_win
                     textBox7.Text = dgv_cusinfo_preview.SelectedCells[1].Value.ToString().Trim();
                     textBox6.Text = dgv_cusinfo_preview.SelectedCells[2].Value.ToString().Trim();
                     textBox5.Text = dgv_cusinfo_preview.SelectedCells[4].Value.ToString().Trim();
+                    txt_CusClassinfo.Text = dgv_cusinfo_preview.SelectedCells[8].Value.ToString().Trim();
                     textBox4.Text = dgv_cusinfo_preview.SelectedCells[5].Value.ToString().Trim();
                     textBox3.Text = dgv_cusinfo_preview.SelectedCells[6].Value.ToString().Trim();
                     textBox2.Text = dgv_cusinfo_preview.SelectedCells[7].Value.ToString().Trim();

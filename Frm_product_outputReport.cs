@@ -160,5 +160,23 @@ namespace MTsystem_win
         {
             frmShowstatus._Frmproductoutputreport = "CLOSE";
         }
+
+        private void rdb_all_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Cusid.Text = "";
+            txt_QueryCondition.Text = "";
+        }
+
+        private void rdb_Account_Statement_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Cusid.Text = "";
+            txt_QueryCondition.Text = "";
+        }
+
+        private void rdb_Productid_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Cusid.Text = "";
+            txt_QueryCondition.Text = "";
+        }
     }
 }

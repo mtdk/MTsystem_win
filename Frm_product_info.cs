@@ -171,26 +171,6 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 产品库存表中是否已经存在产品编号
-        /// </summary>
-        /// <param name="i">i为DataGridView当前行</param>
-        /// <returns></returns>
-        private bool QueryProid(string i)
-        {
-            bool b = false;
-            string sqlstr = "SELECT Proid From product_stock WHERE Proid=@Proid";
-
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
-            cmd.Parameters.AddWithValue("@Proid", i.Trim());
-            cmd.CommandText = sqlstr;
-            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            b = dr.Read();
-            return b;
-        }
-
-        /// <summary>
         /// 产品信息更新
         /// </summary>
         private void productUpdate()

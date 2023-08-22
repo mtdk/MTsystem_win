@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.txt_QueryCondition = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.product_outputallReportview = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.txt_Cusid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,14 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询选择区";
+            // 
+            // txt_Cusid
+            // 
+            this.txt_Cusid.Location = new System.Drawing.Point(418, 26);
+            this.txt_Cusid.Name = "txt_Cusid";
+            this.txt_Cusid.ReadOnly = true;
+            this.txt_Cusid.Size = new System.Drawing.Size(100, 26);
+            this.txt_Cusid.TabIndex = 14;
             // 
             // label3
             // 
@@ -99,10 +107,11 @@
             this.rdb_Productid.AutoSize = true;
             this.rdb_Productid.Location = new System.Drawing.Point(260, 22);
             this.rdb_Productid.Name = "rdb_Productid";
-            this.rdb_Productid.Size = new System.Drawing.Size(117, 23);
+            this.rdb_Productid.Size = new System.Drawing.Size(153, 23);
             this.rdb_Productid.TabIndex = 13;
-            this.rdb_Productid.Text = "按品名查找";
+            this.rdb_Productid.Text = "按产品编号查找";
             this.rdb_Productid.UseVisualStyleBackColor = true;
+            this.rdb_Productid.CheckedChanged += new System.EventHandler(this.rdb_Productid_CheckedChanged);
             // 
             // rdb_Account_Statement
             // 
@@ -113,6 +122,7 @@
             this.rdb_Account_Statement.TabIndex = 12;
             this.rdb_Account_Statement.Text = "客户对账单";
             this.rdb_Account_Statement.UseVisualStyleBackColor = true;
+            this.rdb_Account_Statement.CheckedChanged += new System.EventHandler(this.rdb_Account_Statement_CheckedChanged);
             // 
             // rdb_all
             // 
@@ -125,6 +135,7 @@
             this.rdb_all.TabStop = true;
             this.rdb_all.Text = "出货报表";
             this.rdb_all.UseVisualStyleBackColor = true;
+            this.rdb_all.CheckedChanged += new System.EventHandler(this.rdb_all_CheckedChanged);
             // 
             // btn_Query
             // 
@@ -184,14 +195,6 @@
             this.product_outputallReportview.ShowStopButton = false;
             this.product_outputallReportview.Size = new System.Drawing.Size(1162, 767);
             this.product_outputallReportview.TabIndex = 0;
-            // 
-            // txt_Cusid
-            // 
-            this.txt_Cusid.Location = new System.Drawing.Point(409, 26);
-            this.txt_Cusid.Name = "txt_Cusid";
-            this.txt_Cusid.ReadOnly = true;
-            this.txt_Cusid.Size = new System.Drawing.Size(100, 26);
-            this.txt_Cusid.TabIndex = 14;
             // 
             // Frm_product_outputReport
             // 
