@@ -39,6 +39,7 @@ namespace MTsystem_win
             conn.Open();
             string sqlstr="SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,";
             sqlstr += "Jczl,Pro_batchNum,Input_date,Input_operator,Record_status FROM product_input";
+            sqlstr += " WHERE YEAR(Input_date) >= " + dtp_start_year.Value.Year.ToString().Trim() + "";
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
             msda.Fill(ds_Queryresult, "resultData");
 
@@ -219,16 +220,19 @@ namespace MTsystem_win
             {
                 sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,Jczl,Pro_batchNum,";
                 sqlstr += "Input_date,Input_operator,Record_status FROM product_input WHERE Product_id LIKE '%" + txt_SelectCondition.Text.Trim() + "%'";
+                sqlstr += " AND YEAR(Input_date) >= " + dtp_start_year.Value.Year.ToString().Trim() + "";
             }
             else if(rdb_SelectName.Checked==true)
             {
                 sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,Jczl,Pro_batchNum,";
                 sqlstr += "Input_date,Input_operator,Record_status FROM product_input WHERE Product_name LIKE '%" + txt_SelectCondition.Text.Trim() + "%'";
+                sqlstr += " AND YEAR(Input_date) >= " + dtp_start_year.Value.Year.ToString().Trim() + "";
             }
             else
             {
                 sqlstr = "SELECT id,Inputid,Proid,Product_id,Product_name,Product_jcsl,Product_unit,";
                 sqlstr += "Jczl,Pro_batchNum,Input_date,Input_operator,Record_status FROM product_input";
+                sqlstr += " WHERE YEAR(Input_date) >= " + dtp_start_year.Value.Year.ToString().Trim() + "";
             }
 
             MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
@@ -264,12 +268,6 @@ namespace MTsystem_win
 
         private void txt_SelectCondition_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                e.Handled = true;
-
-                dataConditionLoad();
-            }
         }
 
         private void dgv_SelectResult_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -285,6 +283,11 @@ namespace MTsystem_win
                     this.dgv_SelectResult.Rows[i].Cells[11].Style.ForeColor = Color.MediumBlue;
                 }
             }
+        }
+
+        private void btn_Query_Click(object sender, EventArgs e)
+        {
+            dataConditionLoad();
         }
     }
 }

@@ -364,5 +364,30 @@ namespace MTsystem_win
                 #endregion
             }
         }
+
+        private void txt_Queryid_DoubleClick(object sender, EventArgs e)
+        {
+            Frm_mtashow mtashow = new Frm_mtashow();
+            mtashow.ShowDialog();
+            if (mtashow.mtaId != null)
+            {
+                txt_Queryid.Text = mtashow.mtaId.ToString().Trim();
+            }
+        }
+
+        private void rdb_matInput_report_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Queryid.Text = "";
+        }
+
+        private void rdb_matOut_report_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Queryid.Text = "";
+        }
+
+        private void rdb_matReturn_report_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Queryid.Text = "";
+        }
     }
 }

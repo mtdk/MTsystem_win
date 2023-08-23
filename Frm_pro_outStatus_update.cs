@@ -45,6 +45,7 @@ namespace MTsystem_win
             if (txt_Outputid.Text.Trim().Length == 0)
             {
                 strsql = "SELECT Outid AS 记录号, Cus_name AS 客户名称, Output_id AS 货号,Out_status AS 单据状态 FROM product_out_main";
+                strsql +=" WHERE YEAR(product_out_main.Out_date) >= "+dtp_start_year.Value.Year.ToString().Trim()+"";
                 MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
                 msda.Fill(ds_Queryresult, "resultTable");
 
@@ -57,7 +58,8 @@ namespace MTsystem_win
             else
             {
                 strsql = "SELECT Outid AS 记录号, Cus_name AS 客户名称, Output_id AS 货号,Out_status AS 单据状态 FROM product_out_main";
-                strsql += " WHERE Output_id ='" + txt_Outputid.Text.Trim() + "'";
+                strsql += " WHERE Output_id ='" + txt_Outputid.Text.Trim() + "' AND";
+                strsql += " YEAR(product_out_main.Out_date) >= " + dtp_start_year.Value.Year.ToString().Trim() + "";
                 MySqlDataAdapter msda = new MySqlDataAdapter(strsql, conn);
                 msda.Fill(ds_Queryresult, "resultTable");
 

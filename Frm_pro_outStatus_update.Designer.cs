@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtp_start_year = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +55,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.dtp_start_year);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -64,6 +68,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询区";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(453, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 19);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "起始年份：";
+            // 
+            // dtp_start_year
+            // 
+            this.dtp_start_year.CustomFormat = "yyyy";
+            this.dtp_start_year.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_start_year.Location = new System.Drawing.Point(558, 29);
+            this.dtp_start_year.Name = "dtp_start_year";
+            this.dtp_start_year.ShowUpDown = true;
+            this.dtp_start_year.Size = new System.Drawing.Size(200, 26);
+            this.dtp_start_year.TabIndex = 5;
             // 
             // groupBox4
             // 
@@ -257,5 +280,7 @@
         private System.Windows.Forms.Button btn_Upstatus;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtp_start_year;
+        private System.Windows.Forms.Label label8;
     }
 }

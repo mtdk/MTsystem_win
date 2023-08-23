@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource9 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.label1 = new System.Windows.Forms.Label();
             this.rdb_matInput_report = new System.Windows.Forms.RadioButton();
             this.rdb_matOut_report = new System.Windows.Forms.RadioButton();
@@ -64,6 +64,7 @@
             this.rdb_matInput_report.TabStop = true;
             this.rdb_matInput_report.Text = "进仓报表";
             this.rdb_matInput_report.UseVisualStyleBackColor = true;
+            this.rdb_matInput_report.CheckedChanged += new System.EventHandler(this.rdb_matInput_report_CheckedChanged);
             // 
             // rdb_matOut_report
             // 
@@ -74,11 +75,12 @@
             this.rdb_matOut_report.TabIndex = 2;
             this.rdb_matOut_report.Text = "出仓报表";
             this.rdb_matOut_report.UseVisualStyleBackColor = true;
+            this.rdb_matOut_report.CheckedChanged += new System.EventHandler(this.rdb_matOut_report_CheckedChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(318, 52);
+            this.label2.Location = new System.Drawing.Point(258, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 3;
@@ -87,26 +89,27 @@
             // dtp_Querydate
             // 
             this.dtp_Querydate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Querydate.Location = new System.Drawing.Point(414, 48);
+            this.dtp_Querydate.Location = new System.Drawing.Point(354, 47);
             this.dtp_Querydate.Name = "dtp_Querydate";
             this.dtp_Querydate.Size = new System.Drawing.Size(144, 26);
             this.dtp_Querydate.TabIndex = 4;
             // 
             // btn_Query
             // 
-            this.btn_Query.Location = new System.Drawing.Point(828, 114);
+            this.btn_Query.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Query.Location = new System.Drawing.Point(750, 43);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(118, 34);
+            this.btn_Query.Size = new System.Drawing.Size(70, 34);
             this.btn_Query.TabIndex = 5;
-            this.btn_Query.Text = "生成报表";
+            this.btn_Query.Text = "确定";
             this.btn_Query.UseVisualStyleBackColor = true;
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // mat_dayReportview
             // 
-            reportDataSource1.Name = "ds_mat_stockReport";
-            reportDataSource1.Value = null;
-            this.mat_dayReportview.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource9.Name = "ds_mat_stockReport";
+            reportDataSource9.Value = null;
+            this.mat_dayReportview.LocalReport.DataSources.Add(reportDataSource9);
             this.mat_dayReportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.mat_dayoutReportview.rdlc";
             this.mat_dayReportview.Location = new System.Drawing.Point(8, 85);
             this.mat_dayReportview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -123,8 +126,9 @@
             this.txt_Queryid.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Queryid.Location = new System.Drawing.Point(108, 46);
             this.txt_Queryid.Name = "txt_Queryid";
-            this.txt_Queryid.Size = new System.Drawing.Size(204, 30);
+            this.txt_Queryid.Size = new System.Drawing.Size(144, 30);
             this.txt_Queryid.TabIndex = 8;
+            this.txt_Queryid.DoubleClick += new System.EventHandler(this.txt_Queryid_DoubleClick);
             // 
             // label3
             // 
@@ -138,7 +142,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(564, 52);
+            this.label4.Location = new System.Drawing.Point(504, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 9;
@@ -147,7 +151,7 @@
             // dtp_QuerydateEnd
             // 
             this.dtp_QuerydateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_QuerydateEnd.Location = new System.Drawing.Point(660, 48);
+            this.dtp_QuerydateEnd.Location = new System.Drawing.Point(600, 47);
             this.dtp_QuerydateEnd.Name = "dtp_QuerydateEnd";
             this.dtp_QuerydateEnd.Size = new System.Drawing.Size(144, 26);
             this.dtp_QuerydateEnd.TabIndex = 10;
@@ -157,7 +161,7 @@
             this.cb_date.AutoSize = true;
             this.cb_date.Checked = true;
             this.cb_date.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_date.Location = new System.Drawing.Point(828, 85);
+            this.cb_date.Location = new System.Drawing.Point(427, 12);
             this.cb_date.Name = "cb_date";
             this.cb_date.Size = new System.Drawing.Size(118, 23);
             this.cb_date.TabIndex = 11;
@@ -173,12 +177,13 @@
             this.rdb_matReturn_report.TabIndex = 12;
             this.rdb_matReturn_report.Text = "退货报表";
             this.rdb_matReturn_report.UseVisualStyleBackColor = true;
+            this.rdb_matReturn_report.CheckedChanged += new System.EventHandler(this.rdb_matReturn_report_CheckedChanged);
             // 
             // Frm_mat_dayReportview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 871);
+            this.ClientSize = new System.Drawing.Size(827, 871);
             this.Controls.Add(this.rdb_matReturn_report);
             this.Controls.Add(this.cb_date);
             this.Controls.Add(this.dtp_QuerydateEnd);

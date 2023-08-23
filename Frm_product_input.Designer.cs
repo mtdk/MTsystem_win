@@ -143,7 +143,7 @@
             // btn_Cancel_B
             // 
             this.btn_Cancel_B.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel_B.Location = new System.Drawing.Point(1015, 91);
+            this.btn_Cancel_B.Location = new System.Drawing.Point(993, 91);
             this.btn_Cancel_B.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancel_B.Name = "btn_Cancel_B";
             this.btn_Cancel_B.Size = new System.Drawing.Size(75, 28);
@@ -254,7 +254,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(918, 68);
+            this.label9.Location = new System.Drawing.Point(896, 68);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 19);
             this.label9.TabIndex = 13;
@@ -264,7 +264,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(800, 68);
+            this.label8.Location = new System.Drawing.Point(778, 68);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 19);
             this.label8.TabIndex = 12;
@@ -274,7 +274,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(700, 68);
+            this.label7.Location = new System.Drawing.Point(678, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 19);
             this.label7.TabIndex = 11;
@@ -284,7 +284,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(449, 68);
+            this.label6.Location = new System.Drawing.Point(427, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 19);
             this.label6.TabIndex = 10;
@@ -294,7 +294,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(198, 68);
+            this.label5.Location = new System.Drawing.Point(176, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 19);
             this.label5.TabIndex = 9;
@@ -304,7 +304,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(79, 68);
+            this.label4.Location = new System.Drawing.Point(57, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 19);
             this.label4.TabIndex = 8;
@@ -312,9 +312,10 @@
             // 
             // txt_inputWeight
             // 
+            this.txt_inputWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_inputWeight.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_inputWeight.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputWeight.Location = new System.Drawing.Point(872, 91);
+            this.txt_inputWeight.Location = new System.Drawing.Point(850, 91);
             this.txt_inputWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_inputWeight.Name = "txt_inputWeight";
             this.txt_inputWeight.ReadOnly = true;
@@ -325,9 +326,11 @@
             // 
             // txt_inputUnit
             // 
+            this.txt_inputUnit.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_inputUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_inputUnit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_inputUnit.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputUnit.Location = new System.Drawing.Point(772, 91);
+            this.txt_inputUnit.Location = new System.Drawing.Point(750, 91);
             this.txt_inputUnit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_inputUnit.Name = "txt_inputUnit";
             this.txt_inputUnit.Size = new System.Drawing.Size(100, 30);
@@ -338,9 +341,11 @@
             // 
             // txt_inputNum
             // 
+            this.txt_inputNum.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_inputNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_inputNum.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_inputNum.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_inputNum.Location = new System.Drawing.Point(672, 91);
+            this.txt_inputNum.Location = new System.Drawing.Point(650, 91);
             this.txt_inputNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_inputNum.Name = "txt_inputNum";
             this.txt_inputNum.Size = new System.Drawing.Size(100, 30);
@@ -352,9 +357,10 @@
             // 
             // txt_productName
             // 
+            this.txt_productName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_productName.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_productName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_productName.Location = new System.Drawing.Point(307, 91);
+            this.txt_productName.Location = new System.Drawing.Point(285, 91);
             this.txt_productName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_productName.Name = "txt_productName";
             this.txt_productName.ReadOnly = true;
@@ -363,9 +369,11 @@
             // 
             // txt_productId
             // 
+            this.txt_productId.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_productId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_productId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_productId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_productId.Location = new System.Drawing.Point(169, 91);
+            this.txt_productId.Location = new System.Drawing.Point(147, 91);
             this.txt_productId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_productId.Name = "txt_productId";
             this.txt_productId.Size = new System.Drawing.Size(138, 30);
@@ -374,9 +382,10 @@
             // 
             // txt_proId
             // 
+            this.txt_proId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_proId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_proId.ForeColor = System.Drawing.Color.DarkCyan;
-            this.txt_proId.Location = new System.Drawing.Point(69, 91);
+            this.txt_proId.Location = new System.Drawing.Point(47, 91);
             this.txt_proId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_proId.Name = "txt_proId";
             this.txt_proId.ReadOnly = true;
