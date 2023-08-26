@@ -143,6 +143,7 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
+            this.dgv_Queryresult.RowHeadersVisible = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
             this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;

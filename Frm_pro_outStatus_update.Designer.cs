@@ -189,6 +189,7 @@
             this.dgv_pro_outview.Location = new System.Drawing.Point(3, 22);
             this.dgv_pro_outview.Name = "dgv_pro_outview";
             this.dgv_pro_outview.ReadOnly = true;
+            this.dgv_pro_outview.RowHeadersVisible = false;
             this.dgv_pro_outview.RowTemplate.Height = 23;
             this.dgv_pro_outview.Size = new System.Drawing.Size(877, 389);
             this.dgv_pro_outview.TabIndex = 0;
@@ -213,6 +214,7 @@
             this.dgv_Pro_outmain_view.Location = new System.Drawing.Point(3, 22);
             this.dgv_Pro_outmain_view.Name = "dgv_Pro_outmain_view";
             this.dgv_Pro_outmain_view.ReadOnly = true;
+            this.dgv_Pro_outmain_view.RowHeadersVisible = false;
             this.dgv_Pro_outmain_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Pro_outmain_view.Size = new System.Drawing.Size(574, 669);
             this.dgv_Pro_outmain_view.TabIndex = 0;

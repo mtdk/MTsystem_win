@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_Queryresult = new System.Windows.Forms.DataGridView();
             this.btn_Query = new System.Windows.Forms.Button();
@@ -64,9 +64,10 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_Queryresult.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.RowTemplate.ReadOnly = true;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

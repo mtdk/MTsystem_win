@@ -36,8 +36,12 @@
             this.rdb_CusUpdate = new System.Windows.Forms.RadioButton();
             this.rdb_CusInsert = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmb_Cus_classification = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txt_cusAdd = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_CusClassinfo = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -68,10 +72,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_cusId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.cmb_Cus_classification = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txt_CusClassinfo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -172,6 +172,24 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // cmb_Cus_classification
+            // 
+            this.cmb_Cus_classification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Cus_classification.FormattingEnabled = true;
+            this.cmb_Cus_classification.Location = new System.Drawing.Point(1152, 25);
+            this.cmb_Cus_classification.Name = "cmb_Cus_classification";
+            this.cmb_Cus_classification.Size = new System.Drawing.Size(121, 27);
+            this.cmb_Cus_classification.TabIndex = 35;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1066, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 19);
+            this.label16.TabIndex = 34;
+            this.label16.Text = "负责人：";
+            // 
             // txt_cusAdd
             // 
             this.txt_cusAdd.Location = new System.Drawing.Point(583, 67);
@@ -204,6 +222,23 @@
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "信息预览";
+            // 
+            // txt_CusClassinfo
+            // 
+            this.txt_CusClassinfo.Location = new System.Drawing.Point(1126, 121);
+            this.txt_CusClassinfo.Name = "txt_CusClassinfo";
+            this.txt_CusClassinfo.ReadOnly = true;
+            this.txt_CusClassinfo.Size = new System.Drawing.Size(115, 26);
+            this.txt_CusClassinfo.TabIndex = 46;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1051, 124);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 19);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "负责人：";
             // 
             // textBox1
             // 
@@ -345,6 +380,7 @@
             this.dgv_cusinfo_preview.Location = new System.Drawing.Point(3, 22);
             this.dgv_cusinfo_preview.Name = "dgv_cusinfo_preview";
             this.dgv_cusinfo_preview.ReadOnly = true;
+            this.dgv_cusinfo_preview.RowHeadersVisible = false;
             this.dgv_cusinfo_preview.RowTemplate.Height = 30;
             this.dgv_cusinfo_preview.RowTemplate.ReadOnly = true;
             this.dgv_cusinfo_preview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -478,41 +514,6 @@
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 18;
             this.label1.Text = "客户编号:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1066, 28);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(81, 19);
-            this.label16.TabIndex = 34;
-            this.label16.Text = "负责人：";
-            // 
-            // cmb_Cus_classification
-            // 
-            this.cmb_Cus_classification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Cus_classification.FormattingEnabled = true;
-            this.cmb_Cus_classification.Location = new System.Drawing.Point(1152, 25);
-            this.cmb_Cus_classification.Name = "cmb_Cus_classification";
-            this.cmb_Cus_classification.Size = new System.Drawing.Size(121, 27);
-            this.cmb_Cus_classification.TabIndex = 35;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1051, 124);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 19);
-            this.label17.TabIndex = 45;
-            this.label17.Text = "负责人：";
-            // 
-            // txt_CusClassinfo
-            // 
-            this.txt_CusClassinfo.Location = new System.Drawing.Point(1126, 121);
-            this.txt_CusClassinfo.Name = "txt_CusClassinfo";
-            this.txt_CusClassinfo.ReadOnly = true;
-            this.txt_CusClassinfo.Size = new System.Drawing.Size(115, 26);
-            this.txt_CusClassinfo.TabIndex = 46;
             // 
             // Frm_customerinfo
             // 

@@ -197,6 +197,7 @@
             this.dgv_inputView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_inputView.Name = "dgv_inputView";
             this.dgv_inputView.ReadOnly = true;
+            this.dgv_inputView.RowHeadersVisible = false;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.NavajoWhite;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_inputView.RowsDefaultCellStyle = dataGridViewCellStyle2;

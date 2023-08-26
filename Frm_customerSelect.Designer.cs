@@ -51,6 +51,7 @@
             this.dgv_cusSelect.Location = new System.Drawing.Point(3, 22);
             this.dgv_cusSelect.Name = "dgv_cusSelect";
             this.dgv_cusSelect.ReadOnly = true;
+            this.dgv_cusSelect.RowHeadersVisible = false;
             this.dgv_cusSelect.RowTemplate.Height = 23;
             this.dgv_cusSelect.Size = new System.Drawing.Size(888, 565);
             this.dgv_cusSelect.TabIndex = 0;

@@ -299,6 +299,7 @@
             this.dgv_tagprint.Location = new System.Drawing.Point(3, 22);
             this.dgv_tagprint.Name = "dgv_tagprint";
             this.dgv_tagprint.ReadOnly = true;
+            this.dgv_tagprint.RowHeadersVisible = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_tagprint.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tagprint.RowTemplate.Height = 23;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.rdb_Queryid = new System.Windows.Forms.RadioButton();
             this.rdb_Queryname = new System.Windows.Forms.RadioButton();
@@ -98,8 +98,9 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(12, 43);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Queryresult.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_Queryresult.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Queryresult.RowTemplate.Height = 25;
             this.dgv_Queryresult.RowTemplate.ReadOnly = true;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

@@ -122,6 +122,7 @@
             this.dgv_productPrice.Location = new System.Drawing.Point(3, 22);
             this.dgv_productPrice.Name = "dgv_productPrice";
             this.dgv_productPrice.ReadOnly = true;
+            this.dgv_productPrice.RowHeadersVisible = false;
             this.dgv_productPrice.RowTemplate.Height = 23;
             this.dgv_productPrice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_productPrice.Size = new System.Drawing.Size(706, 357);

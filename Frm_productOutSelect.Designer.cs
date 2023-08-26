@@ -53,6 +53,7 @@
             this.dgv_productOutSelect.Location = new System.Drawing.Point(3, 22);
             this.dgv_productOutSelect.Name = "dgv_productOutSelect";
             this.dgv_productOutSelect.ReadOnly = true;
+            this.dgv_productOutSelect.RowHeadersVisible = false;
             this.dgv_productOutSelect.RowTemplate.Height = 23;
             this.dgv_productOutSelect.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_productOutSelect.Size = new System.Drawing.Size(989, 513);

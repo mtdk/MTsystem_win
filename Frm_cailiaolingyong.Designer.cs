@@ -204,6 +204,7 @@
             this.dgv_Query_result.Location = new System.Drawing.Point(347, 62);
             this.dgv_Query_result.Name = "dgv_Query_result";
             this.dgv_Query_result.ReadOnly = true;
+            this.dgv_Query_result.RowHeadersVisible = false;
             this.dgv_Query_result.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Query_result.RowTemplate.Height = 23;
             this.dgv_Query_result.RowTemplate.ReadOnly = true;

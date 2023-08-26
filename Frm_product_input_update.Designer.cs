@@ -40,6 +40,7 @@
             this.txt_Inputid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_Query = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dtp_start_year = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,6 @@
             this.rdb_SelectName = new System.Windows.Forms.RadioButton();
             this.rdb_SelectID = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.btn_Query = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -195,6 +195,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "记录状态修改区";
             // 
+            // btn_Query
+            // 
+            this.btn_Query.Location = new System.Drawing.Point(866, 40);
+            this.btn_Query.Name = "btn_Query";
+            this.btn_Query.Size = new System.Drawing.Size(75, 27);
+            this.btn_Query.TabIndex = 9;
+            this.btn_Query.Text = "查  询";
+            this.btn_Query.UseVisualStyleBackColor = true;
+            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -233,6 +243,7 @@
             this.dgv_SelectResult.Location = new System.Drawing.Point(3, 22);
             this.dgv_SelectResult.Name = "dgv_SelectResult";
             this.dgv_SelectResult.ReadOnly = true;
+            this.dgv_SelectResult.RowHeadersVisible = false;
             this.dgv_SelectResult.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
             this.dgv_SelectResult.RowTemplate.Height = 23;
             this.dgv_SelectResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -280,16 +291,6 @@
             this.label6.Size = new System.Drawing.Size(90, 19);
             this.label6.TabIndex = 3;
             this.label6.Text = "查询选项:";
-            // 
-            // btn_Query
-            // 
-            this.btn_Query.Location = new System.Drawing.Point(866, 40);
-            this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(75, 27);
-            this.btn_Query.TabIndex = 9;
-            this.btn_Query.Text = "查  询";
-            this.btn_Query.UseVisualStyleBackColor = true;
-            this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // Frm_product_input_update
             // 

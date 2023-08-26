@@ -57,6 +57,7 @@
             this.dgv_cusinfoview.Location = new System.Drawing.Point(3, 22);
             this.dgv_cusinfoview.Name = "dgv_cusinfoview";
             this.dgv_cusinfoview.ReadOnly = true;
+            this.dgv_cusinfoview.RowHeadersVisible = false;
             this.dgv_cusinfoview.RowTemplate.Height = 23;
             this.dgv_cusinfoview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_cusinfoview.Size = new System.Drawing.Size(865, 576);

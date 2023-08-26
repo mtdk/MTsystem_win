@@ -224,6 +224,7 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 22);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
+            this.dgv_Queryresult.RowHeadersVisible = false;
             this.dgv_Queryresult.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

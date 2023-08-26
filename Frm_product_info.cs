@@ -241,6 +241,7 @@ namespace MTsystem_win
             dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
             dgv_Queryresult.Columns[0].HeaderText = "序号";
             dgv_Queryresult.Columns[1].HeaderText = "系统编号";
+            dgv_Queryresult.Columns[1].Visible = false;
             dgv_Queryresult.Columns[2].HeaderText = "产品编号";
             dgv_Queryresult.Columns[3].HeaderText = "产品名称";
             dgv_Queryresult.Columns[4].HeaderText = "产品规格";
@@ -264,6 +265,7 @@ namespace MTsystem_win
                 dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
                 dgv_Queryresult.Columns[0].HeaderText = "序号";
                 dgv_Queryresult.Columns[1].HeaderText = "系统编号";
+                dgv_Queryresult.Columns[1].Visible = false;
                 dgv_Queryresult.Columns[2].HeaderText = "产品编号";
                 dgv_Queryresult.Columns[3].HeaderText = "产品名称";
                 dgv_Queryresult.Columns[4].HeaderText = "产品规格";
@@ -288,6 +290,7 @@ namespace MTsystem_win
                 dgv_Queryresult.DataSource = dv_Queryresult.ToTable("resultTable");
                 dgv_Queryresult.Columns[0].HeaderText = "序号";
                 dgv_Queryresult.Columns[1].HeaderText = "系统编号";
+                dgv_Queryresult.Columns[1].Visible = false;
                 dgv_Queryresult.Columns[2].HeaderText = "产品编号";
                 dgv_Queryresult.Columns[3].HeaderText = "产品名称";
                 dgv_Queryresult.Columns[4].HeaderText = "产品规格";

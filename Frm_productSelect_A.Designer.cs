@@ -53,6 +53,7 @@
             this.dgv_Queryresult.Location = new System.Drawing.Point(3, 26);
             this.dgv_Queryresult.Name = "dgv_Queryresult";
             this.dgv_Queryresult.ReadOnly = true;
+            this.dgv_Queryresult.RowHeadersVisible = false;
             this.dgv_Queryresult.RowTemplate.Height = 23;
             this.dgv_Queryresult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Queryresult.Size = new System.Drawing.Size(954, 508);
