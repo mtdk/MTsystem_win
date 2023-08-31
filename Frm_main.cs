@@ -654,7 +654,12 @@ namespace MTsystem_win
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-
+                    if (frmShowstatus._Fmaterial == "CLOSE" || frmShowstatus._Fmaterial == null)
+                    {
+                        Frm_Material frmmaterial = new Frm_Material();
+                        frmmaterial.MdiParent = this;
+                        frmmaterial.Show();
+                    }
                 }
                 else
                 {

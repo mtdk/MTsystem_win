@@ -26,9 +26,25 @@ namespace MTsystem_win.allClass
         #endregion
 
         #region 采购
-
+        /// <summary>
+        /// 原材料信息录入窗口
+        /// </summary>
+        private static string _fmaterial;
+        /// <summary>
+        /// 原材料信息录入窗口
+        /// </summary>
+        public static string _Fmaterial
+        {
+            set { _fmaterial = value; }
+            get { return _fmaterial; }
+        }
+        /// <summary>
+        /// 供应商信息录入窗口
+        /// </summary>
         private static string _fsupinfo;
-
+        /// <summary>
+        /// 供应商信息录入窗口
+        /// </summary>
         public static string _Fsupinfo
         {
             set { _fsupinfo = value; }

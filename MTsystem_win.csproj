@@ -153,6 +153,12 @@
     <Compile Include="Frm_matbaseinput.Designer.cs">
       <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Material.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Material.designer.cs">
+      <DependentUpon>Frm_Material.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_material_info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_matbaseinput.resx">
       <DependentUpon>Frm_matbaseinput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Material.resx">
+      <DependentUpon>Frm_Material.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_material_info.resx">
       <DependentUpon>Frm_material_info.cs</DependentUpon>
