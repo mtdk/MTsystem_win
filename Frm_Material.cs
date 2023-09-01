@@ -287,53 +287,61 @@ namespace MTsystem_win
         /// </summary>
         private void MaterialUp()
         {
-            //SqlCommand cmd = new SqlCommand("Pr_MaterialUp", Sqlstr.GetCon());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add("@InteriorID", SqlDbType.NVarChar, 255).Value = lbInteriorIDA.Text.Trim();
-            //cmd.Parameters.Add("@Material_ID", SqlDbType.NVarChar, 255).Value = txtMaterialIDA.Text.Trim();
-            //cmd.Parameters.Add("@Material_Name", SqlDbType.NVarChar, 255).Value = txtMaterialNameA.Text.Trim();
-            //cmd.Parameters.Add("@Material_Price", SqlDbType.Decimal).Value = txtMaterialPrice.Text.Trim();
-            //cmd.Parameters.Add("@Material_Class", SqlDbType.NVarChar, 50).Value = cmbClassA.SelectedValue.ToString().Trim();
-            //cmd.Parameters.Add("@Material_CINO", SqlDbType.NVarChar, 50).Value = txtCinoA.Text.Trim();
-            //cmd.Parameters.Add("@Material_Application", SqlDbType.NVarChar, 50).Value = cmbAppA.SelectedValue.ToString().Trim();
-            //if (rdbMaterialY.Checked == true)
-            //{
-            //    cmd.Parameters.Add("@Material_Status", SqlDbType.NVarChar, 50).Value = rdbMaterialY.Text.Trim();
-            //}
-            //else
-            //{
-            //    cmd.Parameters.Add("@Material_Status", SqlDbType.NVarChar, 50).Value = rdbMaterialN.Text.Trim();
-            //}
-            //cmd.Parameters.Add("@Material_Unit", SqlDbType.NVarChar, 50).Value = txtUnitA.Text.Trim().ToUpper();
-            //cmd.Parameters.Add("@returnUp", SqlDbType.Int);
-            //cmd.Parameters["@returnUp"].Direction = ParameterDirection.ReturnValue;
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (SqlException Ex)
-            //{
-            //    MessageBox.Show("数据未修改成功！" + Ex.Message, "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //finally
-            //{
-            //    Sqlstr.GetClose();
-            //}
-            //string tempMaterialUp = cmd.Parameters["@returnUp"].Value.ToString();
-            //cmd.Dispose();
-            //switch (tempMaterialUp)
-            //{
-            //    case "0":
-            //        MessageBox.Show("数据已修改完成！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        aControlClear();
-            //        Ds.Clear();
-            //        MaterialList();
-            //        break;
-            //    case "1":
-            //        MessageBox.Show("材料表记录更新失败！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //}
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                string strsql = "UPDATE `material` SET Material_id = @Material_id,Material_inside_name = @Material_inside_name,";
+                strsql += "Material_name = @Material_name,Material_class = @Material_class,Material_price = @Material_price,";
+                strsql += "Material_category = @Material_category,Material_Unit = @Material_Unit,Material_cino = @Material_cino,";
+                strsql += "Material_application = @Material_application,Material_status = @Material_status,";
+                strsql += "Material_remarks = @Material_remarks WHERE Matid = @Matid";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = strsql;
+                cmd.Parameters.AddWithValue("@Matid", lbInteriorID.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_id", txtMaterialID.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_inside_name", txtMaterialName_inside.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_name", txtMaterialName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_class", cmbClass.SelectedValue.ToString().Trim());
+                cmd.Parameters.AddWithValue("@Material_price", Convert.ToDecimal(txtMaterialPrice.Text.Trim()));
+                cmd.Parameters.AddWithValue("@Material_category", txtcategory.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_Unit", txtUnit.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_cino", txtCino.Text.Trim());
+                cmd.Parameters.AddWithValue("@Material_application", cmbApp.SelectedValue.ToString().Trim());
+                if (rdbMaterialY.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Material_status", rdbMaterialY.Text.Trim());
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Material_status", rdbMaterialN.Text.Trim());
+                }
+                cmd.Parameters.AddWithValue("@Material_remarks", txtRemarks.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    aControlClear();
+                    ds_Queryresult.Clear();
+                    MclassSelect();
+                    MapplicationSelect();
+                    MaterialList();
+                }
+            }
         }
         /// <summary>
         /// 清楚材料录入、修改界面控件的数据
@@ -345,10 +353,10 @@ namespace MTsystem_win
             txtMaterialName.Text = "";
             txtMaterialName_inside.Text = "";
             txtMaterialPrice.Text = "0.00";
+            txtcategory.Text = "0";
             cmbClass.SelectedIndex = 0;
             txtCino.Text = "无";
             cmbApp.SelectedIndex = 0;
-            txtSelectCondition.Text = "";
             rdbMaterialY.Checked = true;
             txtUnit.Text = "kg";
         }
@@ -402,6 +410,32 @@ namespace MTsystem_win
                         MessageBox.Show("材料内部名称未填写，请填写材料内部名称！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtMaterialName_inside.Focus();
                     }
+                    else if (txtMaterialPrice.Text == string.Empty)
+                    {
+                        MessageBox.Show("材料单价未填写，系统默认为 0.00 ！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Text = "0.00";
+                    }
+                    else if (!jnum.ISNumeric(txtMaterialPrice.Text.Trim()))
+                    {
+                        MessageBox.Show("输入单价不合法，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Text = "0.00";
+                    }
+                    else if ((Convert.ToDouble(txtMaterialPrice.Text.Trim())) > 9999.99)
+                    {
+                        MessageBox.Show("材料单价太大了！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Focus();
+                        txtMaterialPrice.SelectAll();
+                    }
+                    else if (txtcategory.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("计量单位不能为空，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtcategory.Text = "0";
+                    }
+                    else if (!jnum.ISNumeric(txtcategory.Text.Trim()))
+                    {
+                        MessageBox.Show("输入规格不合法，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtcategory.Text = "0";
+                    }
                     else
                     {
                         MaterialInsert();
@@ -422,6 +456,32 @@ namespace MTsystem_win
                     {
                         MessageBox.Show("材料内部名称未填写，请填写材料内部名称！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtMaterialName_inside.Focus();
+                    }
+                    else if (txtMaterialPrice.Text == string.Empty)
+                    {
+                        MessageBox.Show("材料单价未填写，系统默认为 0.00 ！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Text = "0.00";
+                    }
+                    else if (!jnum.ISNumeric(txtMaterialPrice.Text.Trim()))
+                    {
+                        MessageBox.Show("输入单价不合法，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Text = "0.00";
+                    }
+                    else if ((Convert.ToDouble(txtMaterialPrice.Text.Trim())) > 9999.99)
+                    {
+                        MessageBox.Show("材料单价太大了！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaterialPrice.Focus();
+                        txtMaterialPrice.SelectAll();
+                    }
+                    else if (txtcategory.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("计量单位不能为空，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtcategory.Text = "0";
+                    }
+                    else if (!jnum.ISNumeric(txtcategory.Text.Trim()))
+                    {
+                        MessageBox.Show("输入规格不合法，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtcategory.Text = "0";
                     }
                     else
                     {
@@ -462,16 +522,7 @@ namespace MTsystem_win
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            lbInteriorID.Text = "系统编码！";
-            txtMaterialID.Text = "";
-            txtMaterialName.Text = "";
-            txtMaterialName_inside.Text = "";
-            txtMaterialPrice.Text = "0.00";
-            cmbClass.SelectedIndex = 0;
-            txtCino.Text = "无";
-            cmbApp.SelectedIndex = 0;
-            rdbMaterialY.Checked = true;
-            txtUnit.Text = "kg";
+            aControlClear();
         }
 
         private void txtMaterialPrice_Leave(object sender, EventArgs e)
@@ -504,6 +555,14 @@ namespace MTsystem_win
             {
                 MessageBox.Show("输入规格不合法，系统将恢复默认值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtcategory.Text = "0";
+            }
+        }
+
+        private void btnCopymatid_Click(object sender, EventArgs e)
+        {
+            if (txtMaterialID.Text.Trim().Length != 0)
+            {
+                txtMaterialName_inside.Text = txtMaterialID.Text.Trim();
             }
         }
     }

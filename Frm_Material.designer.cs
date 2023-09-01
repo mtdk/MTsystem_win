@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMaterialinfor = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtcategory = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMaterialName_inside = new System.Windows.Forms.TextBox();
             this.txtUnit = new System.Windows.Forms.TextBox();
@@ -68,10 +72,7 @@
             this.txtSelectCondition = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvMaterialList = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtcategory = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.btnCopymatid = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpMaterialinfor.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCopymatid);
             this.groupBox1.Controls.Add(this.txtRemarks);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtcategory);
@@ -141,10 +143,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "编辑区";
             // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Location = new System.Drawing.Point(289, 139);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(357, 26);
+            this.txtRemarks.TabIndex = 29;
+            this.txtRemarks.Text = "无";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(204, 141);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 20);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "备注信息：";
+            // 
+            // txtcategory
+            // 
+            this.txtcategory.Location = new System.Drawing.Point(67, 93);
+            this.txtcategory.Name = "txtcategory";
+            this.txtcategory.Size = new System.Drawing.Size(100, 26);
+            this.txtcategory.TabIndex = 17;
+            this.txtcategory.Text = "0";
+            this.txtcategory.Leave += new System.EventHandler(this.txtcategory_Leave);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 96);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "规格：";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(328, 63);
+            this.label8.Location = new System.Drawing.Point(341, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 28;
@@ -153,9 +190,9 @@
             // txtMaterialName_inside
             // 
             this.txtMaterialName_inside.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaterialName_inside.Location = new System.Drawing.Point(409, 60);
+            this.txtMaterialName_inside.Location = new System.Drawing.Point(422, 60);
             this.txtMaterialName_inside.Name = "txtMaterialName_inside";
-            this.txtMaterialName_inside.Size = new System.Drawing.Size(235, 26);
+            this.txtMaterialName_inside.Size = new System.Drawing.Size(248, 26);
             this.txtMaterialName_inside.TabIndex = 29;
             // 
             // txtUnit
@@ -230,9 +267,9 @@
             // txtMaterialPrice
             // 
             this.txtMaterialPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaterialPrice.Location = new System.Drawing.Point(707, 60);
+            this.txtMaterialPrice.Location = new System.Drawing.Point(733, 60);
             this.txtMaterialPrice.Name = "txtMaterialPrice";
-            this.txtMaterialPrice.Size = new System.Drawing.Size(68, 26);
+            this.txtMaterialPrice.Size = new System.Drawing.Size(73, 26);
             this.txtMaterialPrice.TabIndex = 15;
             this.txtMaterialPrice.Text = "0.00";
             this.txtMaterialPrice.Leave += new System.EventHandler(this.txtMaterialPrice_Leave);
@@ -240,7 +277,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(650, 63);
+            this.label45.Location = new System.Drawing.Point(676, 63);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(51, 20);
             this.label45.TabIndex = 14;
@@ -335,7 +372,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(508, 29);
+            this.label3.Location = new System.Drawing.Point(494, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 8;
@@ -364,7 +401,7 @@
             this.txtMaterialName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaterialName.Location = new System.Drawing.Point(87, 60);
             this.txtMaterialName.Name = "txtMaterialName";
-            this.txtMaterialName.Size = new System.Drawing.Size(235, 26);
+            this.txtMaterialName.Size = new System.Drawing.Size(248, 26);
             this.txtMaterialName.TabIndex = 13;
             // 
             // label5
@@ -379,7 +416,7 @@
             // txtMaterialID
             // 
             this.txtMaterialID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaterialID.Location = new System.Drawing.Point(593, 27);
+            this.txtMaterialID.Location = new System.Drawing.Point(579, 24);
             this.txtMaterialID.Name = "txtMaterialID";
             this.txtMaterialID.Size = new System.Drawing.Size(150, 26);
             this.txtMaterialID.TabIndex = 9;
@@ -480,8 +517,8 @@
             this.dgvMaterialList.AllowUserToAddRows = false;
             this.dgvMaterialList.AllowUserToDeleteRows = false;
             this.dgvMaterialList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgvMaterialList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgvMaterialList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMaterialList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvMaterialList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvMaterialList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -495,39 +532,15 @@
             this.dgvMaterialList.TabIndex = 4;
             this.dgvMaterialList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialList_CellDoubleClick);
             // 
-            // label10
+            // btnCopymatid
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 96);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "规格：";
-            // 
-            // txtcategory
-            // 
-            this.txtcategory.Location = new System.Drawing.Point(67, 93);
-            this.txtcategory.Name = "txtcategory";
-            this.txtcategory.Size = new System.Drawing.Size(100, 26);
-            this.txtcategory.TabIndex = 17;
-            this.txtcategory.Text = "0";
-            this.txtcategory.Leave += new System.EventHandler(this.txtcategory_Leave);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(204, 141);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 20);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "备注信息：";
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Location = new System.Drawing.Point(289, 139);
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(357, 26);
-            this.txtRemarks.TabIndex = 29;
+            this.btnCopymatid.Location = new System.Drawing.Point(735, 23);
+            this.btnCopymatid.Name = "btnCopymatid";
+            this.btnCopymatid.Size = new System.Drawing.Size(75, 28);
+            this.btnCopymatid.TabIndex = 30;
+            this.btnCopymatid.Text = "复制编号";
+            this.btnCopymatid.UseVisualStyleBackColor = true;
+            this.btnCopymatid.Click += new System.EventHandler(this.btnCopymatid_Click);
             // 
             // Frm_Material
             // 
@@ -605,6 +618,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnCopymatid;
 
 
     }
