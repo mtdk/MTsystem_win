@@ -303,11 +303,11 @@
     <Compile Include="Frm_pro_outStatus_update.Designer.cs">
       <DependentUpon>Frm_pro_outStatus_update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Supplier_info.cs">
+    <Compile Include="Frm_Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Supplier_info.Designer.cs">
-      <DependentUpon>Frm_Supplier_info.cs</DependentUpon>
+    <Compile Include="Frm_Supplier.designer.cs">
+      <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_tag_print.cs">
       <SubType>Form</SubType>
@@ -426,8 +426,8 @@
     <EmbeddedResource Include="Frm_pro_outStatus_update.resx">
       <DependentUpon>Frm_pro_outStatus_update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Supplier_info.resx">
-      <DependentUpon>Frm_Supplier_info.cs</DependentUpon>
+    <EmbeddedResource Include="Frm_Supplier.resx">
+      <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_tag_print.resx">
       <DependentUpon>Frm_tag_print.cs</DependentUpon>

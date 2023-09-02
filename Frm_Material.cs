@@ -106,7 +106,11 @@ namespace MTsystem_win
         {
             if (txtSelectCondition.Text.Trim().Length == 0)
             {
+                dgvMaterialList.DataSource = null;
                 dv_Queryresult.Table = ds_Queryresult.Tables["material"];
+                dv_Queryresult.RowFilter = null;
+                dgvMaterialList.DataSource = dv_Queryresult.ToTable();
+                dgvHeadTextSet();
             }
             else
             {
@@ -233,7 +237,7 @@ namespace MTsystem_win
                 try
                 {
                     string strsql = "INSERT INTO `material` VALUES(NULL,@Matid,@Material_id,@Material_inside_name,";
-                    strsql += "@Material_name,@Material_class,@Material_price,@Material_category,@Material_Unit,";
+                    strsql += "@Material_name,@Material_class,@Material_price,@Material_Unit,@Material_category,";
                     strsql += "@Material_cino,@Material_application,@Material_status,@Material_remarks)";
 
                     MySqlCommand cmd = new MySqlCommand();
@@ -245,8 +249,8 @@ namespace MTsystem_win
                     cmd.Parameters.AddWithValue("@Material_name", txtMaterialName.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_class", cmbClass.SelectedValue.ToString().Trim());
                     cmd.Parameters.AddWithValue("@Material_price", Convert.ToDecimal(txtMaterialPrice.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@Material_category", txtcategory.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_Unit", txtUnit.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Material_category", txtcategory.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_cino", txtCino.Text.Trim());
                     cmd.Parameters.AddWithValue("@Material_application", cmbApp.SelectedValue.ToString().Trim());
                     if (rdbMaterialY.Checked == true)

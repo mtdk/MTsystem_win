@@ -41,14 +41,14 @@ namespace MTsystem_win.allClass
         /// <summary>
         /// 供应商信息录入窗口
         /// </summary>
-        private static string _fsupinfo;
+        private static string _fsup;
         /// <summary>
         /// 供应商信息录入窗口
         /// </summary>
-        public static string _Fsupinfo
+        public static string _Fsup
         {
-            set { _fsupinfo = value; }
-            get { return _fsupinfo; }
+            set { _fsup = value; }
+            get { return _fsup; }
         }
 
         #endregion
