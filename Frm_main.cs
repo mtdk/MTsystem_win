@@ -710,7 +710,12 @@ namespace MTsystem_win
             {
                 if (userInfocheck._Uspowerid == 100 || userInfocheck._Uspowerid == 101 || userInfocheck._Uspowerid == 102)
                 {
-
+                    if (frmShowstatus._Frmorderform == "CLOSE" || frmShowstatus._Frmorderform == null)
+                    {
+                        Frm_OrderForm frmorderform = new Frm_OrderForm();
+                        frmorderform.MdiParent = this;
+                        frmorderform.Show();
+                    }
                 }
                 else
                 {

@@ -119,9 +119,9 @@ namespace MTsystem_win
             this.dgvSupplier.Columns[12].HeaderText = "员工数";
             this.dgvSupplier.Columns[13].HeaderText = "企业类型";
             this.dgvSupplier.Columns[14].HeaderText = "提供产品类型";
-            this.dgvSupplier.Columns[15].HeaderText = "开户行";
-            this.dgvSupplier.Columns[16].HeaderText = "银行帐号";
-            this.dgvSupplier.Columns[17].HeaderText = "收款账户";
+            this.dgvSupplier.Columns[15].HeaderText = "收款账户";
+            this.dgvSupplier.Columns[16].HeaderText = "开户银行";
+            this.dgvSupplier.Columns[17].HeaderText = "银行帐号";
             this.dgvSupplier.Columns[18].HeaderText = "付款期限";
         }
 
@@ -238,8 +238,8 @@ namespace MTsystem_win
                     string sqlstr = "INSERT INTO `tb_supplierinfor` VALUES(NULL,@SupplierID,@SupplierName,";
                     sqlstr += "@SupplierFrdb,@SupplierLinkMan,@SupplierMobile,@SupplierPhone,@SupplierFax,";
                     sqlstr += "@SupplierAddress,@SupplierZcAddress,@SupplierClTime,@SupplierZczj,@SupplierYgs,";
-                    sqlstr += "@SupplierQyxz,@SupplierTgcplx,@SupplierBank,@SupplierBankAccountNumber,";
-                    sqlstr += "@SupplierShouKuanZhangHu,@SupplierPrompt)";
+                    sqlstr += "@SupplierQyxz,@SupplierTgcplx,@SupplierShouKuanZhangHu,@SupplierBank,";
+                    sqlstr += "@SupplierBankAccountNumber,@SupplierPrompt)";
 
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = conn;
@@ -327,44 +327,35 @@ namespace MTsystem_win
         ///</summary>
         private void lbSupplierIDB_DoubleClick(object sender, EventArgs e)
         {
-            //Frm_SupplierForIndentPur frsfi = new Frm_SupplierForIndentPur();
-            //frsfi.ShowDialog();
-            //if (frsfi.SpID != null)
-            //{
-            //    lbSupplierIDB.Text = frsfi.SpID.Trim();
-            //    txtSupplierNameB.Text = frsfi.SpName.Trim();
-            //    txtfrdbB.Text = frsfi.Spfrdb.Trim();
-            //    txtSupplierManB.Text = frsfi.SpMan.Trim();
-            //    txtSupplierMobileB.Text = frsfi.SpMobilePhone.Trim();
-            //    txtSupplierPhoneB.Text = frsfi.SpPhone.Trim();
-            //    txtSupplierFaxB.Text = frsfi.SpFax.Trim();
-            //    txtSupplierAddB.Text = frsfi.SpAddress.Trim();
-            //    txtzcaddressB.Text = frsfi.SpZcAddress.Trim();
-            //    if (frsfi.SpClTime == null || frsfi.SpClTime == "")
-            //    {
-            //    }
-            //    else
-            //    {
-            //        dtpclTimeB.Value = Convert.ToDateTime(frsfi.SpClTime.Trim());
-            //    }
-            //    txtzczjB.Text = frsfi.SpZczj.Trim();
-            //    txtygsB.Text = frsfi.SpYgs.Trim();
-            //    txtqyxzB.Text = frsfi.SpQyxz.Trim();
-            //    txtTgcplxB.Text = frsfi.SpTgcplx.Trim();
-            //    txtSupplierSkB.Text = frsfi.SpSkzh.Trim();
-            //    txtSupplierKhB.Text = frsfi.SpKhh.Trim();
-            //    txtSupplierBkNumB.Text = frsfi.SpYhzh.Trim();
-            //    txtSupplierPromptB.Text = frsfi.SpPro.Trim();
-            //    txtTransportScores.Text = frsfi.SpYsfz.Trim();
-            //    if (frsfi.SpRs == null || frsfi.SpRs == "")
-            //    {
-            //        lbReviewStateB.Text = "待评审";
-            //    }
-            //    else
-            //    {
-            //        lbReviewStateB.Text = frsfi.SpRs.Trim();
-            //    }
-            //}
+            Frm_SupplierForIndentPur frsfi = new Frm_SupplierForIndentPur();
+            frsfi.ShowDialog();
+            if (frsfi.SpID != null)
+            {
+                lbSupplierIDB.Text = frsfi.SpID.Trim();
+                txtSupplierNameB.Text = frsfi.SpName.Trim();
+                txtfrdbB.Text = frsfi.Spfrdb.Trim();
+                txtSupplierManB.Text = frsfi.SpMan.Trim();
+                txtSupplierMobileB.Text = frsfi.SpMobilePhone.Trim();
+                txtSupplierPhoneB.Text = frsfi.SpPhone.Trim();
+                txtSupplierFaxB.Text = frsfi.SpFax.Trim();
+                txtSupplierAddB.Text = frsfi.SpAddress.Trim();
+                txtzcaddressB.Text = frsfi.SpZcAddress.Trim();
+                if (frsfi.SpClTime == null || frsfi.SpClTime == "")
+                {
+                }
+                else
+                {
+                    dtpclTimeB.Value = Convert.ToDateTime(frsfi.SpClTime.Trim());
+                }
+                txtzczjB.Text = frsfi.SpZczj.Trim();
+                txtygsB.Text = frsfi.SpYgs.Trim();
+                txtqyxzB.Text = frsfi.SpQyxz.Trim();
+                txtTgcplxB.Text = frsfi.SpTgcplx.Trim();
+                txtSupplierSkB.Text = frsfi.SpSkzh.Trim();
+                txtSupplierKhB.Text = frsfi.SpKhh.Trim();
+                txtSupplierBkNumB.Text = frsfi.SpYhzh.Trim();
+                txtSupplierPromptB.Text = frsfi.SpPro.Trim();
+            }
         }
 
         private void btnSupplierUp_Click(object sender, EventArgs e)
@@ -382,17 +373,6 @@ namespace MTsystem_win
             {
                 MessageBox.Show("付款期限不能为空值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSupplierPromptB.Focus();
-            }
-            else if (txtTransportScores.Text.Trim() == String.Empty)
-            {
-                MessageBox.Show("运输分值不能为空值！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTransportScores.Focus();
-            }
-            else if (!jnum.ISNumeric(txtTransportScores.Text.Trim()))
-            {
-                MessageBox.Show("运输分值应为数值型数据！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTransportScores.Focus();
-                txtTransportScores.SelectAll();
             }
             else
             {
@@ -423,64 +403,69 @@ namespace MTsystem_win
             txtSupplierKhB.Text = "";
             txtSupplierBkNumB.Text = "";
             txtSupplierPromptB.Text = "";
-            txtTransportScores.Text = "";
         }
         /// <summary>
         /// 供应商信息更新
         /// </summary>
         private void SupplierUp()
         {
-            //SqlCommand cmd = new SqlCommand("Pr_SupplierInforUp", Sqlstr.GetCon());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add("@SupplierID", SqlDbType.NVarChar, 255).Value = lbSupplierIDB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierName", SqlDbType.NVarChar, 255).Value = txtSupplierNameB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierFrdb", SqlDbType.NVarChar, 255).Value = txtfrdbB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierLinkMan", SqlDbType.NVarChar, 255).Value = txtSupplierManB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierMobile", SqlDbType.NVarChar, 255).Value = txtSupplierMobileB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierPhone", SqlDbType.NVarChar, 255).Value = txtSupplierPhoneB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierFax", SqlDbType.NVarChar, 255).Value = txtSupplierFaxB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierAddress", SqlDbType.NVarChar, 255).Value = txtSupplierAddB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierZcAddress", SqlDbType.NVarChar, 255).Value = txtzcaddressB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierClTime", SqlDbType.DateTime).Value = Convert.ToDateTime(dtpclTimeB.Value.ToShortDateString());
-            //cmd.Parameters.Add("@SupplierZczj", SqlDbType.NVarChar, 50).Value = txtzczjB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierYgs", SqlDbType.NVarChar, 50).Value = txtygsB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierQyxz", SqlDbType.NVarChar, 255).Value = txtqyxzB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierTgcplx", SqlDbType.NVarChar, 255).Value = txtTgcplxB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierShouKuanZhangHu", SqlDbType.NVarChar, 255).Value = txtSupplierSkB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierBank", SqlDbType.NVarChar, 255).Value = txtSupplierKhB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierBankAccountNumber", SqlDbType.NVarChar, 255).Value = txtSupplierBkNumB.Text.Trim();
-            //cmd.Parameters.Add("@SupplierPrompt", SqlDbType.NVarChar, 50).Value = txtSupplierPromptB.Text.Trim();
-            //cmd.Parameters.Add("@TransportScores", SqlDbType.Decimal).Value = Convert.ToDecimal(txtTransportScores.Text.Trim());
-            //cmd.Parameters.Add("@returnUp", SqlDbType.Int);
-            //cmd.Parameters["@returnUp"].Direction = ParameterDirection.ReturnValue;
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (SqlException Ex)
-            //{
-            //    MessageBox.Show("数据未填加成功！" + Ex.Message, "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //finally
-            //{
-            //    Sqlstr.GetClose();
-            //}
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                string sqlstr = "UPDATE `tb_supplierinfor` SET SupplierName = @SupplierName,";
+                sqlstr += "SupplierFrdb = @SupplierFrdb,SupplierLinkMan = @SupplierLinkMan,";
+                sqlstr += "SupplierMobile = @SupplierMobile,SupplierPhone = @SupplierPhone,";
+                sqlstr += "SupplierFax = @SupplierFax,SupplierAddress = @SupplierAddress,";
+                sqlstr += "SupplierZcAddress = @SupplierZcAddress,SupplierClTime = @SupplierClTime,";
+                sqlstr += "SupplierZczj = @SupplierZczj,SupplierYgs = @SupplierYgs,SupplierQyxz = @SupplierQyxz,";
+                sqlstr += "SupplierTgcplx = @SupplierTgcplx,SupplierShouKuanZhangHu = @SupplierShouKuanZhangHu,";
+                sqlstr += "SupplierBank = @SupplierBank,SupplierBankAccountNumber = @SupplierBankAccountNumber,";
+                sqlstr += "SupplierPrompt = @SupplierPrompt WHERE SupplierID = @SupplierID";
 
-            //string tempReturnUp = cmd.Parameters["@returnUp"].Value.ToString();
-            //cmd.Dispose();
-            //switch (tempReturnUp)
-            //{
-            //    case"0":
-            //        MessageBox.Show("数据修改完成！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        bControlClear();
-            //        Ds.Clear();
-            //        SupplierSelest();
-            //        break;
-            //    case"1":
-            //        MessageBox.Show("数据未能修改！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //}
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@SupplierID", lbSupplierIDB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierName", txtSupplierNameB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierFrdb", txtfrdbB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierLinkMan", txtSupplierManB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierMobile", txtSupplierMobileB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierPhone", txtSupplierPhoneB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierFax", txtSupplierFaxB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierAddress", txtSupplierAddB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierZcAddress", txtzcaddressB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierClTime", Convert.ToDateTime(dtpclTimeB.Value.ToShortDateString()));
+                cmd.Parameters.AddWithValue("@SupplierZczj", txtzczjB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierYgs", txtygsB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierQyxz", txtqyxzB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierTgcplx", txtTgcplxB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierShouKuanZhangHu", txtSupplierSkB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierBank", txtSupplierKhB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierBankAccountNumber", txtSupplierBkNumB.Text.Trim());
+                cmd.Parameters.AddWithValue("@SupplierPrompt", txtSupplierPromptB.Text.Trim());
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bControlClear();
+                    SupplierSelest();
+                    dgvHeadTextSet();
+                }
+            }
+
         }
 
         private void btnCancelB_Click(object sender, EventArgs e)
@@ -488,5 +473,10 @@ namespace MTsystem_win
             bControlClear();
         }
         #endregion
+
+        private void btnCopyB_Click(object sender, EventArgs e)
+        {
+            txtSupplierSkB.Text = txtSupplierNameB.Text.Trim();
+        }
     }
 }

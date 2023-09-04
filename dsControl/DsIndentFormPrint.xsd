@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsIndentFormPrint" targetNamespace="http://tempuri.org/DsIndentFormPrint.xsd" xmlns:mstns="http://tempuri.org/DsIndentFormPrint.xsd" xmlns="http://tempuri.org/DsIndentFormPrint.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsIndentFormPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsIndentFormPrint" msprop:Generator_UserDSName="DsIndentFormPrint">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IndentPurPrint" msprop:Generator_TableClassName="IndentPurPrintDataTable" msprop:Generator_TableVarName="tableIndentPurPrint" msprop:Generator_RowChangedName="IndentPurPrintRowChanged" msprop:Generator_TablePropName="IndentPurPrint" msprop:Generator_RowDeletingName="IndentPurPrintRowDeleting" msprop:Generator_RowChangingName="IndentPurPrintRowChanging" msprop:Generator_RowEvHandlerName="IndentPurPrintRowChangeEventHandler" msprop:Generator_RowDeletedName="IndentPurPrintRowDeleted" msprop:Generator_RowClassName="IndentPurPrintRow" msprop:Generator_UserTableName="IndentPurPrint" msprop:Generator_RowEvArgName="IndentPurPrintRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrderFormID" msprop:Generator_ColumnVarNameInTable="columnOrderFormID" msprop:Generator_ColumnPropNameInRow="OrderFormID" msprop:Generator_ColumnPropNameInTable="OrderFormIDColumn" msprop:Generator_UserColumnName="OrderFormID" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderDate" msprop:Generator_ColumnVarNameInTable="columnOrderDate" msprop:Generator_ColumnPropNameInRow="OrderDate" msprop:Generator_ColumnPropNameInTable="OrderDateColumn" msprop:Generator_UserColumnName="OrderDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="OrderSupplierName" msprop:Generator_ColumnVarNameInTable="columnOrderSupplierName" msprop:Generator_ColumnPropNameInRow="OrderSupplierName" msprop:Generator_ColumnPropNameInTable="OrderSupplierNameColumn" msprop:Generator_UserColumnName="OrderSupplierName" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderSupplierPeople" msprop:Generator_ColumnVarNameInTable="columnOrderSupplierPeople" msprop:Generator_ColumnPropNameInRow="OrderSupplierPeople" msprop:Generator_ColumnPropNameInTable="OrderSupplierPeopleColumn" msprop:Generator_UserColumnName="OrderSupplierPeople" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderSupplierFax" msprop:Generator_ColumnVarNameInTable="columnOrderSupplierFax" msprop:Generator_ColumnPropNameInRow="OrderSupplierFax" msprop:Generator_ColumnPropNameInTable="OrderSupplierFaxColumn" msprop:Generator_UserColumnName="OrderSupplierFax" type="xs:string" minOccurs="0" />
+              <xs:element name="RequireArriveDate" msprop:Generator_ColumnVarNameInTable="columnRequireArriveDate" msprop:Generator_ColumnPropNameInRow="RequireArriveDate" msprop:Generator_ColumnPropNameInTable="RequireArriveDateColumn" msprop:Generator_UserColumnName="RequireArriveDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SupplierPrompt" msprop:Generator_ColumnVarNameInTable="columnSupplierPrompt" msprop:Generator_ColumnPropNameInRow="SupplierPrompt" msprop:Generator_ColumnPropNameInTable="SupplierPromptColumn" msprop:Generator_UserColumnName="SupplierPrompt" type="xs:string" minOccurs="0" />
+              <xs:element name="Consignee" msprop:Generator_ColumnVarNameInTable="columnConsignee" msprop:Generator_ColumnPropNameInRow="Consignee" msprop:Generator_ColumnPropNameInTable="ConsigneeColumn" msprop:Generator_UserColumnName="Consignee" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderConvention" msprop:Generator_ColumnVarNameInTable="columnOrderConvention" msprop:Generator_ColumnPropNameInRow="OrderConvention" msprop:Generator_ColumnPropNameInTable="OrderConventionColumn" msprop:Generator_UserColumnName="OrderConvention" type="xs:string" minOccurs="0" />
+              <xs:element name="Material_ID" msprop:Generator_ColumnVarNameInTable="columnMaterial_ID" msprop:Generator_ColumnPropNameInRow="Material_ID" msprop:Generator_ColumnPropNameInTable="Material_IDColumn" msprop:Generator_UserColumnName="Material_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Material_Name" msprop:Generator_ColumnVarNameInTable="columnMaterial_Name" msprop:Generator_ColumnPropNameInRow="Material_Name" msprop:Generator_ColumnPropNameInTable="Material_NameColumn" msprop:Generator_UserColumnName="Material_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Material_Units" msprop:Generator_ColumnVarNameInTable="columnMaterial_Units" msprop:Generator_ColumnPropNameInRow="Material_Units" msprop:Generator_ColumnPropNameInTable="Material_UnitsColumn" msprop:Generator_UserColumnName="Material_Units" type="xs:string" minOccurs="0" />
+              <xs:element name="Material_Number" msprop:Generator_ColumnVarNameInTable="columnMaterial_Number" msprop:Generator_ColumnPropNameInRow="Material_Number" msprop:Generator_ColumnPropNameInTable="Material_NumberColumn" msprop:Generator_UserColumnName="Material_Number" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Material_Price" msprop:Generator_ColumnVarNameInTable="columnMaterial_Price" msprop:Generator_ColumnPropNameInRow="Material_Price" msprop:Generator_ColumnPropNameInTable="Material_PriceColumn" msprop:Generator_UserColumnName="Material_Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Material_Sum" msprop:Generator_ColumnVarNameInTable="columnMaterial_Sum" msprop:Generator_ColumnPropNameInRow="Material_Sum" msprop:Generator_ColumnPropNameInTable="Material_SumColumn" msprop:Generator_UserColumnName="Material_Sum" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Material_Remarks" msprop:Generator_ColumnVarNameInTable="columnMaterial_Remarks" msprop:Generator_ColumnPropNameInRow="Material_Remarks" msprop:Generator_ColumnPropNameInTable="Material_RemarksColumn" msprop:Generator_UserColumnName="Material_Remarks" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -50,6 +50,18 @@ namespace MTsystem_win.allClass
             set { _fsup = value; }
             get { return _fsup; }
         }
+        /// <summary>
+        /// 原材料采购订单窗口
+        /// </summary>
+        private static string _frmorderform;
+        ///<summary>
+        ///原材料采购订单窗口
+        /// </summary>
+        public static string _Frmorderform
+        {
+            set { _frmorderform = value; }
+            get { return _frmorderform; }
+        }
 
         #endregion
 

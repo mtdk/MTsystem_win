@@ -75,6 +75,18 @@
     <Compile Include="allClass\JudgeNumber.cs" />
     <Compile Include="allClass\sendParameters.cs" />
     <Compile Include="allClass\userInfocheck.cs" />
+    <Compile Include="dsControl\DsIndentFormPrint.cs">
+      <DependentUpon>DsIndentFormPrint.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsControl\DsIndentFormPrint.designer.cs">
+      <DependentUpon>DsIndentFormPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsControl\DsIndentFormPrint1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsIndentFormPrint.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsControl\ds_cus_info.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +146,18 @@
     </Compile>
     <Compile Include="Frm_envelope_print.Designer.cs">
       <DependentUpon>Frm_envelope_print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_IndentFormPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_IndentFormPrint.designer.cs">
+      <DependentUpon>Frm_IndentFormPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_IndentPurUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_IndentPurUp.designer.cs">
+      <DependentUpon>Frm_IndentPurUp.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -225,6 +249,12 @@
     <Compile Include="Frm_mtashow.Designer.cs">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_OrderForm.designer.cs">
+      <DependentUpon>Frm_OrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_productOutSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +339,12 @@
     <Compile Include="Frm_Supplier.designer.cs">
       <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_SupplierForIndentPur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_SupplierForIndentPur.designer.cs">
+      <DependentUpon>Frm_SupplierForIndentPur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_tag_print.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +377,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_envelope_print.resx">
       <DependentUpon>Frm_envelope_print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_IndentFormPrint.resx">
+      <DependentUpon>Frm_IndentFormPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_IndentPurUp.resx">
+      <DependentUpon>Frm_IndentPurUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -387,6 +429,9 @@
     <EmbeddedResource Include="Frm_mtashow.resx">
       <DependentUpon>Frm_mtashow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_OrderForm.resx">
+      <DependentUpon>Frm_OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_productOutSelect.resx">
       <DependentUpon>Frm_productOutSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,6 +474,9 @@
     <EmbeddedResource Include="Frm_Supplier.resx">
       <DependentUpon>Frm_Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_SupplierForIndentPur.resx">
+      <DependentUpon>Frm_SupplierForIndentPur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_tag_print.resx">
       <DependentUpon>Frm_tag_print.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +497,7 @@
     <EmbeddedResource Include="printForm\mat_returnReportview.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="printForm\Rp_IndentPurPrint.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -462,6 +511,17 @@
     <EmbeddedResource Include="Frm_pro_returnGoods.resx">
       <DependentUpon>Frm_pro_returnGoods.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsControl\DsIndentFormPrint.xsc">
+      <DependentUpon>DsIndentFormPrint.xsd</DependentUpon>
+    </None>
+    <None Include="dsControl\DsIndentFormPrint.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsIndentFormPrint1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsControl\DsIndentFormPrint.xss">
+      <DependentUpon>DsIndentFormPrint.xsd</DependentUpon>
+    </None>
     <None Include="dsControl\ds_cus_info.xsc">
       <DependentUpon>ds_cus_info.xsd</DependentUpon>
     </None>
