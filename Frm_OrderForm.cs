@@ -62,48 +62,50 @@ namespace MTsystem_win
         /// </summary>
         private void NewIndentID()  //产生新订单号
         {
-            //string date;    //将当前系统日期变量转为字符串
-            //string OrderFormIDend;  //最后单号
-            //int IDendLenght;    //单号长度
-            //string Date;       //将单号中的日期部分转为字符串
-            //long MaxID;
-            //date = DateTime.Now.Year.ToString();
-            //date += DateTime.Now.Month.ToString().PadLeft(2, '0');
-            //date += DateTime.Now.Day.ToString().PadLeft(2, '0');
-            //string Sql = "SELECT TOP 1 [ID],[OrderFormID] FROM [tb_OrderFormMain] ORDER BY ID DESC";
-            //SqlCommand cmd = new SqlCommand(Sql, Sqlstr.GetCon());
-            //SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //dr.Read();
-            //try
-            //{
-            //    if (dr.HasRows)
-            //    {
-            //        OrderFormIDend = dr["OrderFormID"].ToString();
-            //        IDendLenght = (OrderFormIDend.Length);
-            //        Date = OrderFormIDend.Substring(0, OrderFormIDend.Length - 3).ToString();
-            //        if (Date == date)
-            //        {
-            //            MaxID = Convert.ToInt64(OrderFormIDend);
-            //            MaxID++;
-            //            lbIndentIDB.Text = MaxID.ToString();
-            //        }
-            //        else
-            //        {
-            //            lbIndentIDB.Text = date + "001";
-            //        }
-            //    }
-            //    else
-            //    {
-            //        lbIndentIDB.Text = date + "001";
-            //    }
-            //}
-            //finally
-            //{
-            //    dr.Dispose();
-            //    dr.Close();
-            //    cmd.Dispose();
-            //    Sqlstr.GetClose();
-            //}
+            string date;    //将当前系统日期变量转为字符串
+            string OrderFormIDend;  //最后单号
+            int IDendLenght;    //单号长度
+            string Date;       //将单号中的日期部分转为字符串
+            long MaxID;
+            date = DateTime.Now.Year.ToString();
+            date += DateTime.Now.Month.ToString().PadLeft(2, '0');
+            date += DateTime.Now.Day.ToString().PadLeft(2, '0');
+            string sqlstr="SELECT OrderFormID FROM tb_orderformmain ORDER BY ID DESC LIMIT 1";
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            try
+            {
+                if (dr.HasRows)
+                {
+                    OrderFormIDend = dr["OrderFormID"].ToString();
+                    IDendLenght = (OrderFormIDend.Length);
+                    Date = OrderFormIDend.Substring(0, OrderFormIDend.Length - 3).ToString();                    
+                    if (Convert.ToInt32(OrderFormIDend.Substring(8, 3).ToString()) < 999)
+                    {
+                        if (Date == date)
+                        {
+                            MaxID = Convert.ToInt64(OrderFormIDend);
+                            MaxID++;
+                            lbIndentIDB.Text = MaxID.ToString();
+                        }
+                        else
+                        {
+                            lbIndentIDB.Text = date + "001";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("今日订单总量已达上限！" , "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -130,8 +132,9 @@ namespace MTsystem_win
             {
                 DataGridViewRow Row = new DataGridViewRow();
                 Row.CreateCells(dgvIndentListB);
-                Row.Cells[0].Value = lbToenCodeB.Text.Trim();
-                Row.Cells[1].Value = txtMaterialIDB.Text.Trim();
+                Row.Cells[0].Value = dgvIndentListB.Rows.Count + 1;
+                Row.Cells[1].Value = lbToenCodeB.Text.Trim();
+                Row.Cells[2].Value = txtMaterialIDB.Text.Trim();
                 Row.Cells[3].Value = txtMaterialNameB.Text.Trim();
                 Row.Cells[4].Value = txtUnitsB.Text.Trim();
                 Row.Cells[5].Value = txtNumberB.Text.Trim();
@@ -157,40 +160,77 @@ namespace MTsystem_win
             }
         }
 
-
-        ///<summary>
-        ///材料单价比较更新
+        /// <summary>
+        /// 材料单价比较
+        /// </summary>
+        /// <param name="p">单价</param>
+        /// <param name="mid">材料内码</param>
+        /// <returns>true 单价相同，false 单价不同</returns>
+        private static bool MaterialPriceDiff(decimal p, string mid)
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string sqlstr = "SELECT COUNT(*) AS total FROM material WHERE Matid = '" + mid + "' AND Material_price = '" + p + "'";
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            if (dr.HasRows)
+            {
+                if (dr["total"].ToString().Trim() == "1")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+        /// <summary>
+        /// 原材料单价更新
         /// </summary>
         private void MaterialPriceUp()
         {
-            //string Sql = "SELECT [Material_Price] FROM [tb_Material] WHERE [InteriorID]='" + lbToenCodeB.Text.Trim() + "'";
-            //SqlCommand cmd = new SqlCommand(Sql, Sqlstr.GetCon());
-            //SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //dr.Read();
-            //try
-            //{
-            //    if (dr.HasRows)
-            //    {
-            //        if ((Convert.ToDecimal(dr["Material_Price"].ToString().Trim()) != (Convert.ToDecimal(txtPriceB.Text.Trim()))))
-            //        {
-            //            string Sqlup = "UPDATE [tb_Material] SET [Material_Price]='" + Convert.ToDecimal(txtPriceB.Text.Trim()) + "' WHERE [InteriorID]='" + lbToenCodeB.Text.Trim() + "'";
-            //            SqlCommand cmdup = new SqlCommand(Sqlup, Sqlstr.GetCon());
-            //            cmdup.ExecuteNonQuery();
-            //            cmdup.Dispose();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message,"警告提示");
-            //}
-            //finally
-            //{
-            //    cmd.Dispose();
-            //    dr.Dispose();
-            //    Sqlstr.GetClose();
-            //    TempDataInsert();
-            //}
+            if (!MaterialPriceDiff(Convert.ToDecimal(txtPriceB.Text.Trim()), lbToenCodeB.Text.Trim()))
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+                conn.Open();
+                MySqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    string sqlstr = "UPDATE `material` SET Material_Price = @Material_Price WHERE Matid = @Matid";
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = sqlstr;
+                    cmd.Parameters.AddWithValue("@Matid", lbToenCodeB.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Material_Price", Convert.ToDecimal(txtPriceB.Text.Trim()));
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    transaction.Rollback();
+                    conn.Close();
+                }
+                finally
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        transaction.Commit();
+                        conn.Close();
+                        TempDataInsert();
+                    }
+                }
+            }
+            else
+            {
+                TempDataInsert();
+            }
         }
         /// <summary>
         /// 对采购日期和到货日期进行比较
@@ -198,7 +238,7 @@ namespace MTsystem_win
         /// <returns>trun or false</returns>
         private Boolean dtCompare() //日期大小比较
         {
-            if (DateTime.Compare(dtpOrderDateB.Value, dtpRADateB.Value) >= 0)
+            if (DateTime.Compare(dtpOrderDateB.Value, dtpRADateB.Value) > 0)
             {
                 return false;
             }
@@ -368,22 +408,22 @@ namespace MTsystem_win
 
         private void txtMaterialIDB_DoubleClick(object sender, EventArgs e)
         {
-            //Frm_MaterialForIndentPur fmfip = new Frm_MaterialForIndentPur();
-            //fmfip.ShowDialog();
-            //if (fmfip.MaID != null)
-            //{
-            //    lbToenCodeB.Text = fmfip.MaInID.Trim();
-            //    txtMaterialIDB.Text = fmfip.MaID.Trim();
-            //    txtMaterialIDB_B.Text = fmfip.MaID_B.Trim();
-            //    txtMaterialNameB.Text = fmfip.MaName.Trim();
-            //    txtPriceB.Text = fmfip.MaPrice.Trim();
-            //    txtUnitsB.Text = fmfip.MaUnit.Trim();
-            //    txtNumberB.Focus();
-            //}
-            //else
-            //{
-            //    txtMaterialIDB.Focus();
-            //}
+            Frm_MaterialForIndentPur fmfip = new Frm_MaterialForIndentPur();
+            fmfip.ShowDialog();
+            if (fmfip.MaID != null)
+            {
+                lbToenCodeB.Text = fmfip.MaInID.Trim();
+                txtMaterialIDB.Text = fmfip.MaID.Trim();
+                //txtMaterialIDB_B.Text = fmfip.MaID_B.Trim();
+                txtMaterialNameB.Text = fmfip.MaName.Trim();
+                txtPriceB.Text = fmfip.MaPrice.Trim();
+                txtUnitsB.Text = fmfip.MaUnit.Trim();
+                txtNumberB.Focus();
+            }
+            else
+            {
+                txtMaterialIDB.Focus();
+            }
         }
 
         private void txtUnitsB_KeyPress(object sender, KeyPressEventArgs e)

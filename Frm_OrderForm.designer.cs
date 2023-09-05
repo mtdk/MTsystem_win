@@ -41,7 +41,6 @@
             this.btnCancelB = new System.Windows.Forms.Button();
             this.lbTotalSum = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbToenCodeB = new System.Windows.Forms.Label();
             this.btnSaveB = new System.Windows.Forms.Button();
             this.txtConsigneeB = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -77,6 +76,7 @@
             this.btnNewIndentID = new System.Windows.Forms.Button();
             this.lbIndentIDB = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lbToenCodeB = new System.Windows.Forms.Label();
             this.tpOrderSelect = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvIndentListD = new System.Windows.Forms.DataGridView();
@@ -146,6 +146,7 @@
             this.label88 = new System.Windows.Forms.Label();
             this.rdbDhSupDateG = new System.Windows.Forms.RadioButton();
             this.rdbDhSupplierG = new System.Windows.Forms.RadioButton();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.材料编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.材料名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -278,13 +279,6 @@
             this.label11.TabIndex = 95;
             this.label11.Text = "合计：";
             // 
-            // lbToenCodeB
-            // 
-            this.lbToenCodeB.Location = new System.Drawing.Point(6, 362);
-            this.lbToenCodeB.Name = "lbToenCodeB";
-            this.lbToenCodeB.Size = new System.Drawing.Size(58, 20);
-            this.lbToenCodeB.TabIndex = 94;
-            // 
             // btnSaveB
             // 
             this.btnSaveB.Location = new System.Drawing.Point(348, 357);
@@ -372,6 +366,7 @@
             this.dgvIndentListB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvIndentListB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIndentListB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.系统编码,
             this.材料编号,
             this.材料名称,
@@ -668,6 +663,13 @@
             this.label8.Size = new System.Drawing.Size(54, 20);
             this.label8.TabIndex = 49;
             this.label8.Text = "订单号:";
+            // 
+            // lbToenCodeB
+            // 
+            this.lbToenCodeB.Location = new System.Drawing.Point(6, 362);
+            this.lbToenCodeB.Name = "lbToenCodeB";
+            this.lbToenCodeB.Size = new System.Drawing.Size(58, 20);
+            this.lbToenCodeB.TabIndex = 94;
             // 
             // tpOrderSelect
             // 
@@ -1417,6 +1419,13 @@
             this.rdbDhSupplierG.Text = "按供应商名称查询";
             this.rdbDhSupplierG.UseVisualStyleBackColor = true;
             // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            this.序号.Width = 70;
+            // 
             // 系统编码
             // 
             this.系统编码.HeaderText = "系统编码";
@@ -1623,6 +1632,7 @@
         private System.Windows.Forms.RadioButton rdbDhSupplierG;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 系统编码;
         private System.Windows.Forms.DataGridViewTextBoxColumn 材料编号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 材料名称;
