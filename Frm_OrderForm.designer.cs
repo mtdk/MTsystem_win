@@ -49,6 +49,15 @@
             this.dtpRADateB = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.dgvIndentListB = new System.Windows.Forms.DataGridView();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.材料编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.材料名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtRemarksB = new System.Windows.Forms.TextBox();
             this.txtSumB = new System.Windows.Forms.TextBox();
             this.txtPriceB = new System.Windows.Forms.TextBox();
@@ -146,15 +155,6 @@
             this.label88 = new System.Windows.Forms.Label();
             this.rdbDhSupDateG = new System.Windows.Forms.RadioButton();
             this.rdbDhSupplierG = new System.Windows.Forms.RadioButton();
-            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.系统编码 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.材料编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.材料名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbIndentPur.SuspendLayout();
             this.tpOrderInsert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIndentListB)).BeginInit();
@@ -382,6 +382,62 @@
             this.dgvIndentListB.RowTemplate.Height = 23;
             this.dgvIndentListB.Size = new System.Drawing.Size(819, 187);
             this.dgvIndentListB.TabIndex = 76;
+            // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            this.序号.Width = 70;
+            // 
+            // 系统编码
+            // 
+            this.系统编码.HeaderText = "系统编码";
+            this.系统编码.Name = "系统编码";
+            this.系统编码.ReadOnly = true;
+            // 
+            // 材料编号
+            // 
+            this.材料编号.HeaderText = "材料编号";
+            this.材料编号.Name = "材料编号";
+            this.材料编号.ReadOnly = true;
+            // 
+            // 材料名称
+            // 
+            this.材料名称.HeaderText = "材料名称";
+            this.材料名称.Name = "材料名称";
+            this.材料名称.ReadOnly = true;
+            // 
+            // 单位
+            // 
+            this.单位.HeaderText = "单位";
+            this.单位.Name = "单位";
+            this.单位.ReadOnly = true;
+            // 
+            // 数量
+            // 
+            this.数量.HeaderText = "数量";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            // 
+            // 金额
+            // 
+            this.金额.HeaderText = "金额";
+            this.金额.Name = "金额";
+            this.金额.ReadOnly = true;
+            // 
+            // 备注
+            // 
+            this.备注.HeaderText = "备注";
+            this.备注.MaxInputLength = 15;
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
             // 
             // txtRemarksB
             // 
@@ -1418,62 +1474,6 @@
             this.rdbDhSupplierG.TabStop = true;
             this.rdbDhSupplierG.Text = "按供应商名称查询";
             this.rdbDhSupplierG.UseVisualStyleBackColor = true;
-            // 
-            // 序号
-            // 
-            this.序号.HeaderText = "序号";
-            this.序号.Name = "序号";
-            this.序号.ReadOnly = true;
-            this.序号.Width = 70;
-            // 
-            // 系统编码
-            // 
-            this.系统编码.HeaderText = "系统编码";
-            this.系统编码.Name = "系统编码";
-            this.系统编码.ReadOnly = true;
-            // 
-            // 材料编号
-            // 
-            this.材料编号.HeaderText = "材料编号";
-            this.材料编号.Name = "材料编号";
-            this.材料编号.ReadOnly = true;
-            // 
-            // 材料名称
-            // 
-            this.材料名称.HeaderText = "材料名称";
-            this.材料名称.Name = "材料名称";
-            this.材料名称.ReadOnly = true;
-            // 
-            // 单位
-            // 
-            this.单位.HeaderText = "单位";
-            this.单位.Name = "单位";
-            this.单位.ReadOnly = true;
-            // 
-            // 数量
-            // 
-            this.数量.HeaderText = "数量";
-            this.数量.Name = "数量";
-            this.数量.ReadOnly = true;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            // 
-            // 金额
-            // 
-            this.金额.HeaderText = "金额";
-            this.金额.Name = "金额";
-            this.金额.ReadOnly = true;
-            // 
-            // 备注
-            // 
-            this.备注.HeaderText = "备注";
-            this.备注.MaxInputLength = 15;
-            this.备注.Name = "备注";
-            this.备注.ReadOnly = true;
             // 
             // Frm_OrderForm
             // 

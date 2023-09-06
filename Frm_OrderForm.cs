@@ -232,13 +232,16 @@ namespace MTsystem_win
                 TempDataInsert();
             }
         }
+
         /// <summary>
         /// 对采购日期和到货日期进行比较
         /// </summary>
-        /// <returns>trun or false</returns>
-        private Boolean dtCompare() //日期大小比较
+        /// <param name="dta">起始时间</param>
+        /// <param name="dtb">结束时间</param>
+        /// <returns>起始时间小于等于结束时间 true,否则 false</returns>
+        private static bool dtCompare(DateTime dta,DateTime dtb) //日期大小比较
         {
-            if (DateTime.Compare(dtpOrderDateB.Value, dtpRADateB.Value) > 0)
+            if (DateTime.Compare(dta, dtb) > 0)
             {
                 return false;
             }
@@ -249,89 +252,88 @@ namespace MTsystem_win
         }
 
         /// <summary>
-        /// 新增采购订单父单记录
+        /// 提交采购记录
         /// </summary>
-        private void OrderFormMainInsert()
+        private void dataInsert()
         {
-            //SqlCommand cmdmain = new SqlCommand("Pr_OrderFormMainInsert", Sqlstr.GetCon());
-            //cmdmain.CommandType = CommandType.StoredProcedure;
-            //cmdmain.Parameters.Add("@OrderFormID", SqlDbType.NVarChar, 255).Value = lbIndentIDB.Text.Trim();
-            //cmdmain.Parameters.Add("@OrderSupplierID", SqlDbType.NVarChar, 255).Value = lbSupplierIDB.Text.Trim();
-            //cmdmain.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = Convert.ToDateTime(dtpOrderDateB.Value.ToShortDateString());
-            //cmdmain.Parameters.Add("@OrderSupplierName", SqlDbType.NVarChar, 255).Value = txtSupplierNameB.Text.Trim();
-            //cmdmain.Parameters.Add("@OrderSupplierPeople", SqlDbType.NVarChar, 255).Value = txtSupplierManB.Text.Trim();
-            //cmdmain.Parameters.Add("@OrderSupplierFax", SqlDbType.NVarChar, 255).Value = txtSupplierFaxB.Text.Trim();
-            //cmdmain.Parameters.Add("@RequireArriveDate", SqlDbType.DateTime).Value = Convert.ToDateTime(dtpRADateB.Value.ToShortDateString());
-            //cmdmain.Parameters.Add("@SupplierPrompt", SqlDbType.NVarChar, 255).Value = txtPromptB.Text.Trim();
-            //cmdmain.Parameters.Add("@Consignee", SqlDbType.NVarChar, 50).Value = txtConsigneeB.Text.Trim();
-            //cmdmain.Parameters.Add("@AllSum", SqlDbType.Decimal).Value = Convert.ToDecimal(lbTotalSum.Text.Trim());
-            //cmdmain.Parameters.Add("@OrderConvention", SqlDbType.Text).Value = txtConventionB.Text;
-            //cmdmain.Parameters.Add("@OrderFormStatus", SqlDbType.NVarChar, 2).Value = "有效";
-            //cmdmain.Parameters.Add("@returnInsert", SqlDbType.Int);
-            //cmdmain.Parameters["@returnInsert"].Direction = ParameterDirection.ReturnValue;
-            //try
-            //{
-            //    cmdmain.ExecuteNonQuery();
-            //}
-            //catch (SqlException Ex)
-            //{
-            //    MessageBox.Show("数据添加失败！" + Ex.Message, "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //finally
-            //{
-            //    Sqlstr.GetClose();
-            //}
-            //string TempMainFormInsert = cmdmain.Parameters["@returnInsert"].Value.ToString();
-            //cmdmain.Dispose();
-            //switch (TempMainFormInsert)
-            //{
-            //    case "0":
-            //        OrderFormInsert();
-            //        break;
-            //    case "1":
-            //        MessageBox.Show("订单已存在！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //    case "2":
-            //        MessageBox.Show("订单保存失败！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //}
-        }   //新增采购订单父单记录
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
 
-        /// <summary>
-        /// 新增采购订单子单记录
-        /// </summary>
-        private void OrderFormInsert()
-        {
-            //if (dgvIndentListB.RowCount > 0)
-            //{
-            //    SqlCommand cmd = new SqlCommand("", Sqlstr.GetCon());
-            //    try
-            //    {
-            //        for (int i = 0; i < dgvIndentListB.RowCount; i++)
-            //        {
-            //            string Sql = "INSERT INTO tb_OrderForm(OrderFormID,OrderDate,InteriorID,Material_ID,Material_ID_B,";
-            //            Sql += "Material_Name,Material_Units,Material_Number,Material_Price,Material_Sum,Material_Remarks,Goods_Status)";
-            //            Sql += " VALUES('" + lbIndentIDB.Text.Trim() + "','" + dtpOrderDateB.Value.ToShortDateString() + "','" + dgvIndentListB.Rows[i].Cells[0].Value.ToString() + "','" + dgvIndentListB.Rows[i].Cells[1].Value.ToString() + "','" + dgvIndentListB.Rows[i].Cells[2].Value.ToString() + "',";
-            //            Sql += "'" + dgvIndentListB.Rows[i].Cells[3].Value.ToString() + "','"+dgvIndentListB.Rows[i].Cells[4].Value.ToString()+"',";
-            //            Sql += "'" + Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[5].Value.ToString()) + "','" + Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[6].Value.ToString()) + "',";
-            //            Sql += "'" + Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[7].Value.ToString()) + "','" + dgvIndentListB.Rows[i].Cells[8].Value.ToString() + "','有效')";
-            //            cmd.CommandText = Sql;
-            //            cmd.ExecuteNonQuery();
-            //        }
-            //    }
-            //    catch (SqlException Ex)
-            //    {
-            //        MessageBox.Show("数据添加失败！" + Ex.Message, "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    finally
-            //    {
-            //        cmd.Dispose();
-            //        Sqlstr.GetClose();
-            //    }
-            //}
-        }   //新增采购订单子单记录
+                string sqlstr = "INSERT INTO `tb_orderformmain` VALUES(NULL,@OrderFormID,@OrderSupplierID,";
+                sqlstr += "@OrderDate,@OrderSupplierName,@OrderSupplierPeople,@OrderSupplierFax,@RequireArriveDate,";
+                sqlstr += "@SupplierPrompt,@Consignee,@AllSum,@OrderConvention,@OrderFormStatus)";
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@OrderFormID", lbIndentIDB.Text.Trim());
+                cmd.Parameters.AddWithValue("@OrderSupplierID", lbSupplierIDB.Text.Trim());
+                cmd.Parameters.AddWithValue("@OrderDate", Convert.ToDateTime(dtpOrderDateB.Value.ToShortDateString()));
+                cmd.Parameters.AddWithValue("@OrderSupplierName", txtSupplierNameB.Text.Trim());
+                cmd.Parameters.AddWithValue("@OrderSupplierPeople", txtSupplierManB.Text.Trim());
+                cmd.Parameters.AddWithValue("@OrderSupplierFax", txtSupplierFaxB.Text.Trim());
+                cmd.Parameters.AddWithValue("@RequireArriveDate", Convert.ToDateTime(dtpRADateB.Value.ToShortDateString()));
+                cmd.Parameters.AddWithValue("@SupplierPrompt", txtPromptB.Text.Trim());
+                cmd.Parameters.AddWithValue("@Consignee", txtConsigneeB.Text.Trim());
+                cmd.Parameters.AddWithValue("@AllSum", Convert.ToDecimal(lbTotalSum.Text.Trim()));
+                cmd.Parameters.AddWithValue("@OrderConvention", txtConventionB.Text);
+                cmd.Parameters.AddWithValue("@OrderFormStatus", "有效");
+                cmd.ExecuteNonQuery();
+
+
+                for (int i = 0; i < dgvIndentListB.RowCount; i++)
+                {
+                    MySqlCommand cmdA = new MySqlCommand();
+                    cmdA.Connection = conn;
+                    string sqlstrA = "";
+                    sqlstrA = "INSERT INTO `tb_orderform` VALUES(NULL,@OrderFormID,@OrderDate,@InteriorID,";
+                    sqlstrA += "@Material_ID,@Material_Name,@Material_Units,@Material_Number,@Material_Price,";
+                    sqlstrA += "@Material_Sum,@Material_Remarks,@Goods_Status,@Dh_Status,@Fk_Status,@Dp_Status)";
+
+                    cmdA.CommandText = sqlstrA;
+                    cmdA.Parameters.AddWithValue("@OrderFormID", lbIndentIDB.Text.Trim());
+                    cmdA.Parameters.AddWithValue("@OrderDate", dtpOrderDateB.Value.ToShortDateString());
+                    cmdA.Parameters.AddWithValue("@InteriorID", dgvIndentListB.Rows[i].Cells[1].Value.ToString());
+                    cmdA.Parameters.AddWithValue("@Material_ID", dgvIndentListB.Rows[i].Cells[2].Value.ToString());
+                    cmdA.Parameters.AddWithValue("@Material_Name", dgvIndentListB.Rows[i].Cells[3].Value.ToString());
+                    cmdA.Parameters.AddWithValue("@Material_Units", dgvIndentListB.Rows[i].Cells[4].Value.ToString());
+                    cmdA.Parameters.AddWithValue("@Material_Number", Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[5].Value.ToString()));
+                    cmdA.Parameters.AddWithValue("@Material_Price", Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[6].Value.ToString()));
+                    cmdA.Parameters.AddWithValue("@Material_Sum", Convert.ToDecimal(dgvIndentListB.Rows[i].Cells[7].Value.ToString()));
+                    cmdA.Parameters.AddWithValue("@Material_Remarks", dgvIndentListB.Rows[i].Cells[8].Value.ToString());
+                    cmdA.Parameters.AddWithValue("@Goods_Status", "有效");
+                    cmdA.Parameters.AddWithValue("@Dh_Status", "未到");
+                    cmdA.Parameters.AddWithValue("@Fk_Status", "未到");
+                    cmdA.Parameters.AddWithValue("@Dp_Status", "未到");
+                    cmdA.ExecuteNonQuery();
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    if (MessageBox.Show("数据已保存成功！是否打印？", "信息提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        //Frm_IndentFormPrint fifp = new Frm_IndentFormPrint();
+                        //fifp.OrderID = lbIndentIDB.Text.Trim();
+                        //fifp.ShowDialog();
+                    }
+                    AllControlClearB();
+                }
+            }
+
+        }
 
         /// <summary>
         /// 执行采购订单界面所有控件数据清空
@@ -414,7 +416,6 @@ namespace MTsystem_win
             {
                 lbToenCodeB.Text = fmfip.MaInID.Trim();
                 txtMaterialIDB.Text = fmfip.MaID.Trim();
-                //txtMaterialIDB_B.Text = fmfip.MaID_B.Trim();
                 txtMaterialNameB.Text = fmfip.MaName.Trim();
                 txtPriceB.Text = fmfip.MaPrice.Trim();
                 txtUnitsB.Text = fmfip.MaUnit.Trim();
@@ -617,7 +618,7 @@ namespace MTsystem_win
                 MessageBox.Show("没有订单号！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnNewIndentID.Focus();
             }
-            else if (!dtCompare())
+            else if (!dtCompare(Convert.ToDateTime(dtpOrderDateB.Text), Convert.ToDateTime(dtpRADateB.Text)))
             {
                 MessageBox.Show("到货时间不能小于开单时间！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dtpRADateB.Focus();
@@ -633,14 +634,7 @@ namespace MTsystem_win
             }
             else
             {
-                OrderFormMainInsert();
-                if (MessageBox.Show("订单已添加成功！是否打印？", "信息提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    //Frm_IndentFormPrint fifp = new Frm_IndentFormPrint();
-                    //fifp.OrderID = lbIndentIDB.Text.Trim();
-                    //fifp.ShowDialog();
-                }
-                AllControlClearB();
+                dataInsert();
             }
         }
 
