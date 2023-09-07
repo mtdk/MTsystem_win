@@ -49,8 +49,6 @@ namespace MTsystem_win
 
         private void PrintBind()
         {
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-            conn.Open();
             string Sql = "SELECT tb_OrderFormMain.OrderFormID,tb_OrderFormMain.OrderSupplierID,";
             Sql += "tb_OrderFormMain.OrderDate,tb_OrderFormMain.OrderSupplierName,";
             Sql += "tb_OrderFormMain.OrderSupplierPeople,tb_OrderFormMain.OrderSupplierFax,";
@@ -60,42 +58,51 @@ namespace MTsystem_win
             Sql += "tb_OrderForm.Material_Number,tb_OrderForm.Material_Price,tb_OrderForm.Material_Sum,";
             Sql += "tb_OrderForm.Material_Remarks FROM tb_OrderFormMain";
             Sql += " INNER JOIN tb_OrderForm ON tb_OrderFormMain.OrderFormID =tb_OrderForm.OrderFormID";
-            Sql += " WHERE (tb_OrderFormMain.OrderFormID = '" + OrderID.Trim() + "') AND tb_orderform.Goods_Status='有效'";
+            Sql += " WHERE (tb_OrderFormMain.OrderFormID = '" + OrderID.Trim() + "') AND tb_OrderForm.Goods_Status='有效'";
 
-            MySqlCommand cmd = new MySqlCommand(Sql, conn);
-            MySqlDataReader read = null;
+
             DataSet ds = new DsIndentFormPrint();
-
-            read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-            ds.Tables[0].Load(read);
-
-            ReportDataSource rds = new ReportDataSource();
-
-            if (rdbCgPrint.Checked == true)
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            try
             {
-                reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_IndentPurPrint.rdlc";
+                MySqlCommand cmd = new MySqlCommand(Sql, conn);
+                MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-                rds.Name = "IndentPurPrint";
+                ds.Tables[0].Load(dr);
 
-                rds.Value = ds.Tables[0];
+                ReportDataSource rds = new ReportDataSource();
+
+                if (rdbCgPrint.Checked == true)
+                {
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_IndentPurPrint.rdlc";
+
+                    rds.Name = "IndentPurPrint";
+
+                    rds.Value = ds.Tables[0];
+                }
+                //else
+                //{
+                //    reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_ReadPrint.rdlc";
+
+                //    rds.Name = "dsReadPrint";
+
+                //    rds.Value = ds.Tables[0];
+                //}
+                //reportViewer1.LocalReport.DataSources.Clear();
+
+                reportViewer1.LocalReport.DataSources.Add(rds);
+
+                this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
+                this.reportViewer1.ZoomPercent = 100;
+                this.reportViewer1.RefreshReport();
             }
-            else
+            catch (MySqlException ex)
             {
-                reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_ReadPrint.rdlc";
-
-                rds.Name = "dsReadPrint";
-
-                rds.Value = ds.Tables[0];
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //reportViewer1.LocalReport.DataSources.Clear();
 
-            reportViewer1.LocalReport.DataSources.Add(rds);
-
-            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-            this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
-            this.reportViewer1.ZoomPercent = 100;
-            this.reportViewer1.RefreshReport();
         }
     }
 }
