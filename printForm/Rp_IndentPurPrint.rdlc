@@ -83,7 +83,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DsIndentFormPrint</rd:DataSetName>
-        <rd:SchemaPath>D:\PurchaseManageSystem\PurchaseManageSystem\DataSetControl\DsIndentFormPrint.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2010\Projects\MTsystem_win\dsControl\DsIndentFormPrint.xsd</rd:SchemaPath>
         <rd:TableName>IndentPurPrint</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -49,48 +49,53 @@ namespace MTsystem_win
 
         private void PrintBind()
         {
-            //string Sql = "SELECT tb_OrderFormMain.OrderFormID,tb_OrderFormMain.OrderSupplierID,tb_OrderFormMain.OrderDate,tb_OrderFormMain.OrderSupplierName,";
-            //Sql += " tb_OrderFormMain.OrderSupplierPeople,tb_OrderFormMain.OrderSupplierFax,tb_OrderFormMain.RequireArriveDate, ";
-            //Sql += " tb_OrderFormMain.SupplierPrompt,tb_OrderFormMain.Consignee,tb_OrderFormMain.OrderConvention,tb_OrderForm.Material_ID,tb_OrderForm.Material_Name, ";
-            //Sql += " tb_OrderForm.Material_Units,tb_OrderForm.Material_Number,tb_OrderForm.Material_Price,tb_OrderForm.Material_Sum,";
-            //Sql += " tb_OrderForm.Material_Remarks FROM tb_OrderFormMain INNER JOIN tb_OrderForm ON tb_OrderFormMain.OrderFormID =tb_OrderForm.OrderFormID";
-            //Sql += " WHERE (tb_OrderFormMain.OrderFormID = '" + OrderID.Trim() + "') AND [Goods_Status]='有效'";
-            //SqlCommand Cmd = new SqlCommand(Sql, Sqlstr.GetCon());
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string Sql = "SELECT tb_OrderFormMain.OrderFormID,tb_OrderFormMain.OrderSupplierID,";
+            Sql += "tb_OrderFormMain.OrderDate,tb_OrderFormMain.OrderSupplierName,";
+            Sql += "tb_OrderFormMain.OrderSupplierPeople,tb_OrderFormMain.OrderSupplierFax,";
+            Sql += "tb_OrderFormMain.RequireArriveDate,tb_OrderFormMain.SupplierPrompt,";
+            Sql += "tb_OrderFormMain.Consignee,tb_OrderFormMain.OrderConvention,";
+            Sql += "tb_OrderForm.Material_ID,tb_OrderForm.Material_Name,tb_OrderForm.Material_Units,";
+            Sql += "tb_OrderForm.Material_Number,tb_OrderForm.Material_Price,tb_OrderForm.Material_Sum,";
+            Sql += "tb_OrderForm.Material_Remarks FROM tb_OrderFormMain";
+            Sql += " INNER JOIN tb_OrderForm ON tb_OrderFormMain.OrderFormID =tb_OrderForm.OrderFormID";
+            Sql += " WHERE (tb_OrderFormMain.OrderFormID = '" + OrderID.Trim() + "') AND tb_orderform.Goods_Status='有效'";
 
-            //SqlDataReader read = null;
+            MySqlCommand cmd = new MySqlCommand(Sql, conn);
+            MySqlDataReader read = null;
+            DataSet ds = new DsIndentFormPrint();
 
-            //DataSet ds = new DsIndentFormPrint();
+            read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-            //read = Cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            ds.Tables[0].Load(read);
 
-            //ds.Tables[0].Load(read);
+            ReportDataSource rds = new ReportDataSource();
 
-            //ReportDataSource rds = new ReportDataSource();
+            if (rdbCgPrint.Checked == true)
+            {
+                reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_IndentPurPrint.rdlc";
 
-            //if (rdbCgPrint.Checked == true)
-            //{
-            //    reportViewer1.LocalReport.ReportEmbeddedResource = "PurchaseManageSystem.PrintForms.Rp_IndentPurPrint.rdlc";
+                rds.Name = "IndentPurPrint";
 
-            //    rds.Name = "IndentPurPrint";
+                rds.Value = ds.Tables[0];
+            }
+            else
+            {
+                reportViewer1.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.Rp_ReadPrint.rdlc";
 
-            //    rds.Value = ds.Tables[0];
-            //}
-            //else
-            //{
-            //    reportViewer1.LocalReport.ReportEmbeddedResource = "PurchaseManageSystem.PrintForms.Rp_ReadPrint.rdlc";
+                rds.Name = "dsReadPrint";
 
-            //    rds.Name = "dsReadPrint";
+                rds.Value = ds.Tables[0];
+            }
+            //reportViewer1.LocalReport.DataSources.Clear();
 
-            //    rds.Value = ds.Tables[0];
-            //}
-            ////reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(rds);
 
-            //reportViewer1.LocalReport.DataSources.Add(rds);
-
-            //this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-            //this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
-            //this.reportViewer1.ZoomPercent = 100;
-            //this.reportViewer1.RefreshReport();
+            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
+            this.reportViewer1.ZoomPercent = 100;
+            this.reportViewer1.RefreshReport();
         }
     }
 }

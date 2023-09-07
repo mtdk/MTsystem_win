@@ -325,9 +325,9 @@ namespace MTsystem_win
                     conn.Close();
                     if (MessageBox.Show("数据已保存成功！是否打印？", "信息提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        //Frm_IndentFormPrint fifp = new Frm_IndentFormPrint();
-                        //fifp.OrderID = lbIndentIDB.Text.Trim();
-                        //fifp.ShowDialog();
+                        Frm_IndentFormPrint fifp = new Frm_IndentFormPrint();
+                        fifp.OrderID = lbIndentIDB.Text.Trim();
+                        fifp.ShowDialog();
                     }
                     AllControlClearB();
                 }
