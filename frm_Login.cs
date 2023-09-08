@@ -44,27 +44,34 @@ namespace MTsystem_win
         /// </summary>
         private void go()
         {
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
-            conn.Open();
-            string sqlStr = "SELECT * FROM user WHERE userid='" + txt_Userid.Text.Trim() + "' AND userPwd='" + txt_Userpwd.Text.Trim() + "'";
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+                conn.Open();
+                string sqlStr = "SELECT * FROM user WHERE userid='" + txt_Userid.Text.Trim() + "' AND userPwd='" + txt_Userpwd.Text.Trim() + "'";
 
-            MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
-            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            dr.Read();
-            if (dr.HasRows)
-            {
-                userInfocheck._Usid = txt_Userid.Text.Trim();
-                userInfocheck._Usname = dr[2].ToString().Trim();
-                userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
-                userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
-                userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
-                Frm_main frm_main = new Frm_main();
-                frm_main.Show();
-                this.Hide();
+                MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+                MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    userInfocheck._Usid = txt_Userid.Text.Trim();
+                    userInfocheck._Usname = dr[2].ToString().Trim();
+                    userInfocheck._Uspwd = txt_Userpwd.Text.Trim();
+                    userInfocheck._Usdepartmentid = Convert.ToInt16(dr[4].ToString().Trim());
+                    userInfocheck._Uspowerid = Convert.ToInt16(dr[5].ToString().Trim());
+                    Frm_main frm_main = new Frm_main();
+                    frm_main.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("用户名或密码错误，请重新输入！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (MySqlException ex)
             {
-                MessageBox.Show("用户名或密码错误，请重新输入！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
