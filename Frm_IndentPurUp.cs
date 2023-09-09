@@ -21,7 +21,9 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
-        //MemoryClearClass Mcc = new MemoryClearClass();
+        DataSet ds_Queryresult = new DataSet();
+
+        DataView dv_Queryresult = new DataView();
 
         public string IndentUpID;
 
@@ -51,55 +53,67 @@ namespace MTsystem_win
         /// </summary>
         private void FormMainSelecte()
         {
-            //string Sql = "SELECT [OrderFormID],[OrderSupplierID],CONVERT(NVARCHAR(10),[OrderDate],120) AS OrderDate,";
-            //Sql += "[OrderSupplierName],[OrderSupplierPeople],[OrderSupplierFax],";
-            //Sql += "[RequireArriveDate],[SupplierPrompt],[Consignee],[AllSum],[OrderConvention],[OrderFormStatus]";
-            //Sql += " FROM [tb_OrderFormMain] WHERE [OrderFormID]='" + IndentUpID.Trim() + "'";
-            //SqlCommand cmd = new SqlCommand(Sql, Sqlstr.GetCon());
-            //SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //dr.Read();
-            //try
-            //{
-            //    if (dr.HasRows)
-            //    {
-            //        lbIndentID.Text = dr["OrderFormID"].ToString().Trim();
-            //        lbSupplierID.Text = dr["OrderSupplierID"].ToString().Trim();
-            //        txtSupplierName.Text = dr["OrderSupplierName"].ToString().Trim();
-            //        lbKdDate.Text = dr["OrderDate"].ToString().Trim();
-            //        txtSupplierMan.Text = dr["OrderSupplierPeople"].ToString().Trim();
-            //        txtSupplierFax.Text = dr["OrderSupplierFax"].ToString().Trim();
-            //        dtpRADate.Value = Convert.ToDateTime(dr["RequireArriveDate"].ToString().Trim());
-            //        txtPrompt.Text = dr["SupplierPrompt"].ToString();
-            //        txtConsignee.Text = dr["Consignee"].ToString();
-            //        lbTotalSum.Text = dr["AllSum"].ToString();
-            //        txtConvention.Text = dr["OrderConvention"].ToString();
-            //        lbIndentStatus.Text = dr["OrderFormStatus"].ToString();
-            //    }
-            //}
-            //finally
-            //{
-            //    cmd.Dispose();
-            //    dr.Close();
-            //    dr.Dispose();
-            //    Sqlstr.GetClose();
-            //}
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string Sql = "SELECT OrderFormID,OrderSupplierID,OrderDate,";
+            Sql += "OrderSupplierName,OrderSupplierPeople,OrderSupplierFax,";
+            Sql += "RequireArriveDate,SupplierPrompt,Consignee,AllSum,OrderConvention,OrderFormStatus";
+            Sql += " FROM tb_OrderFormMain WHERE OrderFormID='" + IndentUpID.Trim() + "'";
+            MySqlCommand cmd = new MySqlCommand(Sql, conn);
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            dr.Read();
+            try
+            {
+                if (dr.HasRows)
+                {
+                    lbIndentID.Text = dr["OrderFormID"].ToString().Trim();
+                    lbSupplierID.Text = dr["OrderSupplierID"].ToString().Trim();
+                    txtSupplierName.Text = dr["OrderSupplierName"].ToString().Trim();
+                    lbKdDate.Text = dr["OrderDate"].ToString().Trim();
+                    txtSupplierMan.Text = dr["OrderSupplierPeople"].ToString().Trim();
+                    txtSupplierFax.Text = dr["OrderSupplierFax"].ToString().Trim();
+                    dtpRADate.Value = Convert.ToDateTime(dr["RequireArriveDate"].ToString().Trim());
+                    txtPrompt.Text = dr["SupplierPrompt"].ToString();
+                    txtConsignee.Text = dr["Consignee"].ToString();
+                    lbTotalSum.Text = dr["AllSum"].ToString();
+                    txtConvention.Text = dr["OrderConvention"].ToString();
+                    lbIndentStatus.Text = dr["OrderFormStatus"].ToString();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         /// <summary>
         /// 获取订单子单信息
         /// </summary>
         private void FormOrderSelect()
         {
-            //string Sql = "SELECT [InteriorID],[Material_ID] AS 材料编号,[Material_Name] AS 材料名称,";
-            //Sql+="[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //Sql+="[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态";
-            //Sql += " FROM [tb_OrderForm] WHERE [OrderFormID]='" + IndentUpID.Trim() + "' ORDER BY ID ASC";
-            //dgvIndentList.DataSource = Sqlstr.GetDs(Sql).Tables[0];
-            dgvIndentList.Columns[0].Visible = false;
-            dgvIndentList.Columns[1].ReadOnly = true;
-            dgvIndentList.Columns[4].DefaultCellStyle.Format = "N3";
-            dgvIndentList.Columns[5].DefaultCellStyle.Format = "N3";
-            dgvIndentList.Columns[6].ReadOnly = true;
-            dgvIndentList.Columns[8].ReadOnly = true;
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string Sql = "SELECT InteriorID,Material_ID AS 材料编号,Material_Name AS 材料名称,";
+            Sql += "Material_Units AS 单位,Material_Number AS 数量,Material_Price AS 单价,";
+            Sql += "Material_Sum AS 金额,Material_Remarks AS 备注,Goods_Status AS 记录状态";
+            Sql += " FROM tb_OrderForm WHERE OrderFormID='" + IndentUpID.Trim() + "' ORDER BY ID ASC";
+            MySqlDataAdapter msda = new MySqlDataAdapter(Sql, conn);
+            try
+            {
+                msda.Fill(ds_Queryresult, "tb_orderform");
+                dv_Queryresult.Table = ds_Queryresult.Tables["tb_orderform"];
+                dgvIndentList.DataSource = dv_Queryresult.ToTable("tb_orderform");
+                dgvIndentList.Columns[0].Visible = false;
+                dgvIndentList.Columns[1].ReadOnly = true;
+                dgvIndentList.Columns[4].DefaultCellStyle.Format = "N3";
+                dgvIndentList.Columns[5].DefaultCellStyle.Format = "N3";
+                dgvIndentList.Columns[6].ReadOnly = true;
+                dgvIndentList.Columns[8].ReadOnly = true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + " 错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvIndentList_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

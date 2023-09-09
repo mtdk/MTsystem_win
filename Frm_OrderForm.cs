@@ -21,6 +21,10 @@ namespace MTsystem_win
             InitializeComponent();
         }
 
+        DataSet ds_Queryresult = new DataSet();
+
+        DataView dv_Queryresult = new DataView();
+
         JudgeNumber JuNum = new JudgeNumber();
 
         ///<summary>
@@ -652,147 +656,121 @@ namespace MTsystem_win
         /// </summary>
         private void IndentSelectedConditionNull()    //当查询条件为空时执行本代码段
         {
-            //string Sql = "";
-            //if (chbRecordsD.Checked == true)
-            //{
-            //    Sql = "SELECT TOP 10000 [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //    Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //    Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //    Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //    Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //    Sql += " FROM [tb_OrderForm] WHERE [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //    Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //}
-            //else
-            //{
-            //    Sql = "SELECT [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //    Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //    Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //    Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //    Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //    Sql += " FROM [tb_OrderForm] WHERE [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //    Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //}
-            //dgvIndentListD.DataSource = Sqlstr.GetDs(Sql).Tables[0];
+            ds_Queryresult.Clear();
+            dgvIndentListD.DataSource = null;
+            string Sql = "";
+            Sql = "SELECT OrderFormID AS 订单号,OrderDate AS 下单时间,";
+            Sql += "Material_ID AS 材料编号,Material_Name AS 材料名称,";
+            Sql += "Material_Units AS 单位,Material_Number AS 数量,Material_Price AS 单价,";
+            Sql += "Material_Sum AS 金额,Material_Remarks AS 备注,Goods_Status AS 记录状态,";
+            Sql += "Dh_Status AS 到货状态,Fk_Status AS 付款状态,Dp_Status AS 到票状态";
+            if (chbRecordsD.Checked == true)
+            {
+                Sql += " FROM tb_OrderForm WHERE OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "' LIMIT 10000";
+            }
+            else
+            {
+
+                Sql += " FROM tb_OrderForm WHERE OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+            }
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlDataAdapter msda = new MySqlDataAdapter(Sql, conn);
+            msda.Fill(ds_Queryresult, "tb_orderform");
+
+            dv_Queryresult.Table = ds_Queryresult.Tables["tb_orderform"];
+            dgvIndentListD.DataSource = dv_Queryresult.ToTable("tb_orderform");
         }
         /// <summary>
         /// 有条件检索采购订单记录，将返回与条件相符的订单记录，默认情况下返回前10000条记录
         /// </summary>
         private void IndentSelectConditionNoNull()  //当查询条件不为空时执行本代码段
         {
-            //string Sql = "";
+            ds_Queryresult.Clear();
+            dgvIndentListD.DataSource = null;
+            string Sql = "";
+            Sql = "SELECT OrderFormID AS 订单号,OrderDate AS 下单时间,";
+            Sql += "Material_ID AS 材料编号,Material_Name AS 材料名称,";
+            Sql += "Material_Units AS 单位,Material_Number AS 数量,Material_Price AS 单价,";
+            Sql += "Material_Sum AS 金额,Material_Remarks AS 备注,Goods_Status AS 记录状态,";
+            Sql += "Dh_Status AS 到货状态,Fk_Status AS 付款状态,Dp_Status AS 到票状态";
 
-            //if (rdbMaterialNameD.Checked == true)
-            //{
-            //    if (chbRecordsD.Checked == true)
-            //    {
-            //        Sql = "SELECT TOP 10000 [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [Material_Name] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //    else
-            //    {
-            //        Sql = "SELECT [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [Material_Name] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //}
-            //else if (rdbSupplierNameD.Checked == true)
-            //{
-            //    if (chbRecordsD.Checked == true)
-            //    {
-            //        Sql = " SELECT TOP 10000 tb_OrderForm.OrderFormID AS 订单号,tb_OrderForm.OrderDate AS 下单时间,";
-            //        Sql += "tb_OrderForm.Material_ID AS 材料A编号,tb_OrderForm.Material_ID_B AS 材料B编号,tb_OrderForm.Material_Name AS 材料名称,";
-            //        Sql += "tb_OrderForm.Material_Units AS 单位,tb_OrderForm.Material_Number AS 数量,";
-            //        Sql += "tb_OrderForm.Material_Price AS 单价,tb_OrderForm.Material_Sum AS 金额,";
-            //        Sql += "tb_OrderForm.Material_Remarks AS 备注,tb_OrderForm.Goods_Status AS 记录状态,";
-            //        Sql += "tb_OrderForm.Dh_Status AS 到货状态,tb_OrderForm.Fk_Status AS 付款状态,";
-            //        Sql += "tb_OrderForm.Dp_Status AS 到票状态";
-            //        Sql += " FROM tb_OrderForm INNER JOIN tb_OrderFormMain ON";
-            //        Sql += " tb_OrderForm.OrderFormID = tb_OrderFormMain.OrderFormID";
-            //        Sql += " WHERE (tb_OrderFormMain.OrderSupplierName LIKE";
-            //        Sql += " '%" + txtSelectConditionD.Text.Trim() + "%') AND";
-            //        Sql += " tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "' AND";
-            //        Sql += " tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //    else
-            //    {
-            //        Sql = " SELECT tb_OrderForm.OrderFormID AS 订单号,tb_OrderForm.OrderDate AS 下单时间,";
-            //        Sql += "tb_OrderForm.Material_ID AS 材料A编号,tb_OrderForm.Material_ID_B AS 材料B编号,tb_OrderForm.Material_Name AS 材料名称,";
-            //        Sql += "tb_OrderForm.Material_Units AS 单位,tb_OrderForm.Material_Number AS 数量,";
-            //        Sql += "tb_OrderForm.Material_Price AS 单价,tb_OrderForm.Material_Sum AS 金额,";
-            //        Sql += "tb_OrderForm.Material_Remarks AS 备注,tb_OrderForm.Goods_Status AS 记录状态,";
-            //        Sql += "tb_OrderForm.Dh_Status AS 到货状态,tb_OrderForm.Fk_Status AS 付款状态,";
-            //        Sql += "tb_OrderForm.Dp_Status AS 到票状态";
-            //        Sql += " FROM tb_OrderForm INNER JOIN tb_OrderFormMain ON";
-            //        Sql += " tb_OrderForm.OrderFormID = tb_OrderFormMain.OrderFormID";
-            //        Sql += " WHERE (tb_OrderFormMain.OrderSupplierName LIKE";
-            //        Sql += " '%" + txtSelectConditionD.Text.Trim() + "%') AND";
-            //        Sql += " tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "' AND";
-            //        Sql += " tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //}
-            //else if (rdbIndentIDD.Checked == true)
-            //{
-            //    if (chbRecordsD.Checked == true)
-            //    {
-            //        Sql = "SELECT TOP 10000 [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [OrderFormID] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        //Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        //Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //    else
-            //    {
-            //        Sql = "SELECT [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [OrderFormID] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        //Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        //Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //}
-            //else if (rdbMaterialIDD.Checked == true)
-            //{
-            //    if (chbRecordsD.Checked == true)
-            //    {
-            //        Sql = "SELECT TOP 10000 [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [Material_ID] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //    else
-            //    {
-            //        Sql = "SELECT [OrderFormID] AS 订单号,[OrderDate] AS 下单时间,";
-            //        Sql += "[Material_ID] AS 材料A编号,[Material_ID_B] AS 材料B编号,[Material_Name] AS 材料名称,";
-            //        Sql += "[Material_Units] AS 单位,[Material_Number] AS 数量,[Material_Price] AS 单价,";
-            //        Sql += "[Material_Sum] AS 金额,[Material_Remarks] AS 备注,[Goods_Status] AS 记录状态,";
-            //        Sql += "[Dh_Status] AS 到货状态,[Fk_Status] AS 付款状态,[Dp_Status] AS 到票状态";
-            //        Sql += " FROM [tb_OrderForm] WHERE [Material_ID] LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-            //        Sql += " AND [OrderDate] >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-            //        Sql += " AND [OrderDate] <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
-            //    }
-            //}
-            //dgvIndentListD.DataSource = Sqlstr.GetDs(Sql).Tables[0];
+            if (rdbMaterialNameD.Checked == true)
+            {
+                if (chbRecordsD.Checked == true)
+                {
+                    Sql += " FROM tb_OrderForm WHERE Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "' LIMIT 10000";
+                }
+                else
+                {
+                    Sql += " FROM tb_OrderForm WHERE Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                }
+            }
+            else if (rdbSupplierNameD.Checked == true)
+            {
+                if (chbRecordsD.Checked == true)
+                {
+                    Sql += " FROM tb_OrderForm INNER JOIN tb_OrderFormMain ON";
+                    Sql += " tb_OrderForm.OrderFormID = tb_OrderFormMain.OrderFormID";
+                    Sql += " WHERE (tb_OrderFormMain.OrderSupplierName LIKE";
+                    Sql += " '%" + txtSelectConditionD.Text.Trim() + "%') AND";
+                    Sql += " tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "' AND";
+                    Sql += " tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "' LIMIT 10000";
+                }
+                else
+                {
+                    Sql += " FROM tb_OrderForm INNER JOIN tb_OrderFormMain ON";
+                    Sql += " tb_OrderForm.OrderFormID = tb_OrderFormMain.OrderFormID";
+                    Sql += " WHERE (tb_OrderFormMain.OrderSupplierName LIKE";
+                    Sql += " '%" + txtSelectConditionD.Text.Trim() + "%') AND";
+                    Sql += " tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "' AND";
+                    Sql += " tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                }
+            }
+            else if (rdbIndentIDD.Checked == true)
+            {
+                if (chbRecordsD.Checked == true)
+                {
+                    Sql += " FROM tb_OrderForm WHERE OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
+                }
+                else
+                {
+
+                    Sql += " FROM tb_OrderForm WHERE OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                }
+            }
+            else if (rdbMaterialIDD.Checked == true)
+            {
+                if (chbRecordsD.Checked == true)
+                {
+                    Sql += " FROM tb_OrderForm WHERE Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
+                }
+                else
+                {
+                    Sql += " FROM tb_OrderForm WHERE Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                }
+            }
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlDataAdapter msda = new MySqlDataAdapter(Sql, conn);
+            msda.Fill(ds_Queryresult, "tb_orderform");
+
+            dv_Queryresult.Table = ds_Queryresult.Tables["tb_orderform"];
+            dgvIndentListD.DataSource = dv_Queryresult.ToTable("tb_orderform");
         }
 
         private void btnSelectD_Click(object sender, EventArgs e)
@@ -865,14 +843,14 @@ namespace MTsystem_win
 
         private void dgvIndentListD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (dgvIndentListD.RowCount > 0)
-            //{
-            //    Frm_IndentPurUp fipu = new Frm_IndentPurUp();
-            //    fipu.IndentUpID = dgvIndentListD.SelectedCells[0].Value.ToString().Trim();
-            //    fipu.FormStatus = dgvIndentListD.SelectedCells[10].Value.ToString().Trim();
-            //    fipu.ShowDialog();
-            //    SelectedCondition();
-            //}
+            if (dgvIndentListD.RowCount > 0)
+            {
+                Frm_IndentPurUp fipu = new Frm_IndentPurUp();
+                fipu.IndentUpID = dgvIndentListD.SelectedCells[0].Value.ToString().Trim();
+                fipu.FormStatus = dgvIndentListD.SelectedCells[10].Value.ToString().Trim();
+                fipu.ShowDialog();
+                SelectedCondition();
+            }
         }
         #endregion
 
