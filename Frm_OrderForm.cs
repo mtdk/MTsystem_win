@@ -682,6 +682,8 @@ namespace MTsystem_win
 
             dv_Queryresult.Table = ds_Queryresult.Tables["tb_orderform"];
             dgvIndentListD.DataSource = dv_Queryresult.ToTable("tb_orderform");
+
+            sumTotalcount();
         }
         /// <summary>
         /// 有条件检索采购订单记录，将返回与条件相符的订单记录，默认情况下返回前10000条记录
@@ -691,25 +693,26 @@ namespace MTsystem_win
             ds_Queryresult.Clear();
             dgvIndentListD.DataSource = null;
             string Sql = "";
-            Sql = "SELECT OrderFormID AS 订单号,OrderDate AS 下单时间,";
-            Sql += "Material_ID AS 材料编号,Material_Name AS 材料名称,";
-            Sql += "Material_Units AS 单位,Material_Number AS 数量,Material_Price AS 单价,";
-            Sql += "Material_Sum AS 金额,Material_Remarks AS 备注,Goods_Status AS 记录状态,";
-            Sql += "Dh_Status AS 到货状态,Fk_Status AS 付款状态,Dp_Status AS 到票状态";
+            Sql = "SELECT tb_OrderForm.OrderFormID AS 订单号,tb_OrderForm.OrderDate AS 下单时间,";
+            Sql += "tb_OrderForm.Material_ID AS 材料编号,tb_OrderForm.Material_Name AS 材料名称,";
+            Sql += "tb_OrderForm.Material_Units AS 单位,tb_OrderForm.Material_Number AS 数量,";
+            Sql += "tb_OrderForm.Material_Price AS 单价,tb_OrderForm.Material_Sum AS 金额,";
+            Sql += "tb_OrderForm.Material_Remarks AS 备注,tb_OrderForm.Goods_Status AS 记录状态,";
+            Sql += "tb_OrderForm.Dh_Status AS 到货状态,tb_OrderForm.Fk_Status AS 付款状态,tb_OrderForm.Dp_Status AS 到票状态";
 
             if (rdbMaterialNameD.Checked == true)
             {
                 if (chbRecordsD.Checked == true)
                 {
-                    Sql += " FROM tb_OrderForm WHERE Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "' LIMIT 10000";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "' LIMIT 10000";
                 }
                 else
                 {
-                    Sql += " FROM tb_OrderForm WHERE Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.Material_Name LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
                 }
             }
             else if (rdbSupplierNameD.Checked == true)
@@ -737,31 +740,31 @@ namespace MTsystem_win
             {
                 if (chbRecordsD.Checked == true)
                 {
-                    Sql += " FROM tb_OrderForm WHERE OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
                 }
                 else
                 {
 
-                    Sql += " FROM tb_OrderForm WHERE OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.OrderFormID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
                 }
             }
             else if (rdbMaterialIDD.Checked == true)
             {
                 if (chbRecordsD.Checked == true)
                 {
-                    Sql += " FROM tb_OrderForm WHERE Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'LIMIT 10000";
                 }
                 else
                 {
-                    Sql += " FROM tb_OrderForm WHERE Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
-                    Sql += " AND OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
-                    Sql += " AND OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
+                    Sql += " FROM tb_OrderForm WHERE tb_OrderForm.Material_ID LIKE '%" + txtSelectConditionD.Text.Trim() + "%'";
+                    Sql += " AND tb_OrderForm.OrderDate >= '" + dtpStartTimeD.Value.ToShortDateString() + "'";
+                    Sql += " AND tb_OrderForm.OrderDate <= '" + dtpEndtimeD.Value.ToShortDateString() + "'";
                 }
             }
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
@@ -771,6 +774,26 @@ namespace MTsystem_win
 
             dv_Queryresult.Table = ds_Queryresult.Tables["tb_orderform"];
             dgvIndentListD.DataSource = dv_Queryresult.ToTable("tb_orderform");
+
+            sumTotalcount();
+        }
+
+        /// <summary>
+        /// 总数量和总重量统计
+        /// </summary>
+        private void sumTotalcount()
+        {
+            decimal sumTotalweight = 0;
+            decimal sumTotalmoney = 0;
+            for (int i = 0; i < dgvIndentListD.RowCount; i++)
+            {
+                sumTotalweight += Convert.ToDecimal(dgvIndentListD.Rows[i].Cells[5].Value.ToString().Trim());
+                sumTotalmoney += Convert.ToDecimal(dgvIndentListD.Rows[i].Cells[7].Value.ToString().Trim());
+
+            }
+            label2.Text = dgvIndentListD.Rows.Count.ToString();
+            label6.Text = sumTotalweight.ToString();
+            label26.Text = sumTotalmoney.ToString();
         }
 
         private void btnSelectD_Click(object sender, EventArgs e)
