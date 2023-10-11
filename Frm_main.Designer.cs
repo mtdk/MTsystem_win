@@ -58,13 +58,14 @@
             this.mat_Dayreport = new System.Windows.Forms.ToolStripMenuItem();
             this.mat_stock_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_all_report = new System.Windows.Forms.ToolStripMenuItem();
+            this.pro_stock_report = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_input = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_output = new System.Windows.Forms.ToolStripMenuItem();
             this.pro_returnGoods = new System.Windows.Forms.ToolStripMenuItem();
             this.envelope_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tag_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.sys_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pro_stock_report = new System.Windows.Forms.ToolStripMenuItem();
+            this.mat_Inventory_query = new System.Windows.Forms.ToolStripMenuItem();
             this.main_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,6 +212,7 @@
             // 
             this.tsm_Material.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_mat_In,
+            this.mat_Inventory_query,
             this.mat_returnPurchase,
             this.mat_giveback,
             this.mat_Basestock});
@@ -316,6 +318,13 @@
             this.pro_all_report.Text = "成品出库报表";
             this.pro_all_report.Click += new System.EventHandler(this.pro_all_report_Click);
             // 
+            // pro_stock_report
+            // 
+            this.pro_stock_report.Name = "pro_stock_report";
+            this.pro_stock_report.Size = new System.Drawing.Size(186, 24);
+            this.pro_stock_report.Text = "成品库存报表";
+            this.pro_stock_report.Click += new System.EventHandler(this.pro_stock_report_Click);
+            // 
             // pro_input
             // 
             this.pro_input.Name = "pro_input";
@@ -358,12 +367,12 @@
             this.sys_exit.Text = "退出系统";
             this.sys_exit.Click += new System.EventHandler(this.sys_exit_Click);
             // 
-            // pro_stock_report
+            // mat_Inventory_query
             // 
-            this.pro_stock_report.Name = "pro_stock_report";
-            this.pro_stock_report.Size = new System.Drawing.Size(186, 24);
-            this.pro_stock_report.Text = "成品库存报表";
-            this.pro_stock_report.Click += new System.EventHandler(this.pro_stock_report_Click);
+            this.mat_Inventory_query.Name = "mat_Inventory_query";
+            this.mat_Inventory_query.Size = new System.Drawing.Size(186, 24);
+            this.mat_Inventory_query.Text = "库存查询";
+            this.mat_Inventory_query.Click += new System.EventHandler(this.mat_Inventory_query_Click);
             // 
             // Frm_main
             // 
@@ -426,5 +435,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_ProductBillstatus;
         private System.Windows.Forms.ToolStripMenuItem pro_input;
         private System.Windows.Forms.ToolStripMenuItem pro_stock_report;
+        private System.Windows.Forms.ToolStripMenuItem mat_Inventory_query;
     }
 }

@@ -35,7 +35,8 @@ namespace MTsystem_win
 
                 txt_Operator.Text = userInfocheck._Usname.Trim();
 
-                Querymtastock();
+                wdhListBind();
+                //Querymtastock();
             }
         }
 
@@ -52,21 +53,6 @@ namespace MTsystem_win
                 txt_Materia_id.Text = mtashow.mtaId.ToString().Trim();
                 txt_Materia_name.Text = mtashow.mtaName.ToString().Trim();
                 txt_Inputsl.Focus();
-            }
-        }
-
-        private void dgv_Query_result_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            for (int i = 0; i < this.dgv_Query_result.Rows.Count; i++)
-            {
-                if (Convert.ToDecimal(dgv_Query_result.Rows[i].Cells[3].Value.ToString().Trim()) <= 0)
-                {
-                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Red;
-                }
-                else
-                {
-                    this.dgv_Query_result.Rows[i].Cells[3].Style.ForeColor = Color.Black;
-                }
             }
         }
 
@@ -87,6 +73,10 @@ namespace MTsystem_win
             else if (txt_Materia_name.Text.Trim() == "")
             {
                 MessageBox.Show("材料名称不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else if (txt_Materia_name.Text.Trim() == "未找到")
+            {
+                MessageBox.Show("未找到材料名称，不能保存数据！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else if (txt_Inputsl.Text.Trim() == "")
             {
@@ -195,7 +185,6 @@ namespace MTsystem_win
                 }
                 txt_Operator.Focus();
             }
-
         }
 
         private void txt_Materia_unit_Leave(object sender, EventArgs e)
@@ -209,6 +198,7 @@ namespace MTsystem_win
                 txt_Inputzl.Text = "0";
             }
         }
+
 
         private void txt_Operator_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -244,24 +234,63 @@ namespace MTsystem_win
         }
 
         /// <summary>
+        /// 所有未到货订单检索
+        /// </summary>
+        private void wdhListBind()
+        {
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            conn.Open();
+            string sqlstr = "SELECT OrderFormID AS 订单号,OrderDate AS 下单时间,";
+            sqlstr += "InteriorID AS 系统码,Material_ID AS 材料编号,";
+            sqlstr += "Material_Units AS 单位,Material_Number AS 数量,Material_Price AS 单价,";
+            sqlstr += "Material_Sum AS 金额,Material_Remarks AS 备注";
+            sqlstr += " FROM tb_OrderForm WHERE Goods_Status='有效' AND Dh_Status='未到'";
+            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            msda.Fill(ds_Queryresult, "resultOrder");
+
+
+            //MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            //conn.Open();
+            //string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
+            //MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            //msda.Fill(ds_Queryresult, "resultStock");
+
+            //dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
+            dv_Queryresult.Table = ds_Queryresult.Tables["resultOrder"];
+            //dgv_Orderform.DataSource = dv_Queryresult.ToTable("resultStock");
+            dgv_Orderform.DataSource = dv_Queryresult.ToTable("resultOrder");
+            dgv_Orderform.Columns[0].Frozen = true;
+            dgv_Orderform.Columns[1].Frozen = true;
+            dgv_Orderform.Columns[2].Frozen = true;
+            dgv_Orderform.Columns[3].Frozen = true;
+
+            //dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+            //dgv_Query_result.Columns[0].HeaderText = "系统码";
+            //dgv_Query_result.Columns[1].HeaderText = "材料编号";
+            //dgv_Query_result.Columns[2].HeaderText = "材料名称";
+            //dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+            //conn.Close();
+            //msda.Dispose();
+        }
+        /// <summary>
         /// 材料库存数据检索
         /// </summary>
         private void Querymtastock()
         {
-            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
-            conn.Open();
-            string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
-            MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
-            msda.Fill(ds_Queryresult, "resultStock");
+            //MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR.Trim());
+            //conn.Open();
+            //string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock";
+            //MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            //msda.Fill(ds_Queryresult, "resultStock");
 
-            dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
-            dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
-            dgv_Query_result.Columns[0].HeaderText = "系统码";
-            dgv_Query_result.Columns[1].HeaderText = "材料编号";
-            dgv_Query_result.Columns[2].HeaderText = "材料名称";
-            dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
-            conn.Close();
-            msda.Dispose();
+            //dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
+            //dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+            //dgv_Query_result.Columns[0].HeaderText = "系统码";
+            //dgv_Query_result.Columns[1].HeaderText = "材料编号";
+            //dgv_Query_result.Columns[2].HeaderText = "材料名称";
+            //dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+            //conn.Close();
+            //msda.Dispose();
         }
 
         /// <summary>
@@ -382,38 +411,60 @@ namespace MTsystem_win
         /// </summary>
         private void doQuery()
         {
-            if (txt_Queryid.Text.Trim() != "")
-            {
-                MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
-                conn.Open();
-                ds_Queryresult.Clear();
-                string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock WHERE Material_id LIKE '%" + txt_Queryid.Text.Trim() + "%'";
-                MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
-                msda.Fill(ds_Queryresult, "resultStock");
+            //if (txt_Queryid.Text.Trim() != "")
+            //{
+            //    MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            //    conn.Open();
+            //    ds_Queryresult.Clear();
+            //    string sqlstr = "SELECT Matid, Material_id, Material_inside_name, Material_stock FROM material_stock WHERE Material_id LIKE '%" + txt_Queryid.Text.Trim() + "%'";
+            //    MySqlDataAdapter msda = new MySqlDataAdapter(sqlstr, conn);
+            //    msda.Fill(ds_Queryresult, "resultStock");
 
-                dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
-                dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
-                dgv_Query_result.Columns[0].HeaderText = "系统码";
-                dgv_Query_result.Columns[1].HeaderText = "材料编号";
-                dgv_Query_result.Columns[2].HeaderText = "材料名称";
-                dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
-                conn.Close();
-                msda.Dispose();
-            }
-            else
+            //    dv_Queryresult.Table = ds_Queryresult.Tables["resultStock"];
+            //    dgv_Query_result.DataSource = dv_Queryresult.ToTable("resultStock");
+            //    dgv_Query_result.Columns[0].HeaderText = "系统码";
+            //    dgv_Query_result.Columns[1].HeaderText = "材料编号";
+            //    dgv_Query_result.Columns[2].HeaderText = "材料名称";
+            //    dgv_Query_result.Columns[3].HeaderText = "材料库存数(KG)";
+            //    conn.Close();
+            //    msda.Dispose();
+            //}
+            //else
+            //{
+            //    ds_Queryresult.Clear();
+            //    Querymtastock();
+            //}
+        }
+
+        private void dgv_Orderform_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Orderform.Rows.Count > 0)
             {
-                ds_Queryresult.Clear();
-                Querymtastock();
+                txt_mat_id.Text = dgv_Orderform.SelectedCells[2].Value.ToString().Trim();
+                txt_Materia_id.Text = dgv_Orderform.SelectedCells[3].Value.ToString().Trim();
+                txt_Materia_name.Text = Materia_name(txt_mat_id.Text.Trim());
+                txt_Inputsl.Focus();
             }
         }
 
-        private void txt_Queryid_KeyPress(object sender, KeyPressEventArgs e)
+        private string Materia_name(string name)
         {
-            if (e.KeyChar==13)
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            string sqlstr = "SELECT Material_inside_name FROM material WHERE Matid = '" + name.Trim() + "'";
+            MySqlCommand cmd = new MySqlCommand(sqlstr, conn);
+            MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dr.Read();
+            if (dr.HasRows)
             {
-                e.Handled = true;
-                doQuery();
+                name = dr["Material_inside_name"].ToString().Trim();
             }
+            else
+            {
+                name = "未找到";
+            }
+
+            return name;
         }
     }
 }

@@ -115,6 +115,16 @@ namespace MTsystem_win
         }
 
         /// <summary>
+        /// 材料库存查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mat_Inventory_query_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
         /// 材料退货窗口验证
         /// </summary>
         /// <param name="sender"></param>

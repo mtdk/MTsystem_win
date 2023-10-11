@@ -87,6 +87,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbToenCodeB = new System.Windows.Forms.Label();
             this.tpOrderSelect = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvIndentListD = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -155,12 +161,6 @@
             this.label88 = new System.Windows.Forms.Label();
             this.rdbDhSupDateG = new System.Windows.Forms.RadioButton();
             this.rdbDhSupplierG = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.tbIndentPur.SuspendLayout();
             this.tpOrderInsert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIndentListB)).BeginInit();
@@ -751,6 +751,60 @@
             this.tpOrderSelect.Text = "订单查询";
             this.tpOrderSelect.UseVisualStyleBackColor = true;
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(722, 600);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(17, 20);
+            this.label26.TabIndex = 9;
+            this.label26.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(648, 600);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "合计金额:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(403, 600);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 20);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(329, 600);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "订购总量:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(92, 600);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 600);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "订购次数:";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgvIndentListD);
@@ -927,7 +981,7 @@
             this.tbpIndentClose.Controls.Add(this.groupBox5);
             this.tbpIndentClose.Location = new System.Drawing.Point(4, 29);
             this.tbpIndentClose.Name = "tbpIndentClose";
-            this.tbpIndentClose.Size = new System.Drawing.Size(842, 620);
+            this.tbpIndentClose.Size = new System.Drawing.Size(842, 629);
             this.tbpIndentClose.TabIndex = 2;
             this.tbpIndentClose.Text = "到货确认";
             this.tbpIndentClose.UseVisualStyleBackColor = true;
@@ -1344,7 +1398,7 @@
             this.tbpDhSelect.Controls.Add(this.groupBox20);
             this.tbpDhSelect.Location = new System.Drawing.Point(4, 29);
             this.tbpDhSelect.Name = "tbpDhSelect";
-            this.tbpDhSelect.Size = new System.Drawing.Size(842, 620);
+            this.tbpDhSelect.Size = new System.Drawing.Size(842, 629);
             this.tbpDhSelect.TabIndex = 3;
             this.tbpDhSelect.Text = "到货查询";
             this.tbpDhSelect.UseVisualStyleBackColor = true;
@@ -1486,60 +1540,6 @@
             this.rdbDhSupplierG.TabStop = true;
             this.rdbDhSupplierG.Text = "按供应商名称查询";
             this.rdbDhSupplierG.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 600);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "订购次数:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 600);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(329, 600);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "订购总量:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(403, 600);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 20);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "0";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(648, 600);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "合计金额:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(722, 600);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(17, 20);
-            this.label26.TabIndex = 9;
-            this.label26.Text = "0";
             // 
             // Frm_OrderForm
             // 
