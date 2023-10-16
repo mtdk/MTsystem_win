@@ -69,7 +69,7 @@ namespace MTsystem_win
                 {
                     dgvMaterialList.DataSource = null;
                     dv_Queryresult.Table = ds_Queryresult.Tables["material"];
-                    dv_Queryresult.RowFilter = "Material_Name like'%" + txtMaterialName.Text.Trim() + "%'";
+                    dv_Queryresult.RowFilter = "Material_id like'%" + txtMaterialName.Text.Trim() + "%'";
                     dgvMaterialList.DataSource = dv_Queryresult.ToTable();
                     dgvHeadTextSet();
                 }

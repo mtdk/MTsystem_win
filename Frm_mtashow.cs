@@ -35,6 +35,10 @@ namespace MTsystem_win
         /// 材料名称
         /// </summary>
         public string mtaName;
+        /// <summary>
+        /// 非采购行为产生的订单号(暂不使用)
+        /// </summary>
+        //public string non_procurement_id;
 
 
         private void Frm_mtashow_Load(object sender, EventArgs e)
@@ -45,7 +49,23 @@ namespace MTsystem_win
             dgv_Queryresult.Columns[0].HeaderText = "序号";
             dgv_Queryresult.Columns[1].HeaderText = "材料编号";
             dgv_Queryresult.Columns[2].HeaderText = "材料名称";
+            //orderid();
         }
+
+        /// <summary>
+        /// 非采购行为产生的订单号(暂不使用)
+        /// </summary>
+        //private void orderid()
+        //{
+        //    non_procurement_id = DateTime.Now.Year.ToString().Trim();
+        //    non_procurement_id += DateTime.Now.Month.ToString().PadLeft(2, '0').Trim();
+        //    non_procurement_id += DateTime.Now.Day.ToString().PadLeft(2, '0').Trim();
+        //    non_procurement_id += DateTime.Now.Hour.ToString().PadLeft(2, '0').Trim();
+        //    non_procurement_id += DateTime.Now.Minute.ToString().PadLeft(2, '0').Trim();
+        //    non_procurement_id += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
+        //    //non_procurement_id = non_procurement_id.Substring(0, 8).Trim();
+
+        //}
 
         /// <summary>
         /// 材料信息检索

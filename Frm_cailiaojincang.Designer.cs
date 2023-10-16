@@ -32,6 +32,7 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_Orderform = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lb_inventory = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,15 +54,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Materia_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgv_Orderform = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_orderID = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Orderform)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(552, 130);
+            this.btn_Cancel.Location = new System.Drawing.Point(577, 130);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 30);
             this.btn_Cancel.TabIndex = 33;
@@ -72,7 +74,7 @@
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_Save.Location = new System.Drawing.Point(438, 130);
+            this.btn_Save.Location = new System.Drawing.Point(463, 130);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 30);
             this.btn_Save.TabIndex = 32;
@@ -90,8 +92,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "到货选择";
             // 
+            // dgv_Orderform
+            // 
+            this.dgv_Orderform.AllowUserToAddRows = false;
+            this.dgv_Orderform.AllowUserToDeleteRows = false;
+            this.dgv_Orderform.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgv_Orderform.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Orderform.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgv_Orderform.ColumnHeadersHeight = 25;
+            this.dgv_Orderform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Orderform.Location = new System.Drawing.Point(3, 22);
+            this.dgv_Orderform.Name = "dgv_Orderform";
+            this.dgv_Orderform.ReadOnly = true;
+            this.dgv_Orderform.RowHeadersVisible = false;
+            this.dgv_Orderform.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgv_Orderform.RowTemplate.Height = 23;
+            this.dgv_Orderform.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Orderform.Size = new System.Drawing.Size(1119, 270);
+            this.dgv_Orderform.TabIndex = 1;
+            this.dgv_Orderform.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Orderform_CellClick);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_orderID);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.lb_inventory);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txt_mat_id);
@@ -316,26 +341,24 @@
             this.label1.TabIndex = 48;
             this.label1.Text = "材料编号:";
             // 
-            // dgv_Orderform
+            // label11
             // 
-            this.dgv_Orderform.AllowUserToAddRows = false;
-            this.dgv_Orderform.AllowUserToDeleteRows = false;
-            this.dgv_Orderform.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgv_Orderform.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Orderform.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgv_Orderform.ColumnHeadersHeight = 25;
-            this.dgv_Orderform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Orderform.Location = new System.Drawing.Point(3, 22);
-            this.dgv_Orderform.Name = "dgv_Orderform";
-            this.dgv_Orderform.ReadOnly = true;
-            this.dgv_Orderform.RowHeadersVisible = false;
-            this.dgv_Orderform.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgv_Orderform.RowTemplate.Height = 23;
-            this.dgv_Orderform.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Orderform.Size = new System.Drawing.Size(1119, 270);
-            this.dgv_Orderform.TabIndex = 1;
-            this.dgv_Orderform.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Orderform_CellDoubleClick);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 130);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 19);
+            this.label11.TabIndex = 68;
+            this.label11.Text = "订单编号:";
+            // 
+            // txt_orderID
+            // 
+            this.txt_orderID.BackColor = System.Drawing.Color.LightCyan;
+            this.txt_orderID.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_orderID.Location = new System.Drawing.Point(102, 124);
+            this.txt_orderID.Name = "txt_orderID";
+            this.txt_orderID.ReadOnly = true;
+            this.txt_orderID.Size = new System.Drawing.Size(206, 31);
+            this.txt_orderID.TabIndex = 69;
             // 
             // Frm_cailiaojincang
             // 
@@ -355,9 +378,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_cailiaojincang_FormClosed);
             this.Load += new System.EventHandler(this.Frm_cailiaojincang_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Orderform)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Orderform)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,5 +412,7 @@
         private System.Windows.Forms.Label lb_inventory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgv_Orderform;
+        private System.Windows.Forms.TextBox txt_orderID;
+        private System.Windows.Forms.Label label11;
     }
 }
