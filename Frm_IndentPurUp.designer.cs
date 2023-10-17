@@ -270,6 +270,7 @@
             this.dgvIndentList.Location = new System.Drawing.Point(18, 108);
             this.dgvIndentList.Name = "dgvIndentList";
             this.dgvIndentList.RowTemplate.Height = 23;
+            this.dgvIndentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIndentList.Size = new System.Drawing.Size(814, 206);
             this.dgvIndentList.TabIndex = 99;
             this.dgvIndentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIndentList_CellDoubleClick);

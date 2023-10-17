@@ -122,19 +122,7 @@ namespace MTsystem_win
             {
                 try
                 {
-                    if (e.FormattedValue.ToString().Trim().Length > 8)
-                    {
-                        MessageBox.Show("您输入的字符长度已超过限制长度！", "警告提示",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        e.Cancel = true;
-                    }
-                    else if ((Convert.ToDouble(e.FormattedValue.ToString())) > 99999.99)
-                    {
-                        MessageBox.Show("您输入的数值超过最大限制值！", "警告提示",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        e.Cancel = true;
-                    }
-                    else if (e.FormattedValue.ToString().Trim().Length == 0)
+                    if (e.FormattedValue.ToString().Trim().Length == 0)
                     {
                         MessageBox.Show("这个单元格不应该为空值！", "警告提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -157,19 +145,7 @@ namespace MTsystem_win
             {
                 try
                 {
-                    if (e.FormattedValue.ToString().Trim().Length > 7)
-                    {
-                        MessageBox.Show("您输入的字符长度已超过限制长度！", "警告提示",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        e.Cancel = true;
-                    }
-                    else if ((Convert.ToDouble(e.FormattedValue.ToString())) > 9999.99)
-                    {
-                        MessageBox.Show("您输入的数值超过最大限制值！", "警告提示",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        e.Cancel = true;
-                    }
-                    else if (e.FormattedValue.ToString().Trim().Length == 0)
+                    if (e.FormattedValue.ToString().Trim().Length == 0)
                     {
                         MessageBox.Show("这个单元格不应该为空值！", "警告提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -222,7 +198,7 @@ namespace MTsystem_win
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!dtCompare())
+            if (!dtCompare(Convert.ToDateTime(lbKdDate.Text.Trim()),Convert.ToDateTime(dtpRADate.Text.Trim())))
             {
                 MessageBox.Show("到货时间小于开单时间！", "警告提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -246,13 +222,14 @@ namespace MTsystem_win
             }
         }
         /// <summary>
-        /// 到货时间与下单时间比较
-        /// 到货时间不能小于下单时间
+        /// 对采购日期和到货日期进行比较
         /// </summary>
-        /// <returns>true 到货时间大于下单时间，false 到货时间小于下单时间</returns>
-        private Boolean dtCompare()
+        /// <param name="dta">起始时间</param>
+        /// <param name="dtb">结束时间</param>
+        /// <returns>起始时间小于等于结束时间 true,否则 false</returns>
+        private static bool dtCompare(DateTime dta, DateTime dtb) //日期大小比较
         {
-            if (DateTime.Compare(((Convert.ToDateTime(lbKdDate.Text.Trim()))), dtpRADate.Value) > 0)
+            if (DateTime.Compare(dta, dtb) > 0)
             {
                 return false;
             }

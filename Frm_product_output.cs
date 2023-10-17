@@ -203,15 +203,19 @@ namespace MTsystem_win
         /// </summary>
         private void sumTotalcount()
         {
+            int sumTotalnum = 0;
             decimal sumTotalweight = 0;
             decimal sumTotalmoney = 0;
             for (int i = 0; i < dgv_OutputView.RowCount; i++)
             {
+                sumTotalnum += Convert.ToInt32(dgv_OutputView.Rows[i].Cells[3].Value.ToString().Trim());
                 sumTotalweight += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[5].Value.ToString().Trim());
                 sumTotalmoney += Convert.ToDecimal(dgv_OutputView.Rows[i].Cells[7].Value.ToString().Trim());
 
             }
-            label11.Text = dgv_OutputView.Rows.Count.ToString();
+            // 统计记录条数
+            //label11.Text = dgv_OutputView.Rows.Count.ToString();
+            label11.Text = sumTotalnum.ToString();
             label13.Text = sumTotalweight.ToString();
             label20.Text = sumTotalmoney.ToString();
         }
