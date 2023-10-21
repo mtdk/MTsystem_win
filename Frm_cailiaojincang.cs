@@ -342,9 +342,10 @@ namespace MTsystem_win
                         if (MessageBox.Show("是否关闭采购订单？", "信息提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                         {
                             //关闭采购订单操作
-                            string sqlstr = "UPDATE `tb_orderform` SET Dh_Status = '已到' WHERE OrderFormID=@OrderFormID";
+                            string sqlstr = "UPDATE `tb_orderform` SET Dh_Status = '已到' WHERE OrderFormID=@OrderFormID AND InteriorID=@InteriorID";
                             cmd.CommandText = sqlstr;
                             cmd.Parameters.AddWithValue("@OrderFormID", txt_orderID.Text.Trim());
+                            cmd.Parameters.AddWithValue("@InteriorID", txt_mat_id.Text.Trim());
 
                             cmd.ExecuteNonQuery();
                         }
