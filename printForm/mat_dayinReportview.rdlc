@@ -1,35 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="ds_mat_stockReport">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>bb1a9014-1fcf-4f65-bfae-cc3e8ed9d858</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ds_mat_stockReport">
+      <Fields>
+        <Field Name="Material_id">
+          <DataField>Material_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_inside_name">
+          <DataField>Material_inside_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Material_jlsl">
+          <DataField>Material_jlsl</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Material_unit">
+          <DataField>Material_unit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Jlzl">
+          <DataField>Jlzl</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Input_date">
+          <DataField>Input_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Material_class">
+          <DataField>Material_class</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ds_mat_stockReport</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
+        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
+        <rd:TableName>tb_mat_inputReport</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <Body>
     <ReportItems>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.60584cm</Width>
+              <Width>1.02592in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.37855cm</Width>
+              <Width>1.72384in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.23543cm</Width>
+              <Width>0.88009in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.05021cm</Width>
+              <Width>0.80717in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.73812cm</Width>
+              <Width>1.078in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.65874cm</Width>
+              <Width>1.04675in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.81209cm</Width>
+              <Width>0.71342in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.9572cm</Height>
+              <Height>0.37685in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -740,6 +795,36 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!Jlzl.Value, "ds_mat_stockReport")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.09342cm</Top>
+          <Left>11.39508cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.61307cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -756,62 +841,6 @@
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
-  <AutoRefresh>0</AutoRefresh>
-  <DataSources>
-    <DataSource Name="ds_mat_stockReport">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>bb1a9014-1fcf-4f65-bfae-cc3e8ed9d858</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="ds_mat_stockReport">
-      <Query>
-        <DataSourceName>ds_mat_stockReport</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Material_id">
-          <DataField>Material_id</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_inside_name">
-          <DataField>Material_inside_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Material_jlsl">
-          <DataField>Material_jlsl</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Material_unit">
-          <DataField>Material_unit</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Jlzl">
-          <DataField>Jlzl</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Input_date">
-          <DataField>Input_date</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Material_class">
-          <DataField>Material_class</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ds_mat_stockReport</rd:DataSetName>
-        <rd:SchemaPath>D:\QINGHE-XRX\Documents\Visual Studio 2013\Projects\MTsystem_win\dsControl\ds_mat_stockReport.xsd</rd:SchemaPath>
-        <rd:TableName>tb_mat_inputReport</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>696d6f19-796d-4c82-88cb-837783a03d35</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>

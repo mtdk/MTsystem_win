@@ -133,7 +133,7 @@ namespace MTsystem_win
             {
                 if (txt_proId.Text.Trim().Length != 0)
                 {
-                    if (dgv_OutputView.RowCount < 6)
+                    if (dgv_OutputView.RowCount < 7)
                     {
                         if (dgv_OutputView.RowCount >= 1)
                         {
@@ -153,7 +153,7 @@ namespace MTsystem_win
                     }
                     else
                     {
-                        MessageBox.Show("最多只能输入6条记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("最多只能输入7条记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else

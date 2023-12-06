@@ -653,7 +653,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>进仓总量/KG</Value>
+                  <Value>退货总量/KG</Value>
                   <Style>
                     <FontFamily>宋体</FontFamily>
                     <FontSize>11pt</FontSize>
@@ -762,7 +762,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.78683cm</Height>
+      <Height>0.78817cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -785,6 +785,36 @@
           <Left>7.98949cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!Jlzl.Value, "ds_mat_stockReport")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.09342cm</Top>
+          <Left>11.27003cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.73812cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

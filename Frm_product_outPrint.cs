@@ -38,9 +38,9 @@ namespace MTsystem_win
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 ds.Tables["tb_productPrint"].Load(dr);
 
-                if (ds.Tables["tb_productPrint"].Rows.Count < 6)
+                if (ds.Tables["tb_productPrint"].Rows.Count < 7)
                 {
-                    for (int i = 6 - (ds.Tables["tb_productPrint"].Rows.Count); i > 0; i--)
+                    for (int i = 7 - (ds.Tables["tb_productPrint"].Rows.Count); i > 0; i--)
                     {
                         DataRow dtr = ds.Tables["tb_productPrint"].NewRow();
                         ds.Tables["tb_productPrint"].Rows.Add(dtr);
