@@ -91,6 +91,8 @@ namespace MTsystem_win
         /// </summary>
         private void FormOrderSelect()
         {
+            dgvIndentList.DataSource = null;
+            ds_Queryresult.Clear();
             MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
             conn.Open();
             string Sql = "SELECT InteriorID,Material_ID AS 材料编号,Material_Name AS 材料名称,";
@@ -238,134 +240,133 @@ namespace MTsystem_win
                 return true;
             }
         }
+        
         /// <summary>
-        /// 订单子单记录修改
-        /// </summary>
-        private void RecordsUp()
-        {
-            if (dgvIndentList.Rows.Count > 0)
-            {
-                //SqlCommand cmd = new SqlCommand("", Sqlstr.GetCon());
-                //try
-                //{
-                //    for (int i = 0; i < dgvIndentList.Rows.Count; i++)
-                //    {
-                //        string Sql = "UPDATE [tb_OrderForm] SET [Material_Units] = '" + dgvIndentList.Rows[i].Cells[3].Value.ToString().Trim() + "'";
-                //        Sql += ",[Material_Number] = '" + Convert.ToDecimal(dgvIndentList.Rows[i].Cells[4].Value.ToString().Trim()) + "'";
-                //        Sql += ",[Material_Price] = '" + Convert.ToDecimal(dgvIndentList.Rows[i].Cells[5].Value.ToString().Trim()) + "'";
-                //        Sql += ",[Material_Sum] = '" + Convert.ToDecimal(dgvIndentList.Rows[i].Cells[6].Value.ToString().Trim()) + "'";
-                //        Sql += ",[Material_Remarks] = '" + dgvIndentList.Rows[i].Cells[7].Value.ToString() + "'";
-                //        Sql += ",[Goods_Status] = '" + dgvIndentList.Rows[i].Cells[8].Value.ToString().Trim() + "'";
-                //        Sql += " WHERE [OrderFormID] = '" + lbIndentID.Text.Trim() + "'";
-                //        Sql += " AND [InteriorID]='" + dgvIndentList.Rows[i].Cells[0].Value.ToString().Trim() + "'";
-                //        cmd.CommandText = Sql;
-                //        cmd.ExecuteNonQuery();
-                //    }
-                //}
-                //catch (SqlException Ex)
-                //{
-                //    MessageBox.Show("修改出错！" + Ex.Message, "警告提示", MessageBoxButtons.OK,
-                //        MessageBoxIcon.Error);
-                //    return;
-                //}
-                //finally
-                //{
-                //    cmd.Dispose();
-                //    Sqlstr.GetClose();
-                //}
-            }
-        }
-        /// <summary>
-        /// 订单主单信息修改
+        /// 订单信息修改
         /// </summary>
         private void OrderMainRecordUp()
         {
-            //SqlCommand cmd = new SqlCommand("Pr_OrderFormMainUp", Sqlstr.GetCon());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add("@OrderFormID", SqlDbType.NVarChar, 255).Value = lbIndentID.Text.Trim();
-            //cmd.Parameters.Add("@RequireArriveDate", SqlDbType.DateTime).Value = Convert.ToDateTime(dtpRADate.Value.ToShortDateString());
-            //cmd.Parameters.Add("@SupplierPrompt", SqlDbType.NVarChar, 255).Value = txtPrompt.Text.Trim();
-            //cmd.Parameters.Add("@Consignee", SqlDbType.NVarChar, 50).Value = txtConsignee.Text.Trim();
-            //cmd.Parameters.Add("@AllSum", SqlDbType.Decimal).Value = Convert.ToDecimal(lbTotalSum.Text.Trim());
-            //cmd.Parameters.Add("@OrderConvention", SqlDbType.Text).Value = txtConvention.Text;
-            //cmd.Parameters.Add("@returnInsert", SqlDbType.Int);
-            //cmd.Parameters["@returnInsert"].Direction = ParameterDirection.ReturnValue;
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch (SqlException Ex)
-            //{
-            //    MessageBox.Show("数据更新失败" + Ex.Message, "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //finally
-            //{
-            //    Sqlstr.GetClose();
-            //}
-            //string TempRv = cmd.Parameters["@returnInsert"].Value.ToString();
-            //switch (TempRv)
-            //{
-            //    case"0":
-            //        RecordsUp();
-            //        break;
-            //    case"1":
-            //        MessageBox.Show("没有找到相应的数据记录！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //    case"2":
-            //        MessageBox.Show("数据更新失败！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //}
-            //cmd.Dispose();
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                string sqlstr = "UPDATE tb_orderformmain SET RequireArriveDate = @RequireArriveDate,SupplierPrompt = @SupplierPrompt,Consignee = @Consignee,";
+                sqlstr += "AllSum = @AllSum,OrderConvention = @OrderConvention WHERE OrderFormID = @OrderFormID";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@OrderFormID", lbIndentID.Text.Trim());
+                cmd.Parameters.AddWithValue("@RequireArriveDate", Convert.ToDateTime(dtpRADate.Value.ToShortDateString()));
+                cmd.Parameters.AddWithValue("@SupplierPrompt", txtPrompt.Text.Trim());
+                cmd.Parameters.AddWithValue("@Consignee", txtConsignee.Text.Trim());
+                cmd.Parameters.AddWithValue("@AllSum", Convert.ToDecimal(lbTotalSum.Text.Trim()));
+                cmd.Parameters.AddWithValue("@OrderConvention", txtConvention.Text);
+                cmd.ExecuteNonQuery();
+
+                for (int i = 0; i < dgvIndentList.RowCount; i++)
+                {
+                    MySqlCommand cmda = new MySqlCommand();
+                    cmda.Connection = conn;
+                    string sqlstra = "";
+                    sqlstra = "UPDATE tb_OrderForm SET Material_Units = @Material_Units,Material_Number = @Material_Number,Material_Price = @Material_Price,";
+                    sqlstra += "Material_Sum = @Material_Sum,Material_Remarks = @Material_Remarks,Goods_Status = @Goods_Status";
+                    sqlstra += " WHERE OrderFormID = @OrderFormID AND InteriorID = @InteriorID";
+                    cmda.CommandText = sqlstra;
+                    cmda.Parameters.AddWithValue("@Material_Units", dgvIndentList.Rows[i].Cells[3].Value.ToString().Trim());
+                    cmda.Parameters.AddWithValue("@Material_Number", Convert.ToDecimal(dgvIndentList.Rows[i].Cells[4].Value.ToString().Trim()));
+                    cmda.Parameters.AddWithValue("@Material_Price", Convert.ToDecimal(dgvIndentList.Rows[i].Cells[5].Value.ToString().Trim()));
+                    cmda.Parameters.AddWithValue("@Material_Sum", Convert.ToDecimal(dgvIndentList.Rows[i].Cells[6].Value.ToString().Trim()));
+                    cmda.Parameters.AddWithValue("@Material_Remarks", dgvIndentList.Rows[i].Cells[7].Value.ToString());
+                    cmda.Parameters.AddWithValue("@Goods_Status", dgvIndentList.Rows[i].Cells[8].Value.ToString().Trim());
+                    cmda.Parameters.AddWithValue("@OrderFormID", lbIndentID.Text.Trim());
+                    cmda.Parameters.AddWithValue("@InteriorID", dgvIndentList.Rows[i].Cells[0].Value.ToString().Trim());
+                    cmda.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + "错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    if (MessageBox.Show("数据已保存成功！是否打印？", "信息提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Frm_IndentFormPrint fifp = new Frm_IndentFormPrint();
+                        fifp.OrderID = lbIndentID.Text.Trim();
+                        fifp.ShowDialog();
+                    }
+                }
+            }
+
         }
         /// <summary>
         /// 整单状态修改
         /// </summary>
         private void FormStatusUp()
         {
-            //SqlCommand cmd = new SqlCommand("Pr_OrderFormStatusUp", Sqlstr.GetCon());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add("@OrderFormID", SqlDbType.NVarChar, 255).Value = IndentUpID.Trim();
-            //if (lbIndentStatus.Text.Trim() == "有效")
-            //{
-            //    cmd.Parameters.Add("@OrderFormStatus", SqlDbType.NVarChar, 2).Value = "无效";
-            //    cmd.Parameters.Add("@Goods_Status", SqlDbType.NVarChar, 2).Value = "无效";
-            //}
-            //else
-            //{
-            //    cmd.Parameters.Add("@OrderFormStatus", SqlDbType.NVarChar, 2).Value = "有效";
-            //    cmd.Parameters.Add("@Goods_Status", SqlDbType.NVarChar, 2).Value = "有效";
-            //}
-            //cmd.Parameters.Add("@returnID", SqlDbType.Int);
-            //cmd.Parameters["@returnID"].Direction = ParameterDirection.ReturnValue;
-            //try
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-            //catch
-            //{
-            //    return;
-            //}
-            //finally
-            //{
-            //    Sqlstr.GetClose();
-            //}
-            //string RtID = cmd.Parameters["@returnID"].Value.ToString();
-            //switch (RtID)
-            //{
-            //    case "0":
-            //        MessageBox.Show("数据更新完成，请校对！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        FormMainSelecte();
-            //        FormOrderSelect();
-            //        break;
-            //    case "1":
-            //        MessageBox.Show("数据主表更新失败！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //    case "2":
-            //        MessageBox.Show("数据子表更新失败！", "警告提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //}
-            //cmd.Dispose();
+            MySqlConnection conn = new MySqlConnection(connectstr.CONNECTSTR);
+            conn.Open();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            try
+            {
+                // 主表更新状态
+                string sqlstr = "UPDATE tb_orderformmain SET OrderFormStatus = @OrderFormStatus WHERE OrderFormID = @OrderFormID";
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sqlstr;
+                cmd.Parameters.AddWithValue("@OrderFormID", IndentUpID.Trim());
+                if (lbIndentStatus.Text.Trim() == "有效")
+                {
+                    cmd.Parameters.AddWithValue("@OrderFormStatus", "无效");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@OrderFormStatus", "有效");
+                }
+                cmd.ExecuteNonQuery();
+                // 子表更新状态
+                string sqlstra = "UPDATE tb_orderform SET Goods_Status = @Goods_Status WHERE OrderFormID = @OrderFormID";
+
+                MySqlCommand cmda = new MySqlCommand();
+                cmda.Connection = conn;
+                cmda.CommandText = sqlstra;
+                cmda.Parameters.AddWithValue("@OrderFormID", IndentUpID.Trim());
+                if (lbIndentStatus.Text.Trim() == "有效")
+                {
+                    cmda.Parameters.AddWithValue("@Goods_Status", "无效");
+                }
+                else
+                {
+                    cmda.Parameters.AddWithValue("@Goods_Status", "有效");
+                }
+                cmda.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("错误代码：" + ex.Number + "错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
+                conn.Close();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                {
+                    transaction.Commit();
+                    conn.Close();
+                    MessageBox.Show("数据已保存成功！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormMainSelecte();
+                    FormOrderSelect();
+                }
+            }
         }
 
         private void btnStateUp_Click(object sender, EventArgs e)

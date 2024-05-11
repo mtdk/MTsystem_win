@@ -57,9 +57,13 @@ namespace MTsystem_win
                 {
                     tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_a.rdlc";
                 }
-                else
+                else if (rdb_printSelectC.Checked == true)
                 {
                     tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_b.rdlc";
+                }
+                else
+                {
+                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_c.rdlc";
                 }
                 rds.Name = "ds_product";
                 rds.Value = ds.Tables["tag_print"];
