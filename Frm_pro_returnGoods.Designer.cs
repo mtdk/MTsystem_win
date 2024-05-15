@@ -135,6 +135,7 @@
             this.txt_batchNum.Size = new System.Drawing.Size(162, 30);
             this.txt_batchNum.TabIndex = 2;
             this.txt_batchNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_batchNum_KeyPress);
+            this.txt_batchNum.Leave += new System.EventHandler(this.txt_batchNum_Leave);
             // 
             // label3
             // 

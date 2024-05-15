@@ -26,16 +26,16 @@ namespace MTsystem_win
 
         private void Frm_pro_returnGoods_Load(object sender, EventArgs e)
         {
-            if (frmShowstatus._Frmmatreturngoods == "CLOSE" || frmShowstatus._Frmmatreturngoods == null)
+            if (frmShowstatus._Frmproreturngoods == "CLOSE" || frmShowstatus._Frmproreturngoods == null)
             {
-                frmShowstatus._Frmmatreturngoods = "OPEN";
+                frmShowstatus._Frmproreturngoods = "OPEN";
                 newOutputid();
             }
         }
 
         private void Frm_pro_returnGoods_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmShowstatus._Frmmatreturngoods = "CLOSE";
+            frmShowstatus._Frmproreturngoods = "CLOSE";
         }
 
         private void btn_Cancel_B_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace MTsystem_win
             txt_outputid.Text += DateTime.Now.Second.ToString().PadLeft(2, '0').Trim();
             txt_outputDate.Text = txt_outputid.Text.Substring(0, 8).Trim();
             //txt_batchNum.Text = txt_outputid.Text.Substring(8, 6).Trim();
-            txt_batchNum.Text = txt_outputid.Text.Trim();
+            //txt_batchNum.Text = txt_outputid.Text.Trim();
         }
 
         /// <summary>
@@ -449,10 +449,18 @@ namespace MTsystem_win
         {
             if (e.KeyChar == 13)
             {
-                e.Handled = true;
-                //txt_CusName.ReadOnly = true;
-                txt_batchNum.ReadOnly = true;
-                txt_productId.Focus();
+                if (txt_batchNum.Text.Trim().Length != 0)
+                {
+                    e.Handled = true;
+                    //txt_CusName.ReadOnly = true;
+                    txt_batchNum.ReadOnly = true;
+                    txt_productId.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("货号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.txt_batchNum.Focus();
+                }
             }
         }
 
@@ -616,6 +624,20 @@ namespace MTsystem_win
         private void btn_tempInsert_Click(object sender, EventArgs e)
         {
             tempInsertJudge();
+        }
+
+        private void txt_batchNum_Leave(object sender, EventArgs e)
+        {
+            if (txt_batchNum.Text.Trim().Length != 0)
+            {
+                txt_batchNum.ReadOnly = true;
+                txt_productId.Focus();
+            }
+            else
+            {
+                MessageBox.Show("货号不能为空！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.txt_batchNum.Focus();
+            }
         }
 
     }
