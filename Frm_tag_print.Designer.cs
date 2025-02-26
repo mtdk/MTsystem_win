@@ -56,7 +56,7 @@
             // 
             this.rdb_printSelectD.AutoSize = true;
             this.rdb_printSelectD.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_printSelectD.Location = new System.Drawing.Point(429, 27);
+            this.rdb_printSelectD.Location = new System.Drawing.Point(741, 27);
             this.rdb_printSelectD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdb_printSelectD.Name = "rdb_printSelectD";
             this.rdb_printSelectD.Size = new System.Drawing.Size(122, 20);
@@ -69,7 +69,7 @@
             // 
             this.rdb_printSelectC.AutoSize = true;
             this.rdb_printSelectC.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_printSelectC.Location = new System.Drawing.Point(291, 27);
+            this.rdb_printSelectC.Location = new System.Drawing.Point(315, 27);
             this.rdb_printSelectC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdb_printSelectC.Name = "rdb_printSelectC";
             this.rdb_printSelectC.Size = new System.Drawing.Size(130, 20);
@@ -85,10 +85,10 @@
             this.rdb_printSelectB.Location = new System.Drawing.Point(7, 27);
             this.rdb_printSelectB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdb_printSelectB.Name = "rdb_printSelectB";
-            this.rdb_printSelectB.Size = new System.Drawing.Size(138, 20);
+            this.rdb_printSelectB.Size = new System.Drawing.Size(162, 20);
             this.rdb_printSelectB.TabIndex = 4;
             this.rdb_printSelectB.TabStop = true;
-            this.rdb_printSelectB.Text = "star-CT 5400Ⅱ";
+            this.rdb_printSelectB.Text = "ESPON LQ-635K(新)";
             this.rdb_printSelectB.UseVisualStyleBackColor = true;
             this.rdb_printSelectB.CheckedChanged += new System.EventHandler(this.rdb_printSelectB_CheckedChanged);
             // 
@@ -96,7 +96,7 @@
             // 
             this.rdb_printSelectA.AutoSize = true;
             this.rdb_printSelectA.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_printSelectA.Location = new System.Drawing.Point(153, 27);
+            this.rdb_printSelectA.Location = new System.Drawing.Point(177, 27);
             this.rdb_printSelectA.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdb_printSelectA.Name = "rdb_printSelectA";
             this.rdb_printSelectA.Size = new System.Drawing.Size(130, 20);

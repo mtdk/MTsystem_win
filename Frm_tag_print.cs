@@ -55,7 +55,7 @@ namespace MTsystem_win
                 }
                 else if (rdb_printSelectB.Checked == true)
                 {
-                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_a.rdlc";
+                    tagPrint_reportview.LocalReport.ReportEmbeddedResource = "MTsystem_win.printForm.product_tagReportview_d.rdlc";
                 }
                 else if (rdb_printSelectC.Checked == true)
                 {
